@@ -1,0 +1,70 @@
+---
+title: "Standard Error of the Mean"
+format: html
+---
+
+SE = sd/sqrt(n)
+
+sd er standardafvigelsen på de enkelte observationer. Den og middelværdien beskriver
+normalfordelingen. Men hvad er egentlig usikkerheden på den middelværdi? Det fortæller
+standardafvigelsen intet om, for den forholder sig til de enkelte observationer.
+
+Når vi skal have standardfejlen på middelværdien giver det intuitiv mening at jo
+flere observationer der ligger til grund for beregningen af den middelværdi, jo
+mere sikker er middelværdien som estimat på den sande værdi. 
+
+Det udtrykker vi som SEM - Standard Error of the Mean (eller ofte blot SE, Standardfejlen). Og vi finder den ved:
+
+$$SE = \frac{SD}{\sqrt(n)}$$
+
+Hvor SD er standardafvigelsen (standardeviationen) for stikprøven, og n er antallet af observationer i stikprøven.
+
+## En opgave
+
+Vi får oplyst at en gruppe patienter deles op i to, kontrol (318 patienter) og behandling (intervention, 323 patienter). De får målt deres blodtryk før behandling (baseline), og efter 12 måneders behandling.
+Forskellen i systolisk blodtryk mellem baseline og efter 12 måneder, oplyses som "diff".
+For kontrolgruppen får vi oplyst at forskellen er -16.6 mmHg og spredningen er 19.9
+
+For interventionsgruppen er de tilsvarende tal -19.6 og 17.4
+
+Vi skal nu finde ud af om der er et signifikant fald i blodtrykket for interventionsgruppen.
+
+Det ser jo ud til at det falder. Forskellen er -19.6, men er det signifikant? Det kræver at vi ved hvor sikker den middelværdi er. Og til det skal vi bruge SEM:
+
+```{r}
+SE <- 17.4/sqrt(323)
+SE
+```
+
+Konfidensintervallet finder vi ved:
+
+$$X +/- 1.96*SE$$
+
+
+```{r}
+-19.6 + c(1,-1)*1.96*SE
+```
+
+Hvis der ikke var sket et reelt, signifikant fald, ville 0 være indeholdt i det interval.
+Så det systoliske blodtryk falder signifikant i interventionsgruppen.
+
+Er der et signifikant fald i kontrolgruppen?
+
+Samme beregninger:
+
+```{r}
+SE <- 19.9/sqrt(318)
+SE
+```
+
+Og konfidensintervallet:
+
+```{r}
+-16.6 + c(1,-1)*1.96*SE
+```
+
+Her er 0 heller ikke indeholdt i intervallet - faldet er signifikant.
+
+Er faldet i blodtryk signifikant forskelligt?
+
+De to konfidensintervaller overlapper. Men det er kun hvis et af dem indeholder centeret for det andet konfidensinterval at vi kan bruge konfidensintervaller til at afgøre om de er signifikant forskellige. 

@@ -51,7 +51,6 @@
   left: 45% !important;
   width: 55% !important;
   margin: 0 !important;
-margin-top: var(--plot-offset, 0px) !important;
 }
 
 /* Canvas skal ikke være bredere end højre kolonne */
@@ -84,4 +83,3 @@ margin-top: var(--plot-offset, 0px) !important;
     width: 100% !important;
   }
 }
-

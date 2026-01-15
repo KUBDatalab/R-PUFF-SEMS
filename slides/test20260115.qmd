@@ -3,6 +3,8 @@ title: webR in Quarto HTML Documents
 format: 
   revealjs:
     css: webr-custom.css
+    include-in-header:
+      - webr-align.js
 engine: knitr
 filters:
   - webr
@@ -16,7 +18,7 @@ filters:
 #| autorun: true
 fit = lm(mpg ~ am, data = mtcars)
 
-summary(fit)
+plot(mtcars)
 ```
 :::
 

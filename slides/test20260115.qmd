@@ -9,14 +9,16 @@ filters:
 ---
 
 ## This is a webR-enabled code cell in a Quarto HTML document.
-
+::: {.webr-side-by-side}
 ```{webr-r}
 #| context: interactive
 #| layout: horizontal
+#| autorun: true
 fit = lm(mpg ~ am, data = mtcars)
 
 summary(fit)
 ```
+:::
 
 
 

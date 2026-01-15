@@ -121,28 +121,6 @@
       margin-right: 0; 
     }
   </style>
-  </head><body class="quarto-light">function alignWebRPlots() {
-    document.querySelectorAll(".reveal .qwebr-console-area").forEach(container =&gt; {
-      const outcode = container.querySelector(".qwebr-output-code-area");
-      if (!outcode) return;
-
-      const c = container.getBoundingClientRect();
-      const o = outcode.getBoundingClientRect();
-
-      const offset = Math.max(0, o.top - c.top);
-      container.style.setProperty("--plot-offset", `${offset}px`);
-    });
-  }
-
-  // Kør ved load og resize
-  window.addEventListener("load", alignWebRPlots);
-  window.addEventListener("resize", alignWebRPlots);
-
-  // Hvis Reveal.js bruges: kør når slides skifter
-  if (window.Reveal) {
-    Reveal.on("ready", alignWebRPlots);
-    Reveal.on("slidechanged", alignWebRPlots);
-  }
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
@@ -443,7 +421,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"fit = lm(mpg ~ am, data = mtcars)\n\nplot(mtcars)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"fit = lm(mpg ~ am, data = mtcars)\n\nplot(mtcars)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"fit = lm(mpg ~ am, data = mtcars)\n\nplot(mtcars)","id":2,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -1696,8 +1674,8 @@
   }
 
   </script>
-
-
+</head>
+<body class="quarto-light">
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
@@ -2001,7 +1979,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="overskrift-2" class="slide level2">
 <h2>overskrift 2</h2>
-<p>tekst 2</p>
+<p>ting</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
 </section>

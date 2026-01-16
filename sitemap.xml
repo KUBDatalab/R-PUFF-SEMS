@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/test20260115.html</loc>
-    <lastmod>2026-01-15T15:06:13.554Z</lastmod>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/noter.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/linreg.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/SEM.html</loc>
+    <lastmod>2026-01-16T15:48:52.083Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/normalfordelingen.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
   </url>
   <url>
     <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/index.html</loc>
-    <lastmod>2026-01-15T15:06:13.552Z</lastmod>
+    <lastmod>2026-01-16T15:48:52.081Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/power.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/intro.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/logistisk.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/side-by-side-demo.html</loc>
+    <lastmod>2026-01-16T15:48:52.084Z</lastmod>
   </url>
 </urlset>

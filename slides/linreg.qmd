@@ -21,7 +21,7 @@ så - hvordan finder man det?
 194.897/17.519
 (1.045/6.075)
 pnorm(1.045/6.075)
-adf
+
 ```
 
 

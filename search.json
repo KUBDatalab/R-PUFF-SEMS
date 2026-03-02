@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
+    "href": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
+    "title": "Logistisk regression",
+    "section": "Hvad bruger vi den logistiske regression til?",
+    "text": "Hvad bruger vi den logistiske regression til?\nDen almindelige lineære regression bruger vi når vi forsøger at forudsige en numerisk, kontinuær variabel.\nNår vi skal forudsige en kategorisk variabel bruger vi den logistiske regression i stedet. Den beskidte matematiske hemmelighed er, at det også er en lineær regression.\nI den lineære regression fitter vi\nE(Y|X) = beta0 + beta1x hvor det er den forventede værdi af Y givet X\nAltså, givet værdierne vi bruger til forudsigelsen, hvad forventer vi så Y er.\ni den logistiske regression er det:\n\\[log(\\frac{p}{1-p} = \\beta_0 + \\beta_1x\\]\np er en sandsynlighed. Men i stedet for en direkte sandsynlighed, er det odds vi modellerer. mere præcist log-odds\nogså kaldet logit-funktionen.\nVil vi have sandsynligheden, skal vi bruge den inverse logit\n\\[p = \\frac{1}{1+e^{-\\eta}}\\]\nOg vi bruger logodds - fordi matematikken bliver enkel og let. Også selvom vi ikke piller i den selv.\nHvad er så odds? det er forholdet mellem sandsynligheden af to mulige udfald - at noget sker, og at det ikke sker.\nHvis sandsynligheden for at noget sker er 75%, er sandsynligheden for at det ikke sker 25%. forholdet er derfor 0.75/0.25 = 3. Det vil sige at det er tre gange så sandsynligt at det sker, som at det ikke sker."
+  },
+  {
+    "objectID": "slides/logistisk.html#hvordan-laver-vi-en-logistisk-regression",
+    "href": "slides/logistisk.html#hvordan-laver-vi-en-logistisk-regression",
+    "title": "Logistisk regression",
+    "section": "Hvordan laver vi en logistisk regression?",
+    "text": "Hvordan laver vi en logistisk regression?\nHvis vi har et antal biler, der kan have enten automat- (0) eller manuelt (1) gear, og vil forudsige hvilken type gear bilerne har baseret på deres vægt:\nglm er den generaliserede lineære model. Så den kan alt muligt, og derfor skal vi specificere hvad den skal - det gør vi ved at skrive family = “binomial” for at angive at den skal lave en logistisk regression\n\n\n\nCall:\nglm(formula = am ~ wt, family = \"binomial\", data = mtcars)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept)   12.040      4.510   2.670  0.00759 **\nwt            -4.024      1.436  -2.801  0.00509 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 43.230  on 31  degrees of freedom\nResidual deviance: 19.176  on 30  degrees of freedom\nAIC: 23.176\n\nNumber of Fisher Scoring iterations: 6\n\n\nestimat er på log-odds skala. Da estimatet for wt er negativt. Det betyder at hver gang wt stiger med 1 (1000 pund), stiger log-odds for at bilen er med manuelt gear med -4.024. Da det er negativt, betyder det at jo tungere bilen er, jo lavere odds har den for at være manuel.\n\n\n (Intercept)           wt \n1.694596e+05 1.788183e-02 \n\n\nratio er ikke som sådan et forhold mellem ting, men den rate som odds ændrer sig med.\nHvis odds var 3 før, og vægten stiger med 1 enhed (1000 pund), så er odds nu 3*0.018 = 0.054\nHvis den stiger med noget andet end 1, (0.5 enhed, 500 pund) så\n\\(3*0.018^{0.5}\\)"
+  },
+  {
+    "objectID": "slides/logistisk.html#opgave-2025-februar-opgave-1-c",
+    "href": "slides/logistisk.html#opgave-2025-februar-opgave-1-c",
+    "title": "Logistisk regression",
+    "section": "opgave 2025 februar opgave 1 (c)",
+    "text": "opgave 2025 februar opgave 1 (c)\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage-25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\nHvad er det vi vil forudsige? vi skal nok have tabellen med også?\nDet er et kategorisk udfald - i opgaveteksten fremgår at den primære responsvariabel er fosterdød.\nDet er et ja/nej spørgsmål, så hvilken analyse/model skal vi bruge?\nLogistisk regression. det er glm.\nI((mage-25)/10) 𝛽 ^ = 0.7423 ,    𝑝 = 0.0005 β ^ ​\n=0.7423,p=0.0005\nSignifikant positiv effekt.\nVariablen er skaleret som:\nmage − 25 10 10 mage−25 ​\naltså: ændring per 10 års stigning i alder over 25.\nI en logistisk model:"
+  },
+  {
+    "objectID": "slides/power.html#husk-dog",
+    "href": "slides/power.html#husk-dog",
+    "title": "Powerberegninger",
+    "section": "Husk dog!",
+    "text": "Husk dog!\nNår I skal til at lave forskning, bør I basere jer på t-fordelingen istedet. Den er bredere, og kan håndtere at variansen ikke er kendt, men skal estimeres. Og kan klare sig med færre observationer."
+  },
+  {
+    "objectID": "slides/power.html#eksempel",
+    "href": "slides/power.html#eksempel",
+    "title": "Powerberegninger",
+    "section": "eksempel",
+    "text": "eksempel\n\n\n\n     Two-sample t test power calculation \n\n              n = 16.71477\n          delta = 1\n             sd = 1\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
+  },
+  {
+    "objectID": "slides/power.html#opgave-2-2025-februar",
+    "href": "slides/power.html#opgave-2-2025-februar",
+    "title": "Powerberegninger",
+    "section": "Opgave 2 2025 februar",
+    "text": "Opgave 2 2025 februar\nHvis vi godt vil kunne se en bestemt forskel mellem to grupper? Hvor stor skal grupperne så være? Eller - hvis man kender størrelserne af grupperne? Hvor stor forskel kan man så se?\nHvilken power får man?\ndet vil nok være en god ide at kunne tage udgangspunkt i “notat om beregning af stikprøvestørrelse”. notat rekvireret"
+  },
+  {
+    "objectID": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
+    "href": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
+    "title": "webR in Quarto HTML Documents",
+    "section": "This is a webR-enabled code cell in a Quarto HTML document.",
+    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/side-by-side-demo.html#overskrift-2",
+    "href": "slides/side-by-side-demo.html#overskrift-2",
+    "title": "webR in Quarto HTML Documents",
+    "section": "overskrift 2",
+    "text": "overskrift 2\nting\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/side-by-side-demo.html#øvelse-1",
+    "href": "slides/side-by-side-demo.html#øvelse-1",
+    "title": "webR in Quarto HTML Documents",
+    "section": "Øvelse 1",
+    "text": "Øvelse 1\n\n\nHer skriver vi hvad der skal stå til venstre\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "slides/linreg.html#de-synes-den-her-er-sjov",
     "href": "slides/linreg.html#de-synes-den-her-er-sjov",
     "title": "Lineær regression",
@@ -33,6 +96,34 @@
     "title": "Lineær regression",
     "section": "maj 2025 opgave 2 a",
     "text": "maj 2025 opgave 2 a\ngivet et estimat på 3613.623 og en standard fejl på 7.108 og 11279 observationer\nberegner vi et 95% konfidensinterval.\nbredden af et konfidensinterval er proportionalt med standardfejlen.\nDen skalerer som 1 over kvadratroden af antallet af observationer.\nDerfor: faktoren er kvadratroden af det gamle antal observationer divideret med det nye antal observationer.\nca 7½ gange. bredere."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "KUB Datalab slides",
+    "section": "",
+    "text": "side-by-side demo\nintro\nnormalfordelingen\nlineær regression\npower beregninger\nSEM"
+  },
+  {
+    "objectID": "slides/intro.html#hvad-gør-vi-her",
+    "href": "slides/intro.html#hvad-gør-vi-her",
+    "title": "Intro",
+    "section": "Hvad gør vi her?",
+    "text": "Hvad gør vi her?\nFokus på eksamensforberedelse til SEMS\nSEMS eksamenssæt kommer i tre dele. Statistik, epidemiologi og medicinsk sociologi.\nHer kigger vi kun på statistikken."
+  },
+  {
+    "objectID": "slides/intro.html#statistikdelens-struktur",
+    "href": "slides/intro.html#statistikdelens-struktur",
+    "title": "Intro",
+    "section": "Statistikdelens struktur",
+    "text": "Statistikdelens struktur\nDer er typisk to opgaver - med delspørgsmål."
+  },
+  {
+    "objectID": "slides/intro.html#noter-om-historiske-opgaver",
+    "href": "slides/intro.html#noter-om-historiske-opgaver",
+    "title": "Intro",
+    "section": "noter om historiske opgaver",
+    "text": "noter om historiske opgaver\nfeb 2025 1 beregning af konfidensintervaller - og signifikans ud fra det lineær regression - og tolkning herpå 2 powerberegninger\nmaj 2024 1 sammenhæng mellem spredning, kvantiler og middelværdier 2. sandsynligheder for kategoriske variabele, relativ risiko og konfidensinterval herfor. vi skal også frem og tilbage i logaritmer logistisk regression - odds ratios\naug 2024 1 konfidensinterval for andel (kategorisk variabel/incidens) beregning af SE på denne sammenligning af to forskellige grupper baseret herp 2 parret t-test lineær regression og tolkning af resultater - beregning af konfidensintervaller på estimaterne\naug 2025 1. tolkning på histogrammer beregning af SEM og konfidensintervaller powerberegning antal personer med given fordeling der ligger inden for intervallet i en anden fordeling.\ndecemebr 2024 1 sammenhæng mellem spredning, kvantiler og middelværdier 2. valg af logistisk regression. tolkning af output fra sådan en. beregning af manglende estimat og p-værdi (ud fra z value). konfidensinterval for logistisk regression odds-ratio og konfidensinterval på sådan\ndecember 2023 1. log-ratio teststørrelse. two-sample t-test identifikation af og tolkning af resultater fra lineær regresion estimat af middelværdi - og at det er det samme som medianen fordi der antages normalitet. skrivning af relevant r-kode for logistisk regression\nfebruar 2024 1. prevalens for kategorisk variabel - begning af tælletal fra procenter. konfidensinterval herfor 2. chi-square test. identifikation af og tolking på resultat af logistisk regression beregning af konfidensinterval herfor. OR (ved at exponentiere estimatet) prediktion af sandsynlighed for sygdom ud fra estimater på logistisk regression\nmaj 2025 1. identifikation af korrekt model - kode for tolkning af resultat - nok en god ide at have konfidensintervaller. Og beregning af manglende værdier Tolkning af yderligere resultat af model prediktion baseret på denne model 2. vurdering af konfidensinterval baseret på antal observationer.\nVi kommer til at holde os ret tæt på det her. Det er mere eksamensforberedelse end et statistikkursus!"
   },
   {
     "objectID": "slides/SEM.html#hvorfor-var-normalfordelingen-vigtig",
@@ -81,7 +172,7 @@
     "href": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
     "title": "Normalfordelingen",
     "section": "Hvordan kan vi beskrive alle de her observationer?",
-    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 189.0 176.2 187.4 196.6 182.5 165.5 166.2 180.6 184.5 164.7 180.0 183.6\n[13] 186.1 169.2 183.0 165.6 186.5 173.3 187.3 187.3 189.8 190.2 167.4 179.1\n[25] 177.6 185.8 180.1 182.9 183.2 182.7 185.3 193.8 177.8 183.0 180.2 178.9\n[37] 188.2 186.7 178.2 172.0 173.5 186.8 185.3 172.6 173.1 185.2 171.7 178.5\n[49] 200.2 170.4\n\n\n\nGennemsnit\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
+    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 176.3 184.3 171.5 170.2 176.9 184.5 177.3 175.1 181.3 175.5 177.9 168.2\n[13] 180.1 191.2 184.1 180.8 187.3 172.9 176.6 184.5 182.9 170.5 177.8 178.8\n[25] 179.7 188.8 176.4 189.6 179.5 181.0 183.5 187.3 181.9 185.7 174.3 178.2\n[37] 176.1 186.3 187.3 185.4 179.4 188.0 186.6 185.3 187.5 180.2 178.9 182.8\n[49] 172.5 185.6\n\n\n\nGennemsnit\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
   },
   {
     "objectID": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",
@@ -102,7 +193,7 @@
     "href": "slides/normalfordelingen.html#hvad-er-normalfordelingen",
     "title": "Normalfordelingen",
     "section": "Hvad er normalfordelingen?",
-    "text": "Hvad er normalfordelingen?\nVærdierne vi så før var normalfordelte\nDe fleste eksamensopgaver I støder på, har en formulering om at I kan antage at data er normalfordelte.\nHvad betyder det?\n\nUndersøger vi hvilken sandsynlighedsfordelinger mange forskellige ting følger\n\n\nSå er den hyppigst forekommende normalfordelingen.\n\n\nDet er den “normale” fordeling\n\nDet er ikke en normativ betegnelse, normal i denne kontekst blot den hyppigst forekommende"
+    "text": "Hvad er normalfordelingen?\nVærdierne vi så før var normalfordelte\nDe fleste eksamensopgaver I støder på, har en formulering om at I kan antage at data er normalfordelte.\nHvad betyder det?\n\nUndersøger vi hvilken sandsynlighedsfordelinger mange forskellige ting følger\n\n\nSå er der en bestemt sandsynlighedsfordeling der optræder flere gange end andre.\n\n\nDet er den “normale” fordeling\n\nDet er ikke en normativ betegnelse, normal i denne kontekst blot den hyppigst forekommende"
   },
   {
     "objectID": "slides/normalfordelingen.html#hvordan-ser-den-ud",
@@ -151,7 +242,7 @@
     "href": "slides/normalfordelingen.html#pnorm",
     "title": "Normalfordelingen",
     "section": "pnorm",
-    "text": "pnorm\npnorm(x) fortæller hvad sandsynligheden p er for at se en observation der er mindre end x.\n\npnorm(-1)\n\n[1] 0.1586553\n\n\nVi kan også skrive det som:\nP(X &lt; -1) = 0.1586553\n\nLæses: Sandsynligheden (P) for at værdien (X) er mindre end -1 er 0.158osv\nVi taler også om at det er 15.8 kvantilen, eller 15.8 percentielen."
+    "text": "pnorm\npnorm(x) fortæller hvad sandsynligheden p er for at se en observation der er mindre end x.\n\npnorm(-1)\n\n[1] 0.1586553\n\n\nVi kan også skrive det som:\nP(X &lt; -1) = 0.1586553\n\nLæses: Sandsynligheden (P) for at værdien (X) er mindre end -1 er 0.158osv\nVi taler også om at det er 15.8 kvantilen, eller 15.8 percentilen."
   },
   {
     "objectID": "slides/normalfordelingen.html#og-omvendt",
@@ -165,28 +256,28 @@
     "href": "slides/normalfordelingen.html#qnorm",
     "title": "Normalfordelingen",
     "section": "qnorm",
-    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x er p. \n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\nDet kalder vi også for 2.5% kvantilen. På engelsk quantile. Deraf “q”."
+    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x er p. \n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\nDet kalder vi også for 2.5 percentilen. Eller 2.5% kvantilen. På engelsk quantile. Deraf “q”."
   },
   {
     "objectID": "slides/normalfordelingen.html#eller",
     "href": "slides/normalfordelingen.html#eller",
     "title": "Normalfordelingen",
     "section": "Eller",
-    "text": "Eller\n\npnorm går fra værdi til sandsynlighed.\nqnorm går fra sandsynlighed til værdi.\n\nP(X &lt; værdi) = sandsynlighed\n\nHvis vi ved hvad værdien er, bruger vi pnorm til at beregne sandsynligheden\nHvis vi ved hvad sandsynligheden er, bruger vi qnorm til at beregne værdien"
+    "text": "Eller\n\npnorm går fra kvantil til sandsynlighed.\nqnorm går fra sandsynlighed til kvantil.\n\nP(X &lt; værdi) = sandsynlighed\n\nHvis vi ved hvad værdien er, bruger vi pnorm til at beregne sandsynligheden\nHvis vi ved hvad sandsynligheden er, bruger vi qnorm til at beregne værdien"
   },
   {
     "objectID": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
     "href": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
     "title": "Normalfordelingen",
-    "section": "Typiske spørgsmål vi får:",
-    "text": "Typiske spørgsmål vi får:\n(til eksamen)\n\nHvor mange procent af observationerne er under 0.4?\nHvor mange procent af observationerne ligger mellem -2 og 2?\nDe 65.5% mindste observationer; hvad er de mindre end?\nIndenfor hvilket interval ligger 95.45% af observationerne?\n\n\nDe hænger sammen. 1 og 3 er hinandens omvendte 2 og 4 er også hinandens omvendte"
+    "section": "Typiske spørgsmål (v)i får:",
+    "text": "Typiske spørgsmål (v)i får:\n(til eksamen)\n\nHvor mange procent af observationerne er under 0.4?\nHvor mange procent af observationerne ligger mellem -2 og 2?\nDe 65.5% mindste observationer; hvad er de mindre end?\nIndenfor hvilket interval ligger 95.45% af observationerne?\n\n\nDe hænger sammen. 1 og 3 er hinandens omvendte 2 og 4 er også hinandens omvendte"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-1",
     "href": "slides/normalfordelingen.html#øvelse-1",
     "title": "Normalfordelingen",
     "section": "Øvelse 1",
-    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være mere præcis.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-2",
@@ -207,14 +298,14 @@
     "href": "slides/normalfordelingen.html#øvelse-4",
     "title": "Normalfordelingen",
     "section": "Øvelse 4",
-    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm(0.25)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-5",
     "href": "slides/normalfordelingen.html#øvelse-5",
     "title": "Normalfordelingen",
     "section": "Øvelse 5",
-    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6. Så: qnorm(1-0.4) eller qnorm(0.6)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-6",
@@ -228,7 +319,7 @@
     "href": "slides/normalfordelingen.html#øvelse-7",
     "title": "Normalfordelingen",
     "section": "Øvelse 7",
-    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
@@ -277,7 +368,14 @@
     "href": "slides/normalfordelingen.html#notation",
     "title": "Normalfordelingen",
     "section": "Notation",
-    "text": "Notation\nDen standardiserede normalfordeling skriver vi som N(0,1) En normalfordeling (der ikke er standardiseret) skriver vi som \\(N(\\mu, \\sigma)\\) Når vi har data, X, der er normalfordelt, skriver vi det som X ~ \\(N(\\mu, \\sigma)\\)\nOg når vi normaliserer X i udtrykket for sandsynligheden får vi \\(\\frac{X-\\mu}{\\sigma}\\). Det gider vi sjældent skrive, så i stedet skriver vi Z. Lagde I mærke til Z på plottet af normalfordelingen? Ikke alene normaliserer vi X til at have en bestemt middelværdi, vi måler den også i enheder af standardafvigelsen. Den z-score vi så på grafen. Det er det Z.\nDet betyder også at vi undertiden får beregnet Z og bagefter skal finde ud af hvad X egentlig er. Hvis vi ved hvordan vi går fra X til Z (trækker mu fra, og dividerer med sigma), så ved vi også hvordan vi går fra Z til X. Ganger med sigma og lægger mu til."
+    "text": "Notation\nDen standardiserede normalfordeling skriver vi som N(0,1) En normalfordeling (der ikke er standardiseret) skriver vi som \\(N(\\mu, \\sigma)\\) Når vi har data, X, der er normalfordelt, skriver vi det som X ~ \\(N(\\mu, \\sigma)\\)\nEller: P(X &lt; 170) = P(\\(\\frac{X-\\mu}{\\sigma}\\) &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nDet gider vi ikke skrive, så i stedet skriver vi Z: P(Z &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nLagde I mærke til Z på plottet af normalfordelingen? Ikke alene normaliserer vi X til at have en bestemt middelværdi, vi måler den også i enheder af standardafvigelsen. Den z-score vi så på grafen. Det er det Z."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#og-den-anden-vej",
+    "href": "slides/normalfordelingen.html#og-den-anden-vej",
+    "title": "Normalfordelingen",
+    "section": "Og den anden vej",
+    "text": "Og den anden vej\nSå undertiden beregner vi Z. Og så skal vi bagefter finde ud af hvad X er.\nHvis vi ved hvordan vi går fra X til Z, så ved vi også hvordan vi går fra Z til X.\n\nEn ene vej trækker vi \\(\\mu\\) fra og dividerer med \\(\\sigma\\)\n\n\nDen anden vej?\n\n\nGanger med \\(\\sigma\\) og lægger \\(\\mu\\) til"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelser",
@@ -326,14 +424,21 @@
     "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig",
     "title": "Normalfordelingen",
     "section": "Hvorfor er den vigtig?",
-    "text": "Hvorfor er den vigtig?\nPå grund af “Den Centrale Grænseværdisætning”.\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen - alle danske mænd - og måler deres højde.\nSå beregner vi gennemsnittet og gemmer det.\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\nDet gør vi mange gange. Så vil de gennemsnit, middelværdierne - følge normalfordelingen. Uanset hvilken sandsynlighedsfordeling danske mænds højde følger.\nDet kan man føre bevis for. Hvis I kan forstå det bevis, skulle I have læst matematik i stedet for medicin. Så det springer vi over."
+    "text": "Hvorfor er den vigtig?\nPå grund af “Den Centrale Grænseværdisætning”.\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\nVi beregner gennemsnittet af den stikprøve og gemmer det.\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-1",
+    "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-1",
+    "title": "Normalfordelingen",
+    "section": "Hvorfor er den vigtig?",
+    "text": "Hvorfor er den vigtig?\nDet gør vi mange gange.\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelngen.\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\nDet kan man føre bevis for. Hvis I kan forstå det bevis, skulle I have læst matematik i stedet for medicin. Så det springer vi over."
   },
   {
     "objectID": "slides/normalfordelingen.html#en-gang-til",
     "href": "slides/normalfordelingen.html#en-gang-til",
     "title": "Normalfordelingen",
     "section": "En gang til",
-    "text": "En gang til\nHvis vi tager mange stikprøver, og beregner deres middelværdier. Så vil de middelværdier følge normalfordelingen.\nBemærk at vi ikke kender disse middelværdiers spredning. Det kommer vi til.\nMen."
+    "text": "En gang til\nHvis vi tager mange stikprøver, og beregner deres middelværdier. Så vil de middelværdier følge normalfordelingen.\nBemærk at vi ikke kender disse middelværdiers spredning. Det kommer vi til."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
@@ -361,7 +466,14 @@
     "href": "slides/normalfordelingen.html#øvelse---manglende-procentil",
     "title": "Normalfordelingen",
     "section": "Øvelse - Manglende procentil:",
-    "text": "Øvelse - Manglende procentil:\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\nP(X &lt; 10 ) = ?\nP(Z &lt; 10 - mu / sigma) pnorm((10-12.5)/3.2) ## Øvelse - Manglende standardafvigelse: I en normalfordelt population er middelværdien \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er standardafvigelsen \\(\\sigma\\) for denne fordeling?\nP(X&gt;95) = 0.25 P(X&lt;95) = 1-0.25 = 0.75 P(Z&lt;(95-mu)/sigma) = 0.75 (95-85)/sigma = qnorm(0.75) 10/qnorm(0.75) = sigma"
+    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\npnorm((10-12.5)/3.2)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelse---manglende-sigma",
+    "href": "slides/normalfordelingen.html#øvelse---manglende-sigma",
+    "title": "Normalfordelingen",
+    "section": "Øvelse - Manglende \\(\\sigma\\)",
+    "text": "Øvelse - Manglende \\(\\sigma\\)\n\n\nI en normalfordelt population er \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er \\(\\sigma\\) for denne fordeling?\n\nP(X &gt; 95) = 0.25\n\n\nP(X&lt;95) = 1-0.25 = 0.75\n\n\n\\(P(Z&lt; \\frac{95-\\mu}{\\sigma}) = 0.75\\)\n\n\n\\((95-85)/\\sigma = qnorm(0.75)\\)\n\n\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse---manglende-værdi-ved-given-procentil",
@@ -383,89 +495,5 @@
     "title": "Normalfordelingen",
     "section": "Øvelse - Manglende interval-grænse:",
     "text": "Øvelse - Manglende interval-grænse:\nEn normalfordelt population har \\(\\mu = 100\\) og \\(\\sigma = 15\\). Hvis 80% af værdierne ligger mellem 85 og en øvre grænse \\(x\\), hvad er da denne øvre grænse?\nVi leder efter et interval. Det starter ved 85. Vi skal finde ud af hvad den øvre grænse er. 100-80 = 20% ligger uden for intervallet. Hvor mange af værdierne ligger under 85? 20% minus denne værdi skal ligge over den øvre grænse vi leder efter.\nP(X&lt;85) X &lt; (85-100)/15\n\n\n[1] 126.0293\n\n\nHusk - vi bruger x-bar når vi ikke kender den sande mu.\nPointen om at pnorm og qnorm giver os MINDRE END!\ntallet 1.96"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "KUB Datalab slides",
-    "section": "",
-    "text": "side-by-side demo\nintro\nnormalfordelingen\nlineær regression\npower beregninger\nSEM"
-  },
-  {
-    "objectID": "slides/power.html#husk-dog",
-    "href": "slides/power.html#husk-dog",
-    "title": "Powerberegninger",
-    "section": "Husk dog!",
-    "text": "Husk dog!\nNår I skal til at lave forskning, bør I basere jer på t-fordelingen istedet. Den er bredere, og kan håndtere at variansen ikke er kendt, men skal estimeres. Og kan klare sig med færre observationer."
-  },
-  {
-    "objectID": "slides/power.html#eksempel",
-    "href": "slides/power.html#eksempel",
-    "title": "Powerberegninger",
-    "section": "eksempel",
-    "text": "eksempel\n\n\n\n     Two-sample t test power calculation \n\n              n = 16.71477\n          delta = 1\n             sd = 1\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
-  },
-  {
-    "objectID": "slides/power.html#opgave-2-2025-februar",
-    "href": "slides/power.html#opgave-2-2025-februar",
-    "title": "Powerberegninger",
-    "section": "Opgave 2 2025 februar",
-    "text": "Opgave 2 2025 februar\nHvis vi godt vil kunne se en bestemt forskel mellem to grupper? Hvor stor skal grupperne så være? Eller - hvis man kender størrelserne af grupperne? Hvor stor forskel kan man så se?\nHvilken power får man?\ndet vil nok være en god ide at kunne tage udgangspunkt i “notat om beregning af stikprøvestørrelse”. notat rekvireret"
-  },
-  {
-    "objectID": "slides/intro.html#hvad-gør-vi-her",
-    "href": "slides/intro.html#hvad-gør-vi-her",
-    "title": "Intro",
-    "section": "Hvad gør vi her?",
-    "text": "Hvad gør vi her?\nFokus på eksamensforberedelse til SEMS\nSEMS eksamenssæt kommer i tre dele. Statistik, epidemiologi og medicinsk sociologi.\nHer kigger vi kun på statistikken."
-  },
-  {
-    "objectID": "slides/intro.html#statistikdelens-struktur",
-    "href": "slides/intro.html#statistikdelens-struktur",
-    "title": "Intro",
-    "section": "Statistikdelens struktur",
-    "text": "Statistikdelens struktur\nDer er typisk to opgaver - med delspørgsmål."
-  },
-  {
-    "objectID": "slides/intro.html#noter-om-historiske-opgaver",
-    "href": "slides/intro.html#noter-om-historiske-opgaver",
-    "title": "Intro",
-    "section": "noter om historiske opgaver",
-    "text": "noter om historiske opgaver\nfeb 2025 1 beregning af konfidensintervaller - og signifikans ud fra det lineær regression - og tolkning herpå 2 powerberegninger\nmaj 2024 1 sammenhæng mellem spredning, kvantiler og middelværdier 2. sandsynligheder for kategoriske variabele, relativ risiko og konfidensinterval herfor. vi skal også frem og tilbage i logaritmer logistisk regression - odds ratios\naug 2024 1 konfidensinterval for andel (kategorisk variabel/incidens) beregning af SE på denne sammenligning af to forskellige grupper baseret herp 2 parret t-test lineær regression og tolkning af resultater - beregning af konfidensintervaller på estimaterne\naug 2025 1. tolkning på histogrammer beregning af SEM og konfidensintervaller powerberegning antal personer med given fordeling der ligger inden for intervallet i en anden fordeling.\ndecemebr 2024 1 sammenhæng mellem spredning, kvantiler og middelværdier 2. valg af logistisk regression. tolkning af output fra sådan en. beregning af manglende estimat og p-værdi (ud fra z value). konfidensinterval for logistisk regression odds-ratio og konfidensinterval på sådan\ndecember 2023 1. log-ratio teststørrelse. two-sample t-test identifikation af og tolkning af resultater fra lineær regresion estimat af middelværdi - og at det er det samme som medianen fordi der antages normalitet. skrivning af relevant r-kode for logistisk regression\nfebruar 2024 1. prevalens for kategorisk variabel - begning af tælletal fra procenter. konfidensinterval herfor 2. chi-square test. identifikation af og tolking på resultat af logistisk regression beregning af konfidensinterval herfor. OR (ved at exponentiere estimatet) prediktion af sandsynlighed for sygdom ud fra estimater på logistisk regression\nmaj 2025 1. identifikation af korrekt model - kode for tolkning af resultat - nok en god ide at have konfidensintervaller. Og beregning af manglende værdier Tolkning af yderligere resultat af model prediktion baseret på denne model 2. vurdering af konfidensinterval baseret på antal observationer.\nVi kommer til at holde os ret tæt på det her. Det er mere eksamensforberedelse end et statistikkursus!"
-  },
-  {
-    "objectID": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
-    "href": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
-    "title": "Logistisk regression",
-    "section": "Hvad bruger vi den logistiske regression til?",
-    "text": "Hvad bruger vi den logistiske regression til?\nDen almindelige lineære regression bruger vi når vi forsøger at forudsige en numerisk, kontinuær variabel.\nNår vi skal forudsige en kategorisk variabel bruger vi den logistiske regression i stedet. Den beskidte matematiske hemmelighed er, at det også er en lineær regression.\nI den lineære regression fitter vi\nE(Y|X) = beta0 + beta1x hvor det er den forventede værdi af Y givet X\nAltså, givet værdierne vi bruger til forudsigelsen, hvad forventer vi så Y er.\ni den logistiske regression er det:\n\\[log(\\frac{p}{1-p} = \\beta_0 + \\beta_1x\\]\np er en sandsynlighed. Men i stedet for en direkte sandsynlighed, er det odds vi modellerer. mere præcist log-odds\nogså kaldet logit-funktionen.\nVil vi have sandsynligheden, skal vi bruge den inverse logit\n\\[p = \\frac{1}{1+e^{-\\eta}}\\]\nOg vi bruger logodds - fordi matematikken bliver enkel og let. Også selvom vi ikke piller i den selv.\nHvad er så odds? det er forholdet mellem sandsynligheden af to mulige udfald - at noget sker, og at det ikke sker.\nHvis sandsynligheden for at noget sker er 75%, er sandsynligheden for at det ikke sker 25%. forholdet er derfor 0.75/0.25 = 3. Det vil sige at det er tre gange så sandsynligt at det sker, som at det ikke sker."
-  },
-  {
-    "objectID": "slides/logistisk.html#hvordan-laver-vi-en-logistisk-regression",
-    "href": "slides/logistisk.html#hvordan-laver-vi-en-logistisk-regression",
-    "title": "Logistisk regression",
-    "section": "Hvordan laver vi en logistisk regression?",
-    "text": "Hvordan laver vi en logistisk regression?\nHvis vi har et antal biler, der kan have enten automat- (0) eller manuelt (1) gear, og vil forudsige hvilken type gear bilerne har baseret på deres vægt:\nglm er den generaliserede lineære model. Så den kan alt muligt, og derfor skal vi specificere hvad den skal - det gør vi ved at skrive family = “binomial” for at angive at den skal lave en logistisk regression\n\n\n\nCall:\nglm(formula = am ~ wt, family = \"binomial\", data = mtcars)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept)   12.040      4.510   2.670  0.00759 **\nwt            -4.024      1.436  -2.801  0.00509 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 43.230  on 31  degrees of freedom\nResidual deviance: 19.176  on 30  degrees of freedom\nAIC: 23.176\n\nNumber of Fisher Scoring iterations: 6\n\n\nestimat er på log-odds skala. Da estimatet for wt er negativt. Det betyder at hver gang wt stiger med 1 (1000 pund), stiger log-odds for at bilen er med manuelt gear med -4.024. Da det er negativt, betyder det at jo tungere bilen er, jo lavere odds har den for at være manuel.\n\n\n (Intercept)           wt \n1.694596e+05 1.788183e-02 \n\n\nratio er ikke som sådan et forhold mellem ting, men den rate som odds ændrer sig med.\nHvis odds var 3 før, og vægten stiger med 1 enhed (1000 pund), så er odds nu 3*0.018 = 0.054\nHvis den stiger med noget andet end 1, (0.5 enhed, 500 pund) så\n\\(3*0.018^{0.5}\\)"
-  },
-  {
-    "objectID": "slides/logistisk.html#opgave-2025-februar-opgave-1-c",
-    "href": "slides/logistisk.html#opgave-2025-februar-opgave-1-c",
-    "title": "Logistisk regression",
-    "section": "opgave 2025 februar opgave 1 (c)",
-    "text": "opgave 2025 februar opgave 1 (c)\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage-25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\nHvad er det vi vil forudsige? vi skal nok have tabellen med også?\nDet er et kategorisk udfald - i opgaveteksten fremgår at den primære responsvariabel er fosterdød.\nDet er et ja/nej spørgsmål, så hvilken analyse/model skal vi bruge?\nLogistisk regression. det er glm.\nI((mage-25)/10) 𝛽 ^ = 0.7423 ,    𝑝 = 0.0005 β ^ ​\n=0.7423,p=0.0005\nSignifikant positiv effekt.\nVariablen er skaleret som:\nmage − 25 10 10 mage−25 ​\naltså: ændring per 10 års stigning i alder over 25.\nI en logistisk model:"
-  },
-  {
-    "objectID": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
-    "href": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
-    "title": "webR in Quarto HTML Documents",
-    "section": "This is a webR-enabled code cell in a Quarto HTML document.",
-    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "slides/side-by-side-demo.html#overskrift-2",
-    "href": "slides/side-by-side-demo.html#overskrift-2",
-    "title": "webR in Quarto HTML Documents",
-    "section": "overskrift 2",
-    "text": "overskrift 2\nting\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   }
 ]

@@ -599,7 +599,7 @@
     "href": "slides/powerberegninger_undervisningsnotat.html#trin-4-hvad-skal-findes",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Trin 4: Hvad skal findes?",
-    "text": "Trin 4: Hvad skal findes?\nOfte skal man finde:\n\n(n)\npower\n()\n()\n\nDet er samme formel hver gang; man isolerer bare en anden størrelse."
+    "text": "Trin 4: Hvad skal findes?\nOfte skal man finde:\n\nn\npower\n\\(\\delta\\)\n\\(\\alpha\\)\n\nDet er samme formel hver gang; man isolerer bare en anden størrelse."
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#løsning-for-stikprøvestørrelsen",
@@ -620,7 +620,7 @@
     "href": "slides/powerberegninger_undervisningsnotat.html#løsning-for-power",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Løsning for power",
-    "text": "Løsning for power\nOmskriv først til\n\\[\nz_{1-\\beta}\n=\n\\frac{\\delta\\sqrt{n}}{\\sigma}\n-\nz_{1-\\alpha/2}\n\\]\nog dermed\n\\[\n\\text{power}\n=\n\\Phi\\left(\n\\frac{\\delta\\sqrt{n}}{\\sigma}\n-\nz_{1-\\alpha/2}\n\\right)\n\\]\nhvor () er fordelingsfunktionen for standardnormalfordelingen."
+    "text": "Løsning for power\nOmskriv først til\n\\[\nz_{1-\\beta}\n=\n\\frac{\\delta\\sqrt{n}}{\\sigma}\n-\nz_{1-\\alpha/2}\n\\]\nog dermed\n\\[\n\\text{power}\n=\n\\Phi\\left(\n\\frac{\\delta\\sqrt{n}}{\\sigma}\n-\nz_{1-\\alpha/2}\n\\right)\n\\]\nhvor \\(\\Phi\\) er fordelingsfunktionen for standardnormalfordelingen."
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#generel-formel-ved-forskellig-gruppestørrelse",
@@ -634,14 +634,14 @@
     "href": "slides/powerberegninger_undervisningsnotat.html#hvis-grupperne-er-lige-store",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Hvis grupperne er lige store",
-    "text": "Hvis grupperne er lige store\nHvis (n_1=n_2=n), fås\n\\[\nSE = \\sigma\\sqrt{\\frac{2}{n}}\n\\]\nog dermed\n\\[\n\\frac{\\delta}{\\sigma\\sqrt{2/n}}\n=\nz_{1-\\alpha/2}+z_{1-\\beta}\n\\]\nså\n\\[\nn\n=\n2\\left(\\frac{(z_{1-\\alpha/2}+z_{1-\\beta})\\sigma}{\\delta}\\right)^2\n\\]"
+    "text": "Hvis grupperne er lige store\nHvis \\(n_1=n_2=n\\), fås\n\\[\nSE = \\sigma\\sqrt{\\frac{2}{n}}\n\\]\nog dermed\n\\[\n\\frac{\\delta}{\\sigma\\sqrt{2/n}}\n=\nz_{1-\\alpha/2}+z_{1-\\beta}\n\\]\nså\n\\[\nn\n=\n2\\left(\\frac{(z_{1-\\alpha/2}+z_{1-\\beta})\\sigma}{\\delta}\\right)^2\n\\]"
   },
   {
-    "objectID": "slides/powerberegninger_undervisningsnotat.html#hvis-gruppestørrelserne-har-fast-ratio",
-    "href": "slides/powerberegninger_undervisningsnotat.html#hvis-gruppestørrelserne-har-fast-ratio",
+    "objectID": "slides/powerberegninger_undervisningsnotat.html#hvis-gruppestørrelserne-har-fast-ratio-k",
+    "href": "slides/powerberegninger_undervisningsnotat.html#hvis-gruppestørrelserne-har-fast-ratio-k",
     "title": "Powerberegninger – undervisningsnotat",
-    "section": "Hvis gruppestørrelserne har fast ratio",
-    "text": "Hvis gruppestørrelserne har fast ratio\nLad\n\\[\nk=\\frac{n_2}{n_1}\n\\]\nså er (n_2 = kn_1). Da bliver\n\\[\nSE = \\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{kn_1}}\n=\n\\sigma\\sqrt{\\frac{1+1/k}{n_1}}\n\\]\nDermed\n\\[\nn_1\n=\n\\left(\\frac{(z_{1-\\alpha/2}+z_{1-\\beta})\\sigma}{\\delta}\\right)^2\n\\left(1+\\frac{1}{k}\\right)\n\\]\nog\n\\[\nn_2 = k n_1\n\\]\nDet er nyttigt, hvis opgaven siger at fx kontrolgruppen skal være dobbelt så stor som interventionsgruppen."
+    "section": "Hvis gruppestørrelserne har fast ratio (k)",
+    "text": "Hvis gruppestørrelserne har fast ratio (k)\nLad\n\\[\nk=\\frac{n_2}{n_1}\n\\]\nså er \\(n_2 = kn_1\\). Da bliver\n\\[\nSE = \\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{kn_1}}\n=\n\\sigma\\sqrt{\\frac{1+1/k}{n_1}}\n\\]\nDermed\n\\[\nn_1\n=\n\\left(\\frac{(z_{1-\\alpha/2}+z_{1-\\beta})\\sigma}{\\delta}\\right)^2\n\\left(1+\\frac{1}{k}\\right)\n\\]\nog\n\\[\nn_2 = k n_1\n\\]\nDet er nyttigt, hvis opgaven siger at fx kontrolgruppen skal være dobbelt så stor som interventionsgruppen."
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#løsning-for-mindste-forskel",
@@ -655,21 +655,21 @@
     "href": "slides/powerberegninger_undervisningsnotat.html#generel-formel-ved-forskellig-gruppestørrelse-1",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Generel formel ved forskellig gruppestørrelse",
-    "text": "Generel formel ved forskellig gruppestørrelse\nHvis grupperne har størrelser (n_1) og (n_2), er\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)}{n_1}\n+\n\\frac{p_2(1-p_2)}{n_2}\n}\n\\]\nog powerrelationen bliver\n\\[\n\\frac{|p_1-p_2|}{SE}\n=\nz_{1-\\alpha/2}+z_{1-\\beta}\n\\]"
+    "text": "Generel formel ved forskellig gruppestørrelse\nHvis grupperne har størrelser \\(n_1\\) og \\(n_2\\), er\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)}{n_1}\n+\n\\frac{p_2(1-p_2)}{n_2}\n}\n\\]\nog powerrelationen bliver\n\\[\n\\frac{|p_1-p_2|}{SE}\n=\nz_{1-\\alpha/2}+z_{1-\\beta}\n\\]"
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#lige-store-grupper",
     "href": "slides/powerberegninger_undervisningsnotat.html#lige-store-grupper",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Lige store grupper",
-    "text": "Lige store grupper\nHvis (n_1=n_2=n), fås\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)+p_2(1-p_2)}{n}\n}\n\\]\nså\n\\[\nn\n=\n\\frac{\n(z_{1-\\alpha/2}+z_{1-\\beta})^2\n\\left[p_1(1-p_1)+p_2(1-p_2)\\right]\n}{\n(p_1-p_2)^2\n}\n\\]"
+    "text": "Lige store grupper\nHvis \\(n_1=n_2=n\\), fås\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)+p_2(1-p_2)}{n}\n}\n\\]\nså\n\\[\nn\n=\n\\frac{\n(z_{1-\\alpha/2}+z_{1-\\beta})^2\n\\left[p_1(1-p_1)+p_2(1-p_2)\\right]\n}{\n(p_1-p_2)^2\n}\n\\]"
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#fast-ratio-mellem-gruppestørrelser",
     "href": "slides/powerberegninger_undervisningsnotat.html#fast-ratio-mellem-gruppestørrelser",
     "title": "Powerberegninger – undervisningsnotat",
     "section": "Fast ratio mellem gruppestørrelser",
-    "text": "Fast ratio mellem gruppestørrelser\nHvis (k=n_2/n_1), så kan man skrive\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)}{n_1}\n+\n\\frac{p_2(1-p_2)}{kn_1}\n}\n\\]\nog derfra isolere (n_1):\n\\[\nn_1\n=\n\\frac{\n(z_{1-\\alpha/2}+z_{1-\\beta})^2\n\\left[p_1(1-p_1)+\\frac{p_2(1-p_2)}{k}\\right]\n}{\n(p_1-p_2)^2\n}\n\\]\nsamt\n\\[\nn_2=kn_1\n\\]"
+    "text": "Fast ratio mellem gruppestørrelser\nHvis \\(k=n_2/n_1\\), så kan man skrive\n\\[\nSE\n=\n\\sqrt{\n\\frac{p_1(1-p_1)}{n_1}\n+\n\\frac{p_2(1-p_2)}{kn_1}\n}\n\\]\nog derfra isolere (n_1):\n\\[\nn_1\n=\n\\frac{\n(z_{1-\\alpha/2}+z_{1-\\beta})^2\n\\left[p_1(1-p_1)+\\frac{p_2(1-p_2)}{k}\\right]\n}{\n(p_1-p_2)^2\n}\n\\]\nsamt\n\\[\nn_2=kn_1\n\\]"
   },
   {
     "objectID": "slides/powerberegninger_undervisningsnotat.html#eksempel-på-omskrivning",
@@ -774,7 +774,7 @@
     "href": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
     "title": "Normalfordelingen",
     "section": "Hvordan kan vi beskrive alle de her observationer?",
-    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 186.9 181.0 188.8 183.9 176.0 166.4 179.9 177.9 181.6 188.5 182.5 181.2\n[13] 188.2 177.7 178.5 173.6 183.8 173.5 186.5 184.8 184.8 173.5 169.5 182.0\n[25] 177.2 187.5 185.0 182.8 180.2 189.1 181.4 193.1 182.9 185.0 184.8 172.3\n[37] 175.0 184.5 184.2 181.6 189.4 179.8 191.0 189.5 181.8 189.8 181.3 173.8\n[49] 168.9 184.5\n\n\n\nGennemsnit\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
+    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 180.5 173.2 189.1 183.5 181.4 197.0 181.6 182.7 174.9 173.7 185.6 185.2\n[13] 167.5 184.4 171.3 179.7 181.3 175.8 171.3 187.1 174.1 168.8 176.4 172.1\n[25] 171.4 177.9 184.0 184.6 171.6 177.0 172.9 189.8 178.1 184.7 187.4 188.2\n[37] 177.4 181.8 171.7 187.5 183.6 171.0 179.8 179.9 185.1 175.0 187.8 173.1\n[49] 178.0 178.9\n\n\n\nGennemsnit\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
   },
   {
     "objectID": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",

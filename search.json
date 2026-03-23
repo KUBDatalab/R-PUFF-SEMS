@@ -970,7 +970,7 @@
     "href": "slides/normalfordelingen.html#standardnormalfordelingen",
     "title": "Normalfordelingen",
     "section": "Standardnormalfordelingen",
-    "text": "Standardnormalfordelingen\nNår \\(\\mu = 0\\) og \\(\\sigma = 1\\) kalder vi den for “standardnormalfordelingen”.\nDen skriver vi som: \\(N(1,0)\\)\n\nAndre normale fordelinger findes\n\n\nDem skriver vi som \\(X \\sim N(\\mu,\\sigma)\\)\n\n\nDe kan omregnes (skaleres) til standardnormalfordelingen\n\n\nDet var det vi gjorde da vi trak middelværdien fra højderne. For så blev højdernes middelværdi 0.\n\n\nOg da vi dividerede det hele med standardafvigelsen - blev enheden på x-aksen målt i standardafvigelser.\n\nDet at kunne skalere til og fra standardnormalfordelingen er dels nyttigt for at kunne løse opgaverne. Det tester om I har forstået hvad der foregår, og det er ret vigtigt.\nDet handler også om at i gamle dage havde vi ikke programmer der kunne lave beregningerne for en hvilken som helst normalfordeling. Så matematikere sad møjsommeligt og beregnede værdier for standardnormalfordelingen. Og så kunne man slå op i tabeller."
+    "text": "Standardnormalfordelingen\nNår \\(\\mu = 0\\) og \\(\\sigma = 1\\) kalder vi den for “standardnormalfordelingen”.\nDen skriver vi som: \\(N(0,1)\\)\n\nAndre normale fordelinger findes\n\n\nDem skriver vi som \\(X \\sim N(\\mu,\\sigma)\\)\n\n\nDe kan omregnes (skaleres) til standardnormalfordelingen\n\n\nDet var det vi gjorde da vi trak middelværdien fra højderne. For så blev højdernes middelværdi 0.\n\n\nOg da vi dividerede det hele med standardafvigelsen - blev enheden på x-aksen målt i standardafvigelser.\n\nDet at kunne skalere til og fra standardnormalfordelingen er dels nyttigt for at kunne løse opgaverne. Det tester om I har forstået hvad der foregår, og det er ret vigtigt.\nDet handler også om at i gamle dage havde vi ikke programmer der kunne lave beregningerne for en hvilken som helst normalfordeling. Så matematikere sad møjsommeligt og beregnede værdier for standardnormalfordelingen. Og så kunne man slå op i tabeller."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvilke-egenskaber-har-den",
@@ -984,7 +984,7 @@
     "href": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
     "title": "Normalfordelingen",
     "section": "Et par hurtige øvelser",
-    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor mange observationer er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\))"
+    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\))"
   },
   {
     "objectID": "slides/normalfordelingen.html#og-et-par-stykker-til",
@@ -1012,14 +1012,14 @@
     "href": "slides/normalfordelingen.html#og-omvendt",
     "title": "Normalfordelingen",
     "section": "Og omvendt?",
-    "text": "Og omvendt?\nHvis sandsynligheden for at at X er mindre end -1 skrives som:\nP(X &lt; -1)\nHvad er så sandsynligheden for at X er større end -1?\n\n1 - P(X &lt; -1)\nX er enten mindre end 1. Eller større end 1. Den samlede sansynlighed for at X er er 1."
+    "text": "Og omvendt?\nHvis sandsynligheden for at at X er mindre end -1 skrives som:\nP(X &lt; -1)\nHvad er så sandsynligheden for at X er større end -1?\n\nP(X &gt; -1)\n\n\n= 1 - P(X &lt; -1)\nX er enten mindre end 1. Eller større end 1. Den samlede sansynlighed for at X er er 1."
   },
   {
     "objectID": "slides/normalfordelingen.html#qnorm",
     "href": "slides/normalfordelingen.html#qnorm",
     "title": "Normalfordelingen",
     "section": "qnorm",
-    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x er p. \n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\nDet kalder vi også for 2.5 percentilen. Eller 2.5% kvantilen. På engelsk quantile. Deraf “q”."
+    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x er p. \n\nP(X &lt; ?) = 0.025\n\n\n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\nDet kalder vi også for 2.5 percentilen. Eller 2.5% kvantilen. På engelsk quantile. Deraf “q”."
   },
   {
     "objectID": "slides/normalfordelingen.html#eller",
@@ -1131,14 +1131,14 @@
     "href": "slides/normalfordelingen.html#hvorfor-z",
     "title": "Normalfordelingen",
     "section": "Hvorfor Z?",
-    "text": "Hvorfor Z?\nOg ikke X?\nKonventionen er, at i standardnormalfordelingen skriver vi Z.\nI en normalfordeling generelt (der ikke er standardnormalfordelingen), skriver vi X\nNår vi skal fra X til Z trækker vi middelværdien af X fra, og dividerer med standardafvigelsen.\nDet prøvede vi lige før - det giver den standardiserede værdi."
+    "text": "Hvorfor Z?\nOg ikke X?\nKonventionen er, at i standardnormalfordelingen skriver vi Z.\nI en normalfordeling generelt (der ikke er standardnormalfordelingen), skriver vi X\nNår vi skal fra X til Z trækker vi middelværdien af X fra, og dividerer med standardafvigelsen.\n\n\\(Z = \\frac{X-\\mu}{\\sigma}\\)\n\n\nOg den anden vej:\n\\(X = Z\\sigma + \\mu\\)"
   },
   {
     "objectID": "slides/normalfordelingen.html#så-i-praksis",
     "href": "slides/normalfordelingen.html#så-i-praksis",
     "title": "Normalfordelingen",
     "section": "Så i praksis?",
-    "text": "Så i praksis?\nHvis \\(\\mu\\) er 181 og \\(\\sigma\\) er 6.5\nog vi vil vide hvad sandsynligheden er for at være mindre end 170 cm høj.\nDet kan vi skrive som:\nP(X&lt;170)\nSkalerer vi X, skal vi også skalere 170:\n\\(P(X&lt;170) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{170 - 181}{6.5}) = P(Z &lt; -1.692)\\)\n\npnorm(-1.692)\n\n[1] 0.04532299"
+    "text": "Så i praksis?\nHvis \\(\\mu\\) er 181 og \\(\\sigma\\) er 6.5 og vi vil vide hvad sandsynligheden er for at være mindre end 170 cm høj.\n\nDet kan vi skrive som: P(X&lt;170)\n\n\nHavde vi i stedet haft P(Z &lt; ?) var vi i standardnormalfordelingen og kunne bruge pnorm\n\n\nDerfor skalerer vi, og skalerer vi X, skal vi også skalere 170:\n\\(P(X&lt;170) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{170 - 181}{6.5}) = P(Z &lt; -1.692)\\)\n\npnorm(-1.692)\n\n[1] 0.04532299"
   },
   {
     "objectID": "slides/normalfordelingen.html#notation",
@@ -1166,7 +1166,7 @@
     "href": "slides/normalfordelingen.html#øvelser-1",
     "title": "Normalfordelingen",
     "section": "Øvelser",
-    "text": "Øvelser\nVi antager at X ~N(mu, sigma)\nSkaler til standardnormalfordelingen:\n\\(P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{0-\\mu}{\\sigma})  = 0.5\\)\n\\(P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{1-\\mu}{\\sigma})  = 0.6\\)\nHusk at når vi kender sandsynligheden for en ukendt værdi, kan vi bruge qnorm til at beregne den ukendte værdi.\ndvs.\n\\(\\frac{0-\\mu}{\\sigma}  = qnorm(0.5)\\) og\n\\(\\frac{1-\\mu}{\\sigma}  = qnorm(0.6)\\)"
+    "text": "Øvelser\nVi antager at \\(X \\sim N(\\mu, \\sigma)\\)\n\nSkaler til standardnormalfordelingen:\n\n\n\\(P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{0-\\mu}{\\sigma}) = P(Z &lt; \\frac{0-\\mu}{\\sigma}) = 0.5\\)\n\n\n\\(P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{1-\\mu}{\\sigma}) = P(Z &lt; \\frac{1-\\mu}{\\sigma})= 0.6\\)\n\n\nHusk at når vi kender sandsynligheden for en ukendt værdi, kan vi bruge qnorm til at beregne den ukendte værdi.\ndvs.\n\\(\\frac{0-\\mu}{\\sigma}  = qnorm(0.5)\\) og\n\\(\\frac{1-\\mu}{\\sigma}  = qnorm(0.6)\\)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelser-2",
@@ -1180,14 +1180,14 @@
     "href": "slides/normalfordelingen.html#øvelser-3",
     "title": "Normalfordelingen",
     "section": "Øvelser",
-    "text": "Øvelser\n\\(\\frac{0-\\mu}{\\sigma}  = 0 \\Leftrightarrow 0 - \\mu = 0\\sigma \\Leftrightarrow 0-0\\sigma = \\mu \\Leftrightarrow \\mu = 0\\)\nIndsæt i anden ligning:\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25 \\Leftrightarrow \\frac{1-0}{\\sigma} = 0.25 \\Leftrightarrow 1 = 0.25\\sigma \\Leftrightarrow \\frac{1}{0.25} = \\sigma = 4\\)\nSmutvej: Hvis 50% af observationerne er mindre end 0, betyder det at 0 er medianen. I en normalfordeling er medianen lig middelværdien. Så vi ved meget hurtigt at \\(\\mu = 0\\)"
+    "text": "Øvelser\nDen første er den letteste:\n\\(\\frac{0-\\mu}{\\sigma}  = 0 \\Leftrightarrow 0 - \\mu = 0\\sigma \\Leftrightarrow 0-0\\sigma = \\mu \\Leftrightarrow \\mu = 0\\)\n\nIndsæt i anden ligning:\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25 \\Leftrightarrow \\frac{1-0}{\\sigma} = 0.25 \\Leftrightarrow 1 = 0.25\\sigma \\Leftrightarrow \\frac{1}{0.25} = \\sigma = 4\\)\n\n\nSmutvej: Hvis 50% af observationerne er mindre end 0, betyder det at 0 er medianen. I en normalfordeling er medianen lig middelværdien. Så vi ved meget hurtigt at \\(\\mu = 0\\)"
   },
   {
     "objectID": "slides/normalfordelingen.html#endnu-en-øvelse",
     "href": "slides/normalfordelingen.html#endnu-en-øvelse",
     "title": "Normalfordelingen",
     "section": "Endnu en øvelse",
-    "text": "Endnu en øvelse\nFor en population af normalfordelte værdier ved vi at 40% af værdierne er større end 0.1, og 70% af værdierne er mindre end 1. Hvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nP(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side) Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.\nFacit middel = -0.74 spredning = 3.32"
+    "text": "Endnu en øvelse\nFor en population af normalfordelte værdier ved vi at:\n40% af værdierne er større end 0.1, og\n70% af værdierne er mindre end 1.\nHvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nP(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side) Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.\nFacit middel = -0.74 spredning = 3.32"
   },
   {
     "objectID": "slides/normalfordelingen.html#løsning",
@@ -1201,21 +1201,21 @@
     "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig",
     "title": "Normalfordelingen",
     "section": "Hvorfor er den vigtig?",
-    "text": "Hvorfor er den vigtig?\nNu har vi øvet os på at arbejde med normalfordelingen. Men hvorfor er den så vigtig?\nPå grund af “Den Centrale Grænseværdisætning”.\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\nVi beregner gennemsnittet af den stikprøve og gemmer det.\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit."
+    "text": "Hvorfor er den vigtig?\nNu har vi øvet os på at arbejde med normalfordelingen. Men hvorfor er den så vigtig?\n\nPå grund af “Den Centrale Grænseværdisætning”.\n\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-1",
     "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-1",
     "title": "Normalfordelingen",
     "section": "Hvorfor er den vigtig?",
-    "text": "Hvorfor er den vigtig?\nDet gør vi mange gange.\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelngen.\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\nDet kan man føre bevis for. Hvis I kan forstå det bevis, skulle I have læst matematik i stedet for medicin. Så det springer vi over."
+    "text": "Hvorfor er den vigtig?\nDet gør vi mange gange.\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelngen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Hvis I kan forstå det bevis, skulle I have læst matematik i stedet for medicin. Så det springer vi over."
   },
   {
     "objectID": "slides/normalfordelingen.html#en-gang-til",
     "href": "slides/normalfordelingen.html#en-gang-til",
     "title": "Normalfordelingen",
     "section": "En gang til",
-    "text": "En gang til\nHvis vi tager mange stikprøver, og beregner deres middelværdier. Så vil de middelværdier følge normalfordelingen.\nBemærk at vi ikke kender disse middelværdiers spredning. Det kommer vi til."
+    "text": "En gang til\nHvis vi tager mange stikprøver, og beregner deres middelværdier. Så vil de middelværdier følge normalfordelingen.\nBemærk at vi ikke kender disse middelværdiers spredning. Eller hvad middelværdien af middelværdierne er. Det kommer vi til."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
@@ -1243,21 +1243,21 @@
     "href": "slides/normalfordelingen.html#normalområdet---nedre-grænse",
     "title": "Normalfordelingen",
     "section": "Normalområdet - nedre grænse",
-    "text": "Normalområdet - nedre grænse\n\\(X \\sim N(200, 40)\\)\nNedre grænse så de (100-95)/2 = 2.5% laveste værdier\nP(X &lt; y) = 0.025\nStandardiser:\n\\(P(Z &lt; \\frac{y-200}{40}) = 0.025\\)\ny-200/40 = qnorm(0.025) = - 1.959964\nIsoler y: -1.959964*40 + 200 = 122\n\nDer er en del domænespecifikke ting der spiller ind her."
+    "text": "Normalområdet - nedre grænse\n\\(X \\sim N(200, 40)\\)\n\nNedre grænse så de (100-95)/2 = 2.5% laveste værdier\nP(X &lt; y) = 0.025\n\n\nStandardiser:\n\\(P(Z &lt; \\frac{y-200}{40}) = 0.025\\)\n\n\ny-200/40 = qnorm(0.025) = - 1.959964\n\n\nIsoler y:\n\n\ny = 200 + -1.959964*40 = 122\n\nDer er en del domænespecifikke ting der spiller ind her."
   },
   {
     "objectID": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
     "href": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
     "title": "Normalfordelingen",
     "section": "Normalområdet - øvre grænse",
-    "text": "Normalområdet - øvre grænse\nDen øvre grænse er så den grænse under hvilken de 95% i normalområdet og de 2.5% under normalområdet ligger.\nDvs.\nP(X &lt; y) = 0.95+0.025 = P(X &lt; y) = 0.975\nStandardiser:\nP(Z &lt; y - 200 / 40 ) = 0.975\ny - 200 / 40 = qnomr(0.975) = 1.959964\nIsoler y:\ny = 1.959964 * 40 + 200 = 278"
+    "text": "Normalområdet - øvre grænse\nDen øvre grænse er så den grænse under hvilken de 95% i normalområdet og de 2.5% under normalområdet ligger.\n\nDvs.\nP(X &lt; y) = 0.95+0.025 = P(X &lt; y) = 0.975\n\n\nStandardiser:\nP(Z &lt; y - 200 / 40 ) = 0.975\n\n\ny - 200 / 40 = qnomr(0.975) = 1.959964\n\n\nIsoler y:\n\n\ny = 200 + 1.959964 * 40 = 278"
   },
   {
     "objectID": "slides/normalfordelingen.html#normalområdet-genvej",
     "href": "slides/normalfordelingen.html#normalområdet-genvej",
     "title": "Normalfordelingen",
     "section": "Normalområdet genvej",
-    "text": "Normalområdet genvej\nSvaret viste sig at være:\n\nNedre grænse = middelværdi - 1.96*standardafvigelsen\nØvre grænse = middelværdi + 1.96*standardafvigelsen\n\nEller:\n\n200 + c(-1,1)*1.96*40\n\n[1] 121.6 278.4"
+    "text": "Normalområdet genvej\nSvaret viste sig at være:\n\nNedre grænse = middelværdi - 1.96*standardafvigelsen\nØvre grænse = middelværdi + 1.96*standardafvigelsen\n\n\nEller:\n\n200 + c(-1,1)*1.96*40\n\n[1] 121.6 278.4"
   },
   {
     "objectID": "slides/normalfordelingen.html#hvad-hvis-det-er-et-90-interval-der-er-det-normale",
@@ -1278,7 +1278,7 @@
     "href": "slides/normalfordelingen.html#øvelse---manglende-procentil",
     "title": "Normalfordelingen",
     "section": "Øvelse - Manglende procentil:",
-    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\npnorm((10-12.5)/3.2)"
+    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\n. . .\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\n. . .\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\npnorm((10-12.5)/3.2)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse---manglende-sigma",
@@ -1292,7 +1292,7 @@
     "href": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
     "title": "Normalfordelingen",
     "section": "Manglende værdi, kendt procentil:",
-    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\nqnorm(0.9) = 1.2816 \\(\\frac{y-50}{8} = 1.2816\\), isoler y\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\nEller: P(X&lt;y) = 0.9\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\n\\(\\frac{y-50}{8} = qnorm(0.9)\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",
@@ -1306,28 +1306,28 @@
     "href": "slides/normalfordelingen.html#manglende-interval-grænse",
     "title": "Normalfordelingen",
     "section": "Manglende interval-grænse",
-    "text": "Manglende interval-grænse\n\n\nEn normalfordelt population har \\(\\mu = 100\\) og \\(\\sigma = 15\\). Hvis 80% af værdierne ligger mellem 85 og en øvre grænse \\(x\\), hvad er da denne øvre grænse?\neller find z således at: P(85 &lt; X &lt; x) = 0.8\n1 - 0.8 = 0.2 ligger udenfor intervallet Hvilken andel ligger under 85?\nP(X&lt;85) = 0.8 \\(P(Z&lt; \\frac{85-\\mu}{\\sigma}) = 0.8\\) \\(\\frac{85-\\mu}{\\sigma} = qnorm(0.8)\\) 0.2 - denne andel skal ligge over.\nVi leder efter et interval. Det starter ved 85. Vi skal finde ud af hvad den øvre grænse er. 100-80 = 20% ligger uden for intervallet. Hvor mange af værdierne ligger under 85? 20% minus denne værdi skal ligge over den øvre grænse vi leder efter.\nP(X&lt;85) X &lt; (85-100)/15\n\n\n[1] 126.0293\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Manglende interval-grænse\n\n\nEn normalfordelt population har \\(\\mu = 100\\) og \\(\\sigma = 15\\). Hvis 80% af værdierne ligger mellem 85 og en øvre grænse \\(x\\), hvad er da denne øvre grænse?\nEller: find y således at:\nP(85 &lt; X &lt; y) = 0.8\n\nTavle!\n\n\n\nqnorm(1 - (0.2- pnorm(-1)))*15+100\n\n[1] 126.0293\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#normalområde---fra-en-eksamensopgave",
     "href": "slides/normalfordelingen.html#normalområde---fra-en-eksamensopgave",
     "title": "Normalfordelingen",
     "section": "Normalområde - fra en eksamensopgave",
-    "text": "Normalområde - fra en eksamensopgave\nVi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Spredning\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nBeregn et interval, der indeholder 95% af plasma magnesium målingerne for kontrol populationen (ikke-diabetikere)\nmiddelværdi +/- 1.96*spredning"
+    "text": "Normalområde - fra en eksamensopgave\n“Summariske regnestørrelser” for plasma magnesium er givet. Og vi får lov at antage at det er normalfordelt for de to populationer stikprøverne er trukket:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Spredning\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nBeregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).\n\n\n0.81 + c(-1,1)*1.96*0.057\n\n[1] 0.69828 0.92172"
   },
   {
-    "objectID": "slides/normalfordelingen.html#normalområde---fra-en-eksamensopgave-1",
-    "href": "slides/normalfordelingen.html#normalområde---fra-en-eksamensopgave-1",
+    "objectID": "slides/normalfordelingen.html#normalområde",
+    "href": "slides/normalfordelingen.html#normalområde",
     "title": "Normalfordelingen",
-    "section": "Normalområde - fra en eksamensopgave",
-    "text": "Normalområde - fra en eksamensopgave\nhvor stor en andel af plasma magnesium målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nX ~ N(0.719, 0.068)\nEller - hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\nEller: P(0.7 &lt; X &lt; 0.92)\neller: P(X &lt; 0.92) - P(X &lt; 0.7)\nStandardiser:\nP(Z &lt; 0.92-mu / sd) - P(Z &lt; 0.7 - mu / sd)\nmu 0.719, sigma 0.068\n\n\n[1] 0.6084767\n\n\nJEG SKAL NOK HAVE NOGET MED FOR DENNE MÅDE AT BEHANDLE INTERVALLERNE!"
+    "section": "Normalområde",
+    "text": "Normalområde\n\n\nHvilken andel af målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nEller for: X ~ N(0.719, 0.068) hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\nEller: P(0.7 &lt; X &lt; 0.92) =\nP(X &lt; 0.92) - P(X &lt; 0.7)\n\nTavle!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n[1] 0.6084767"
   },
   {
     "objectID": "slides/normalfordelingen.html#normalområde---cowboy-trick",
     "href": "slides/normalfordelingen.html#normalområde---cowboy-trick",
     "title": "Normalfordelingen",
     "section": "Normalområde - cowboy trick",
-    "text": "Normalområde - cowboy trick\n1.96 er det magiske tal. Så det er overflødigt at lave standardiseringen.\ngå direkte til middelværdi +/- 1.96*sd\neller\n200 + c(-1,1)* 1.96 * 40"
+    "text": "Normalområde - cowboy trick\n1.96 er det magiske tal. Så det er overflødigt at lave standardiseringen.\ngå direkte til:\nmiddelværdi +/- 1.96*sd\neller\nmiddelværdi + c(-1,1)* 1.96 * standardafvigelse"
   },
   {
     "objectID": "slides/normalfordelingen.html#cowboy-trick-2",

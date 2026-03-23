@@ -1982,7 +1982,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="men-også-fordi" class="slide level2">
 <h2>Men også fordi!</h2>
 <p>Den centrale grænseværdisætning:</p>
-<p>Tager vi tilstrækkeligt mange stikprøver, vil disse stikprøvers middelværdier følge normalfordelingen.</p>
+<p>Tager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge normalfordelingen.</p>
 <p>Den normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen.</p>
 </section>
 <section id="men-ikke-den-middelværdi-i-får-fra-én-stikprøve" class="slide level2">
@@ -1990,7 +1990,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Så hvad er populationens middelværdi?</p>
 <p>Det kan vi ikke vide. Men vi kan sige noget om den alligevel.</p>
 <p>For vores stikprøves middelværdi vil komme fra fordelingen af middelværdier fra alle stikprøverne fra populationen.</p>
-<p>Men vi ved ikke hvad spredningen på den fordeling er!</p>
+<p>Vi ved dog ikke hvad spredningen på den fordeling er!</p>
 </section>
 <section id="hvad-er-spredningen" class="slide level2">
 <h2>Hvad er spredningen?</h2>
@@ -2026,39 +2026,44 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="konfidensintervaller" class="slide level2">
 <h2>Konfidensintervaller</h2>
-<p>DEN HER SKAL MÅSKE FORKLARES LIDT BEDRE.</p>
-<p>Vi beregner et konfidensinterval.</p>
-<p>Normalt et 95% konfidensinterval.</p>
-<p>Det vil fortælle os, indenfor hvilket interval vi, med 95% sikkerhed, kan forvente at finde den sande middelværdi.</p>
-<p>Den kan ligge udenfor. Det vil den gøre i 5% af tilfældene.</p>
-<p>Husk normalfordelingen. Der er en middelværdi og en spredning. Og så kan vi finde ud af hvor grænserne for den del der indeholder 95% af observationerne ligger.</p>
-<p>Nu gør vi det “bare” med SEM i stedet for sigma.</p>
+<p>Det gennemsnit vi finder i vores stikprøve er vores estimat på den sande værdi i populationen.</p>
+<p>Usikkerheden på det estimat bestemmes af stikprøvens størrelse, og variationen i data.</p>
+<p>Standardfejlen på estimatet beregnes ved <span class="math inline">\(SEM = \frac{s}{\sqrt{n}}\)</span>s</p>
+<p>Vi beregner et 95% konfidensinterval ved middelværdien plus/minus 1.96*SEM.</p>
+<p>Som dog teknisk set kun gælder hvis vi kender sigma, eller stikprøven er stor.</p>
+</section>
+<section id="konfidensintervaller-1" class="slide level2">
+<h2>Konfidensintervaller</h2>
+<p>Stringent formuleret:</p>
+<p>Hvis vi gentager forsøget mange gange og hver gang beregner et 95% konfidensinterval, vil ca. 95% af intervallerne indeholde den sande middelværdi 𝜇</p>
 <p><span class="math inline">\(\mu \pm 1.96 SEM\)</span></p>
+<p>Eller, lidt sjusket: Vi er 95% sikre på, at intervallet indeholder den sande middelværdi.</p>
 </section>
 <section id="en-del-af-en-eksamensopgave" class="slide level2">
 <h2>En del af en eksamensopgave</h2>
 <div class="columns">
 <div class="column">
+<div class="evensmaller">
 <p>Vi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="gimelxzbta" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gimelxzbta table {
+<div id="vbtvykddow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vbtvykddow table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gimelxzbta thead, #gimelxzbta tbody, #gimelxzbta tfoot, #gimelxzbta tr, #gimelxzbta td, #gimelxzbta th {
+#vbtvykddow thead, #vbtvykddow tbody, #vbtvykddow tfoot, #vbtvykddow tr, #vbtvykddow td, #vbtvykddow th {
   border-style: none;
 }
 
-#gimelxzbta p {
+#vbtvykddow p {
   margin: 0;
   padding: 0;
 }
 
-#gimelxzbta .gt_table {
+#vbtvykddow .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2084,12 +2089,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-left-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_caption {
+#vbtvykddow .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gimelxzbta .gt_title {
+#vbtvykddow .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2101,7 +2106,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-width: 0;
 }
 
-#gimelxzbta .gt_subtitle {
+#vbtvykddow .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2113,7 +2118,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-width: 0;
 }
 
-#gimelxzbta .gt_heading {
+#vbtvykddow .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2125,13 +2130,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_bottom_border {
+#vbtvykddow .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_col_headings {
+#vbtvykddow .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2146,7 +2151,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_col_heading {
+#vbtvykddow .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2166,7 +2171,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#gimelxzbta .gt_column_spanner_outer {
+#vbtvykddow .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2178,15 +2183,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 4px;
 }
 
-#gimelxzbta .gt_column_spanner_outer:first-child {
+#vbtvykddow .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gimelxzbta .gt_column_spanner_outer:last-child {
+#vbtvykddow .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gimelxzbta .gt_column_spanner {
+#vbtvykddow .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2198,11 +2203,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   width: 100%;
 }
 
-#gimelxzbta .gt_spanner_row {
+#vbtvykddow .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gimelxzbta .gt_group_heading {
+#vbtvykddow .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2228,7 +2233,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   text-align: left;
 }
 
-#gimelxzbta .gt_empty_group_heading {
+#vbtvykddow .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2243,15 +2248,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: middle;
 }
 
-#gimelxzbta .gt_from_md > :first-child {
+#vbtvykddow .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gimelxzbta .gt_from_md > :last-child {
+#vbtvykddow .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gimelxzbta .gt_row {
+#vbtvykddow .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2270,7 +2275,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#gimelxzbta .gt_stub {
+#vbtvykddow .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2283,7 +2288,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#gimelxzbta .gt_stub_row_group {
+#vbtvykddow .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2297,15 +2302,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: top;
 }
 
-#gimelxzbta .gt_row_group_first td {
+#vbtvykddow .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gimelxzbta .gt_row_group_first th {
+#vbtvykddow .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gimelxzbta .gt_summary_row {
+#vbtvykddow .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2315,16 +2320,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#gimelxzbta .gt_first_summary_row {
+#vbtvykddow .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_first_summary_row.thick {
+#vbtvykddow .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gimelxzbta .gt_last_summary_row {
+#vbtvykddow .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2334,7 +2339,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_grand_summary_row {
+#vbtvykddow .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2344,7 +2349,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#gimelxzbta .gt_first_grand_summary_row {
+#vbtvykddow .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2354,7 +2359,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_last_grand_summary_row_top {
+#vbtvykddow .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2364,11 +2369,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_striped {
+#vbtvykddow .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gimelxzbta .gt_table_body {
+#vbtvykddow .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2377,7 +2382,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_footnotes {
+#vbtvykddow .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2391,7 +2396,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_footnote {
+#vbtvykddow .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2400,7 +2405,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#gimelxzbta .gt_sourcenotes {
+#vbtvykddow .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2414,7 +2419,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#gimelxzbta .gt_sourcenote {
+#vbtvykddow .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2422,72 +2427,72 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#gimelxzbta .gt_left {
+#vbtvykddow .gt_left {
   text-align: left;
 }
 
-#gimelxzbta .gt_center {
+#vbtvykddow .gt_center {
   text-align: center;
 }
 
-#gimelxzbta .gt_right {
+#vbtvykddow .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gimelxzbta .gt_font_normal {
+#vbtvykddow .gt_font_normal {
   font-weight: normal;
 }
 
-#gimelxzbta .gt_font_bold {
+#vbtvykddow .gt_font_bold {
   font-weight: bold;
 }
 
-#gimelxzbta .gt_font_italic {
+#vbtvykddow .gt_font_italic {
   font-style: italic;
 }
 
-#gimelxzbta .gt_super {
+#vbtvykddow .gt_super {
   font-size: 65%;
 }
 
-#gimelxzbta .gt_footnote_marks {
+#vbtvykddow .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gimelxzbta .gt_asterisk {
+#vbtvykddow .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gimelxzbta .gt_indent_1 {
+#vbtvykddow .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gimelxzbta .gt_indent_2 {
+#vbtvykddow .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gimelxzbta .gt_indent_3 {
+#vbtvykddow .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gimelxzbta .gt_indent_4 {
+#vbtvykddow .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gimelxzbta .gt_indent_5 {
+#vbtvykddow .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gimelxzbta .katex-display {
+#vbtvykddow .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gimelxzbta div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#vbtvykddow div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2521,6 +2526,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 <p>Beregn 95% konfidensinterval for hver af de to grupper.</p>
+<p>Ja, det ligner noget vi har set før. Dengang skulle vi se på det interval der indeholdt 95% af observationer. Nu skal vi estimere to middelværdier.</p>
+</div>
 </div><div class="column">
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2528,7 +2535,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <aside class="notes">
 <p><span class="math inline">\(SEM_{dia} = \frac{0.068}{\sqrt(227)}\)</span></p>
 <p><span class="math inline">\(SEM_{ikke-dia} = \frac{0.057}{\sqrt(140)}\)</span></p>
-<p>det vi skal lægge mærke til er, at middel for diabetikere ikke er indeholdt i ki for non diabetikere. Og omvendt.</p>
+<p>det vi skal lægge mærke til er, at middel for diabetikere ikke er indeholdt i ki for non diabetikere. Og omvendt.<br>
+Er der forskel?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2603,7 +2611,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <h2>maj 2025 opgave 2 a</h2>
 <p>Vi får oplyst at et 95% konfidensinterval for en fødselsvægt er 3561.5 gram til 3583.4 gram. Vi får også at vide at beregningen er baseret på 11279 kvinder.</p>
 <p>Vi bliver nu spurgt hvor mange gange bredere konfidensintervallet ville blive hvis vi kun havde haft data fra 200 kvinder.</p>
-<p>Den nedre grænse for konfidensintervallet findes ved at trække 1.96 gange SEM fra middelværdien. Den øvore grænse finder vi ved at lægge 1.96 gange SEM til middelværdien.</p>
+<p>Den nedre grænse for konfidensintervallet findes ved at trække 1.96 gange SEM fra middelværdien. Den øvre grænse finder vi ved at lægge 1.96 gange SEM til middelværdien.</p>
 <p>Med andre ord afhænger bredden af standardfejlen, SEM.</p>
 <p>SEM finder vi ved at dividere standardafvigelsen med kvadratroden af antallet af observationer.</p>
 <p>Så i konfidensintervallet har vi divideret standardafvigelsen med sqrt(11279)</p>
@@ -2612,7 +2620,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>bredden af det andet konfidensinterval er 2<em>1.96</em>sd/sqrt(200)</p>
 <p>Den ene divideret med den anden:</p>
 <p>bredde200 / bredde11270 = sqrt(11270)/sqrt(200) = 7.5</p>
-<p>ca 7½ gange. bredere.</p>
+<p>ca 7½ gange bredere.</p>
 </section>
 <section id="øvelse-fra-en-eksamensopgave" class="slide level2">
 <h2>øvelse fra en eksamensopgave</h2>
@@ -2664,7 +2672,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <p>må</p>
 <p>Vi har to samples. Så vi bruger two-sample t-test. Vi er ude efter at se om forskellen mellem de to grupper 152.5-156.5 er signifikant forskellig fra 0.</p>
-<p>Vi har to grupper - så vi skal have berenet den poolede standardfejl:</p>
+<p>Vi har to grupper - så vi skal have beregnet den poolede standardfejl:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.860459</code></pre>
@@ -2784,24 +2792,24 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Nu udføres følgende annalyse: summary(lm(diff~factor(gender))) og vi får dette resultat:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ovukgrvtvc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ongxpswkzt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#ovukgrvtvc table {
+#ongxpswkzt table {
   font-family: 'Courier Prime', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ovukgrvtvc thead, #ovukgrvtvc tbody, #ovukgrvtvc tfoot, #ovukgrvtvc tr, #ovukgrvtvc td, #ovukgrvtvc th {
+#ongxpswkzt thead, #ongxpswkzt tbody, #ongxpswkzt tfoot, #ongxpswkzt tr, #ongxpswkzt td, #ongxpswkzt th {
   border-style: none;
 }
 
-#ovukgrvtvc p {
+#ongxpswkzt p {
   margin: 0;
   padding: 0;
 }
 
-#ovukgrvtvc .gt_table {
+#ongxpswkzt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2827,12 +2835,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-left-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_caption {
+#ongxpswkzt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ovukgrvtvc .gt_title {
+#ongxpswkzt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2844,7 +2852,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-width: 0;
 }
 
-#ovukgrvtvc .gt_subtitle {
+#ongxpswkzt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2856,7 +2864,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-width: 0;
 }
 
-#ovukgrvtvc .gt_heading {
+#ongxpswkzt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2868,13 +2876,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_bottom_border {
+#ongxpswkzt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_col_headings {
+#ongxpswkzt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -2889,7 +2897,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_col_heading {
+#ongxpswkzt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2909,7 +2917,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#ovukgrvtvc .gt_column_spanner_outer {
+#ongxpswkzt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2921,15 +2929,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 4px;
 }
 
-#ovukgrvtvc .gt_column_spanner_outer:first-child {
+#ongxpswkzt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ovukgrvtvc .gt_column_spanner_outer:last-child {
+#ongxpswkzt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ovukgrvtvc .gt_column_spanner {
+#ongxpswkzt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
@@ -2941,11 +2949,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   width: 100%;
 }
 
-#ovukgrvtvc .gt_spanner_row {
+#ongxpswkzt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ovukgrvtvc .gt_group_heading {
+#ongxpswkzt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2971,7 +2979,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   text-align: left;
 }
 
-#ovukgrvtvc .gt_empty_group_heading {
+#ongxpswkzt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2986,15 +2994,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: middle;
 }
 
-#ovukgrvtvc .gt_from_md > :first-child {
+#ongxpswkzt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ovukgrvtvc .gt_from_md > :last-child {
+#ongxpswkzt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ovukgrvtvc .gt_row {
+#ongxpswkzt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3013,7 +3021,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#ovukgrvtvc .gt_stub {
+#ongxpswkzt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3026,7 +3034,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#ovukgrvtvc .gt_stub_row_group {
+#ongxpswkzt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3040,15 +3048,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: top;
 }
 
-#ovukgrvtvc .gt_row_group_first td {
+#ongxpswkzt .gt_row_group_first td {
   border-top-width: 0px;
 }
 
-#ovukgrvtvc .gt_row_group_first th {
+#ongxpswkzt .gt_row_group_first th {
   border-top-width: 0px;
 }
 
-#ovukgrvtvc .gt_summary_row {
+#ongxpswkzt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3058,16 +3066,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#ovukgrvtvc .gt_first_summary_row {
+#ongxpswkzt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_first_summary_row.thick {
+#ongxpswkzt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ovukgrvtvc .gt_last_summary_row {
+#ongxpswkzt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3077,7 +3085,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_grand_summary_row {
+#ongxpswkzt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3087,7 +3095,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#ovukgrvtvc .gt_first_grand_summary_row {
+#ongxpswkzt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3097,7 +3105,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_last_grand_summary_row_top {
+#ongxpswkzt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3107,11 +3115,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_striped {
+#ongxpswkzt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ovukgrvtvc .gt_table_body {
+#ongxpswkzt .gt_table_body {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -3120,7 +3128,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_footnotes {
+#ongxpswkzt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3134,7 +3142,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_footnote {
+#ongxpswkzt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3143,7 +3151,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#ovukgrvtvc .gt_sourcenotes {
+#ongxpswkzt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3157,7 +3165,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#ovukgrvtvc .gt_sourcenote {
+#ongxpswkzt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3165,72 +3173,72 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#ovukgrvtvc .gt_left {
+#ongxpswkzt .gt_left {
   text-align: left;
 }
 
-#ovukgrvtvc .gt_center {
+#ongxpswkzt .gt_center {
   text-align: center;
 }
 
-#ovukgrvtvc .gt_right {
+#ongxpswkzt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ovukgrvtvc .gt_font_normal {
+#ongxpswkzt .gt_font_normal {
   font-weight: normal;
 }
 
-#ovukgrvtvc .gt_font_bold {
+#ongxpswkzt .gt_font_bold {
   font-weight: bold;
 }
 
-#ovukgrvtvc .gt_font_italic {
+#ongxpswkzt .gt_font_italic {
   font-style: italic;
 }
 
-#ovukgrvtvc .gt_super {
+#ongxpswkzt .gt_super {
   font-size: 65%;
 }
 
-#ovukgrvtvc .gt_footnote_marks {
+#ongxpswkzt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ovukgrvtvc .gt_asterisk {
+#ongxpswkzt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ovukgrvtvc .gt_indent_1 {
+#ongxpswkzt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ovukgrvtvc .gt_indent_2 {
+#ongxpswkzt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ovukgrvtvc .gt_indent_3 {
+#ongxpswkzt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ovukgrvtvc .gt_indent_4 {
+#ongxpswkzt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ovukgrvtvc .gt_indent_5 {
+#ongxpswkzt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ovukgrvtvc .katex-display {
+#ongxpswkzt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ovukgrvtvc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ongxpswkzt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

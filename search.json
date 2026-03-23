@@ -4,14 +4,126 @@
     "href": "slides/logistisk.html#kategoriske-udfald",
     "title": "Kategoriske udfald",
     "section": "Kategoriske udfald",
-    "text": "Kategoriske udfald\nDen lineære regression bruger vi når vi har kontinuærte resultater.\nHvordan håndterer vi kategoriske resultater?\nLogistisk regression\nRelativ risiko\nChi i anden\nOdds ratio"
+    "text": "Kategoriske udfald\nDen lineære regression bruger vi når vi har kontinuærte resultater.\nHvordan håndterer vi kategoriske resultater?\nLogistisk regression\nRelativ risiko\nChi i anden\nOdds ratio\nHer tæller vi. Og vi"
+  },
+  {
+    "objectID": "slides/logistisk.html#en-opgave",
+    "href": "slides/logistisk.html#en-opgave",
+    "title": "Kategoriske udfald",
+    "section": "En opgave",
+    "text": "En opgave\n\n\n\nVi skal se på prævalensen af tuberkulose blandt stiknarkomaner og om den er afhængig af om der deles sprøjter med andre narkomaner.\nI en gruppe med 97 narkomaner der deler sprøjte med andre narkomaner, testede 24.7% positiv for TB.\nI en gruppe på 161 narkomaner der ikke delte sprøjte, var 17.4% der testede positive for TB.\nHvor mange tester positiv hhv negativ i hver gruppe?\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/logistisk.html#en-opgave-1",
+    "href": "slides/logistisk.html#en-opgave-1",
+    "title": "Kategoriske udfald",
+    "section": "En opgave",
+    "text": "En opgave\nDEN HER SKAL JEG LIGE HAVE KIGGET NÆRMERE PÅ - FOR JEG TROR DER ER EN GRAVERENDE FEJL I MODELBESVARELSEN.\n\n\nDet gav disse tal:\n\n\n\n\n\n\n\n\nTB\ndeler\ndeler ikke\n\n\n\n\nTB-positiv\n24\n28\n\n\nTB-negativ\n73\n133\n\n\n\n\n\n\n\nHvis vi antager at prævalensen ikke afhænger af om der deles sprøjter - hvad estimerer vi så prævalensen til at være?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHvor mange positive er der? Hvor mange er der ialt? Det er estimatet."
+  },
+  {
+    "objectID": "slides/logistisk.html#hvor-sikker-er-vi-på-det-tal",
+    "href": "slides/logistisk.html#hvor-sikker-er-vi-på-det-tal",
+    "title": "Kategoriske udfald",
+    "section": "Hvor sikker er vi på det tal?",
+    "text": "Hvor sikker er vi på det tal?\nOpgaven fortsætter: Angiv også et 95% konfidensinterval på det estimat.\nEstimatet er en andel. Også kaldet en proportion\nMetoden har vi set før.\n\n\\(estimat \\pm 1.96 \\cdot SE\\)\n\n\n\n(1.96 betegner vi den kritiske værdi. Den er 1.96 fordi vi antager normalitet. Og har besluttet os for at det er et 95% konfidensinterval vi vil have.)\n\n\n\nSå - hvordan beregner vi en standardfejl på estimatet af en proportion?\n\n\n\\(SE_{prop} = \\sqrt{\\frac{p\\cdot(1-p)}{n}}\\)"
+  },
+  {
+    "objectID": "slides/logistisk.html#hvor-sikker-var-vi",
+    "href": "slides/logistisk.html#hvor-sikker-var-vi",
+    "title": "Kategoriske udfald",
+    "section": "Hvor sikker var vi?",
+    "text": "Hvor sikker var vi?\n\n\n\nHvad er et 95% KI for prævalensen af TB blandt stiknarkomaner, hvis vi antager at den ikke afhænger af om man deler sprøjte eller ej?\nProportionen beregnede vi til 0.2015504\nStandardfejlen er givet ved:\n\\(SE_{prop} = \\sqrt{\\frac{p\\cdot(1-p)}{n}}\\)\nDer var 258 observationer i stikprøven\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/logistisk.html#videre-med-samme-opgave",
+    "href": "slides/logistisk.html#videre-med-samme-opgave",
+    "title": "Kategoriske udfald",
+    "section": "Videre med samme opgave",
+    "text": "Videre med samme opgave\n\nUndersøg hypotesen om at risikoen for at få TB for stiknarkomaner ikke afhænger af om man deler sprøjte eller ej. Argumenter ud fra relevant KI.\n\nHvis I har fået fat i modelbesvarelsen for denne opgave - bemærk at der er en regnefejl, fordi nogen har byttet om på n for de to grupper.\n\nHvordan gør vi det?\nVi beregner prævalensen i de to grupper, og de tilhørende standardfejl, og sammenligne de to konfidensintervaller vi så får.\nHvis prævalensen af TB for de narkomaner der deler sprøjte er indeholdt i KI for de der ikke deler sprøjte, kan vi ikke afvise at den sande prævalens for de der deler sprøjter, ikke er indeholdt i KI for de der ikke deler sprøjter."
+  },
+  {
+    "objectID": "slides/logistisk.html#lad-os-regne",
+    "href": "slides/logistisk.html#lad-os-regne",
+    "title": "Kategoriske udfald",
+    "section": "Lad os regne",
+    "text": "Lad os regne\n\n\n\n\n\n\n\n\n\n\nTB\ndeler\ndeler ikke\n\n\n\n\nTB-positiv\n24\n28\n\n\nTB-negativ\n73\n133\n\n\n\n\n\n\n\nOg:\n\\(SE_{prop} = \\sqrt{\\frac{p\\cdot(1-p)}{n}}\\)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/logistisk.html#en-anden-måde-at-regne-det-samme-på",
+    "href": "slides/logistisk.html#en-anden-måde-at-regne-det-samme-på",
+    "title": "Kategoriske udfald",
+    "section": "En anden måde at regne det samme på",
+    "text": "En anden måde at regne det samme på\nKI-tilgangen:\ndeler: prævalens: 0.247 n = 97 se_deler = sqrt(0.247*(1-0.247)/97) = 0.0437885\ndeler_ikke: prævalens: 0.174, n = 161 se_deler_ikke: sqrt(0.174*(1-0.174)/161) = 0.02987801\nKI_deler 0.247 + c(-1,1)1.960.0437885 = 0.1611745 0.3328255 KI_deler_ikke: 0.174+c(-1,1)1.960.02987801 = 0.1154391 0.2325609\nVi bemærker at prævalensen for “deler ikke” er indeholdt i KI_deler, og vi kan derfor konkludere at der ikke er en signifikant forskel.\nAlternativt: Forskel i prævalens: 0.247-0.174 = 0.073 SE_diff = sqrt(se_deler^2 + se_deler_ikke^2) = sqrt( 0.0437885^2 + 0.02987801^2) = 0.05301064\nteststørrelsen finder vi så ved: 0.073/0.05301064 = 1.377082, der ikke er signifikant (&lt;1.96)"
+  },
+  {
+    "objectID": "slides/logistisk.html#risk-ratio",
+    "href": "slides/logistisk.html#risk-ratio",
+    "title": "Kategoriske udfald",
+    "section": "risk-ratio",
+    "text": "risk-ratio\nForholdet mellem de to proportioner.\nFor det generelle forhold:\n\n\n\n\nudfald 1\nudfald 2\n\n\n\n\n\neksponeret\na\nb\n\n\n\nikke eksponeret\nc\nd\n\n\n\n\nSå får vi:\n\\(SE(log(RR)) = \\sqrt{\\frac{1}{a}-\\frac{1}{a+b}+\\frac{1}{c}-\\frac{1}{c+d}}\\)"
+  },
+  {
+    "objectID": "slides/logistisk.html#odds-hvad-er-det",
+    "href": "slides/logistisk.html#odds-hvad-er-det",
+    "title": "Kategoriske udfald",
+    "section": "odds hvad er det?",
+    "text": "odds hvad er det?"
+  },
+  {
+    "objectID": "slides/logistisk.html#odds",
+    "href": "slides/logistisk.html#odds",
+    "title": "Kategoriske udfald",
+    "section": "odds",
+    "text": "odds\n\n\n\n\n\n\n\n\nTB\ndeler\ndeler ikke\n\n\n\n\nTB-positiv\n24\n28\n\n\nTB-negativ\n73\n133\n\n\n\n\n\n\n\nodds for tb bland de der deler sprøjter\n24/73\nodds for tb blandt de der ikke deler sprøjter\n28/133\n24/73 divideret med 28/133 - vi ganger med den omvendte.\nHvor meget større er odds for at have tb i den ene gruppe sammenlignet med den anden?\nDet kommer lidt an på hvad vi dividerer med hvad.\nnår vi divideder odds for at have tb når man deler med odds for have tb når man ikke deler - får vi hvor mange gange større (eller mindre) odds er for at have tb når man deler, sammenlignet med når man ikke deler.\nNår vi dividerer odds fo at have tb når man ikke deler med odds fo at have tb når man deler, får vi hvor mange gange større eller mindre odds er for at have tb når man ikke deler, sammenlignet med når man deler."
+  },
+  {
+    "objectID": "slides/logistisk.html#hvor-sikre-er-vi-på-det-estimat",
+    "href": "slides/logistisk.html#hvor-sikre-er-vi-på-det-estimat",
+    "title": "Kategoriske udfald",
+    "section": "Hvor sikre er vi på det estimat?",
+    "text": "Hvor sikre er vi på det estimat?\nDet er samme metodik igen-igen. estimat +/- 1.96 gange standardfejlen.\nDet er lidt mere komplkst her, for vi har ikke en let SE beregning for OR. Men vi har en der er simpel for log(or)\nFor det generelle forhold:\n\n\n\n\nudfald 1\nudfald 2\n\n\n\n\n\neksponeret\na\nb\n\n\n\nikke eksponeret\nc\nd\n\n\n\n\nSå får vi:\n\\(SE(log(OR)) = \\sqrt{\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{1}{d}}\\)"
+  },
+  {
+    "objectID": "slides/logistisk.html#chiianden-tilgangen",
+    "href": "slides/logistisk.html#chiianden-tilgangen",
+    "title": "Kategoriske udfald",
+    "section": "chiianden tilgangen",
+    "text": "chiianden tilgangen\nLidt mere generel - den kan håndtere mere end et udfald.\nVi tester grundlæggende hvor stor forskellen er på hvad vi faktisk observerer. Og hvad vi ville forvente.\nHvis vi kun kender totallerne\n\n\n\n\nTB+\nTB-\nTotal\n\n\n\n\nDeler sprøjter\n?\n?\n97\n\n\nDeler ikke\n?\n?\n161\n\n\nTotal\n52\n206\n258\n\n\n\nOg fordelingen af TB+ og TB- er den samme blandt de der deler sprøjter, som de der ikke deler sprøjter\nHvor mange forventer vi så har tb blandt de der deler sprøjter?\n52 ud af 258 har tb. Det er den forventede andel. Så når vi har 97 der deler sprøjter så er der 97*52/258 ~ 20. Det er den forventede værdi. Men der er faktisk 24, 4 flere.\nBlandt de der ikke deler sprøjter ville vi forvente at se 161*52/258 ~32 Men der var kun 28. fire færre.\nChi-i-anden testen laver alle de beregninger, og fortæller os om der er forskel imellem de to grupper.\nDen fortæller os ikke hvilken der har den største prævalens. Blot om der er forskel i fordelingen af tb i mellem de to grupper. Eller om der er forskel i fordelingen af deler/deler ikke mellem de to andre grupper.\nVi har ialt 258 observationer. Af dem har de 52 tb. Så vi forventer at 52/258 er andelen af tb.\nDe der deler sprøjter er, dem er der 97 af."
+  },
+  {
+    "objectID": "slides/logistisk.html#teststørrelse-tilgangen",
+    "href": "slides/logistisk.html#teststørrelse-tilgangen",
+    "title": "Kategoriske udfald",
+    "section": "teststørrelse tilgangen",
+    "text": "teststørrelse tilgangen\nvi er interesserede i om et 95% KI indeholder 0.\nvores 95% ki er beregnet ved estimatet +/- 1.96 gangen SE\nHvis estimat/SE er mindre end 1.96 - hvad så?"
+  },
+  {
+    "objectID": "slides/logistisk.html#sammenfattende",
+    "href": "slides/logistisk.html#sammenfattende",
+    "title": "Kategoriske udfald",
+    "section": "Sammenfattende",
+    "text": "Sammenfattende\nEstimat +/- 1.96*standardfejlen\nSå hvordan beregner vi standardfejlen ved de forskellige tilgange?\nSå nu kan vi beregne forskelle i proportioner/andel/prevalens\nVi kan se om 0 er indeholdt i en forskel\nVi kan beregne ki på RR. Og på Odds"
+  },
+  {
+    "objectID": "slides/logistisk.html#flere-øvelser",
+    "href": "slides/logistisk.html#flere-øvelser",
+    "title": "Kategoriske udfald",
+    "section": "Flere øvelser",
+    "text": "Flere øvelser"
   },
   {
     "objectID": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
     "href": "slides/logistisk.html#hvad-bruger-vi-den-logistiske-regression-til",
     "title": "Kategoriske udfald",
     "section": "Hvad bruger vi den logistiske regression til?",
-    "text": "Hvad bruger vi den logistiske regression til?\nDen almindelige lineære regression bruger vi når vi forsøger at forudsige en numerisk, kontinuær variabel.\nNår vi skal forudsige en kategorisk variabel bruger vi den logistiske regression i stedet. Den beskidte matematiske hemmelighed er, at det også er en lineær regression.\nI den lineære regression fitter vi\nE(Y|X) = beta0 + beta1x hvor det er den forventede værdi af Y givet X\nAltså, givet værdierne vi bruger til forudsigelsen, hvad forventer vi så Y er.\ni den logistiske regression er det:\n\\[log(\\frac{p}{1-p} = \\beta_0 + \\beta_1x\\]\np er en sandsynlighed. Men i stedet for en direkte sandsynlighed, er det odds vi modellerer. mere præcist log-odds\nogså kaldet logit-funktionen.\nVil vi have sandsynligheden, skal vi bruge den inverse logit\n\\[p = \\frac{1}{1+e^{-\\eta}}\\]\nOg vi bruger logodds - fordi matematikken bliver enkel og let. Også selvom vi ikke piller i den selv.\nHvad er så odds? det er forholdet mellem sandsynligheden af to mulige udfald - at noget sker, og at det ikke sker.\nHvis sandsynligheden for at noget sker er 75%, er sandsynligheden for at det ikke sker 25%. forholdet er derfor 0.75/0.25 = 3. Det vil sige at det er tre gange så sandsynligt at det sker, som at det ikke sker."
+    "text": "Hvad bruger vi den logistiske regression til?\nDen almindelige lineære regression bruger vi når vi forsøger at forudsige en numerisk, kontinuær variabel.\nNår vi skal forudsige en kategorisk variabel bruger vi den logistiske regression i stedet. Den beskidte matematiske hemmelighed er, at det også er en lineær regression.\nI den lineære regression fitter vi\nE(Y|X) = beta0 + beta1x hvor det er den forventede værdi af Y givet X\nAltså, givet værdierne vi bruger til forudsigelsen, hvad forventer vi så Y er.\ni den logistiske regression er det:\n\\(log(\\frac{p}{1-p}) = \\beta_0 + \\beta_1x\\)\np er en sandsynlighed. Men i stedet for en direkte sandsynlighed, er det odds vi modellerer. mere præcist log-odds\nogså kaldet logit-funktionen.\nVil vi have sandsynligheden, skal vi bruge den inverse logit\n\\[p = \\frac{1}{1+e^{-\\eta}}\\]\nOg vi bruger logodds - fordi matematikken bliver enkel og let. Også selvom vi ikke piller i den selv."
+  },
+  {
+    "objectID": "slides/logistisk.html#hvorfor-odds",
+    "href": "slides/logistisk.html#hvorfor-odds",
+    "title": "Kategoriske udfald",
+    "section": "Hvorfor odds?",
+    "text": "Hvorfor odds?\nEller rettere - hvorfor log-odds?\nFordi matematikken bliver pæn og nydelig.\nVed 10 observationer med to mulige udfald A og B.\nhvor vi har 1 A og derfor 9 B.\nSå er andelen af A: 1/10 Og andelen af B 9/10\nDe to er egentlig ækvivalente. Men den ene er 0.1 og den anden er 0.9\nBeregner vi i stedet odds:\nSå er odds for A 1/9. Og odds for B er 9/1\nDet er bare en anden måde at udtrykke det samme på.\nMen tager vi logaritmen til begge\n\nlog(1/9)\n\n[1] -2.197225\n\n\n\nlog(9/1)\n\n[1] 2.197225\n\n\nSamme værdi, omvendt fortegn. Pænt centreret om 0.\nHvad er så odds? det er forholdet mellem sandsynligheden af to mulige udfald - at noget sker, og at det ikke sker.\nHvis sandsynligheden for at noget sker er 75%, er sandsynligheden for at det ikke sker 25%. forholdet er derfor 0.75/0.25 = 3. Det vil sige at det er tre gange så sandsynligt at det sker, som at det ikke sker."
   },
   {
     "objectID": "slides/logistisk.html#hvordan-laver-vi-en-logistisk-regression",
@@ -263,14 +375,14 @@
     "href": "slides/SEM.html#men-også-fordi",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Men også fordi!",
-    "text": "Men også fordi!\nDen centrale grænseværdisætning:\nTager vi tilstrækkeligt mange stikprøver, vil disse stikprøvers middelværdier følge normalfordelingen.\nDen normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen."
+    "text": "Men også fordi!\nDen centrale grænseværdisætning:\nTager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge normalfordelingen.\nDen normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen."
   },
   {
     "objectID": "slides/SEM.html#men-ikke-den-middelværdi-i-får-fra-én-stikprøve",
     "href": "slides/SEM.html#men-ikke-den-middelværdi-i-får-fra-én-stikprøve",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Men ikke den middelværdi I får fra én stikprøve!",
-    "text": "Men ikke den middelværdi I får fra én stikprøve!\nSå hvad er populationens middelværdi?\nDet kan vi ikke vide. Men vi kan sige noget om den alligevel.\nFor vores stikprøves middelværdi vil komme fra fordelingen af middelværdier fra alle stikprøverne fra populationen.\nMen vi ved ikke hvad spredningen på den fordeling er!"
+    "text": "Men ikke den middelværdi I får fra én stikprøve!\nSå hvad er populationens middelværdi?\nDet kan vi ikke vide. Men vi kan sige noget om den alligevel.\nFor vores stikprøves middelværdi vil komme fra fordelingen af middelværdier fra alle stikprøverne fra populationen.\nVi ved dog ikke hvad spredningen på den fordeling er!"
   },
   {
     "objectID": "slides/SEM.html#hvad-er-spredningen",
@@ -298,14 +410,21 @@
     "href": "slides/SEM.html#konfidensintervaller",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Konfidensintervaller",
-    "text": "Konfidensintervaller\nDEN HER SKAL MÅSKE FORKLARES LIDT BEDRE.\nVi beregner et konfidensinterval.\nNormalt et 95% konfidensinterval.\nDet vil fortælle os, indenfor hvilket interval vi, med 95% sikkerhed, kan forvente at finde den sande middelværdi.\nDen kan ligge udenfor. Det vil den gøre i 5% af tilfældene.\nHusk normalfordelingen. Der er en middelværdi og en spredning. Og så kan vi finde ud af hvor grænserne for den del der indeholder 95% af observationerne ligger.\nNu gør vi det “bare” med SEM i stedet for sigma.\n\\(\\mu \\pm 1.96 SEM\\)"
+    "text": "Konfidensintervaller\nDet gennemsnit vi finder i vores stikprøve er vores estimat på den sande værdi i populationen.\nUsikkerheden på det estimat bestemmes af stikprøvens størrelse, og variationen i data.\nStandardfejlen på estimatet beregnes ved \\(SEM = \\frac{s}{\\sqrt{n}}\\)s\nVi beregner et 95% konfidensinterval ved middelværdien plus/minus 1.96*SEM.\nSom dog teknisk set kun gælder hvis vi kender sigma, eller stikprøven er stor."
+  },
+  {
+    "objectID": "slides/SEM.html#konfidensintervaller-1",
+    "href": "slides/SEM.html#konfidensintervaller-1",
+    "title": "Konfidensintervaller og hypotesetests",
+    "section": "Konfidensintervaller",
+    "text": "Konfidensintervaller\nStringent formuleret:\nHvis vi gentager forsøget mange gange og hver gang beregner et 95% konfidensinterval, vil ca. 95% af intervallerne indeholde den sande middelværdi 𝜇\n\\(\\mu \\pm 1.96 SEM\\)\nEller, lidt sjusket: Vi er 95% sikre på, at intervallet indeholder den sande middelværdi."
   },
   {
     "objectID": "slides/SEM.html#en-del-af-en-eksamensopgave",
     "href": "slides/SEM.html#en-del-af-en-eksamensopgave",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "En del af en eksamensopgave",
-    "text": "En del af en eksamensopgave\n\n\nVi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:\n\n\n\n\n\n\n\n\ngruppe\nAntal\nGennemsnit\nSpredning\n\n\n\n\nDiabetikere\n227\n0.719\n0.068\n\n\nIkke-diabetikere\n140\n0.810\n0.057\n\n\n\n\n\n\n\nBeregn 95% konfidensinterval for hver af de to grupper.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\\(SEM_{dia} = \\frac{0.068}{\\sqrt(227)}\\)\n\\(SEM_{ikke-dia} = \\frac{0.057}{\\sqrt(140)}\\)\ndet vi skal lægge mærke til er, at middel for diabetikere ikke er indeholdt i ki for non diabetikere. Og omvendt."
+    "text": "En del af en eksamensopgave\n\n\n\nVi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:\n\n\n\n\n\n\n\n\ngruppe\nAntal\nGennemsnit\nSpredning\n\n\n\n\nDiabetikere\n227\n0.719\n0.068\n\n\nIkke-diabetikere\n140\n0.810\n0.057\n\n\n\n\n\n\n\nBeregn 95% konfidensinterval for hver af de to grupper.\nJa, det ligner noget vi har set før. Dengang skulle vi se på det interval der indeholdt 95% af observationer. Nu skal vi estimere to middelværdier.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\\(SEM_{dia} = \\frac{0.068}{\\sqrt(227)}\\)\n\\(SEM_{ikke-dia} = \\frac{0.057}{\\sqrt(140)}\\)\ndet vi skal lægge mærke til er, at middel for diabetikere ikke er indeholdt i ki for non diabetikere. Og omvendt.\nEr der forskel?"
   },
   {
     "objectID": "slides/SEM.html#hypotesetest",
@@ -333,7 +452,7 @@
     "href": "slides/SEM.html#maj-2025-opgave-2-a",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "maj 2025 opgave 2 a",
-    "text": "maj 2025 opgave 2 a\nVi får oplyst at et 95% konfidensinterval for en fødselsvægt er 3561.5 gram til 3583.4 gram. Vi får også at vide at beregningen er baseret på 11279 kvinder.\nVi bliver nu spurgt hvor mange gange bredere konfidensintervallet ville blive hvis vi kun havde haft data fra 200 kvinder.\nDen nedre grænse for konfidensintervallet findes ved at trække 1.96 gange SEM fra middelværdien. Den øvore grænse finder vi ved at lægge 1.96 gange SEM til middelværdien.\nMed andre ord afhænger bredden af standardfejlen, SEM.\nSEM finder vi ved at dividere standardafvigelsen med kvadratroden af antallet af observationer.\nSå i konfidensintervallet har vi divideret standardafvigelsen med sqrt(11279)\nNu har vi en stikprøvestørrelse på 200. Så finder vi bredden af konfidensintervallet ved at dividere standardafvigelsen med sqrt(200)\nEller - bredden af det første konfidensinterval er 21.96sd/sqrt(11279)\nbredden af det andet konfidensinterval er 21.96sd/sqrt(200)\nDen ene divideret med den anden:\nbredde200 / bredde11270 = sqrt(11270)/sqrt(200) = 7.5\nca 7½ gange. bredere."
+    "text": "maj 2025 opgave 2 a\nVi får oplyst at et 95% konfidensinterval for en fødselsvægt er 3561.5 gram til 3583.4 gram. Vi får også at vide at beregningen er baseret på 11279 kvinder.\nVi bliver nu spurgt hvor mange gange bredere konfidensintervallet ville blive hvis vi kun havde haft data fra 200 kvinder.\nDen nedre grænse for konfidensintervallet findes ved at trække 1.96 gange SEM fra middelværdien. Den øvre grænse finder vi ved at lægge 1.96 gange SEM til middelværdien.\nMed andre ord afhænger bredden af standardfejlen, SEM.\nSEM finder vi ved at dividere standardafvigelsen med kvadratroden af antallet af observationer.\nSå i konfidensintervallet har vi divideret standardafvigelsen med sqrt(11279)\nNu har vi en stikprøvestørrelse på 200. Så finder vi bredden af konfidensintervallet ved at dividere standardafvigelsen med sqrt(200)\nEller - bredden af det første konfidensinterval er 21.96sd/sqrt(11279)\nbredden af det andet konfidensinterval er 21.96sd/sqrt(200)\nDen ene divideret med den anden:\nbredde200 / bredde11270 = sqrt(11270)/sqrt(200) = 7.5\nca 7½ gange bredere."
   },
   {
     "objectID": "slides/SEM.html#øvelse-fra-en-eksamensopgave",
@@ -354,7 +473,7 @@
     "href": "slides/SEM.html#en-anden-eksamensopgave---forskel-på-middelværdier",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "En anden eksamensopgave - forskel på middelværdier",
-    "text": "En anden eksamensopgave - forskel på middelværdier\nVi undersøger effekten af et blodtrykssænkende præparat i sammenligning med placebo.\nVi får oplyst regnestørrelser for det systoliske blodtryk i mmHg for de to grupper:\n\n\n# A tibble: 2 × 4\n  Gruppe         n gennemsnit spredning\n  &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Behandling    82       152.      18.4\n2 Placebo       90       156.      19.1\n\n\nmå\nVi har to samples. Så vi bruger two-sample t-test. Vi er ude efter at se om forskellen mellem de to grupper 152.5-156.5 er signifikant forskellig fra 0.\nVi har to grupper - så vi skal have berenet den poolede standardfejl:\n\n\n[1] 2.860459\n\n\net 95% konfidensinterval for forskellen er derfor:\n4 +/- 1.96*s.e\nDa det interval indeholder 0, er der ikke signifikant effekt - det beregnede 95% konfidensinterval for forskellen indeholder med 95% sandsynlighed 0."
+    "text": "En anden eksamensopgave - forskel på middelværdier\nVi undersøger effekten af et blodtrykssænkende præparat i sammenligning med placebo.\nVi får oplyst regnestørrelser for det systoliske blodtryk i mmHg for de to grupper:\n\n\n# A tibble: 2 × 4\n  Gruppe         n gennemsnit spredning\n  &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Behandling    82       152.      18.4\n2 Placebo       90       156.      19.1\n\n\nmå\nVi har to samples. Så vi bruger two-sample t-test. Vi er ude efter at se om forskellen mellem de to grupper 152.5-156.5 er signifikant forskellig fra 0.\nVi har to grupper - så vi skal have beregnet den poolede standardfejl:\n\n\n[1] 2.860459\n\n\net 95% konfidensinterval for forskellen er derfor:\n4 +/- 1.96*s.e\nDa det interval indeholder 0, er der ikke signifikant effekt - det beregnede 95% konfidensinterval for forskellen indeholder med 95% sandsynlighed 0."
   },
   {
     "objectID": "slides/SEM.html#videre---ønsket-størrelse-af-konfidensinterval",
@@ -718,42 +837,42 @@
     "href": "slides/linreg.html#hvad-er-det-nu-den-lineære-regression-er",
     "title": "Lineær regression",
     "section": "Hvad er det nu den lineære regression er?",
-    "text": "Hvad er det nu den lineære regression er?\n\nDet er her lige meget hvad x og y egentlig dækker over. Pointen er at det ser ud til at der er en lineær sammenhæng mellem x og y. Når x stiger, stiger y også. Hvordan ser den lineære sammenhæng ud?"
+    "text": "Hvad er det nu den lineære regression er?\n\nVi ved ikke hvad x og y er. Pointen er at det ser ud til at der er en lineær sammenhæng mellem x og y. Når x stiger, stiger y også. Hvordan ser den lineære sammenhæng ud?"
   },
   {
-    "objectID": "slides/linreg.html#linreg-2",
-    "href": "slides/linreg.html#linreg-2",
+    "objectID": "slides/linreg.html#en-ret-linie",
+    "href": "slides/linreg.html#en-ret-linie",
     "title": "Lineær regression",
-    "section": "linreg 2",
-    "text": "linreg 2\nHer har vi lagt en ret linie ind. Men er det den bedste? (spoiler: Det er den)"
+    "section": "En ret linie",
+    "text": "En ret linie\nHer har vi lagt en ret linie ind. Men er det den bedste? (spoiler: Det er den)\n\nDen beskriver en sammenhæng mellem x og y."
+  },
+  {
+    "objectID": "slides/linreg.html#lineær-regression",
+    "href": "slides/linreg.html#lineær-regression",
+    "title": "Lineær regression",
+    "section": "Lineær regression",
+    "text": "Lineær regression\nI husker måske at en ret linie kan beskrives som\n\\(y = ax + b\\)\nOpgaven er altså at finde den rette linie, beskrevet ved a og b, der bedst beskriver sammenhængen mellem x og y.\nHvordan gør vi det?"
+  },
+  {
+    "objectID": "slides/linreg.html#lineær-regression-1",
+    "href": "slides/linreg.html#lineær-regression-1",
+    "title": "Lineær regression",
+    "section": "Lineær regression",
+    "text": "Lineær regression\nLinien fortæller: Hvis x har en bestemt værdi, hvilken værdi burde y så have?\n\n\nDen værdi har y ikke. Forskellen kalder vi “residualen”."
+  },
+  {
+    "objectID": "slides/linreg.html#lineær-regression-2",
+    "href": "slides/linreg.html#lineær-regression-2",
+    "title": "Lineær regression",
+    "section": "Lineær regression",
+    "text": "Lineær regression\nAlle punkterne har en residual.\nEn afvigelse fra den “sande” værdi.\nVil vil derfor skrive at:\n\\(y = ax + b + \\epsilon\\)\nDen “bedste” linie er den hvor summen af residualerne, \\(\\epsilon\\) er mindst mulig."
   },
   {
     "objectID": "slides/linreg.html#linreg-3",
     "href": "slides/linreg.html#linreg-3",
     "title": "Lineær regression",
     "section": "linreg 3",
-    "text": "linreg 3\nI husker måske at en ret linie kan beskrives som\n\\(y = ax + b\\)\nOpgaven er altså at finde den rette linie, beskrevet ved a og b, der bedst beskriver sammenhængen mellem x og y.\nHvordan gør vi det?"
-  },
-  {
-    "objectID": "slides/linreg.html#linreg-42",
-    "href": "slides/linreg.html#linreg-42",
-    "title": "Lineær regression",
-    "section": "linreg 42",
-    "text": "linreg 42\nLinien fortæller: Hvis x har en bestemt værdi, hvilken værdi burde y så have?\n\nDen værdi har y ikke. Forskellen kalder vi “residualen”."
-  },
-  {
-    "objectID": "slides/linreg.html#linreg-47",
-    "href": "slides/linreg.html#linreg-47",
-    "title": "Lineær regression",
-    "section": "linreg 47",
-    "text": "linreg 47\nAlle punkterne har en residual. Størrelsen af dem afhænger af hvor linien ligger. Den “bedste” linie er den hvor summen af residualerne er mindst mulig."
-  },
-  {
-    "objectID": "slides/linreg.html#linreg-3-1",
-    "href": "slides/linreg.html#linreg-3-1",
-    "title": "Lineær regression",
-    "section": "linreg 3",
-    "text": "linreg 3\n\nDet er så den bedst tænkelige linie, og den har det udtyk der er vist i grafen."
+    "text": "linreg 3\n\nDen bedst tænkelige linie er derfor den hvor summen af residualerne er mindst mulig."
   },
   {
     "objectID": "slides/linreg.html#linreg-4",
@@ -767,7 +886,14 @@
     "href": "slides/linreg.html#linreg-5-i-praksis",
     "title": "Lineær regression",
     "section": "Linreg 5 i praksis",
-    "text": "Linreg 5 i praksis\nR gør det ved hjælp af funktionen lm. Hvis vi vil finde ud af hvordan x beskriver y, skriver vi\nlm(y ~ x, data = df)\nLæs det som: y som funktion af x.\nDen giver et output:\n\n\n\nCall:\nlm(formula = y ~ x, data = data)\n\nCoefficients:\n(Intercept)            x  \n      44.15        42.76  \n\n\nIkke specielt interessant. Gem resultatet og kør funktionen “summary” på det gemte resultat:\n\n\n\nCall:\nlm(formula = y ~ x, data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-45.116 -11.157  -1.313  10.985  43.723 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   44.153      5.442   8.113 1.49e-10 ***\nx             42.764      0.913  46.840  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 18.81 on 48 degrees of freedom\nMultiple R-squared:  0.9786,    Adjusted R-squared:  0.9781 \nF-statistic:  2194 on 1 and 48 DF,  p-value: &lt; 2.2e-16"
+    "text": "Linreg 5 i praksis\nR gør det ved hjælp af funktionen lm. Hvis vi vil finde ud af hvordan x beskriver y, skriver vi\nlm(y ~ x, data = df)\nLæs det som: y som funktion af x.\nDen giver et output:\n\n\n\nCall:\nlm(formula = y ~ x, data = data)\n\nCoefficients:\n(Intercept)            x  \n      44.15        42.76  \n\n\nDet skæringen og hældningen"
+  },
+  {
+    "objectID": "slides/linreg.html#linreg-6",
+    "href": "slides/linreg.html#linreg-6",
+    "title": "Lineær regression",
+    "section": "linreg 6",
+    "text": "linreg 6\nIkke specielt interessant. Gem resultatet og kør funktionen “summary” på det gemte resultat:\n\n\n\nCall:\nlm(formula = y ~ x, data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-45.116 -11.157  -1.313  10.985  43.723 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   44.153      5.442   8.113 1.49e-10 ***\nx             42.764      0.913  46.840  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 18.81 on 48 degrees of freedom\nMultiple R-squared:  0.9786,    Adjusted R-squared:  0.9781 \nF-statistic:  2194 on 1 and 48 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "slides/linreg.html#linreg-6---læsning-af-output",
@@ -777,18 +903,39 @@
     "text": "linreg 6 - læsning af output\n\n\n\nCall:\nlm(formula = y ~ x, data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-45.116 -11.157  -1.313  10.985  43.723 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   44.153      5.442   8.113 1.49e-10 ***\nx             42.764      0.913  46.840  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 18.81 on 48 degrees of freedom\nMultiple R-squared:  0.9786,    Adjusted R-squared:  0.9781 \nF-statistic:  2194 on 1 and 48 DF,  p-value: &lt; 2.2e-16\n\n\nEstimaterne er koefficenterne i y = ax+b. Intercept er b, x er koefficienten der ganges på x værdien, her altså a.\nError er standardfejlen som er i familie med SEM, her er det blot ikke standarderror på “mean” men standardfejlen på estimatet.\nVi er interesserede i at vide om der er en sammenhæng mellem x og y - hvis der er, er estimatet for koefficienten på x forskellig fra 0. For hvis den er 0, så er der ikke en sammenhæng mellem x og y. Det er jo så estimat og standardfejl i de enheder som data nu har. Det er ikke så praktisk, så vi beregner en t-værdi ved at dividere estimatet med standardfejlen. Det fortæller os hvor langt estimatet ligger fra 0 - målt i standardfejl. Vi skifter simpelthen enhed.\nOg hvis vi ved hvor mange standardafvigelser vores estimat ligger fra 0 - så ved vi også hvad sandsynligheden er for at estimatet i virkeligheden er 0, selvom vi ser en værdi der ikke er 0. Den sandsynlighed er p-værdien. Når vi ser &lt; 2e-16 er det fordi p-værdien er så tæt på 0 som den kan komme uden faktisk at være det. R har en grænse for hvor præcist tal kan angives.\nstjernerne betyder noget specifikt - vi har en oversigt over den i linien der starter med “signif. codes”.\nResidual standard error er standardfejlen på residualerne. R-squared er “hvor stor en andel af variationen i data forklares af modellen”. her 97.9%. Det er ret godt, men jeg har også konstrueret data til formålet.\nHvis vi tilføjer variable til modellen, vil R-squared stige. Også selvom variablen intet har med noget at gøre.\nDet vil Adjusted R-squared tage højde for. Den korrigerer for at selvom vi tilføjer noget der forklarer variationen, så hjælper det ikke nødvendigvis modellen. Vi bruger den typisk når vi skal sammenligne to modeller - hvilken er egentlig bedst.\nF-statistic er forholdet mellem den variation modellen forklarer. Og den variation der er tilbage i residualerne. Jo større jo bedre. For det betyder at modellen forklarer meget variation, og residualerne har meget lidt variation tilbage.\nVi kan også forstå den som: Hvor meget bedre er regressionslinien end bare at bruge middelværdien af y."
   },
   {
+    "objectID": "slides/linreg.html#hvordan-estimerer-vi-y-fra-x",
+    "href": "slides/linreg.html#hvordan-estimerer-vi-y-fra-x",
+    "title": "Lineær regression",
+    "section": "Hvordan estimerer vi Y fra X?",
+    "text": "Hvordan estimerer vi Y fra X?"
+  },
+  {
+    "objectID": "slides/linreg.html#hvad-er-konfidensintervallet-på-det-estimat",
+    "href": "slides/linreg.html#hvad-er-konfidensintervallet-på-det-estimat",
+    "title": "Lineær regression",
+    "section": "Hvad er konfidensintervallet på det estimat?",
+    "text": "Hvad er konfidensintervallet på det estimat?"
+  },
+  {
+    "objectID": "slides/linreg.html#her-skal-vi-have-et-eksempel-på-en-opgave",
+    "href": "slides/linreg.html#her-skal-vi-have-et-eksempel-på-en-opgave",
+    "title": "Lineær regression",
+    "section": "Her skal vi have et eksempel på en opgave",
+    "text": "Her skal vi have et eksempel på en opgave"
+  },
+  {
     "objectID": "slides/linreg.html#multipel-lineær-regression",
     "href": "slides/linreg.html#multipel-lineær-regression",
     "title": "Lineær regression",
     "section": "Multipel lineær regression",
-    "text": "Multipel lineær regression\nDen kan vi ikke visualisere."
+    "text": "Multipel lineær regression\nDen kan vi ikke visualisere.\nHvad hvis Y afhænger af mere end en variabel?"
   },
   {
     "objectID": "slides/linreg.html#regression-med-kategoriske-variable",
     "href": "slides/linreg.html#regression-med-kategoriske-variable",
     "title": "Lineær regression",
     "section": "regression med kategoriske variable",
-    "text": "regression med kategoriske variable"
+    "text": "regression med kategoriske variable\nIndtil videre har vi lavet regressioner hvor vi har estimeret en kontinuært variabel ved hjælp af en eller flere kontinuærte variable.\nKan vi også bruge en kategorisk variabel?"
   },
   {
     "objectID": "slides/linreg.html#tolkning-generel",

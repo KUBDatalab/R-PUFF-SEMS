@@ -2,16 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Christian Knudsen">
 
-<title>KUB Datalab slides – PUFF SEMS forberedelse</title>
+<title>Powerberegninger – hurtigt overblik (medicin-statistik) – PUFF SEMS forberedelse</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -23,26 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">PUFF SEMS forberedelse</span>
     </a>
   </div>
@@ -92,8 +154,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./slides/powerberegninger_notat.html"> 
+    <a class="nav-link" href="../slides/intro.html"> 
+<span class="menu-text">PUFF SEMS forberedelse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/powerberegninger_notat.html"> 
 <span class="menu-text">Powerberegninger</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../downloads/intro.pdf"> 
+<span class="menu-text">Download PDF</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -112,13 +182,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">KUB Datalab slides</h1>
+<h1 class="title">Powerberegninger – hurtigt overblik (medicin-statistik)</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Christian Knudsen </p>
+          </div>
+  </div>
     
   
     
@@ -129,17 +205,209 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="formål" class="level1">
+<h1>Formål</h1>
+<p>Dette notat giver et hurtigt overblik over de <strong>typer power- og stikprøveberegninger</strong>, der typisk forekommer i statistikeksamener for medicinstuderende.</p>
+<p>Vi arbejder med følgende begreber:</p>
 <ul>
-<li><a href="./slides/intro.html">Intro</a> <a href="downloads/intro.pdf">pdf</a></li>
-<li><a href="./slides/normalfordelingen.html">normalfordelingen</a> <a href="downloads/normalfordelingen.pdf">pdf</a></li>
-<li><a href="./slides/SEM.html">SEM</a> <a href="downloads/SEM.pdf">pdf</a></li>
-<li><a href="./slides/kategoriske.html">Kategoriske data</a> <a href="downloads/kategoriske.pdf">pdf</a></li>
-<li><a href="./slides/linreg.html">Lineær regression</a> <a href="downloads/linreg.pdf">pdf</a></li>
-<li><a href="./slides/logistisk.html">Logistisk regression</a> <a href="downloads/logistisk.pdf">pdf</a></li>
-<li><a href="./slides/power.html">Power beregninger</a> <a href="downloads/power.pdf">pdf</a></li>
+<li><strong>α (signifikansniveau)</strong>: sandsynlighed for type I fejl<br>
+</li>
+<li><strong>β</strong>: sandsynlighed for type II fejl<br>
+</li>
+<li><strong>Power = 1 − β</strong><br>
+</li>
+<li><strong>δ</strong>: mindste klinisk relevante forskel<br>
+</li>
+<li><strong>σ</strong>: populationsstandardafvigelse<br>
+</li>
+<li><strong>n</strong>: stikprøvestørrelse</li>
 </ul>
+<p>Typisk vil opgaven være:</p>
+<blockquote class="blockquote">
+<p>Hvor stor stikprøve kræves for at kunne opdage en forskel δ med power 1−β ved signifikansniveau α?</p>
+</blockquote>
+<hr>
+</section>
+<section id="én-middelværdi-one-sample-t-test" class="level1">
+<h1>1. Én middelværdi (one-sample t-test)</h1>
+<p>Vi tester</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0
+\]</span></p>
+<p>og vil opdage en forskel</p>
+<p><span class="math display">\[
+\delta = |\mu - \mu_0|
+\]</span></p>
+<p>Stikprøvestørrelsen findes ved</p>
+<p><span class="math display">\[
+n = \left(\frac{(z_{1-\alpha/2}+z_{1-\beta})\sigma}{\delta}\right)^2
+\]</span></p>
+<section id="eksempel" class="level2">
+<h2 class="anchored" data-anchor-id="eksempel">Eksempel</h2>
+<ul>
+<li>σ = 430<br>
+</li>
+<li>ønsket forskel δ = 300<br>
+</li>
+<li>α = 0.05<br>
+</li>
+<li>power = 0.90</li>
+</ul>
+<p>I R:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> <span class="dv">300</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="dv">430</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">power =</span> <span class="fl">0.9</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"one.sample"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="to-uafhængige-middelværdier" class="level1">
+<h1>2. To uafhængige middelværdier</h1>
+<p>Vi tester</p>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2
+\]</span></p>
+<p>Den relevante forskel er</p>
+<p><span class="math display">\[
+\delta = |\mu_1 - \mu_2|
+\]</span></p>
+<p>Formel:</p>
+<p><span class="math display">\[
+n = 2\left(\frac{(z_{1-\alpha/2}+z_{1-\beta})\sigma}{\delta}\right)^2
+\]</span></p>
+<p>n er antal <strong>per gruppe</strong>.</p>
+<section id="r-kode" class="level2">
+<h2 class="anchored" data-anchor-id="r-kode">R-kode</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> <span class="dv">5</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="dv">10</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">power =</span> <span class="fl">0.8</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"two.sample"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="parrede-målinger" class="level1">
+<h1>3. Parrede målinger</h1>
+<p>Eksempel:</p>
+<ul>
+<li>før/efter behandling</li>
+<li>venstre vs højre øje</li>
+</ul>
+<p>Her bruges <strong>standardafvigelsen af forskellen</strong>.</p>
+<p>Formel:</p>
+<p><span class="math display">\[
+n = \left(\frac{(z_{1-\alpha/2}+z_{1-\beta})\sigma_d}{\delta}\right)^2
+\]</span></p>
+<p>R:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> <span class="dv">4</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="dv">8</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">power =</span> <span class="fl">0.8</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"paired"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="to-proportioner" class="level1">
+<h1>4. To proportioner</h1>
+<p>Eksempel:</p>
+<ul>
+<li>behandlingsrespons<br>
+</li>
+<li>sygdom/ikke sygdom</li>
+</ul>
+<p>Vi tester</p>
+<p><span class="math display">\[
+H_0: p_1 = p_2
+\]</span></p>
+<p>R-funktion:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.prop.test</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.20</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> <span class="fl">0.35</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">power =</span> <span class="fl">0.8</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultatet giver <strong>n per gruppe</strong>.</p>
+<hr>
+</section>
+<section id="én-proportion" class="level1">
+<h1>5. Én proportion</h1>
+<p>Hvis man vil teste</p>
+<p><span class="math display">\[
+H_0: p = p_0
+\]</span></p>
+<p>kan man bruge samme funktion:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.prop.test</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">p1 =</span> <span class="fl">0.3</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p2 =</span> <span class="fl">0.5</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">power =</span> <span class="fl">0.8</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="case-control-studier-odds-ratio" class="level1">
+<h1>6. Case-control studier (odds ratio)</h1>
+<p>Her arbejder man ofte med:</p>
+<ul>
+<li>forventet <strong>odds ratio</strong></li>
+<li>prævalens i kontrolgruppen</li>
+</ul>
+<p>Typisk beregnes power via specialiserede funktioner eller software.</p>
+<p>I R kan pakken <strong>epiR</strong> anvendes.</p>
+<hr>
+</section>
+<section id="hvad-eksamensopgaver-typisk-tester" class="level1">
+<h1>Hvad eksamensopgaver typisk tester</h1>
+<p>Man skal normalt kunne:</p>
+<ol type="1">
+<li>identificere <strong>hvilken test</strong> der anvendes<br>
+</li>
+<li>finde <strong>mindste relevante forskel δ</strong><br>
+</li>
+<li>identificere <strong>σ eller p</strong><br>
+</li>
+<li>indsætte α og power<br>
+</li>
+<li>beregne <strong>n</strong></li>
+</ol>
+<hr>
+</section>
+<section id="hurtig-huskeregel" class="level1">
+<h1>Hurtig huskeregel</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Situation</th>
+<th style="text-align: left;">R-funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">én middelværdi</td>
+<td style="text-align: left;"><code>power.t.test(type="one.sample")</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">to middelværdier</td>
+<td style="text-align: left;"><code>power.t.test(type="two.sample")</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">parrede målinger</td>
+<td style="text-align: left;"><code>power.t.test(type="paired")</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">to proportioner</td>
+<td style="text-align: left;"><code>power.prop.test()</code></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -193,14 +461,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -215,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -164,10 +164,6 @@ window.Quarto = {
     <a class="nav-link active" href="../slides/powerberegninger_notat.html" aria-current="page"> 
 <span class="menu-text">Powerberegninger</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../downloads/intro.pdf"> 
-<span class="menu-text">Download PDF</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -208,6 +204,9 @@ window.Quarto = {
 </header>
 
 
+<div class="tiny">
+<p><a href="pdf">downloads/intro.pdf</a></p>
+</div>
 <section id="formål" class="level1">
 <h1>Formål</h1>
 <p>Dette er mine noter til hvordan man laver powerberegninger (i medicinsk statistik).</p>
@@ -900,7 +899,7 @@ n
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

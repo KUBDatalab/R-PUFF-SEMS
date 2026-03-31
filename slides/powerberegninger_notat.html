@@ -205,7 +205,7 @@ window.Quarto = {
 
 
 <div class="tiny">
-<p><a href="pdf">downloads/intro.pdf</a></p>
+<p><a href="downloads/intro.pdf">pdf</a></p>
 </div>
 <section id="formål" class="level1">
 <h1>Formål</h1>
@@ -899,7 +899,7 @@ n
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

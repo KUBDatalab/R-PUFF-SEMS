@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "slides/powerberegninger_notat.html",
+    "href": "slides/powerberegninger_notat.html",
+    "title": "Powerberegninger – huskeliste",
+    "section": "",
+    "text": "Dette er mine noter til hvordan man laver powerberegninger (i medicinsk statistik).\nDet er lavet til situationer, hvor jeg hurtigt skal kunne:\n\nidentificere den rigtige type powerberegning\nopstille den korrekte formel\nfinde n, power, \\(\\delta\\), \\(\\alpha\\) eller en ukendt standardafvigelse\nskelne mellem situationer med middelværdier, proportioner og ratio-mål\n\nDet er ikke fordi matematikken er specielt kompleks. Men jeg har ikke ork til at isolere n fra en eller anden formel mere end en gang.\nDer tages forbehold for taste og regnefejl! Det er jeres eget ansvar at jeres eksamensbesvarelse er korrekt!\nDen grundlæggende idé er:\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}}\n=\n\\text{kritisk grænse for } \\alpha\n+\n\\text{krav til power}\n\\]\nEller:\n\\[\n\\frac{\\text{effekt}}{\\text{SE}} = z_{1-\\alpha/2}+z_{1-\\beta}\n\\]\nved en tosidet test."
+  },
+  {
     "objectID": "slides/powerberegninger_notat.html#trin-1-hvilken-type-udfald",
     "href": "slides/powerberegninger_notat.html#trin-1-hvilken-type-udfald",
     "title": "Powerberegninger – huskeliste",
@@ -1181,6 +1188,20 @@
     "title": "KUB Datalab slides",
     "section": "",
     "text": "Intro\nnormalfordelingen\nSEM\nKategoriske data\nLineær regression\nLogistisk regression\nPower beregninger\nside-by-side demo"
+  },
+  {
+    "objectID": "slides/powerberegninger_medicin_eksamensnotat-2.html",
+    "href": "slides/powerberegninger_medicin_eksamensnotat-2.html",
+    "title": "Powerberegninger – eksamensoverblik (medicinsk statistik)",
+    "section": "",
+    "text": "Formål\nDette notat giver et eksamensrelevant overblik over power‑ og stikprøveberegninger i medicinsk statistik.\nI eksamensopgaver kan man typisk blive bedt om at finde:\n\nstikprøvestørrelse (n)\npower (1-)\nmindste detekterbare forskel ()\neller signifikansniveau\n\nAlle disse kan findes ved at isolere den ønskede størrelse i power‑formlerne.\n\n\n\nGrundbegreber\n\n\n\nSymbol\nBetydning\n\n\n\n\n(α)\nsignifikansniveau (type I fejl)\n\n\n(β)\ntype II fejl\n\n\npower\n(1-β)\n\n\n(δ)\nmindste klinisk relevante forskel\n\n\n(σ)\npopulationsstandardafvigelse\n\n\n(n)\nstikprøvestørrelse\n\n\n(z)\nkvantil fra normalfordelingen\n\n\n\nTypiske værdier i eksamensopgaver\n\n(α = 0.05)\npower = 0.80 eller 0.90\n\nKvantilværdier\n\n\n\nkvantil\nværdi\n\n\n\n\n(z_{0.975})\n1.96\n\n\n(z_{0.8})\n0.84\n\n\n(z_{0.9})\n1.28\n\n\n\n\n\n\nt‑ vs z‑fordeling\nI powerberegninger bruges næsten altid z‑fordelingen.\nÅrsagen er at powerberegninger antager\n\nkendt populationsspredning (σ)\nasymptotisk normalitet\n\nSelve analysen udføres ofte med t‑test, fordi (σ) i praksis estimeres fra data.\nDerfor bruges normalt\n\\[\nz_{1-α/2}\n\\]\ni stikprøveplanlægning.\n\n\n\nÉn middelværdi\nTest\n\\[\nH_0: \\mu = \\mu_0\n\\]\nPower‑relation\n\\[\n\\frac{\\delta}{σ/\\sqrt{n}} = z_{1-α/2}+z_{1-β}\n\\]\nStikprøvestørrelse\n\\[\nn=\\left(\\frac{(z_{1-α/2}+z_{1-β})σ}{\\delta}\\right)^2\n\\]\n\n\n\nTo uafhængige middelværdier\nTest\n\\[\nH_0: \\mu_1=\\mu_2\n\\]\nStandardfejl\n\\[\nSE = σ\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\n\\]\nPower‑relation\n\\[\n\\frac{\\delta}{σ\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}}\n= z_{1-α/2}+z_{1-β}\n\\]\nHvis grupperne er lige store\n\\[\nn = 2\\left(\\frac{(z_{1-α/2}+z_{1-β})σ}{\\delta}\\right)^2\n\\]\nOg det er altså n pr gruppe!\n\n\n\nParrede målinger\nPower‑relation\n\\[\n\\frac{\\delta}{σ_d/\\sqrt{n}} = z_{1-α/2}+z_{1-β}\n\\]\nStikprøvestørrelse\n\\[\nn=\\left(\\frac{(z_{1-α/2}+z_{1-β})σ_d}{\\delta}\\right)^2\n\\]\n\n\n\nÉn proportion\nStandardfejl\n\\[\nSE=\\sqrt{\\frac{p_0(1-p_0)}{n}}\n\\]\nPower‑relation\n\\[\n\\frac{|p-p_0|}{\\sqrt{p_0(1-p_0)/n}}\n= z_{1-α/2}+z_{1-β}\n\\]\nStikprøvestørrelse\n\\[\nn = \\frac{(z_{1-α/2}+z_{1-β})^2 p_0(1-p_0)}{(p-p_0)^2}\n\\]\n\n\n\nTo proportioner\nStandardfejl\n\\[\nSE=\\sqrt{\\frac{p_1(1-p_1)}{n_1}+\\frac{p_2(1-p_2)}{n_2}}\n\\]\nPower‑relation\n\\[\n\\frac{|p_1-p_2|}{SE}\n= z_{1-α/2}+z_{1-β}\n\\]\nHvis grupperne er lige store\n\\[\nn =\n\\frac{(z_{1-α/2}+z_{1-β})^2\n\\left[p_1(1-p_1)+p_2(1-p_2)\\right]}\n{(p_1-p_2)^2}\n\\]\n\n\n\nEksamensstrategi\n\nIdentificer typen af test\n\n\nmiddelværdi eller proportion\nén eller to grupper\nparret eller uafhængig\n\n\nIdentificer\n\n\n(δ)\n(σ) eller (p)\n(α)\npower\n\n\nBrug power‑relationen\n\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\n\nIsolér den ønskede størrelse.\n\n\n\n\nMinimal huskeregel\nPowerberegninger bygger næsten altid på\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\nDen standardiserede forskel mellem de to proportioner skal være større end den kritiske grænse bestemt af α og β."
+  },
+  {
+    "objectID": "slides/powerberegninger_medicin_statistik.html",
+    "href": "slides/powerberegninger_medicin_statistik.html",
+    "title": "Powerberegninger – hurtigt overblik (medicin-statistik)",
+    "section": "",
+    "text": "Dette notat giver et hurtigt overblik over de typer power- og stikprøveberegninger, der typisk forekommer i statistikeksamener for medicinstuderende.\nVi arbejder med følgende begreber:\n\nα (signifikansniveau): sandsynlighed for type I fejl\n\nβ: sandsynlighed for type II fejl\n\nPower = 1 − β\n\nδ: mindste klinisk relevante forskel\n\nσ: populationsstandardafvigelse\n\nn: stikprøvestørrelse\n\nTypisk vil opgaven være:\n\nHvor stor stikprøve kræves for at kunne opdage en forskel δ med power 1−β ved signifikansniveau α?"
   },
   {
     "objectID": "slides/powerberegninger_medicin_statistik.html#eksempel",

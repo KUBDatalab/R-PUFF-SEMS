@@ -138,14 +138,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <ul>
-<li><a href="./slides/intro.html">Intro</a></li>
-<li><a href="./slides/normalfordelingen.html">normalfordelingen</a></li>
-<li><a href="./slides/SEM.html">SEM</a></li>
-<li><a href="./slides/kategoriske.html">Kategoriske data</a></li>
-<li><a href="./slides/linreg.html">Lineær regression</a></li>
-<li><a href="./slides/logistisk.html">Logistisk regression</a></li>
-<li><a href="./slides/power.html">Power beregninger</a></li>
-<li><a href="./slides/side-by-side-demo.html">side-by-side demo</a></li>
+<li><a href="./slides/intro.html">Intro</a> <a href="downloads/intro.pdf">pdf</a></li>
+<li><a href="./slides/normalfordelingen.html">normalfordelingen</a> <a href="downloads/normalfordelingen.pdf">pdf</a></li>
+<li><a href="./slides/SEM.html">SEM</a> <a href="downloads/SEM.pdf">pdf</a></li>
+<li><a href="./slides/kategoriske.html">Kategoriske data</a> <a href="downloads/kategoriske.pdf">pdf</a></li>
+<li><a href="./slides/linreg.html">Lineær regression</a> <a href="downloads/linreg.pdf">pdf</a></li>
+<li><a href="./slides/logistisk.html">Logistisk regression</a> <a href="downloads/logistisk.pdf">pdf</a></li>
+<li><a href="./slides/power.html">Power beregninger</a> <a href="downloads/power.pdf">pdf</a></li>
 </ul>
 
 
@@ -224,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

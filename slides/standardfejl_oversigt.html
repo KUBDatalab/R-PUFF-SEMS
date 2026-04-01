@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KUB Datalab slides – PUFF SEMS forberedelse</title>
+<title>Oversigt over standardfejl – PUFF SEMS forberedelse</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +71,46 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">PUFF SEMS forberedelse</span>
     </a>
   </div>
@@ -92,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./slides/powerberegninger_notat.html"> 
+    <a class="nav-link" href="../slides/powerberegninger_notat.html"> 
 <span class="menu-text">Powerberegninger</span></a>
   </li>  
 </ul>
@@ -106,13 +135,34 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#standardfejl-hvad-er-det" id="toc-standardfejl-hvad-er-det" class="nav-link active" data-scroll-target="#standardfejl-hvad-er-det">Standardfejl — hvad er det?</a></li>
+  <li><a href="#de-vigtigste-situationer" id="toc-de-vigtigste-situationer" class="nav-link" data-scroll-target="#de-vigtigste-situationer">De vigtigste situationer</a>
+  <ul class="collapse">
+  <li><a href="#én-middelværdi" id="toc-én-middelværdi" class="nav-link" data-scroll-target="#én-middelværdi">1. Én middelværdi</a></li>
+  <li><a href="#forskel-mellem-to-middelværdier-ikke-parret" id="toc-forskel-mellem-to-middelværdier-ikke-parret" class="nav-link" data-scroll-target="#forskel-mellem-to-middelværdier-ikke-parret">2. Forskel mellem to middelværdier (ikke-parret)</a></li>
+  <li><a href="#parrede-målinger" id="toc-parrede-målinger" class="nav-link" data-scroll-target="#parrede-målinger">3. Parrede målinger</a></li>
+  <li><a href="#én-andel" id="toc-én-andel" class="nav-link" data-scroll-target="#én-andel">4. Én andel</a></li>
+  <li><a href="#forskel-mellem-to-andele" id="toc-forskel-mellem-to-andele" class="nav-link" data-scroll-target="#forskel-mellem-to-andele">5. Forskel mellem to andele</a></li>
+  <li><a href="#odds-ratio-or" id="toc-odds-ratio-or" class="nav-link" data-scroll-target="#odds-ratio-or">6. Odds ratio (OR)</a></li>
+  <li><a href="#risk-ratio-rr" id="toc-risk-ratio-rr" class="nav-link" data-scroll-target="#risk-ratio-rr">7. Risk ratio (RR)</a></li>
+  </ul></li>
+  <li><a href="#det-gennemgående-mønster" id="toc-det-gennemgående-mønster" class="nav-link" data-scroll-target="#det-gennemgående-mønster">Det gennemgående mønster</a></li>
+  <li><a href="#kobling-til-hypotesetest" id="toc-kobling-til-hypotesetest" class="nav-link" data-scroll-target="#kobling-til-hypotesetest">Kobling til hypotesetest</a></li>
+  <li><a href="#kort-opsummering" id="toc-kort-opsummering" class="nav-link" data-scroll-target="#kort-opsummering">Kort opsummering</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">KUB Datalab slides</h1>
+<h1 class="title">Oversigt over standardfejl</h1>
 </div>
 
 
@@ -129,17 +179,145 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="standardfejl-hvad-er-det" class="level1">
+<h1>Standardfejl — hvad er det?</h1>
+<p>Standardfejlen er usikkerheden på vores estimat.</p>
+<p>Den fortæller, hvor meget estimatet ville variere fra stikprøve til stikprøve.</p>
+<p>Den generelle idé er:</p>
+<p><span class="math display">\[
+\text{teststørrelse} = \frac{\text{estimat} - \text{hypotese}}{SE}
+\]</span></p>
+<p>Så når vi skal lave hypotesetest eller konfidensintervaller, er standardfejlen det afgørende led.</p>
+</section>
+<section id="de-vigtigste-situationer" class="level1">
+<h1>De vigtigste situationer</h1>
+<section id="én-middelværdi" class="level2">
+<h2 class="anchored" data-anchor-id="én-middelværdi">1. Én middelværdi</h2>
+<p>Hvis vi har en stikprøve med middelværdi <span class="math inline">\(\bar{x}\)</span>, standardafvigelse <span class="math inline">\(s\)</span> og størrelse <span class="math inline">\(n\)</span>, er standardfejlen:</p>
+<p><span class="math display">\[
+SE(\bar{x}) = \frac{s}{\sqrt{n}}
+\]</span></p>
+<p>Her er:</p>
 <ul>
-<li><a href="./slides/intro.html" target="_blank">Intro</a> <a href="downloads/intro.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/normalfordelingen.html" target="_blank">Normalfordelingen</a> <a href="downloads/normalfordelingen.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/SEM.html" target="_blank">SEM</a> <a href="downloads/SEM.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/kategoriske.html" target="_blank">Kategoriske data</a> <a href="downloads/kategoriske.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/linreg.html" target="_blank">Lineær regression</a> <a href="downloads/linreg.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/logistisk.html" target="_blank">Logistisk regression</a> <a href="downloads/logistisk.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/power.html" target="_blank">Power beregninger</a> <a href="downloads/power.pdf" target="_blank">pdf</a></li>
+<li><span class="math inline">\(s\)</span>: stikprøvens standardafvigelse</li>
+<li><span class="math inline">\(n\)</span>: antal observationer</li>
 </ul>
+<p>Jo større <span class="math inline">\(n\)</span> er, desto mindre bliver standardfejlen.</p>
+</section>
+<section id="forskel-mellem-to-middelværdier-ikke-parret" class="level2">
+<h2 class="anchored" data-anchor-id="forskel-mellem-to-middelværdier-ikke-parret">2. Forskel mellem to middelværdier (ikke-parret)</h2>
+<p>Hvis vi sammenligner to uafhængige grupper, er estimatet forskellen mellem middelværdierne:</p>
+<p><span class="math display">\[
+\bar{x}_1 - \bar{x}_2
+\]</span></p>
+<p>Standardfejlen er:</p>
+<p><span class="math display">\[
+SE(\bar{x}_1 - \bar{x}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]</span></p>
+<p>Her er:</p>
+<ul>
+<li><span class="math inline">\(s_1, s_2\)</span>: standardafvigelserne i de to grupper</li>
+<li><span class="math inline">\(n_1, n_2\)</span>: stikprøvestørrelserne i de to grupper</li>
+</ul>
+<p>Usikkerheden kommer altså fra begge grupper.</p>
+</section>
+<section id="parrede-målinger" class="level2">
+<h2 class="anchored" data-anchor-id="parrede-målinger">3. Parrede målinger</h2>
+<p>Ved parrede data laver vi først forskelle for hvert individ:</p>
+<p><span class="math display">\[
+d_i = x_i - y_i
+\]</span></p>
+<p>Derefter beregner vi middelværdien af forskellene:</p>
+<p><span class="math display">\[
+\bar{d} = \frac{1}{n}\sum_{i=1}^n d_i
+\]</span></p>
+<p>Standardafvigelsen af forskellene er:</p>
+<p><span class="math display">\[
+s_d = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (d_i - \bar{d})^2}
+\]</span></p>
+<p>Standardfejlen bliver så:</p>
+<p><span class="math display">\[
+SE(\bar{d}) = \frac{s_d}{\sqrt{n}}
+\]</span></p>
+<p>Det afgørende er altså, at vi arbejder med forskellene, ikke med de to måleserier hver for sig.</p>
+</section>
+<section id="én-andel" class="level2">
+<h2 class="anchored" data-anchor-id="én-andel">4. Én andel</h2>
+<p>Hvis vi estimerer en andel <span class="math inline">\(p\)</span>, er standardfejlen:</p>
+<p><span class="math display">\[
+SE(p) = \sqrt{\frac{p(1-p)}{n}}
+\]</span></p>
+<p>Her er:</p>
+<ul>
+<li><span class="math inline">\(p\)</span>: den observerede andel</li>
+<li><span class="math inline">\(n\)</span>: stikprøvestørrelsen</li>
+</ul>
+<p>Variansen afhænger altså af selve andelen.</p>
+</section>
+<section id="forskel-mellem-to-andele" class="level2">
+<h2 class="anchored" data-anchor-id="forskel-mellem-to-andele">5. Forskel mellem to andele</h2>
+<p>Hvis vi sammenligner to andele, er standardfejlen:</p>
+<p><span class="math display">\[
+SE(p_1 - p_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+\]</span></p>
+<p>Her kommer der igen et bidrag fra hver gruppe.</p>
+</section>
+<section id="odds-ratio-or" class="level2">
+<h2 class="anchored" data-anchor-id="odds-ratio-or">6. Odds ratio (OR)</h2>
+<p>For odds ratio arbejder vi på log-skala. Standardfejlen for <span class="math inline">\(\log(OR)\)</span> er:</p>
+<p><span class="math display">\[
+SE(\log(OR)) = \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}
+\]</span></p>
+<p>hvor <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span> er cellerne i en 2x2-tabel.</p>
+<p>Konfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen.</p>
+</section>
+<section id="risk-ratio-rr" class="level2">
+<h2 class="anchored" data-anchor-id="risk-ratio-rr">7. Risk ratio (RR)</h2>
+<p>For risk ratio arbejder vi også på log-skala. Standardfejlen for <span class="math inline">\(\log(RR)\)</span> er:</p>
+<p><span class="math display">\[
+SE(\log(RR)) = \sqrt{\frac{1}{a} - \frac{1}{a+b} + \frac{1}{c} - \frac{1}{c+d}}
+\]</span></p>
+<p>Igen er <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span> cellerne i en 2x2-tabel.</p>
+</section>
+</section>
+<section id="det-gennemgående-mønster" class="level1">
+<h1>Det gennemgående mønster</h1>
+<p>På tværs af situationerne er idéen den samme:</p>
+<ul>
+<li>mere variation giver større standardfejl</li>
+<li>større stikprøver giver mindre standardfejl</li>
+</ul>
+<p>Man kan tænke det som:</p>
+<p><span class="math display">\[
+\text{standardfejl} \approx \frac{\text{spredning}}{\text{mængde data}}
+\]</span></p>
+</section>
+<section id="kobling-til-hypotesetest" class="level1">
+<h1>Kobling til hypotesetest</h1>
+<p>Når vi har et estimat og dets standardfejl, kan vi beregne en teststørrelse:</p>
+<p><span class="math display">\[
+\frac{\text{estimat} - \text{hypotetisk værdi}}{SE}
+\]</span></p>
+<p>Det er den grundidé, der går igen i:</p>
+<ul>
+<li>z-tests</li>
+<li>t-tests</li>
+<li>tests for andele</li>
+<li>tests for OR og RR</li>
+</ul>
+</section>
+<section id="kort-opsummering" class="level1">
+<h1>Kort opsummering</h1>
+<p>Det centrale er:</p>
+<ul>
+<li>først finder vi det rigtige estimat</li>
+<li>derefter finder vi standardfejlen for netop dét estimat</li>
+<li>så kan vi lave hypotesetest og konfidensintervaller</li>
+</ul>
+<p>Standardfejlen er derfor nøglen til statistisk inferens.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

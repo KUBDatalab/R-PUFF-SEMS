@@ -103,7 +103,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -124,6 +124,10 @@ window.Quarto = {
     <a class="nav-link" href="../slides/powerberegninger_notat.html"> 
 <span class="menu-text">Powerberegninger</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../slides/standardfejl_oversigt.html" aria-current="page"> 
+<span class="menu-text">Standardfejl oversigt</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -135,28 +139,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#standardfejl-hvad-er-det" id="toc-standardfejl-hvad-er-det" class="nav-link active" data-scroll-target="#standardfejl-hvad-er-det">Standardfejl — hvad er det?</a></li>
-  <li><a href="#de-vigtigste-situationer" id="toc-de-vigtigste-situationer" class="nav-link" data-scroll-target="#de-vigtigste-situationer">De vigtigste situationer</a>
-  <ul class="collapse">
-  <li><a href="#én-middelværdi" id="toc-én-middelværdi" class="nav-link" data-scroll-target="#én-middelværdi">1. Én middelværdi</a></li>
-  <li><a href="#forskel-mellem-to-middelværdier-ikke-parret" id="toc-forskel-mellem-to-middelværdier-ikke-parret" class="nav-link" data-scroll-target="#forskel-mellem-to-middelværdier-ikke-parret">2. Forskel mellem to middelværdier (ikke-parret)</a></li>
-  <li><a href="#parrede-målinger" id="toc-parrede-målinger" class="nav-link" data-scroll-target="#parrede-målinger">3. Parrede målinger</a></li>
-  <li><a href="#én-andel" id="toc-én-andel" class="nav-link" data-scroll-target="#én-andel">4. Én andel</a></li>
-  <li><a href="#forskel-mellem-to-andele" id="toc-forskel-mellem-to-andele" class="nav-link" data-scroll-target="#forskel-mellem-to-andele">5. Forskel mellem to andele</a></li>
-  <li><a href="#odds-ratio-or" id="toc-odds-ratio-or" class="nav-link" data-scroll-target="#odds-ratio-or">6. Odds ratio (OR)</a></li>
-  <li><a href="#risk-ratio-rr" id="toc-risk-ratio-rr" class="nav-link" data-scroll-target="#risk-ratio-rr">7. Risk ratio (RR)</a></li>
-  </ul></li>
-  <li><a href="#det-gennemgående-mønster" id="toc-det-gennemgående-mønster" class="nav-link" data-scroll-target="#det-gennemgående-mønster">Det gennemgående mønster</a></li>
-  <li><a href="#kobling-til-hypotesetest" id="toc-kobling-til-hypotesetest" class="nav-link" data-scroll-target="#kobling-til-hypotesetest">Kobling til hypotesetest</a></li>
-  <li><a href="#kort-opsummering" id="toc-kort-opsummering" class="nav-link" data-scroll-target="#kort-opsummering">Kort opsummering</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -179,15 +162,16 @@ window.Quarto = {
 </header>
 
 
+<p><a href="downloads/standardfejl_oversigt.pdf" target="_blank">pdf</a></p>
 <section id="standardfejl-hvad-er-det" class="level1">
 <h1>Standardfejl — hvad er det?</h1>
 <p>Standardfejlen er usikkerheden på vores estimat.</p>
-<p>Den fortæller, hvor meget estimatet ville variere fra stikprøve til stikprøve.</p>
-<p>Den generelle idé er:</p>
+<p>Den fortæller os, hvor meget estimatet ville variere fra stikprøve til stikprøve, hvis vi tog “tilstrækkeligt mange” stikprøver.</p>
+<p>Helt generelt gælder:</p>
 <p><span class="math display">\[
 \text{teststørrelse} = \frac{\text{estimat} - \text{hypotese}}{SE}
 \]</span></p>
-<p>Så når vi skal lave hypotesetest eller konfidensintervaller, er standardfejlen det afgørende led.</p>
+<p>Så når vi skal lave hypotesetests eller beregne konfidensintervaller, er standardfejlen det afgørende led.</p>
 </section>
 <section id="de-vigtigste-situationer" class="level1">
 <h1>De vigtigste situationer</h1>
@@ -206,7 +190,7 @@ SE(\bar{x}) = \frac{s}{\sqrt{n}}
 </section>
 <section id="forskel-mellem-to-middelværdier-ikke-parret" class="level2">
 <h2 class="anchored" data-anchor-id="forskel-mellem-to-middelværdier-ikke-parret">2. Forskel mellem to middelværdier (ikke-parret)</h2>
-<p>Hvis vi sammenligner to uafhængige grupper, er estimatet forskellen mellem middelværdierne:</p>
+<p>Når vi sammenligner to uafhængige grupper, er estimatet (praktisk taget altid) forskellen mellem middelværdierne:</p>
 <p><span class="math display">\[
 \bar{x}_1 - \bar{x}_2
 \]</span></p>
@@ -214,24 +198,25 @@ SE(\bar{x}) = \frac{s}{\sqrt{n}}
 <p><span class="math display">\[
 SE(\bar{x}_1 - \bar{x}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 \]</span></p>
+<p>Vi skriver ofte: <span class="math inline">\(SE_{diff}\)</span></p>
 <p>Her er:</p>
 <ul>
 <li><span class="math inline">\(s_1, s_2\)</span>: standardafvigelserne i de to grupper</li>
 <li><span class="math inline">\(n_1, n_2\)</span>: stikprøvestørrelserne i de to grupper</li>
 </ul>
-<p>Usikkerheden kommer altså fra begge grupper.</p>
+<p>Usikkerheden kommer derfor fra begge grupper.</p>
 </section>
 <section id="parrede-målinger" class="level2">
 <h2 class="anchored" data-anchor-id="parrede-målinger">3. Parrede målinger</h2>
-<p>Ved parrede data laver vi først forskelle for hvert individ:</p>
+<p>Ved parrede data beregner vi først forskelle for hvert individ (eller hvad vi nu undersøger):</p>
 <p><span class="math display">\[
 d_i = x_i - y_i
 \]</span></p>
-<p>Derefter beregner vi middelværdien af forskellene:</p>
+<p>Derefter beregnes middelværdien af forskellene:</p>
 <p><span class="math display">\[
 \bar{d} = \frac{1}{n}\sum_{i=1}^n d_i
 \]</span></p>
-<p>Standardafvigelsen af forskellene er:</p>
+<p>Standardafvigelsen af forskellene er givet ved:</p>
 <p><span class="math display">\[
 s_d = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (d_i - \bar{d})^2}
 \]</span></p>
@@ -239,11 +224,11 @@ s_d = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (d_i - \bar{d})^2}
 <p><span class="math display">\[
 SE(\bar{d}) = \frac{s_d}{\sqrt{n}}
 \]</span></p>
-<p>Det afgørende er altså, at vi arbejder med forskellene, ikke med de to måleserier hver for sig.</p>
+<p>Det afgørende er altså, at vi arbejder med forskellene, ikke med de to måleserier hver for sig. I eksamenssituationer vil vi normalt få oplyst standardafvigelsen og antallet af observationer, og skal så beregne standardfejlen selv.</p>
 </section>
 <section id="én-andel" class="level2">
 <h2 class="anchored" data-anchor-id="én-andel">4. Én andel</h2>
-<p>Hvis vi estimerer en andel <span class="math inline">\(p\)</span>, er standardfejlen:</p>
+<p>Når vi estimerer en andel <span class="math inline">\(p\)</span>, er standardfejlen givet ved:</p>
 <p><span class="math display">\[
 SE(p) = \sqrt{\frac{p(1-p)}{n}}
 \]</span></p>
@@ -252,15 +237,15 @@ SE(p) = \sqrt{\frac{p(1-p)}{n}}
 <li><span class="math inline">\(p\)</span>: den observerede andel</li>
 <li><span class="math inline">\(n\)</span>: stikprøvestørrelsen</li>
 </ul>
-<p>Variansen afhænger altså af selve andelen.</p>
+<p>Standardfejlen afhænger altså af selve andelen.</p>
 </section>
 <section id="forskel-mellem-to-andele" class="level2">
 <h2 class="anchored" data-anchor-id="forskel-mellem-to-andele">5. Forskel mellem to andele</h2>
-<p>Hvis vi sammenligner to andele, er standardfejlen:</p>
+<p>Når vi sammenligner to andele, er standardfejlen givet ved:</p>
 <p><span class="math display">\[
 SE(p_1 - p_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
 \]</span></p>
-<p>Her kommer der igen et bidrag fra hver gruppe.</p>
+<p>Her er der igen bidrag fra begge grupper.</p>
 </section>
 <section id="odds-ratio-or" class="level2">
 <h2 class="anchored" data-anchor-id="odds-ratio-or">6. Odds ratio (OR)</h2>
@@ -269,7 +254,7 @@ SE(p_1 - p_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
 SE(\log(OR)) = \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}
 \]</span></p>
 <p>hvor <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span> er cellerne i en 2x2-tabel.</p>
-<p>Konfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen.</p>
+<p>Konfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet.</p>
 </section>
 <section id="risk-ratio-rr" class="level2">
 <h2 class="anchored" data-anchor-id="risk-ratio-rr">7. Risk ratio (RR)</h2>
@@ -278,11 +263,32 @@ SE(\log(OR)) = \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}
 SE(\log(RR)) = \sqrt{\frac{1}{a} - \frac{1}{a+b} + \frac{1}{c} - \frac{1}{c+d}}
 \]</span></p>
 <p>Igen er <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span> cellerne i en 2x2-tabel.</p>
+<p>Konfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet.</p>
+<section id="hvad-er-hvad" class="level3">
+<h3 class="anchored" data-anchor-id="hvad-er-hvad">Hvad er hvad?</h3>
+<p>Vi antager en 2x2-tabel af formen:</p>
+<p><span class="math display">\[
+\begin{array}{c|cc}
+&amp; \text{Udfald}=1 &amp; \text{Udfald}=0 \\
+\hline
+\text{Eksponeret} &amp; a &amp; b \\
+\text{Ikke-eksponeret} &amp; c &amp; d
+\end{array}
+\]</span></p>
+<p>Her er risikoen i den eksponerede gruppe:</p>
+<p><span class="math display">\[
+\frac{a}{a+b}
+\]</span></p>
+<p>og risikoen i den ikke-eksponerede gruppe:</p>
+<p><span class="math display">\[
+\frac{c}{c+d}
+\]</span></p>
+</section>
 </section>
 </section>
 <section id="det-gennemgående-mønster" class="level1">
 <h1>Det gennemgående mønster</h1>
-<p>På tværs af situationerne er idéen den samme:</p>
+<p>Ideen er den samme uanset situationen:</p>
 <ul>
 <li>mere variation giver større standardfejl</li>
 <li>større stikprøver giver mindre standardfejl</li>
@@ -314,7 +320,6 @@ SE(\log(RR)) = \sqrt{\frac{1}{a} - \frac{1}{a+b} + \frac{1}{c} - \frac{1}{c+d}}
 <li>derefter finder vi standardfejlen for netop dét estimat</li>
 <li>så kan vi lave hypotesetest og konfidensintervaller</li>
 </ul>
-<p>Standardfejlen er derfor nøglen til statistisk inferens.</p>
 
 
 </section>

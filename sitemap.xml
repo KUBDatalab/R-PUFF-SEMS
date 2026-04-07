@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/standardfejl_og_kritiske_vaerdier.html</loc>
-    <lastmod>2026-04-01T12:51:03.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/linreg.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/power.html</loc>
-    <lastmod>2026-04-01T12:51:03.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/side-by-side-demo.html</loc>
-    <lastmod>2026-04-01T12:51:03.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/noter.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/normalfordelingen.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/index.html</loc>
-    <lastmod>2026-04-01T12:51:03.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/standardfejl_oversigt.html</loc>
-    <lastmod>2026-04-01T12:51:03.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/kategoriske.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/intro.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/logistisk.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/powerberegninger_notat.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
   </url>
   <url>
     <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/SEM.html</loc>
-    <lastmod>2026-04-01T12:51:03.982Z</lastmod>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
   </url>
   <url>
-    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/powerberegninger_notat.html</loc>
-    <lastmod>2026-04-01T12:51:03.983Z</lastmod>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/logistisk.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/side-by-side-demo.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/noter.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/normalfordelingen.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/index.html</loc>
+    <lastmod>2026-04-07T11:14:03.267Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/standardfejl_oversigt.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/kategoriske.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/intro.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/kritiske_vaerdier.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/power.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://KUBDatalab.github.io/R-PUFF-SEMS/slides/linreg.html</loc>
+    <lastmod>2026-04-07T11:14:03.270Z</lastmod>
   </url>
 </urlset>

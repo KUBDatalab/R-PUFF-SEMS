@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KUB Datalab slides – PUFF SEMS forberedelse</title>
+<title>Oversigt over kritiske værdier – PUFF SEMS forberedelse</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -23,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">PUFF SEMS forberedelse</span>
     </a>
   </div>
@@ -92,11 +153,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./slides/powerberegninger_notat.html"> 
+    <a class="nav-link" href="../slides/powerberegninger_notat.html"> 
 <span class="menu-text">Powerberegninger</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides/standardfejl_oversigt.html"> 
+    <a class="nav-link" href="../slides/standardfejl_oversigt.html"> 
 <span class="menu-text">Standardfejl oversigt</span></a>
   </li>  
 </ul>
@@ -116,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">KUB Datalab slides</h1>
+<h1 class="title">Oversigt over kritiske værdier</h1>
 </div>
 
 
@@ -133,17 +194,132 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="kritiske-værdier" class="level1">
+<h1>Kritiske værdier</h1>
+<p>Når vi har beregnet vores testværdi - og den afhang af hvad vi ville teste, skal vi sammenligne den med <em>den kritiske værdi</em>.</p>
+<p>Den afhænger af to ting:</p>
+<ol type="1">
+<li>hvilken fordeling vi bruger</li>
+<li>om testen er tosidet eller ensidet</li>
+</ol>
+<p>Den er uafhængig af om vi tester middelværdi, andel, OR eller RR. Det er standardfejlen, der ændrer sig mellem situationerne.</p>
+<p>Testværdien fortæller os hvor langt væk vi er fra null-hypotesen. Hvis vi er langt nok væk, kan vi afvise den.</p>
+<p>Den kritiske værdi fortæller os hvor langt væk vi skal være, for at være langt nok væk.</p>
+<p>Det kan vi illustere:</p>
+</section>
+<section id="tosidet-kritisk-område" class="level1">
+<h1>Tosidet kritisk område</h1>
+<p>Her tester vi om vores estimat er forskelligt fra en bestemt værdi. Eksempelvis om om forskellen på to middelværdier er forskellig fra 0.</p>
+<p><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></p>
+<p><span class="math inline">\(H_A: \mu_1 \neg \mu_2\)</span></p>
+<p>Testværdien kan både være så stor at vi kan afvise <span class="math inline">\(H_0\)</span>. Den kan også være så lille, at vi kan forkaste <span class="math inline">\(H_0\)</span> (og dermed gå med den alternative hypotese, at de to middelværdier er forskellige).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="standardfejl_og_kritiske_vaerdier_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ensidet-test-større-end" class="level1">
+<h1>Ensidet test, større end</h1>
+<p>Her tester vi om det estimat vi har fundet, er større end en bestemt værdi.</p>
+<p><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></p>
+<p><span class="math inline">\(H_A: \mu_1 &gt; \mu_2\)</span></p>
+<p>Nu gør det ikke noget at testværdien er (meget) mindre, tværtimod. Så vi forkaster <span class="math inline">\(H_0\)</span> hvis testværdien er større end den kritiske værdi.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="standardfejl_og_kritiske_vaerdier_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ensidet-test-mindre-end" class="level1">
+<h1>Ensidet test, mindre end</h1>
+<p>Her er vi interesserede i om værdien er mindre end en bestemt værdi.</p>
+<p>Her tester vi om det estimat vi har fundet, er mindre end en bestemt værdi.</p>
+<p><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></p>
+<p><span class="math inline">\(H_A: \mu_1 &lt; \mu_2\)</span></p>
+<p>Nu gør det ikke noget at testværdien er (meget) større, tværtimod. Så vi forkaster <span class="math inline">\(H_0\)</span> hvis testværdien er mindre end den kritiske værdi.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="standardfejl_og_kritiske_vaerdier_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="z-fordeling" class="level2">
+<h2 class="anchored" data-anchor-id="z-fordeling">Z-fordeling</h2>
+<p>Bruger vi når vi får at vide at vi må antage normalitet.</p>
+<p>Ved z-tests er de vigtigste kritiske værdier:</p>
 <ul>
-<li><a href="./slides/intro.html" target="_blank">Intro</a> <a href="downloads/intro.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/normalfordelingen.html" target="_blank">Normalfordelingen</a> <a href="downloads/normalfordelingen.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/SEM.html" target="_blank">SEM</a> <a href="downloads/SEM.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/kategoriske.html" target="_blank">Kategoriske data</a> <a href="downloads/kategoriske.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/linreg.html" target="_blank">Lineær regression</a> <a href="downloads/linreg.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/logistisk.html" target="_blank">Logistisk regression</a> <a href="downloads/logistisk.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/power.html" target="_blank">Power beregninger</a> <a href="downloads/power.pdf" target="_blank">pdf</a></li>
+<li>tosidet 5%: <span class="math inline">\(\pm 1.96\)</span></li>
+<li>ensidet 5%: <span class="math inline">\(\pm 1.645\)</span></li>
 </ul>
+<p>I R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.644854</code></pre>
+</div>
+</div>
+</section>
+<section id="t-fordeling" class="level2">
+<h2 class="anchored" data-anchor-id="t-fordeling">t-fordeling</h2>
+<p>Ved t-tests afhænger den kritiske værdi af frihedsgraderne.</p>
+<p>For én stikprøve er frihedsgraderne typisk:</p>
+<p><span class="math display">\[
+df = n - 1
+\]</span></p>
+<p>Den er ikke set i eksamensopgaver. Skulle den mod forventning optræde alligevel - så er det “bare” at beregne den rigtige kritiske værdi.</p>
+<p>Det gør I i R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.063899</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.710882</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.710882</code></pre>
+</div>
+</div>
+<p>Jo større stikprøven er, desto mere ligner t-fordelingen normalfordelingen.</p>
+</section>
+</section>
+<section id="t-fordeling-vs-normalfordeling" class="level1">
+<h1>t-fordeling vs normalfordeling</h1>
+<p>Den praktiske forskel er at halerne i t-fordelingen er “tykkere”. Der ligger mere “sandsynlighed” ude i enderne, og effekten er at testværdien skal ligge længere væk fra null-hypotesen i en t-test end i en z-test for at vi må afvise den. Man kan tænke på t-fordelingen - og dermed t-testen som et mere konservativt estimat.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="standardfejl_og_kritiske_vaerdier_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -197,14 +373,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -219,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

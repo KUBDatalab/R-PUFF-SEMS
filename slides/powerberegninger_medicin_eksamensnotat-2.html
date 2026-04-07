@@ -2,16 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Christian Knudsen">
 
-<title>KUB Datalab slides – PUFF SEMS forberedelse</title>
+<title>Powerberegninger – eksamensoverblik (medicinsk statistik) – PUFF SEMS forberedelse</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -26,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-12acf3a2dea5fb6071b1261511aaf884.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">PUFF SEMS forberedelse</span>
     </a>
   </div>
@@ -92,12 +119,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./slides/powerberegninger_notat.html"> 
+    <a class="nav-link" href="../slides/intro.html"> 
+<span class="menu-text">PUFF SEMS forberedelse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/powerberegninger_notat.html"> 
 <span class="menu-text">Powerberegninger</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides/standardfejl_oversigt.html"> 
-<span class="menu-text">Standardfejl oversigt</span></a>
+    <a class="nav-link" href="../downloads/intro.pdf"> 
+<span class="menu-text">Download PDF</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -116,13 +147,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">KUB Datalab slides</h1>
+<h1 class="title">Powerberegninger – eksamensoverblik (medicinsk statistik)</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Christian Knudsen </p>
+          </div>
+  </div>
     
   
     
@@ -133,17 +170,234 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="formål" class="level1">
+<h1>Formål</h1>
+<p>Dette notat giver et <strong>eksamensrelevant overblik over power‑ og stikprøveberegninger</strong> i medicinsk statistik.</p>
+<p>I eksamensopgaver kan man typisk blive bedt om at finde:</p>
 <ul>
-<li><a href="./slides/intro.html" target="_blank">Intro</a> <a href="downloads/intro.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/normalfordelingen.html" target="_blank">Normalfordelingen</a> <a href="downloads/normalfordelingen.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/SEM.html" target="_blank">SEM</a> <a href="downloads/SEM.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/kategoriske.html" target="_blank">Kategoriske data</a> <a href="downloads/kategoriske.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/linreg.html" target="_blank">Lineær regression</a> <a href="downloads/linreg.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/logistisk.html" target="_blank">Logistisk regression</a> <a href="downloads/logistisk.pdf" target="_blank">pdf</a></li>
-<li><a href="./slides/power.html" target="_blank">Power beregninger</a> <a href="downloads/power.pdf" target="_blank">pdf</a></li>
+<li>stikprøvestørrelse (n)</li>
+<li>power (1-)</li>
+<li>mindste detekterbare forskel ()</li>
+<li>eller signifikansniveau</li>
 </ul>
+<p>Alle disse kan findes ved <strong>at isolere den ønskede størrelse i power‑formlerne</strong>.</p>
+<hr>
+</section>
+<section id="grundbegreber" class="level1">
+<h1>Grundbegreber</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Betydning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(α)</td>
+<td>signifikansniveau (type I fejl)</td>
+</tr>
+<tr class="even">
+<td>(β)</td>
+<td>type II fejl</td>
+</tr>
+<tr class="odd">
+<td>power</td>
+<td>(1-β)</td>
+</tr>
+<tr class="even">
+<td>(δ)</td>
+<td>mindste klinisk relevante forskel</td>
+</tr>
+<tr class="odd">
+<td>(σ)</td>
+<td>populationsstandardafvigelse</td>
+</tr>
+<tr class="even">
+<td>(n)</td>
+<td>stikprøvestørrelse</td>
+</tr>
+<tr class="odd">
+<td>(z)</td>
+<td>kvantil fra normalfordelingen</td>
+</tr>
+</tbody>
+</table>
+<p>Typiske værdier i eksamensopgaver</p>
+<ul>
+<li>(α = 0.05)</li>
+<li>power = 0.80 eller 0.90</li>
+</ul>
+<p>Kvantilværdier</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>kvantil</th>
+<th>værdi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(z_{0.975})</td>
+<td>1.96</td>
+</tr>
+<tr class="even">
+<td>(z_{0.8})</td>
+<td>0.84</td>
+</tr>
+<tr class="odd">
+<td>(z_{0.9})</td>
+<td>1.28</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="t-vs-zfordeling" class="level1">
+<h1>t‑ vs z‑fordeling</h1>
+<p>I powerberegninger bruges næsten altid <strong>z‑fordelingen</strong>.</p>
+<p>Årsagen er at powerberegninger antager</p>
+<ul>
+<li>kendt populationsspredning (σ)</li>
+<li>asymptotisk normalitet</li>
+</ul>
+<p>Selve analysen udføres ofte med <strong>t‑test</strong>, fordi (σ) i praksis estimeres fra data.</p>
+<p>Derfor bruges normalt</p>
+<p><span class="math display">\[
+z_{1-α/2}
+\]</span></p>
+<p>i stikprøveplanlægning.</p>
+<hr>
+</section>
+<section id="én-middelværdi" class="level1">
+<h1>Én middelværdi</h1>
+<p>Test</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0
+\]</span></p>
+<p>Power‑relation</p>
+<p><span class="math display">\[
+\frac{\delta}{σ/\sqrt{n}} = z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Stikprøvestørrelse</p>
+<p><span class="math display">\[
+n=\left(\frac{(z_{1-α/2}+z_{1-β})σ}{\delta}\right)^2
+\]</span></p>
+<hr>
+</section>
+<section id="to-uafhængige-middelværdier" class="level1">
+<h1>To uafhængige middelværdier</h1>
+<p>Test</p>
+<p><span class="math display">\[
+H_0: \mu_1=\mu_2
+\]</span></p>
+<p>Standardfejl</p>
+<p><span class="math display">\[
+SE = σ\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+\]</span></p>
+<p>Power‑relation</p>
+<p><span class="math display">\[
+\frac{\delta}{σ\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+= z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Hvis grupperne er lige store</p>
+<p><span class="math display">\[
+n = 2\left(\frac{(z_{1-α/2}+z_{1-β})σ}{\delta}\right)^2
+\]</span></p>
+<p>Og det er altså n pr gruppe!</p>
+<hr>
+</section>
+<section id="parrede-målinger" class="level1">
+<h1>Parrede målinger</h1>
+<p>Power‑relation</p>
+<p><span class="math display">\[
+\frac{\delta}{σ_d/\sqrt{n}} = z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Stikprøvestørrelse</p>
+<p><span class="math display">\[
+n=\left(\frac{(z_{1-α/2}+z_{1-β})σ_d}{\delta}\right)^2
+\]</span></p>
+<hr>
+</section>
+<section id="én-proportion" class="level1">
+<h1>Én proportion</h1>
+<p>Standardfejl</p>
+<p><span class="math display">\[
+SE=\sqrt{\frac{p_0(1-p_0)}{n}}
+\]</span></p>
+<p>Power‑relation</p>
+<p><span class="math display">\[
+\frac{|p-p_0|}{\sqrt{p_0(1-p_0)/n}}
+= z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Stikprøvestørrelse</p>
+<p><span class="math display">\[
+n = \frac{(z_{1-α/2}+z_{1-β})^2 p_0(1-p_0)}{(p-p_0)^2}
+\]</span></p>
+<hr>
+</section>
+<section id="to-proportioner" class="level1">
+<h1>To proportioner</h1>
+<p>Standardfejl</p>
+<p><span class="math display">\[
+SE=\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}
+\]</span></p>
+<p>Power‑relation</p>
+<p><span class="math display">\[
+\frac{|p_1-p_2|}{SE}
+= z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Hvis grupperne er lige store</p>
+<p><span class="math display">\[
+n =
+\frac{(z_{1-α/2}+z_{1-β})^2
+\left[p_1(1-p_1)+p_2(1-p_2)\right]}
+{(p_1-p_2)^2}
+\]</span></p>
+<hr>
+</section>
+<section id="eksamensstrategi" class="level1">
+<h1>Eksamensstrategi</h1>
+<ol type="1">
+<li>Identificer typen af test</li>
+</ol>
+<ul>
+<li>middelværdi eller proportion</li>
+<li>én eller to grupper</li>
+<li>parret eller uafhængig</li>
+</ul>
+<ol start="2" type="1">
+<li>Identificer</li>
+</ol>
+<ul>
+<li>(δ)</li>
+<li>(σ) eller (p)</li>
+<li>(α)</li>
+<li>power</li>
+</ul>
+<ol start="3" type="1">
+<li>Brug power‑relationen</li>
+</ol>
+<p><span class="math display">\[
+\frac{\text{effekt}}{\text{standardfejl}}
+= z_{1-α/2}+z_{1-β}
+\]</span></p>
+<ol start="4" type="1">
+<li>Isolér den ønskede størrelse.</li>
+</ol>
+<hr>
+</section>
+<section id="minimal-huskeregel" class="level1">
+<h1>Minimal huskeregel</h1>
+<p>Powerberegninger bygger næsten altid på</p>
+<p><span class="math display">\[
+\frac{\text{effekt}}{\text{standardfejl}}
+= z_{1-α/2}+z_{1-β}
+\]</span></p>
+<p>Den standardiserede forskel mellem de to proportioner skal være større end den kritiske grænse bestemt af α og β.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -197,14 +451,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -219,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/KUBDatalab\.github\.io\/R-PUFF-SEMS\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

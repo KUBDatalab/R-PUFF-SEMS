@@ -490,7 +490,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"data <- mean(rexp(20))\ndata <- c(data, mean(rexp(20)))\nhist(data)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"data <- mean(rexp(20))\ndata <- c(data, mean(rexp(20)))\nhist(data, main = length(data))","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","layout":"horizontal","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -2078,9 +2078,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </section>
 <section id="den-centrale-grænseværdisætning" class="slide level2">
-<h2>Den centrale grænseværdisætning:</h2>
-<p>Tager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge normalfordelingen.</p>
+<h2>Den centrale grænseværdisætning</h2>
+<div class="fragment">
+<p>Tager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge en fordeling.</p>
+</div>
+<div class="fragment">
+<p>Det vil være en normalfordeling</p>
+</div>
+<div class="fragment">
 <p>Den normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen.</p>
+</div>
 </section>
 <section id="clt" class="slide level2">
 <h2>CLT?</h2>
@@ -2128,6 +2135,50 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="hvordan-hjælper-det-os" class="slide level2">
 <h2>Hvordan hjælper det os?</h2>
+<p>Vi har tidligere set hvordan vi beregnede et 95% normalområde for en værdi.</p>
+<div class="fragment">
+<p>Det krævede at vi havde middelværdien, og standardafvigelsen.</p>
+</div>
+<div class="fragment">
+<p>Nu har vi mange middelværdier. Hvis vi havde “standardafvigelsen” for de middelværdier.</p>
+</div>
+<div class="fragment">
+<p>Så kunne vi beregne et interval, hvor 95% af middelværdierne fra stikprøverne var.</p>
+</div>
+<div class="fragment">
+<p>Det kalder vi et 95% konfidensinterval</p>
+</div>
+</section>
+<section id="hvad-er-et-95-konfidensinterval" class="slide level2">
+<h2>Hvad er et 95% konfidensinterval?</h2>
+<div class="fragment">
+<p>Det område, hvor, hvis værdierne var normalfordelte, vi kan forvente at finde 95% af dem.</p>
+</div>
+<div class="fragment">
+<p>Middelværdierne af stikprøverne vil, når vi har nok af dem, være normalfordelte.</p>
+</div>
+<div class="fragment">
+<p>Så 95% af vores stikprøver vil have en middelværdi der ligger inden for det område.</p>
+</div>
+</section>
+<section id="hvad-er-et-95-konfidensinterval-1" class="slide level2">
+<h2>Hvad er et 95% konfidensinterval?</h2>
+<p>Vi kan også formulere det som:</p>
+<div class="fragment">
+<p>Vi har et estimat. Det er vores bedste bud. Men vi ved at det nok ikke er 100% korrekt. Det er næppe den “sande” værdi.</p>
+</div>
+<div class="fragment">
+<p>Men vi kan beregne et interval.</p>
+</div>
+<div class="fragment">
+<p>Intuitivt kan vi forstå det interval, som at vi er 95% sikre på indeholder den sande værdi.</p>
+</div>
+<div class="fragment">
+<p>Eller mere korrekt, at hvis vi beregner et interval ud fra tilstrækkeligt mange stikprøver, så vil den sande værdi være indeholdt i 95% af de intervaller.</p>
+</div>
+</section>
+<section id="så" class="slide level2">
+<h2>så</h2>
 <div class="evensmaller">
 <p>Hvis vi kender spredningen på stikprøvens middelværdier.</p>
 <div class="fragment">
@@ -2149,37 +2200,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </section>
-<section id="hvad-er-et-95-konfidensinterval" class="slide level2">
-<h2>Hvad er et 95% konfidensinterval?</h2>
-<div class="fragment">
-<p>Det er det interval, som, hvis vi beregner det “mange” gange, i 95% af tilfældene vil indeholde den sande værdi.</p>
-</div>
-<div class="fragment">
-<p>Vi har et estimat. Det er vores bedste bud. Men vi ved at det nok ikke er 100% korrekt. Det er næppe den “sande” værdi.</p>
-</div>
-<div class="fragment">
-<p>Men vi kan beregne et interval.</p>
-</div>
-<div class="fragment">
-<p>Intuitivt kan vi forstå det interval, som at vi er 95% sikre på indeholder den sande værdi.</p>
-</div>
-<div class="fragment">
-<p>Eller mere korrekt, at hvis vi beregner et interval ud fra tilstrækkeligt mange stikprøver, så vil den sande værdi være indeholdt i 95% af de intervaller.</p>
-</div>
-</section>
-<section id="hvad-er-et-95-konfidensinterval-1" class="slide level2">
-<h2>Hvad er et 95% konfidensinterval?</h2>
-<p>Da vi talte om normalfordelingen mødt vi “normalområdet”.</p>
-<div class="fragment">
-<p>Det område, hvor, hvis værdierne var normalfordelte, hvor vi kan forvente at finde 95% af dem.</p>
-</div>
-<div class="fragment">
-<p>Middelværdierne af stikprøverne vil, når vi har nok af dem, være normalfordelte.</p>
-</div>
-<div class="fragment">
-<p>Så 95% af vores stikprøver vil have en middelværdi der ligger inden for det område.</p>
-</div>
-</section>
 <section id="hvordan-beregner-vi-så-det" class="slide level2">
 <h2>Hvordan beregner vi så det?</h2>
 <div class="smaller">
@@ -2196,6 +2216,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="fragment">
 <p>Og den vi beregner vi ved</p>
 <p><span class="math display">\[SEM = \frac{\sigma}{\sqrt{n}}\]</span></p>
+<div class="tiny">
+<p>Vi har et estimat på “mean”. Der ikke 100% korrekt. Det har en fejl, “error”. Hvad er vores bedste bud på størrelsen af den fejl? SEM.</p>
+</div>
 </div>
 </div>
 <aside class="notes">
@@ -2212,6 +2235,31 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           display:block!important;
       }</style></aside>
 </section>
+<section id="hvordan-regner-vi-så" class="slide level2">
+<h2>Hvordan regner vi så?</h2>
+<div class="fragment">
+<p>Vi fandt 95% normalområdet ved</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\mu \pm 1.96\cdot\sigma\)</span></p>
+</div>
+<div class="fragment">
+<p>Vi finder så 95% konfidensintervallet ved</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\hat{x} \pm 1.96\cdot\text{SEM}\)</span></p>
+</div>
+<div class="fragment">
+<p>Og SEM fandt vi ved:</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\text{SEM} = \frac{s}{\sqrt{n}}\)</span></p>
+<p>n er antallet af observationer. Og vi skriver <span class="math inline">\(s\)</span> i stedet for <span class="math inline">\(\sigma\)</span> fordi?</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\sigma\)</span> er den “sande” standardafvigelse i populationen. Vi har ikke målt på hele populationen. Så den kender vi ikke, og derfor bruger vi <span class="math inline">\(s\)</span> i stedet.</p>
+</div>
+</section>
 <section id="en-del-af-en-eksamensopgave" class="slide level2">
 <h2>En del af en eksamensopgave</h2>
 <div class="columns">
@@ -2220,23 +2268,23 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Vi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="myijszlqfs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#myijszlqfs table {
+<div id="pphwimzgdj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pphwimzgdj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#myijszlqfs thead, #myijszlqfs tbody, #myijszlqfs tfoot, #myijszlqfs tr, #myijszlqfs td, #myijszlqfs th {
+#pphwimzgdj thead, #pphwimzgdj tbody, #pphwimzgdj tfoot, #pphwimzgdj tr, #pphwimzgdj td, #pphwimzgdj th {
   border-style: none;
 }
 
-#myijszlqfs p {
+#pphwimzgdj p {
   margin: 0;
   padding: 0;
 }
 
-#myijszlqfs .gt_table {
+#pphwimzgdj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2262,12 +2310,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-left-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_caption {
+#pphwimzgdj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#myijszlqfs .gt_title {
+#pphwimzgdj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2279,7 +2327,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-width: 0;
 }
 
-#myijszlqfs .gt_subtitle {
+#pphwimzgdj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2291,7 +2339,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-width: 0;
 }
 
-#myijszlqfs .gt_heading {
+#pphwimzgdj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2303,13 +2351,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_bottom_border {
+#pphwimzgdj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_col_headings {
+#pphwimzgdj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2324,7 +2372,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_col_heading {
+#pphwimzgdj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2344,7 +2392,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#myijszlqfs .gt_column_spanner_outer {
+#pphwimzgdj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2356,15 +2404,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 4px;
 }
 
-#myijszlqfs .gt_column_spanner_outer:first-child {
+#pphwimzgdj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#myijszlqfs .gt_column_spanner_outer:last-child {
+#pphwimzgdj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#myijszlqfs .gt_column_spanner {
+#pphwimzgdj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2376,11 +2424,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   width: 100%;
 }
 
-#myijszlqfs .gt_spanner_row {
+#pphwimzgdj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#myijszlqfs .gt_group_heading {
+#pphwimzgdj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2406,7 +2454,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   text-align: left;
 }
 
-#myijszlqfs .gt_empty_group_heading {
+#pphwimzgdj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2421,15 +2469,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: middle;
 }
 
-#myijszlqfs .gt_from_md > :first-child {
+#pphwimzgdj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#myijszlqfs .gt_from_md > :last-child {
+#pphwimzgdj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#myijszlqfs .gt_row {
+#pphwimzgdj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2448,7 +2496,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#myijszlqfs .gt_stub {
+#pphwimzgdj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2461,7 +2509,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#myijszlqfs .gt_stub_row_group {
+#pphwimzgdj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2475,15 +2523,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: top;
 }
 
-#myijszlqfs .gt_row_group_first td {
+#pphwimzgdj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#myijszlqfs .gt_row_group_first th {
+#pphwimzgdj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#myijszlqfs .gt_summary_row {
+#pphwimzgdj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2493,16 +2541,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#myijszlqfs .gt_first_summary_row {
+#pphwimzgdj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_first_summary_row.thick {
+#pphwimzgdj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#myijszlqfs .gt_last_summary_row {
+#pphwimzgdj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2512,7 +2560,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_grand_summary_row {
+#pphwimzgdj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2522,7 +2570,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#myijszlqfs .gt_first_grand_summary_row {
+#pphwimzgdj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2532,7 +2580,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_last_grand_summary_row_top {
+#pphwimzgdj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2542,11 +2590,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_striped {
+#pphwimzgdj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#myijszlqfs .gt_table_body {
+#pphwimzgdj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2555,7 +2603,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_footnotes {
+#pphwimzgdj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2569,7 +2617,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_footnote {
+#pphwimzgdj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2578,7 +2626,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#myijszlqfs .gt_sourcenotes {
+#pphwimzgdj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2592,7 +2640,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#myijszlqfs .gt_sourcenote {
+#pphwimzgdj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2600,72 +2648,72 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#myijszlqfs .gt_left {
+#pphwimzgdj .gt_left {
   text-align: left;
 }
 
-#myijszlqfs .gt_center {
+#pphwimzgdj .gt_center {
   text-align: center;
 }
 
-#myijszlqfs .gt_right {
+#pphwimzgdj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#myijszlqfs .gt_font_normal {
+#pphwimzgdj .gt_font_normal {
   font-weight: normal;
 }
 
-#myijszlqfs .gt_font_bold {
+#pphwimzgdj .gt_font_bold {
   font-weight: bold;
 }
 
-#myijszlqfs .gt_font_italic {
+#pphwimzgdj .gt_font_italic {
   font-style: italic;
 }
 
-#myijszlqfs .gt_super {
+#pphwimzgdj .gt_super {
   font-size: 65%;
 }
 
-#myijszlqfs .gt_footnote_marks {
+#pphwimzgdj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#myijszlqfs .gt_asterisk {
+#pphwimzgdj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#myijszlqfs .gt_indent_1 {
+#pphwimzgdj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#myijszlqfs .gt_indent_2 {
+#pphwimzgdj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#myijszlqfs .gt_indent_3 {
+#pphwimzgdj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#myijszlqfs .gt_indent_4 {
+#pphwimzgdj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#myijszlqfs .gt_indent_5 {
+#pphwimzgdj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#myijszlqfs .katex-display {
+#pphwimzgdj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#myijszlqfs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pphwimzgdj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2770,7 +2818,7 @@ Er der forskel?</p>
 </section>
 <section id="hvad-er-en-hypotese" class="slide level2">
 <h2>Hvad er en hypotese</h2>
-<div class="smaller">
+<div class="evensmaller">
 <p>En antagelse om en parameter i populationen.</p>
 <ul>
 <li class="fragment">En bestemt middelværdi, eg <span class="math inline">\(\mu = 0.81\)</span></li>
@@ -2791,6 +2839,9 @@ Er der forskel?</p>
 </div>
 <div class="fragment">
 <p>I praksis “ingen forskel” eller “ingen effekt”.</p>
+<div class="tiny">
+<p>Vi skriver <span class="math inline">\(\theta\)</span> fordi theta starter med t, og det er vores testværdi. Det er mere generelt end <span class="math inline">\(\mu\)</span>, og tillader os at bruge samme notation uanset om det er middelværdier eller noget andet vi tester. Vi kalder <span class="math inline">\(H_0\)</span> for “null”-hypotesen, fordi “null” er en prætentiøs måde at sige “ingenting”. Og vi tester om der ingen effekt er. Ofte kalder vi den så nul-hypotesen i stedet, fordi vi jo skriver 0 i <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </div>
 </section>
@@ -2807,7 +2858,7 @@ Er der forskel?</p>
 </ul>
 </div>
 <div class="fragment">
-<p>Det er tosidet.</p>
+<p>Det er tosidet. Der <span class="math inline">\(\mu\)</span> kan være større eller mindre, vi er ligeglade og kun interesseret i om der er en forskel.</p>
 </div>
 <div class="fragment">
 <p>Eller, ensidet:</p>
@@ -2869,7 +2920,8 @@ Ensidet: En forskel i en bestemt retning</p>
 <section id="den-kritiske-værdi" class="slide level2">
 <h2>Den kritiske værdi</h2>
 <div class="smaller">
-<p>Hvis vi vil finde enhver forskel, typisk at mu_1 - mu_2 = 0, er vi ligeglade med om testværdien er “for lille” eller “for stor”. De 5% risiko vi accepterer kan derfor ligge på begge sider af kurven.</p>
+<p>Hvis vi vil finde enhver forskel, typisk at <span class="math inline">\(mu_1 - mu_2 = 0\)</span>, er vi ligeglade med om testværdien er “for lille” eller “for stor”. De 5% risiko vi accepterer kan derfor ligge på begge sider af kurven.</p>
+<div class="fragment">
 <p>Har vi <span class="math inline">\(\alpha = 0.5\)</span> skal den altså fordeles på begge sider og vi bruger:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2877,6 +2929,8 @@ Ensidet: En forskel i en bestemt retning</p>
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
 <p>Hvis vi er interesseret i om en værdi er mindre (<span class="math inline">\(H_A: \theta &lt; \theta_0\)</span>) - så må testværdien gerne være for stor. Den må blot ikke være for lille.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2884,11 +2938,14 @@ Ensidet: En forskel i en bestemt retning</p>
 <pre><code>[1] -1.644854</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
 <p>Og hvis vi er interesseret i om en værdi er større (<span class="math inline">\(H_A: \theta &gt; \theta_0\)</span>) - så må testværdien gerne være for lille. Den må blot ikke være for stor.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.644854</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -2907,7 +2964,8 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Der skal bruges to ting:<br>
 Hvad er afstanden fra vores estimat til <span class="math inline">\(H_0\)</span>, og<br>
-standardfejlen, som vi skal bruge til at beregne den afstand målt i standardfejl.</p>
+Hvad er standardfejlen<br>
+Den skal vi nemlig bruge beregne afstanden målt i standardfejl.</p>
 </div>
 </section>
 <section id="afstanden" class="slide level2">
@@ -2917,20 +2975,20 @@ standardfejlen, som vi skal bruge til at beregne den afstand målt i standardfej
 <p>Eller hvis vi taler om middelværdier: <span class="math inline">\(H_0: \mu = \mu_0\)</span></p>
 </div>
 <div class="fragment">
-<p>Vi havde også et estimat på hvad <span class="math inline">\(\mu\)</span> kunne være. Det fik vi fra vores data.</p>
+<p>Vi havde også et estimat på hvad <span class="math inline">\(\mu\)</span> kunne være. Det fik vi fra vores data. Vi bør kalde den for <span class="math inline">\(\hat{\mu}\)</span>.</p>
 </div>
 <div class="fragment">
 <p>Afstanden finder vi så ved at trække <span class="math inline">\(\mu_0\)</span> fra <span class="math inline">\(\hat{\mu}\)</span></p>
 </div>
 <div class="fragment">
-<div class="evensmaller">
+<p>Så hvis vores estimat var 0.719 og vores null-hypotese var <span class="math inline">\(\mu = 0.81\)</span></p>
+<p>Er afstanden: 0.719 - 0.81 = -0.091</p>
+<div class="tiny">
 <p>Middelværdier ved vi godt hvordan vi beregner.<br>
 Men vi bliver normalt ikke bedt om det til eksamen - der får vi dem oplyst.<br>
 Hvis vi skal sammenligne to middelværdier er <span class="math inline">\(H_0\)</span> typisk at forskellen på dem er 0.<br>
 Til eksamen får vi typisk enten oplyst to middelværdier, trækker så den ene fra den anden.<br>
 Eller også får vi oplyst hvad forskellen er på dem.</p>
-<p>Så hvis vores estimat var 0.719 og vores null-hypotese var <span class="math inline">\(\mu = 0.81\)</span></p>
-<p>Er afstanden: 0.719 - 0.81 = -0.091</p>
 </div>
 </div>
 </section>
@@ -2995,6 +3053,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
 </section>
 <section id="tilbage-til-plasma-magnesium" class="slide level2">
 <h2>Tilbage til plasma magnesium</h2>
+<div class="smaller">
 <p>Vi fik oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere og ikke diabetikere. Og måtte antage normalfordeling i de to populationer:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -3005,27 +3064,105 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
 2 Ikke-diabetikere   140      0.81      0.057</code></pre>
 </div>
 </div>
-<p>Vi beregnede 95% konfidensintervaller på hver af de to grupper, og konstaterede at middelværdien for diabetikere ikke er indeholdt i KI for ikke-diabetikere og omvendt, og at derfor er er signifikant forskel på niveauet.</p>
+<p>Vi beregnede 95% konfidensintervaller på hver af de to grupper, og konstaterede at middelværdien for diabetikere ikke er indeholdt i KI for ikke-diabetikere og omvendt, og at der derfor var signifikant forskel på niveauet.</p>
 <p>Det var i hvert fald konklusionen i modelbesvarelsen.</p>
-<p>Hvordan kunne vi ellers teste - når nu vi har lært den generelle metode for hypotesetestning.</p>
+<p>Hvordan kunne vi ellers teste - når nu vi har lært den generelle metode for hypotesetestning?</p>
+</div>
 </section>
-<section id="forskellen-på-middelværdierne." class="slide level2">
-<h2>Forskellen på middelværdierne.</h2>
+<section id="forskellen-på-middelværdierne" class="slide level2">
+<h2>Forskellen på middelværdierne</h2>
+<div class="fragment">
 <p>Er den 0?</p>
+</div>
+<div class="fragment">
 <p>Eller:</p>
+</div>
+<div class="fragment">
 <p><span class="math inline">\(H_0: \mu_{dia} - \mu_{ejdia} = 0\)</span></p>
-<p>Er den alternative hypotese en eller to sidet? vi er ude efter enhver forskel, så to-sidet.</p>
-<p>signifikansniveau er 0.05 (et valg vi træffer)</p>
-<p>Så den kritiske værdi er <span class="math inline">\(\pm1.96\)</span></p>
-<p>Fra <span class="math inline">\(H_0\)</span> får vi (indirekte) estimatet: 0.719-0.810 = -0.091</p>
-<p>Og afstanden fra <span class="math inline">\(H_0\)</span> er så 0 - -0.091 = 0.091</p>
-<p>Standardfejlen. To samples, ikke parrede:</p>
+</div>
+<div class="fragment">
+<p>Er den alternative hypotese en- eller to-sidet?</p>
+</div>
+<div class="fragment">
+<p>Vi er ude efter enhver forskel, så to-sidet.</p>
+</div>
+<div class="fragment">
+<p>Signifikansniveau?</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\alpha = 0.05\)</span></p>
+<p>Det er et valg vi træffer.</p>
+</div>
+</section>
+<section id="forskellen-på-middelværdierne-1" class="slide level2">
+<h2>Forskellen på middelværdierne</h2>
+<p>Hvad er så den kritiske værdi?</p>
+<div class="fragment">
+<p>1.96</p>
+</div>
+<div class="fragment">
+<p>eller</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.959964  1.959964</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="forskellen-på-middelværdierne-2" class="slide level2">
+<h2>Forskellen på middelværdierne</h2>
+<p>Og hvor langt er vores estimat fra <span class="math inline">\(H_0\)</span>?</p>
+<div class="fragment">
+<p><span class="math inline">\(H_0: \mu_{dia} - \mu_{ejdia} = 0\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\mu_{dia} = 0.719, \mu_{ejdia} = 0.810\)</span>, så vores estimat er:</p>
+<p>0.719-0.810 = -0.091</p>
+</div>
+<div class="fragment">
+<p>Og afstanden fra <span class="math inline">\(H_0\)</span> er så: 0 - -0.091 = 0.091</p>
+</div>
+</section>
+<section id="forskellen-på-middelværdierne-3" class="slide level2">
+<h2>Forskellen på middelværdierne</h2>
+<p>Hvad er standardfejlen?</p>
+<div class="fragment">
+<p>Hvor mange samples?</p>
+</div>
+<div class="fragment">
+<p>To. Er de parrede?</p>
+</div>
+<div class="fragment">
+<p>Nej.</p>
+</div>
+<div class="fragment">
+<p>Så skal vi bruge:</p>
 <p><span class="math inline">\(SE(\hat{\mu}_1 - \hat{\mu}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\)</span></p>
-<p>mu_1 = 0.719, s_1 = 0.068, n_1 = 227 mu_2 = 0.810, s = 0.057, n_2 = 140</p>
-<p>og SE_diff derfor: <span class="math inline">\(SE_{diff} = \sqrt{\frac{0.068^2}{227} + \frac{0.057^2}{140}} = 0.00660\)</span></p>
-<p>Testværdien er så:</p>
+<p><span class="math inline">\(s_1 = 0.068\)</span>, <span class="math inline">\(n_1 = 227\)</span><br>
+<span class="math inline">\(s_2 = 0.057\)</span>, <span class="math inline">\(n_2 = 140\)</span></p>
+</div>
+<div class="fragment">
+<p>og derfor: <span class="math inline">\(SE_{diff} = \sqrt{\frac{0.068^2}{227} + \frac{0.057^2}{140}} = 0.00660\)</span></p>
+</div>
+</section>
+<section id="forskellen-på-middelværdierne-4" class="slide level2">
+<h2>Forskellen på middelværdierne</h2>
+<p>Hvor stor er forskellen så, målt i standardfejl?</p>
+<div class="fragment">
 <p>0.091/0.00660 = 13.78788</p>
-<p>Den er større end den kritiske værdi, og vi forkaster derfor <span class="math inline">\(H_0\)</span> - at forskellen er 0.</p>
+</div>
+<div class="fragment">
+<p>Er den større end den kritiske værdi?</p>
+</div>
+<div class="fragment">
+<p>Ja.<br>
+Hvad betyder det?</p>
+</div>
+<div class="fragment">
+<p>At vores estimat ligger så langt fra <span class="math inline">\(H_0\)</span>, at vi kan forkaste <span class="math inline">\(H_0\)</span>, at forskellen på de to middelværdier er 0.</p>
+<p>Og det kan vi med en sikkerhed på <span class="math inline">\(\alpha = 0.05\)</span></p>
+</div>
 </section>
 <section id="endnu-en-opgave" class="slide level2">
 <h2>Endnu en opgave</h2>
@@ -3217,24 +3354,24 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
 <p>Nu udføres følgende annalyse: summary(lm(diff~factor(gender))) og vi får dette resultat:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="eiautbbyfc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zdriqmbnlg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#eiautbbyfc table {
+#zdriqmbnlg table {
   font-family: 'Courier Prime', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eiautbbyfc thead, #eiautbbyfc tbody, #eiautbbyfc tfoot, #eiautbbyfc tr, #eiautbbyfc td, #eiautbbyfc th {
+#zdriqmbnlg thead, #zdriqmbnlg tbody, #zdriqmbnlg tfoot, #zdriqmbnlg tr, #zdriqmbnlg td, #zdriqmbnlg th {
   border-style: none;
 }
 
-#eiautbbyfc p {
+#zdriqmbnlg p {
   margin: 0;
   padding: 0;
 }
 
-#eiautbbyfc .gt_table {
+#zdriqmbnlg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3260,12 +3397,12 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-left-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_caption {
+#zdriqmbnlg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eiautbbyfc .gt_title {
+#zdriqmbnlg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3277,7 +3414,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-bottom-width: 0;
 }
 
-#eiautbbyfc .gt_subtitle {
+#zdriqmbnlg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3289,7 +3426,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-top-width: 0;
 }
 
-#eiautbbyfc .gt_heading {
+#zdriqmbnlg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3301,13 +3438,13 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-right-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_bottom_border {
+#zdriqmbnlg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_col_headings {
+#zdriqmbnlg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -3322,7 +3459,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-right-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_col_heading {
+#zdriqmbnlg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3342,7 +3479,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   overflow-x: hidden;
 }
 
-#eiautbbyfc .gt_column_spanner_outer {
+#zdriqmbnlg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3354,15 +3491,15 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 4px;
 }
 
-#eiautbbyfc .gt_column_spanner_outer:first-child {
+#zdriqmbnlg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eiautbbyfc .gt_column_spanner_outer:last-child {
+#zdriqmbnlg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eiautbbyfc .gt_column_spanner {
+#zdriqmbnlg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
@@ -3374,11 +3511,11 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   width: 100%;
 }
 
-#eiautbbyfc .gt_spanner_row {
+#zdriqmbnlg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eiautbbyfc .gt_group_heading {
+#zdriqmbnlg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3404,7 +3541,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   text-align: left;
 }
 
-#eiautbbyfc .gt_empty_group_heading {
+#zdriqmbnlg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3419,15 +3556,15 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   vertical-align: middle;
 }
 
-#eiautbbyfc .gt_from_md > :first-child {
+#zdriqmbnlg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eiautbbyfc .gt_from_md > :last-child {
+#zdriqmbnlg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eiautbbyfc .gt_row {
+#zdriqmbnlg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3446,7 +3583,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   overflow-x: hidden;
 }
 
-#eiautbbyfc .gt_stub {
+#zdriqmbnlg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3459,7 +3596,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 5px;
 }
 
-#eiautbbyfc .gt_stub_row_group {
+#zdriqmbnlg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3473,15 +3610,15 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   vertical-align: top;
 }
 
-#eiautbbyfc .gt_row_group_first td {
+#zdriqmbnlg .gt_row_group_first td {
   border-top-width: 0px;
 }
 
-#eiautbbyfc .gt_row_group_first th {
+#zdriqmbnlg .gt_row_group_first th {
   border-top-width: 0px;
 }
 
-#eiautbbyfc .gt_summary_row {
+#zdriqmbnlg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3491,16 +3628,16 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 5px;
 }
 
-#eiautbbyfc .gt_first_summary_row {
+#zdriqmbnlg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_first_summary_row.thick {
+#zdriqmbnlg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eiautbbyfc .gt_last_summary_row {
+#zdriqmbnlg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3510,7 +3647,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_grand_summary_row {
+#zdriqmbnlg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3520,7 +3657,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 5px;
 }
 
-#eiautbbyfc .gt_first_grand_summary_row {
+#zdriqmbnlg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3530,7 +3667,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-top-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_last_grand_summary_row_top {
+#zdriqmbnlg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3540,11 +3677,11 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_striped {
+#zdriqmbnlg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eiautbbyfc .gt_table_body {
+#zdriqmbnlg .gt_table_body {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -3553,7 +3690,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_footnotes {
+#zdriqmbnlg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3567,7 +3704,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-right-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_footnote {
+#zdriqmbnlg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3576,7 +3713,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 5px;
 }
 
-#eiautbbyfc .gt_sourcenotes {
+#zdriqmbnlg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3590,7 +3727,7 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   border-right-color: #D3D3D3;
 }
 
-#eiautbbyfc .gt_sourcenote {
+#zdriqmbnlg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3598,72 +3735,72 @@ Eller også får vi oplyst hvad forskellen er på dem.</p>
   padding-right: 5px;
 }
 
-#eiautbbyfc .gt_left {
+#zdriqmbnlg .gt_left {
   text-align: left;
 }
 
-#eiautbbyfc .gt_center {
+#zdriqmbnlg .gt_center {
   text-align: center;
 }
 
-#eiautbbyfc .gt_right {
+#zdriqmbnlg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eiautbbyfc .gt_font_normal {
+#zdriqmbnlg .gt_font_normal {
   font-weight: normal;
 }
 
-#eiautbbyfc .gt_font_bold {
+#zdriqmbnlg .gt_font_bold {
   font-weight: bold;
 }
 
-#eiautbbyfc .gt_font_italic {
+#zdriqmbnlg .gt_font_italic {
   font-style: italic;
 }
 
-#eiautbbyfc .gt_super {
+#zdriqmbnlg .gt_super {
   font-size: 65%;
 }
 
-#eiautbbyfc .gt_footnote_marks {
+#zdriqmbnlg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eiautbbyfc .gt_asterisk {
+#zdriqmbnlg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eiautbbyfc .gt_indent_1 {
+#zdriqmbnlg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eiautbbyfc .gt_indent_2 {
+#zdriqmbnlg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eiautbbyfc .gt_indent_3 {
+#zdriqmbnlg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eiautbbyfc .gt_indent_4 {
+#zdriqmbnlg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eiautbbyfc .gt_indent_5 {
+#zdriqmbnlg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#eiautbbyfc .katex-display {
+#zdriqmbnlg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#eiautbbyfc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zdriqmbnlg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

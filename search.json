@@ -763,6 +763,34 @@
     "text": "Drenge - hormoner - prediktion\n\n\n\nPrædikter (forudsig) hormonniveauet for en dreng på 6 år med et BMI på 17 og for en dreng på 14 med et BMI på 18.\n\nmodel=lm(horm~factor(Ald.gr)+BMI)\n\n\n\n# A tibble: 13 × 5\n   Coefficients          Estimate `Std. Error` `t value` `Pr(&gt;|t|)`  \n   &lt;chr&gt;                    &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       \n 1 (Intercept)             5.40         0.368     14.7   &lt;2e-16 ***  \n 2 factor(Ald.gr)(8,9]     0.0734       0.202      0.363 0.71700     \n 3 factor(Ald.gr)(9,10]    0.357        0.199      1.79  0.07382 .   \n 4 factor(Ald.gr)(10,11]   0.579        0.209      2.78  0.00581 **  \n 5 factor(Ald.gr)(11,12]   1.09         0.197      5.53  6.42e-08 ***\n 6 factor(Ald.gr)(12,13]   1.37         0.221      6.23  1.37e-09 ***\n 7 factor(Ald.gr)(13,14]   2.29         0.219     10.5   &lt; 2e-16 *** \n 8 factor(Ald.gr)(14,15]   2.12         0.211     10.0   &lt; 2e-16 *** \n 9 factor(Ald.gr)(15,16]   2.24         0.209     10.7   &lt; 2e-16 *** \n10 factor(Ald.gr)(16,17]   1.71         0.230      7.45  7.30e-13 ***\n11 factor(Ald.gr)(17,18]   1.72         0.227      7.61  2.71e-13 ***\n12 factor(Ald.gr)(18,20]   1.32         0.321      4.10  5.14e-05 ***\n13 BMI                     0.0582       0.0218     2.67  0.00791 **  \n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
+    "objectID": "slides/linreg.html#transplanteret-lungevolumen",
+    "href": "slides/linreg.html#transplanteret-lungevolumen",
+    "title": "Lineær regression",
+    "section": "Transplanteret lungevolumen",
+    "text": "Transplanteret lungevolumen\n\n\n\nVi ser på data for 426 lungetransplanterede patienter. Man har været nødt til at bruge ældre donorer, der også kan have været rygere.\nDe første 6 observationer er givet:\n\n\n# A tibble: 6 × 4\n  fevl_prior_to_tx fevl_after fevl_diff SMOKE                  \n             &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                  \n1             1.4        3.8       2.4  Never smoker           \n2             0.56       0.95      0.39 Smoker or former smoker\n3             0.37       1.25      0.88 Smoker or former smoker\n4             0.54       2.35      1.81 Smoker or former smoker\n5             0.71       1.6       0.89 Never smoker           \n6             1.78       2.08      0.3  Never smoker           \n\n\n\nfevl_prior_to_tx: fevl målt før transplantation\nfevl_after: fevl målt efter transplantation\nfevl_diff: differencen mellem fevl_after og fevl_prior_to_tx\nSMOKE: Rygestatus for donor.\nVi får oplyst følgende:\n\n\n\n\nmean\nsd\n\n\n\n\nfevl_prior_to_tx\n0.835086\n0.5365149\n\n\nfevl_after\n2.122762\n0.9459951\n\n\nfevl_diff\n1.279024\n0.9411598"
+  },
+  {
+    "objectID": "slides/linreg.html#transplanteret-lungevolumen-1",
+    "href": "slides/linreg.html#transplanteret-lungevolumen-1",
+    "title": "Lineær regression",
+    "section": "Transplanteret lungevolumen",
+    "text": "Transplanteret lungevolumen\n\n\n\nUndersøg ved brug af relevant statistik metode om patienternes lungefunktion (fevl) har ændret sig efter transplantationen.\nHvad er det for en test?\n\nParret t-test (vi har målinger på samme patient før og efter)\n\n\nDet er sådan set kun forskellen vi er interesserede i:\n\n\n\n\nmean\nsd\n\n\n\n\nfevl_diff\n1.279024\n0.9411598\n\n\n\n\n\nHvordan beregner vi testværdien?\n\n\n\\(\\frac{\\text{estimat}}{\\text{SE}}\\)\n\n\nHvordan beregner vi SE?\n\n\n\\(SE = \\frac{sd}{\\sqrt{n}}\\)\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/linreg.html#transplanteret-lungevolumen-2",
+    "href": "slides/linreg.html#transplanteret-lungevolumen-2",
+    "title": "Lineær regression",
+    "section": "Transplanteret lungevolumen",
+    "text": "Transplanteret lungevolumen\n\n\n\nNu udførtes følgende analyse:\n&gt; model &lt;- lm(fevl_diff~factor(SMOKE))\n&gt; summary(model)\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n1.36970\n0.06646\n20.61\n&lt;2e-16***\n\n\nfactor(SMOKE)Smoker or former smoker\n-0.19092\n0.09644\n-1.98\n0.0485*\n\n\n\n\n\n\n\nHvilken analyse er der tale om, og hvad kan vi konkludere på baggrund af denne?\n\n\n\n\nHvilken slags analyse?\n\n\n(multipel) lineær regression\n\n\nHvilke variable?\n\n\nfevl_diff er den kontinuærte responsvariabel\n\n\nSMOKE er den forklarende, kategoriske (og binære) variabel\n\n\nEr der en ændring i lungefunktionen for reference gruppen\n\n\nJa, den bliver bedre\n\n\nOg hvis donor var (tidligere) ryger?\n\n\nÆndringen i lungefunktionen efter transplantation afhænger af om donor var (tidligere) ryger. Den er statistisk signifikant med en p-værdi på 0.0485"
+  },
+  {
+    "objectID": "slides/linreg.html#transplanteret-lungevolumen-2-1",
+    "href": "slides/linreg.html#transplanteret-lungevolumen-2-1",
+    "title": "Lineær regression",
+    "section": "Transplanteret lungevolumen 2",
+    "text": "Transplanteret lungevolumen 2\n\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n1.36970\n0.06646\n20.61\n&lt;2e-16***\n\n\nfactor(SMOKE)Smoker or former smoker\n-0.19092\n0.09644\n-1.98\n0.0485*\n\n\n\n\n\n\n\nHvilken analyse er der tale om, og hvad kan vi konkludere på baggrund af denne?\n\n\n\n\nHvilken slags analyse?\n\n\n(multipel) lineær regression\n\n\nHvilke variable?\n\n\nfevl_diff er den kontinuærte responsvariabel\n\n\nSMOKE er den forklarende, kategoriske (og binære) variabel\n\n\nEr der en ændring i lungefunktionen for reference gruppen\n\n\nJa, den bliver bedre\n\n\nOg hvis donor var (tidligere) ryger?\n\n\nÆndringen i lungefunktionen efter transplantation afhænger af om donor var (tidligere) ryger. Den er statistisk signifikant med en p-værdi på 0.0485\n\n\n\nIntercept er den estimerede ændring i lungefunktion (før vs efter transplantation) for patienter med en donor som var ikke-ryger. Den estimerede ændring er i gennemsnit 1.3697, med et 95% KI på:\n\n\n[1] 1.239438 1.499962\n\n\nForbedringen i lungefunktion er lidt mindre for patienter med en donor som var ryger (eller ex-ryger). Forbedringen estimeres til i gennemsnit at være 0.19092 laverem, med det tilhørende 95% KI på:\n\n\n[1] -0.3799424 -0.0018976"
+  },
+  {
     "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
     "href": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
     "title": "Normalfordelingen",
@@ -1376,7 +1404,7 @@
     "href": "slides/standardfejl_oversigt.html#forskel-mellem-to-middelværdier-ikke-parret",
     "title": "Oversigt over standardfejl",
     "section": "2. Forskel mellem to middelværdier (ikke-parret)",
-    "text": "2. Forskel mellem to middelværdier (ikke-parret)\nNår vi sammenligner to uafhængige grupper, er estimatet (praktisk taget altid) forskellen mellem middelværdierne:\n\\[\n\\bar{x}_1 - \\bar{x}_2\n\\]\nStandardfejlen er:\n\\[\nSE(\\bar{x}_1 - \\bar{x}_2) = \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}\n\\]\nVi skriver ofte: \\(SE_{diff}\\)\nHer er:\n\n\\(s_1, s_2\\): standardafvigelserne i de to grupper\n\\(n_1, n_2\\): stikprøvestørrelserne i de to grupper\n\nUsikkerheden kommer derfor fra begge grupper."
+    "text": "2. Forskel mellem to middelværdier (ikke-parret)\nNår vi sammenligner to uafhængige grupper, er estimatet (praktisk taget altid) forskellen mellem middelværdierne:\n\\[\n\\bar{x}_1 - \\bar{x}_2\n\\]\nStandardfejlen er:\n\\[\nSE(\\bar{x}_1 - \\bar{x}_2) = \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}\n\\]\nVi skriver ofte: \\(SE_{diff} = \\sqrt{SE_1^2 + SE_2^2}\\)\nHer er:\n\n\\(s_1, s_2\\): standardafvigelserne i de to grupper\n\\(n_1, n_2\\): stikprøvestørrelserne i de to grupper\n\nUsikkerheden kommer derfor fra begge grupper."
   },
   {
     "objectID": "slides/standardfejl_oversigt.html#parrede-målinger",
@@ -1967,6 +1995,20 @@
     "text": "Sammenfattende\nDet er ca. altid:\nEstimat +/- 1.96*standardfejlen\nUndertiden er estimatet logaritmen til det vi er interesseret i. Så er det også standardfejlen på logaritmen til estimatet.\nDen kritiske værdi er 1.96. Den knytter sig til 95% KI. Skal I bruge et andet interval - så er det en anden kritisk værdi. Hint: qnorm.\nOg så skal standardfejlen beregnes forskelligt - afhængig af hvad det er vi tester."
   },
   {
+    "objectID": "slides/kategoriske.html#for-tidlig-fødsel",
+    "href": "slides/kategoriske.html#for-tidlig-fødsel",
+    "title": "Kategoriske udfald",
+    "section": "For tidlig fødsel",
+    "text": "For tidlig fødsel\n\n\n\nEt studie i England undersøgte faktorer for tidlig fødsel blandt 1513 gravide kvinder og fandt at incidensen for tidlig fødsel var 7.5%.\nBeregn 95% KI for insidensen for tidlig fødsel baseret på disse tal.\n\nHvordan ser et 95% KI ud?\n\n\n\\(\\text{estimat}\\pm1.96\\text{SE}\\)\n\n\nHvordan ser SE for en andel ud?\n\n\n\\(SE_{prop} = \\sqrt{\\frac{p(1-p)}{n}}\\)\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHar I fået fingre i modelbesvarelsen, er der en tastefejl i standardfejlen."
+  },
+  {
+    "objectID": "slides/kategoriske.html#for-tidlig-fødsel---i-danmark",
+    "href": "slides/kategoriske.html#for-tidlig-fødsel---i-danmark",
+    "title": "Kategoriske udfald",
+    "section": "For tidlig fødsel - i Danmark",
+    "text": "For tidlig fødsel - i Danmark\n\n\n\nEt tilsvarende dansk studie med 51851 kvinder fandt en incidens på 4.5%\nEstimer forskellen i incidensen for tidlig fødsel i England vs danmark.\nEr der signifikant forskel?\n\nHvad er \\(H_0\\)?\n\n\n\\(H_0: p_{gb} - p_{dk} = 0\\)\n\n\nHvordan ser den samlede standardfejl ud?\n\n\n\\(SE_{diff} = \\sqrt{SE_1^2 + SE_2^2}\\)\n\n\n\\(p_{gb} = 7.5\\%, n_{gb} = 1513\\)\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "slides/kategoriske.html#flere-øvelser",
     "href": "slides/kategoriske.html#flere-øvelser",
     "title": "Kategoriske udfald",
@@ -2062,7 +2104,7 @@
     "href": "slides/intro.html#noter-om-historiske-opgaver",
     "title": "Intro",
     "section": "Noter om historiske opgaver",
-    "text": "Noter om historiske opgaver\nDer er typisk to opgaver - med delspørgsmål\n\nBeregning af konfidensintervaller og signifikans (SEMS og KI for middelværdier)\nLineær regression, tolkning og prediktion\nLogistisk regression, tolkning og prediktion\nPowerberegninger\nNormalfordelingseksersits\nSandsynligheder for kategoriske variable. RR, OR, konfidensintervaller og signifkans\nHypotesetest - primært parret t-test\nChi-i-anden test\nVurdering af konfidensinterval baseret på antal observationer."
+    "text": "Noter om historiske opgaver\nDer er typisk to opgaver - med delspørgsmål\n\n\nBeregning af konfidensintervaller og signifikans (SEMS og KI for middelværdier)\nLineær regression, tolkning og prediktion\nLogistisk regression, tolkning og prediktion\nPowerberegninger\nNormalfordelingseksersits\nSandsynligheder for kategoriske variable. RR, OR, konfidensintervaller og signifkans\nHypotesetest - primært parret t-test\nChi-i-anden test\nVurdering af konfidensinterval baseret på antal observationer."
   },
   {
     "objectID": "slides/intro.html#vi-kører-slides",
@@ -2079,11 +2121,32 @@
     "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.2     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
+    "objectID": "slides/løsninger.html#opgave",
+    "href": "slides/løsninger.html#opgave",
+    "title": "Opgaveløsninger",
+    "section": "Opgave",
+    "text": "Opgave\nVi får oplyst data for 18 tilfældigt valgte insulin-afhængige diabetikere. Data er procent af idealvægt. 95 betyder at pågældende individ fjer 5% mindre end idealvægten. 120 beetyder at vedkommende vejer 20% mere end idealvægten.\n\nc(107,119,99,114,120,104,88,114,124,116,101,121,152,100,125,114,95,117) |&gt; sd()\n\n[1] 14.42447\n\n\nVi får oplyst at et 90% reference interval kan beregnes til (89.1; 136.5)\n\nBeregn et 95% konfidensinterval for den sande middelprocent af idealvægt.\n\nEt referenceinterval er centreret om middelværdien. Så middel finder vi ved: (89.1+136.5)/2 = 112.8\nSå skal vi finde spredningen. Det er et 90% interval. så den kvantil der er brugt er ikke 95% kvantilen (1.96), men 90% kvantilen:\n\nqnorm(0.95)\n\n[1] 1.644854\n\n\n0.95 i stedet for 0.975 fordi der skal være 5% på hver side, ikke 2.5%\nIntervallet er +/- på hver side af middelværdienm så: 136.5-112.8 = 1.644854*s -&gt; s = (136.5-112.8)/1.644854 = 14.4\nSå ved vi hvad standardafvigelsen er på data. Nu skal vi have konfidensintervallet på middelværdien - så vi skal bruge SEM:\n14.4/sqrt(18) = 3.394113\nOg så finder vi konfidensintervallet ved: 112.8 + c(-1,1)1.9614.4/sqrt(18)\nOg her er der altså en regnefejl i modelløsningen…\n\nIndeholder det konfidensinterval vi har beregnet 100%? Hvad fortæller svaret på det spørgsmål? Angiv relevant nullhypotese, samt eventuelt relevant estimat.\n\nfra a ser vi at 95% konfidensintervallet ikke indeholder 100 - så vi må afvise nullhypotesen H_0: mu = 100, hvor mu angiver den sande middelprocent af idealvægt for populationen af insulin-afhængige diabeetikere. Estimatet for mu er 112.8 med et 95% KI på det vi tidligere beregnede."
+  },
+  {
+    "objectID": "slides/løsninger.html#eksamensopgave",
+    "href": "slides/løsninger.html#eksamensopgave",
+    "title": "Opgaveløsninger",
+    "section": "eksamensopgave",
+    "text": "eksamensopgave\nEt studie i England undersøgte faktorer for tidlig fødsel blandt gravide kvinder og fandt at incidensen for tidlig fødsel var 7.5% blandt de 1513 kvinder der var med i studiet.\n\nBeregn 95% KI for insidensen for tidlig fødsel baseret på disse tal. phat(E) = 0.075. se(phate) = sqrt(p(1-p)/n) = sqrt(0.075(1-0.075)/1513)\n\n\nse_gb &lt;- sqrt(0.075*(1-0.075)/1513)\nse_gb\n\n[1] 0.006771456\n\n\nDer er et 0 for lidt i modelbesvarelsen…\n\n0.075+c(-1,1)*1.96*sqrt(0.075*(1-0.075)/1513)\n\n[1] 0.06172795 0.08827205\n\n\n\nEt tilsvarende studie i Danmark fandt en incidens på 4.5% blandt 51851 kvinder der deltog Estimer forskellen i incidensen for tidlig fødsel i England vs danmark. Er der signifikant forskel?\n\nforskel:\n\ndiff &lt;- 0.075-0.045\ndiff\n\n[1] 0.03\n\n\nse_dk:\n\nse_dk &lt;- sqrt(0.045*(1-0.045)/51851)\n\n\nse_diff &lt;- sqrt(se_dk^2 + se_gb^2)\nse_diff\n\n[1] 0.006832381\n\n\net 95% ki for diffen:\n\ndiff + c(-1,1)*1.96*se_diff\n\n[1] 0.01660853 0.04339147\n\n\nIntervallet indeholder ikke 0, og vi kan konkludere at der er en statistisk signifikant forskel."
+  },
+  {
     "objectID": "slides/løsninger.html#drenge---hormoner",
     "href": "slides/løsninger.html#drenge---hormoner",
     "title": "Opgaveløsninger",
     "section": "Drenge - hormoner",
     "text": "Drenge - hormoner\nVi har undersøgt koncentrationen af et hormon hos ellers sunde og raske drenge. Vi ønsker at undersøge sammenhængen mellem denne koncentration og drengenes alder og BMI.\n\nHvilken analyse er der udført.\n\nud fra “model = lm(osv)” kan vi se at det er en lineær regression. Den er multipel fordi der er mere end en forklarende variabel. Vi har alder som kategorisk forklarende variabel, og BMI som kontinuert forklarende variabel.\n\nfortolk resultaterne. vi ser at hormonniveauet tilsyneladende stiger med stigende alder (og fastholdt BMI). Eksempelvis er hormonniveauet for alderskategorien (11,12] 1.08688 højere end for referencen (5,8]. Stigningen er statistisk signifikant for næsten alle aldersgrupper. Der er dog en vis variation i hvor meget hormonniveauet stiger med alderen. BMI er også klart signifikant med en middel stigning i hormonniveuaet på 0.058 pr BMI-point (ved fastholdt alder)\nPrædikter (forudsig) hormonniveauet for en dreng på 6 år med et BMI på 17 og for en dreng på 14 med et BMI på 18.\n\nDet finder vi ved: Den 6-årige: 5.40 + 0.058*17\nfor den 14-årige 5.40+0.229+0.058*18"
+  },
+  {
+    "objectID": "slides/løsninger.html#transplanteret-lungevolumen",
+    "href": "slides/løsninger.html#transplanteret-lungevolumen",
+    "title": "Opgaveløsninger",
+    "section": "transplanteret lungevolumen",
+    "text": "transplanteret lungevolumen\nVi ser på data for lungetransplanterede patienter. Man har været ndøt til at bruge ældre donorer, der også kan have været rygere. Vi har observationer for 426 patienter.\nDe første 6 observationer er givet:\n\ntribble(~fevl_prior_to_tx, ~fevl_after, ~fevl_diff, ~SMOKE,\n1.40, 3.8, 2.4, \"Never smoker\",\n0.56, 0.95, 0.39, \"Smoker or former smoker\",\n0.37, 1.25, 0.88, \"Smoker or former smoker\",\n0.54, 2.35, 1.81, \"Smoker or former smoker\",\n0.71, 1.60, 0.89, \"Never smoker\",\n1.78, 2.08, 0.30, \"Never smoker\")\n\n# A tibble: 6 × 4\n  fevl_prior_to_tx fevl_after fevl_diff SMOKE                  \n             &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                  \n1             1.4        3.8       2.4  Never smoker           \n2             0.56       0.95      0.39 Smoker or former smoker\n3             0.37       1.25      0.88 Smoker or former smoker\n4             0.54       2.35      1.81 Smoker or former smoker\n5             0.71       1.6       0.89 Never smoker           \n6             1.78       2.08      0.3  Never smoker           \n\n\nfevl_prior_to_tx: fevl målt før transplantation fevl_after: fevl målet efter transplantation fevl_diff: differencen mellem fevl_after og fevl_prior_to_tx SMOKE: Rygstatus for donor.\nVi får oplyst følgende:\n\n\n\n\nmean\nsd\n\n\n\n\nfevl_prior_to_tx\n0.835086\n0.5365149\n\n\nfevl_after\n2.122762\n0.9459951\n\n\nfevl_diff\n1.279024\n0.9411598\n\n\n\nUndersøg ved brug af relevant statistik metode om patienternes lungefunktion (fevl) har ændret sig efter transplantationen.\nDet er en parret t-test (for vi har målinger på samme patient både før og efter)\n\n1.279024/(0.9411598/sqrt(426))\n\n[1] 28.04918\n\n\nDet er større end 1.96, så statistisk signifikant (nogen føler trang til at sige “klart signifikant”)\n\nNu udførtes følgende analyse: &gt; model &lt;- lm(fevl_diff~factor(SMOKE)) &gt; summary(model)\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n1.36970\n0.06646\n20.61\n&lt;2e-16***\n\n\nfactor(SMOKE)Smoker or former smoker\n-0.19092\n0.09644\n-1.98\n0.0485*\n\n\n\n\n\n\n\nHvilken analyse er der tale om, og hvad kan vi konkludere på baggrund af denne?\nDet er en multipel lineær regression med en forklarende kategorisk (og binær) variabel; SMOKE. Responsvariabel er fevl_diff. Ændringen i liungefunktion efter transplantationen er afhængig af om donor var ryger eller ikke-ryger. Det estimeres at lungefunktionen er lavere hvis donor var ryger - denne forskel er statistisk signifikant med p = 0.0485.\n\nFortolk værdierne i søjlen “Estimate”. Beregn tilhørende 95% KI\n\nIntercept er den estimerede ændring i lungefunktion (før vs efter transplantation) for patienter med en donor som var ikke-ryger. Den estimerede ændring er i gennemsnit 1.3697, med et 95% KI på:\n\n1.36970 + c(-1,1)*1.96*0.06646\n\n[1] 1.239438 1.499962\n\n\nForbedringen i lungefunktion er lidt mindre for patienter med en donor som var ryger (eller ex-ryger). Forbedringen estimeres til i gennemsnit at være 0.19092 laverem, med det tilhørende 95% KI på:\n\n-0.19092+c(-1,1)*1.96*0.09644\n\n[1] -0.3799424 -0.0018976"
   },
   {
     "objectID": "slides/løsninger.html#rygende-donorer",

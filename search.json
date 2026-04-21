@@ -294,11 +294,11 @@
     "text": "Den centrale grænseværdisætning\n\nTager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge en fordeling.\n\n\nDet vil være en normalfordeling\n\n\nDen normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen."
   },
   {
-    "objectID": "slides/hypotesetests.html#clt",
-    "href": "slides/hypotesetests.html#clt",
+    "objectID": "slides/hypotesetests.html#den-centrale-grænseværdisætning-clt",
+    "href": "slides/hypotesetests.html#den-centrale-grænseværdisætning-clt",
     "title": "Konfidensintervaller og hypotesetests",
-    "section": "CLT?",
-    "text": "CLT?\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\n\n\nDet gør vi mange gange.\n\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelingen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Men det springer vi over."
+    "section": "Den centrale grænseværdisætning (CLT)?",
+    "text": "Den centrale grænseværdisætning (CLT)?\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\n\n\nDet gør vi mange gange.\n\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelingen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Men det springer vi over."
   },
   {
     "objectID": "slides/hypotesetests.html#en-gang-til---det-er-vigtigt",

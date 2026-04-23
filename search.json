@@ -25,7 +25,7 @@
     "href": "slides/logistisk.html#hvordan-ser-det-ud-i-praksis",
     "title": "Logistisk regression",
     "section": "Hvordan ser det ud i praksis?",
-    "text": "Hvordan ser det ud i praksis?\n\nHar vi et datasæt med følgende variable (det virker bekendt):\nepisodes: Antal episoder med feber under graviditeten (før interview)\ndeath: Fosterdød (ja = 1, nej = 0)\nmage: Moderens alder ved interview\nsmoke: Rygning under graviditet (1=0 cigaretter/dag, 2=1-10 cigaretter/dag, 3 = 11+ cigaretter/dag)\nalco: Antal genstande pr uge under graviditet\nweight: Fødselsvægt i gram\nKan vi derfor modellere den primære outcome variabel “death” som funktion af rygning, feberepisoder og moderens alder ved:\n\nglm(factor(death) ~ I((mage-25)/10) + episodes + factor(smoke), data = dataset, family = \"binomial\")"
+    "text": "Hvordan ser det ud i praksis?\n\nVi har tidligere kigget på sammenhængen mellem fødselsvægt og mors rygning/alkohol indtag under graviditeten.\nNu ser vi på den primære responsvariabel, som var fosterdød.\nVi har et datasæt med følgende variable:\nepisodes: Antal episoder med feber under graviditeten (før interview)\ndeath: Fosterdød (ja = 1, nej = 0)\nmage: Moderens alder ved interview\nsmoke: Rygning under graviditet (1=0 cigaretter/dag, 2=1-10 cigaretter/dag, 3 = 11+ cigaretter/dag)\nalco: Antal genstande pr uge under graviditet\nweight: Fødselsvægt i gram\nOg vi kan modellere fosterdød ved:\n\nglm(factor(death) ~ I((mage-25)/10) + episodes + factor(smoke), data = dataset, family = \"binomial\")\n\n\nDen der sære konstruktion med I((mage-25)/10), hvor kom den fra? Den var oplyst i et eksamenssæt."
   },
   {
     "objectID": "slides/logistisk.html#hvad-betyder-de-enkelte-dele",
@@ -39,7 +39,7 @@
     "href": "slides/logistisk.html#hvordan-ser-resultatet-ud",
     "title": "Logistisk regression",
     "section": "Hvordan ser resultatet ud?",
-    "text": "Hvordan ser resultatet ud?\n\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage-25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\nLogistisk? “z values” i stedet for “t values”. Og opgaven fortalte at responsvariablen var fosterdød. Der er ret kategorisk.\nTolkningen af estimatet vender vi tilbage til.\nz value er testværdien. Hvordan hænger den sammen med Estimate og Std. Error?\np-værdien tester \\(H_0\\): At estimatet i virkeligheden er 0. Det er risikoen/sandsynligheden for at vi afviser \\(H_0\\) selvom den er sand.\np=2⋅P(Z≥∣z∣). Eller: 2*(1 - pnorm(abs(z)))\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Hvordan ser resultatet ud?\n\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage-25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\nLogistisk? “z values” i stedet for “t values”. Og opgaven fortalte at responsvariablen var fosterdød. Der er ret kategorisk.\nTolkningen af estimater vender vi tilbage til.\nz value er testværdien. Hvordan hænger den sammen med Estimate og Std. Error?\np-værdien tester \\(H_0\\): At estimatet i virkeligheden er 0. Det er risikoen/sandsynligheden for at vi afviser \\(H_0\\) selvom den er sand.\np=2⋅P(Z≥∣z∣). Eller: 2*(1 - pnorm(abs(z)))\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/logistisk.html#estimaterne",
@@ -60,20 +60,6 @@
     "href": "slides/logistisk.html#mors-rygning",
     "title": "Logistisk regression",
     "section": "Mors rygning",
-    "text": "Mors rygning\n\nVi har tidligere kigget på sammenhængen mellem fødselsvægt og mors rygning/alkohol indtag under graviditeten.\nNu ser vi på den primære responsvariabel, som var fosterdød.\nRecap af de relevante variable i datasættet:\nepisodes: antal episoder med feber under graviditeten\ndeath: Fosterdød (ja = 1, nej = 0)\nmage: Morderens alder\nsmoke: Rygning under graviditet (1=0 cigaretter/dag, 2=1-10 cigaretter/dag, 3=11+ cigaretter/dag)\nVi får også oplyst:\n&gt; table(fever$episodes)\n\n\n   0    1    2    3    4    5    6    7   10 \n9693 1872  183   20    3    3    1    1    2 \n\n\nEr der en sammenhæng mellem den primære responsvariabel (død), og feber i tidlig graviditet."
-  },
-  {
-    "objectID": "slides/logistisk.html#mors-rygning-1",
-    "href": "slides/logistisk.html#mors-rygning-1",
-    "title": "Logistisk regression",
-    "section": "Mors rygning",
-    "text": "Mors rygning\nVi får oplyst at den korrekte analyse gav dette resultat:\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\ni((mage-25)/10) skal vi lige holde tungen lige i munden. mage er moderens alder ved interview. Vi sætter et nulpunkt der er 25, og måler derefter i enheder af 10 år.\n\n\nHvad kan vi konkludere på denne analyse? Fortolk relevante estimater"
-  },
-  {
-    "objectID": "slides/logistisk.html#mors-rygning-2",
-    "href": "slides/logistisk.html#mors-rygning-2",
-    "title": "Logistisk regression",
-    "section": "Mors rygning",
     "text": "Mors rygning\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\n\nDet er en logistisk regression, så estimaterne er\n\n\nlog-odds\n\n\nFor at få odds skal vi derfor\n\n\nexponentiere estimaterne for at få odds.\n\n\nHvordan fandt vi en sandsynlighed ud fra odds?\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)"
   },
   {
@@ -81,35 +67,42 @@
     "href": "slides/logistisk.html#mors-rygning---intercept",
     "title": "Logistisk regression",
     "section": "Mors rygning - intercept",
-    "text": "Mors rygning - intercept\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\n\n\nHvad repræsenterer interceptet?\n\n\nBaseline - hvad er det?\n\n\nFind: Odds, sandsynlighed og 95% KI for Intercept\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Mors rygning - intercept\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\n\nFind: Odds, sandsynlighed og 95% KI for Intercept\n\n\nHvad repræsenterer interceptet?\n\n\nBaseline - hvad er det?\n\n\nHvordan fandt vi sandsynligheden?\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/logistisk.html#mors-rygning---alder",
     "href": "slides/logistisk.html#mors-rygning---alder",
     "title": "Logistisk regression",
     "section": "Mors rygning - alder",
-    "text": "Mors rygning - alder\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\n\n\nHvad sker der med odds for fosterdød når mors alder stiger?\n\n\nHusk at det er i enheder af 10 år\n\n\nFind: Odds, sandsynlighed og 95% KI for I((mage-25)/10)\n\n\nSignifikant?\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Mors rygning - alder\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\n\nHvad sker der med oddsratio for fosterdød når mors alder stiger?\n\n\nHusk at det er i enheder af 10 år\n\n\nFind: Oddsratio og 95% KI for I((mage-25)/10)\n\n\nSignifikant?\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/logistisk.html#mors-rygning---resten",
     "href": "slides/logistisk.html#mors-rygning---resten",
     "title": "Logistisk regression",
     "section": "Mors rygning - resten",
-    "text": "Mors rygning - resten\nHverken antallet af feberepisoder eller rygning har statistisk signifikant betydning.\nVi kan beregne OR på dem og konfidensintervaller.\nDen der kommer tættest på er rygning niveau 3, men den er ikke signifikant ved et 5% niveau."
+    "text": "Mors rygning - resten\n\nHverken antallet af feberepisoder eller rygning har statistisk signifikant betydning.\nVi kan beregne OR på dem og konfidensintervaller.\nDen der kommer tættest på er rygning niveau 3, men den er ikke signifikant ved et 5% niveau.\nBemærk også: Vi beregner odds for baseline.\nMen når vi regner på alderen, så regner vi på hvordan odds ændrer sig når vi ændrer på alderen.\nDerfor er det odds-ratio vi beregner!\nOg derfor er det ikke specielt meningsfuldt at beregne sandsynligheder ved en aldersstigning.\nDerfor taler vi heller ikke om at der er 2.1 gange højere sandsynlighed (!)\nDet er 2.1 gange højere odds der er associeret med en stigning på 10 år i mors alder."
   },
   {
     "objectID": "slides/logistisk.html#mors-rygning---prediktion",
     "href": "slides/logistisk.html#mors-rygning---prediktion",
     "title": "Logistisk regression",
     "section": "Mors rygning - prediktion",
-    "text": "Mors rygning - prediktion\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\nForudsig (predikter) risiko for fosterdød for gravid kvinde, 25 år gammel der ikke ryger og ikke har feberepisoder.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Mors rygning - prediktion\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\nForudsig (predikter) risiko for fosterdød for gravid kvinde, 25 år gammel der ikke ryger og ikke har feberepisoder.\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\neller, cowboy-trick:\nplogis(log_odds)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/logistisk.html#mors-rygning---prediktion-2",
     "href": "slides/logistisk.html#mors-rygning---prediktion-2",
     "title": "Logistisk regression",
     "section": "Mors rygning - prediktion 2",
-    "text": "Mors rygning - prediktion 2\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\nGentag forudsigelsen for en kvinde der er 40 år.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Mors rygning - prediktion 2\n\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n-5.0526\n0.1758\n-28.725\n&lt;2e-16***\n\n\nI((mage - 25)/10)\n0.7423\n0.2149\n3.454\n0.0005***\n\n\nepisodes\n-0.0752\n0.2048\n-0.368\n0.713\n\n\nfactor(smoke)2\n0.2063\n0.2569\n0.803\n0.421\n\n\nfactor(smoke)3\n0.4364\n0.2569\n1.699\n0.089\n\n\n\n\n\n\n\nGentag forudsigelsen for en kvinde der er 40 år.\n\\(p = \\frac{\\text{odds}}{1 + \\text{odds}}\\)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/logistisk.html#sidste-note-om-de-rygende-mødre",
+    "href": "slides/logistisk.html#sidste-note-om-de-rygende-mødre",
+    "title": "Logistisk regression",
+    "section": "Sidste note om de rygende mødre",
+    "text": "Sidste note om de rygende mødre\nMan kan godt beregne KI på sandsynlighederne. Men.\nDet kræver adgang til det oprindelige datasæt."
   },
   {
     "objectID": "slides/logistisk.html#rygende-donorer",
@@ -753,7 +746,35 @@
     "href": "slides/løsninger.html#hvor-sikre-er-vi-på-de-estimater",
     "title": "Opgaveløsninger",
     "section": "Hvor sikre er vi på de estimater?",
-    "text": "Hvor sikre er vi på de estimater?\n\n0.7423 + c(-1,1)*1.96*0.2149\n\n[1] 0.321096 1.163504\n\nexp(0.7423)\n\n[1] 2.100762\n\nexp(0.7423 + c(-1,1)*1.96*0.2149)\n\n[1] 1.378638 3.201130\n\n\nSå - vores estimat er at en stigning i alder på 10 år er associeret med 2.1 gange højere odds. Og et konfidensinterval på det estimat mellem 38% og 220% højere odds."
+    "text": "Hvor sikre er vi på de estimater?\n\n0.7423 + c(-1,1)*1.96*0.2149\n\n[1] 0.321096 1.163504\n\nexp(0.7423)\n\n[1] 2.100762\n\nexp(0.7423 + c(-1,1)*1.96*0.2149)\n\n[1] 1.378638 3.201130\n\n\nSå - vores estimat er at en stigning i alder p å 10 år er associeret med 2.1 gange højere odds. Og et konfidensinterval på det estimat mellem 38% og 220% højere odds."
+  },
+  {
+    "objectID": "slides/løsninger.html#mors-rygning---intercept",
+    "href": "slides/løsninger.html#mors-rygning---intercept",
+    "title": "Opgaveløsninger",
+    "section": "Mors rygning - intercept",
+    "text": "Mors rygning - intercept\nInterceptet er log-odds for fosterdød for baseline.\nBaseline er en 25 årig kvinde. Uden feber episoder, der ikke har røget under graviditeten\nodds:\n\n(odds &lt;- exp(-5.0526))\n\n[1] 0.006392691\n\n\nMeget lav.\n95% KI. Vi finder det først på log-odds skala\n\n(log_ki &lt;- -5.0526 + c(-1,1)*1.96*0.1758)\n\n[1] -5.397168 -4.708032\n\n\nOg så på odds skala\n\n(ki &lt;- exp(log_ki))\n\n[1] 0.004529390 0.009022516\n\n\nSandsynlighed:\n\n(p &lt;- odds/(1+odds))\n\n[1] 0.006352084\n\n\nGang med 100 for at få procent\nDen hurtige vej fra ki-odds til ki p:\n\nki/(1+ki)\n\n[1] 0.004508967 0.008941839\n\n\nVed meget små odds er sandsynlighed og odds næsten det samme. Hvorfor? fordi vi dividerer med noget der er næste 1, ford i odds er ret lille."
+  },
+  {
+    "objectID": "slides/løsninger.html#mors-rygning-alder",
+    "href": "slides/løsninger.html#mors-rygning-alder",
+    "title": "Opgaveløsninger",
+    "section": "Mors rygning alder",
+    "text": "Mors rygning alder\nDet er samme regnestykker som sidst.\nOddratio (RATIO!)\n\n(OR &lt;- exp(0.7423))\n\n[1] 2.100762\n\n\nlog-ki for log-OR for alder:\n\n(log_ki &lt;- 0.7423 + c(-1,1)*1.96*0.2149)\n\n[1] 0.321096 1.163504\n\n\nog ki for or:\n\nexp(log_ki)\n\n[1] 1.378638 3.201130\n\n\nEstimatet var 2.1, det vil sige 2.1 gange så høje odds for fosterdød når mors alder stiger med 10 år.\nOg den sande effekt ligger plausibelt mellem 38 og 220% højere odds"
+  },
+  {
+    "objectID": "slides/løsninger.html#mors-rygning---prediktion-25-år",
+    "href": "slides/løsninger.html#mors-rygning---prediktion-25-år",
+    "title": "Opgaveløsninger",
+    "section": "Mors rygning - prediktion 25 år",
+    "text": "Mors rygning - prediktion 25 år\nDet er baseline.\n\n(log_odds &lt;- -5.0526 + 0*0.7423)\n\n[1] -5.0526\n\n(odds &lt;- exp(log_odds))\n\n[1] 0.006392691\n\nodds/(1+odds)\n\n[1] 0.006352084\n\nplogis(log_odds)\n\n[1] 0.006352084"
+  },
+  {
+    "objectID": "slides/løsninger.html#mors-rygning---prediktion-40-år",
+    "href": "slides/løsninger.html#mors-rygning---prediktion-40-år",
+    "title": "Opgaveløsninger",
+    "section": "Mors rygning - prediktion 40 år",
+    "text": "Mors rygning - prediktion 40 år\nDet er baseline.\n\n(log_odds &lt;- -5.0526 + (40-25)/10*0.7423)\n\n[1] -3.93915\n\n(odds &lt;- exp(log_odds))\n\n[1] 0.01946475\n\nodds/(1+odds)\n\n[1] 0.01909311\n\nplogis(log_odds)\n\n[1] 0.01909311"
   },
   {
     "objectID": "slides/løsninger.html#rygende-donorer---regne",
@@ -809,7 +830,28 @@
     "href": "slides/løsninger.html#glykæmisk-kontrol---model",
     "title": "Opgaveløsninger",
     "section": "Glykæmisk kontrol - model",
-    "text": "Glykæmisk kontrol - model\nGlykæmisk kontrol har vi allerede regnet på.\nKøn. OR\n\nexp(0.252051)\n\n[1] 1.286662\n\n\nMandlige diabetikere har derfor 28% større odds for godt helbred (selvrapporteret) sammenlignet med kvindelige diabetikere, og et KI på med alder og HBAlC fastholdt:\n\nexp(0.252051 + c(-1,1)*1.96*0.117514)\n\n[1] 1.021961 1.619923\n\n\nAlder, der også var statistisk signifikant (p-værdien)\nOR:\n\nexp(-0.015573)\n\n[1] 0.9845476\n\n\nved fastholdt køn og HBAlC. ca. 1.2% reduceret odds for selvrapporteret godt helbred for hver øgning af alder med 1 år\nVed fastholddt køn og hbalc\nHvis vi ønsker hvad det er for eg 5 år, skal der ganges med 5 på både estimatet og standardfejlen\n@@@@ ## Laparotomi\nVi ser på data fra ca 1000 patienters risiko for at dø ved en operation (laparotomi). Har øget ilt-tilførsel under operationen betydning for død i en opfølgnigsperiode på ca. 3 år. Patienterne blev randomiseret til et af to ilt-regimer\nVi har følgende variable Allokering: X - patient fik 80% ilt, Y Patient fik 30% ilt diagn_cancer: j: cancer, n: ikke cancer blod: j perioperativ blodtransfusion, n ikke perioperativ blodtransfusion bmi: patientens BMI dead: 1 patienten dør i løbet af opfølgningsperioden, 0 patienten overlever\nDe første 6 observationer:\n\nhead(ilt_data)\n\n# A tibble: 6 × 5\n  Allokering diagn_cancer blod    bmi  dead\n  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Y          n            n      29.3     0\n2 X          n            n      28.1     0\n3 X          j            n      21.5     1\n4 X          j            n      17.3     1\n5 Y          n            n      24.2     0\n6 Y          n            n      18.2     0\n\n\n\nHvis vi alene betragter patienternes bmi, hvordan ville vi så undersøge om den har signifikant betydning for risikoen for dø efter operation. Outcome - dead er binær og bmi er kontinuært. Så vi vil modellere et kategorisk outcome med kontinært forklarende variabel: logistisk regression\nNår vi gør det, får vi følgende resultat (de fortsætter deres juleleg med at fjerne dele af output):\n\n\n\n\n\n\n\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-0.007041\n0.386263\n-0.018\n0.98546\n\n\nbmi\n\n0.015385\n-3.151\n\n\n\n\n\n\n\n\nHvad kan vi sige ud fra det?\nVi mangler et estimat for bmi. Det kan vi beregne, fordi z-value finder vi ved at dividere estimatet med standardfejlen. Derfor kan vi finde estimatet ved at gange standardfejl med z value.\n\n-3.151*0.015385\n\n[1] -0.04847813\n\n\nTeststørrelsen er klart signifikant\n\n2*pnorm(-3.151)\n\n[1] 0.001627125\n\n\nVi kan beregne OR:\n\nexp(-0.04847813)\n\n[1] 0.9526782\n\n\nSå holdes alt andet konstant, vil en patient med et bmi der er 1 større end en anden patient, have vil odds for død reduceres med ca 5% for patienten med det højeste bmi.\nVi kan beregne et 95% KI:\n\nexp(-0.04847813 + c(-1,1)*1.96*0.015385)\n\n[1] 0.9243794 0.9818433\n\n\n1 er ikke indeholdt i intervallet, og forskellen er derfor signifkant. Det så vi også fra p-værdien vi beregnede tidligere.\n\nNu ser vi bort fra bmi, og betrager ilt-allokering.\n\n\ntable(dead,Allokering)\n\n    Allokering\ndead   X   Y\n   0 414 418\n   1 139 107\n\n\nHvad kan vi konkludere ud fra det?\nVi sammenligner død (1) for de to ilt-regimer X og Y: odds_X = 139/414 = 0.3357488 P_y = 107/418 = 0.2559809\nOR (X mod Y) = 0.3357488/0.2559809 = 1.311617 dvs at odds for at dø estimeres at være ca. 31% højere ved det høje ilt-regime, sammenlignet med det lave (alt andet fastholdt)\n95% KI: standardfejlen på log(OR): sqrt(1/139 + 1/414 + 1/107 + 1/418) = 0.146109\nexp(log(1.311617) + c(-1,1)1.960.146109)\nDet indeholder 1 og estimatet er derfor ikke statistisk signifikant (de er dog i modelbesvarelser glade for at nævne at det er tæt på at være signifikant)\nBETON FORSKEL PÅ OR OG RR!\n\nTabellen deles nu op efter den opererede patients diagnose (cancer, ja,nej):\n\n\ntable(dead, Allokering, diagn_cancer)\n\n, , diagn_cancer = j\n\n    Allokering\ndead   X   Y\n   0 188 213\n   1 101  74\n\n, , diagn_cancer = n\n\n    Allokering\ndead   X   Y\n   0 226 205\n   1  38  33\n\n\nGiver det anledning til at ændre den tidligere konklusion? Begnd med effektestimater og 95% konfidensintervaller.\nSamme øvelse som før, men nu på hver gruppe: Cancerpatienter: OR = (101/188) / (74/213) = 1.546363 s.e. på log(OR): sqrt(1/101 + 1/188 + 1/74 + 1/213) = 0.1828346 KI: exp(log(1.546363) + c(-1,1)1.960.1828346) = 1.080636 2.212806\nSå for cancerpatienter er odds for at dø ved det høje ilt regime ca 55% højere, med et KI som angivet. Signifikant, da 1 ikke er med i KI.\nnon-cancer-patienter:\nOR = (38/226) / (33/205) = 1.044516 se på log(OR) = sqrt(1/38 + 1/226 + 1/33 + 1/205) = 0.2567521 KI: exp(log(1.044516) + c(-1,1)1.96 0.2567521) = 0.6314854 1.7276943 Så odds er 1.04 gange større i det høje ilt-regime for ikke-cancerpatienter. Men det er ikke signifikant - for 1 er indeholdt i KI.\nSå ilt-regime har betydning for cancerpatienter."
+    "text": "Glykæmisk kontrol - model\nGlykæmisk kontrol har vi allerede regnet på.\nKøn. OR\n\nexp(0.252051)\n\n[1] 1.286662\n\n\nMandlige diabetikere har derfor 28% større odds for godt helbred (selvrapporteret) sammenlignet med kvindelige diabetikere, og et KI på med alder og HBAlC fastholdt:\n\nexp(0.252051 + c(-1,1)*1.96*0.117514)\n\n[1] 1.021961 1.619923\n\n\nAlder, der også var statistisk signifikant (p-værdien)\nOR:\n\nexp(-0.015573)\n\n[1] 0.9845476\n\n\nved fastholdt køn og HBAlC. ca. 1.2% reduceret odds for selvrapporteret godt helbred for hver øgning af alder med 1 år\nVed fastholddt køn og hbalc\nHvis vi ønsker hvad det er for eg 5 år, skal der ganges med 5 på både estimatet og standardfejlen"
+  },
+  {
+    "objectID": "slides/løsninger.html#laparotomi",
+    "href": "slides/løsninger.html#laparotomi",
+    "title": "Opgaveløsninger",
+    "section": "Laparotomi",
+    "text": "Laparotomi\nVi starter med at finde et estimat for bmi\n\n(OR_bmi &lt;- -3.151*0.015385)\n\n[1] -0.04847813\n\n\nVi mangler også en p-værdi. Men teststørrelsen fortæller os at det er klart signifikant.\n\n2*pnorm(-3.151)\n\n[1] 0.001627125\n\n\nDet giver ikke mening at regne på intercept. Hvorfor? Fordi det svarer til et bmi på 0.\nKunne vi have fået et intercept der var meningsfuldt? Hvis vi husker hvordan vi håndterede mors alder i de rygende mødre - der satte vi et nulpunkt. Vi kunne gøre det samme med BMI, så havde vi fået en reference, hvor intercept havde været log-odds for risikoen for død ved et bestemt BMI.\nDet gør vi ikke i denne opgave.\nOR på BMI\n\nexp(OR_bmi)\n\n[1] 0.9526782\n\n\nSå holdes alt andet konstant, vil en patient med et bmi der er 1 større end en anden patient, have vil odds for død reduceres med ca 5% for patienten med det højeste bmi.\nVi kan beregne et 95% KI for:\n\nexp(-0.04847813 + c(-1,1)*1.96*0.015385)\n\n[1] 0.9243794 0.9818433\n\n\n1 er ikke indeholdt i intervallet, og forskellen er derfor signifkant. Det så vi også fra p-værdien vi beregnede tidligere."
+  },
+  {
+    "objectID": "slides/løsninger.html#laparotomi---ilt",
+    "href": "slides/løsninger.html#laparotomi---ilt",
+    "title": "Opgaveløsninger",
+    "section": "Laparotomi - ilt",
+    "text": "Laparotomi - ilt\nVi sammenligner død (1) for de to ilt-regimer X og Y:\nodds for død\n\n(odds_x &lt;- 139/414)\n\n[1] 0.3357488\n\n(odds_y &lt;- 107/418)\n\n[1] 0.2559809\n\n\nOR - vi er interesserede i det høje iltregime\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.311617\n\n\n\n(SE_log_OR &lt;- sqrt(1/414 + 1/139 + 1/418 + 1/107))\n\n[1] 0.146109\n\n\n95% KI:\n\n(log_odds_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_OR)\n\n[1] -0.0151131  0.5576342\n\nexp(log_odds_ki)\n\n[1] 0.9850005 1.7465357\n\n\nSå vi estimereer at odds for at dø ved det høje ilt regime (X) er ca 31% højere end ved det lave, med et 95% KI på xx, der indeholder 1, og derfor ikke er signifikant.\nHusk forskellen på OR og RR - det er odds, ikke risiko!"
+  },
+  {
+    "objectID": "slides/løsninger.html#laparotomi---diagnose",
+    "href": "slides/løsninger.html#laparotomi---diagnose",
+    "title": "Opgaveløsninger",
+    "section": "Laparotomi - diagnose",
+    "text": "Laparotomi - diagnose\nTabellen deles nu op efter den opererede patients diagnose (cancer, ja,nej):\nNu laver vi samme øvelse, men på hver gruppe.\nCancer patienter:\n\n(odds_x &lt;- 101/188)\n\n[1] 0.537234\n\n(odds_y &lt;- 74/213)\n\n[1] 0.3474178\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.546363\n\n(SE_log_or &lt;- sqrt(1/101 + 1/74 + 1/188 + 1/213))\n\n[1] 0.1828346\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] 0.07754983 0.79426143\n\nexp(log_ki)\n\n[1] 1.080636 2.212806\n\n\nodds for at dø for cancerpatienter er ca. 1.55 gange højere ved det høje iltregime end ved det lave. 1 er ikke indeholdt i 95% KI for OR, og estimatet er derfor signifikant på et 5% niveau. Vi ser det også ved at log_ki ikke indeholder 0.\nFor ikke-cancerpatienter\n\n(odds_x &lt;- 38/226) \n\n[1] 0.1681416\n\n(odds_y &lt;- 33/205)\n\n[1] 0.1609756\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.044516\n\n(SE_log_or &lt;- sqrt(1/38 + 1/226 + 1/33 + 1/205))\n\n[1] 0.2567521\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] -0.4596806  0.5467877\n\nexp(log_ki)\n\n[1] 0.6314853 1.7276943\n\n\nHer estimerer vi at odds for at dø er 1.04 (4%) højer for at dø ved det høje ilt-regime sammenlignet med det lave for ikke-cancerpatienter, med det fundne 95% KI. Da 1 er indeholdt i KI, kan vi konkludere at estimatet ikke er signifikant.\nSå ilt-regimet har betyding for cancer patienter, men ikke for ikke-cancerpatienter."
   },
   {
     "objectID": "slides/løsninger.html#levertal",

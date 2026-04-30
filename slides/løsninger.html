@@ -353,13 +353,13 @@ window.Quarto = {
 <p>X∼N(μ,6.52)</p>
 <p>P(X&lt;0) = 0.4</p>
 <p>Skaler: P(Z&lt;0−μ6.52)=0.4</p>
-<p>0−μ6.52=qnorm(0.4)=−0.2533471 Isoler μ</p>
+<p>0−<span class="math inline">\(\mu\)</span>/6.52=qnorm(0.4)=−0.2533471 Isoler <span class="math inline">\(\mu\)</span></p>
 </section>
 <section id="øvelse---manglende-procentil" class="level2">
 <h2 class="anchored" data-anchor-id="øvelse---manglende-procentil">Øvelse - Manglende procentil:</h2>
-<p>En normalfordelt population har middelværdi μ=12.5 og standardafvigelse σ=3.2 . Hvor stor en andel af værdierne er mindre end 10?</p>
+<p>En normalfordelt population har middelværdi <span class="math inline">\(\mu\)</span>=12.5 og standardafvigelse <span class="math inline">\(\sigma\)</span>=3.2 . Hvor stor en andel af værdierne er mindre end 10?</p>
 <p>Med andre ord, hvad er: P(X&lt;10)</p>
-<p>Transformer til standardnormalfordelingen: P(Z&lt;(10−μ)/σ)</p>
+<p>Transformer til standardnormalfordelingen: P(Z&lt;(10−<span class="math inline">\(\mu\)</span>)/<span class="math inline">\(\sigma\)</span>)</p>
 <p>Indsæt</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>((<span class="dv">10</span><span class="fl">-12.5</span>)<span class="sc">/</span><span class="fl">3.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -370,7 +370,7 @@ window.Quarto = {
 </section>
 <section id="øvelse---manglende-σ" class="level2">
 <h2 class="anchored" data-anchor-id="øvelse---manglende-σ">Øvelse - Manglende σ</h2>
-<p>I en normalfordelt population er μ=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?</p>
+<p>I en normalfordelt population er <span class="math inline">\(\mu\)</span>=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?</p>
 <p>P(x &gt; 95) = 0.25</p>
 <p>P(X &lt; 95) = 1-0.25</p>
 <p>Standardiser</p>

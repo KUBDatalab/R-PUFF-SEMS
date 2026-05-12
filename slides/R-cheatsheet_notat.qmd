@@ -19,7 +19,7 @@ Og egentlig ville jeg foreslå at I deltog på et af vores introkurser til R.
 Dette er langt fra færdigt. Fortæl gerne hvad der er brug for!
 
 
-Gem en værdi
+## Gem en værdi
 
 Det er lettere at skrive "SE" end at skrive 0.4847285
 
@@ -40,6 +40,8 @@ SE
 ```
 
 HUSK der er forskel på store og små bogstaver. `SE` er noget andet end `se`.
+
+## Vektorer
 
 Vi har undertiden behov for at arbejde med mere end en værdi. Det kalder vi en "vektor"
 

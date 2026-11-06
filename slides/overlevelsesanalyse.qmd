@@ -13,475 +13,287 @@ webr:
   packages: ['survival']
 ---
 
-## Hvad skal vi kunne?
+Vi kalder det overlevelsesanalyse fordi det ofte bruges til at analysere hvornår patienter dør.
 
-- Forklare tid til event, risikosæt og censurering.
-- Læse en Kaplan–Meier-kurve og en log-rank-test.
-- Fortolke koefficienter og hazard ratioer fra Cox-regression.
-- Gennemskue immortal time bias og andre faldgruber.
+Men det fungerer også til at betragte hvornår tilbagefald (recidiv), infektion eller udskrivelse sker.
 
-Vi slutter med **opgave 2a og 2b fra SEMS, sommer 2026**.
+Og er en helt generel metode der også bruges til at analysere hvornår virksomheder mister kunder.
 
-## Outcome er en tid
+Helt generelt: Hændelser.
 
-Vi modellerer **tid indtil en hændelse**: død, tilbagefald, infektion eller udskrivelse.
+Hvis vi har 100 patienter, så er der på et givet tidspunkt en risiko for at de dør. 
 
-To personer kan begge være i live ved sidste kontrol, men være fulgt i henholdsvis 1 og 10 år.
+Den risiko kalder vi "hazard" - det er en funktion af hvor lang tid der er gået, så vi kan skrive det som en funktion: $$h(t)$$
+Det er raten af hændelser på tidspunktet t, blandt de patienter der ikke har oplevet hændelsen (død). 
 
-Et simpelt ja/nej-outcome mister den forskel.
+Vi kan også beskrive det som en overlevelsesfunktion $$S(t)$$. Det er sandsynligheden for at være hændelsesfri (i live) til tiden t:
 
-Et gennemsnit af de observerede tider blander tid til event sammen med tid til sidste kontrol.
+Sammenhængen mellem de to $$h(t) = -\frac{S'(t)}{S(t)}$$
 
-## Før analysen: definér tid nul og event
+$S*(t)$ er overvelsen diffenrentieret - eller hvor hurtigt overlevelseskurven falder. 
 
-I eksamensopgaven følger vi patienter på venteliste til hjertetransplantation.
+Derfor kan vi også beregne $S(t)$ ved:
+$$
+S(t) = \exp\left(-\int_0^t h(u)\,du\right)
+$$
 
-| Begreb | I opgave 2 |
-|---|---|
-| Tid nul | Inklusion på ventelisten |
-| Event | Død |
-| Observeret tid | `futime`: tid til død eller sidste opfølgning |
-| Event-indikator | `fustat`: 1 = død, 0 = censureret |
+Det behøver vi ikke bekymre os om, men det betyder at hvis $h(t)$ er uafhængig af tiden - at sandsynligheden for at opleve hændelsen ikke ændrer sig over tid, 
+kan vi beregne sandsynligheden for at overleve (være hændelsesfri) efter eksempel 5 år. Hvis harzard er konstant 0.1 pr år, bliver regnestykket:
 
-Tid nul skal være klinisk relevant og sammenlignelig mellem patienter.
+$$S(5) = e^{-0.1 \dot 5} = 0.607$$
+Eller 60.7%
 
-## Censureret betyder ikke event-fri for evigt
 
-- A dør efter 3 måneder: Vi kender dødstidspunktet.
-- B er i live efter 3 måneder og tabes derefter til opfølgning: Vi ved kun, at dødstidspunktet ligger **senere**.
+Når vi skal sammenligne forskellige patienter, skal vi måle tiden indtil hændelsen (eller hvor lang tid der er gået uden hændelse) på en ensartet måde.
 
-B er **højrecensureret** efter 3 måneder.
+Vi definerer derfor et starttidspunkt. Det skal defineres på samme måde for alle patienter, og det skal - i denne kontekst - være klinisk relevant.
 
-B bidrager med information indtil da. Vi hverken fjerner B eller registrerer et dødsfald ved måned 3.
+Selve datoen for starttidspunktet kan godt være forskelligt. De bliver ikke alle opereret, eller skrevet på venteliste, samme dag.
 
-## Ikke-informativ censurering
+Vi kalder det $t = 0$, eller $t_0$, og det kan være dato for diagnose, operationen, indskrivelse på venteliste eller start på behandling.
 
-Censurerede skal, givet de variable analysen tager højde for, være repræsentative for dem, der stadig følges, med hensyn til fremtidig eventtid.
+Hvis vi kun tæller hvor mange patienter der er døde på et bestemt tidspunkt, bliver vi klogere. Men vi bliver endnu klogere hvis vi har information om de der ikke har haft hændelsen endnu.
 
-- Studiets planlagte afslutning er ofte en rimelig censureringsgrund.
-- Hvis de mest syge forsvinder fra opfølgningen, kan overlevelsen blive overvurderet.
-- Også administrativ censurering kan give problemer, hvis prognosen ændres med kalenderperioden for inklusion.
+Så dem inddrager vi også.
 
-**Årsagen til censurering skal vurderes.**
+Hvad kan der gå galt når vi gør det?
 
-## Tre centrale begreber
+Vi kan opleve at vi taber kontakten til patienterne, og ikke ved hvad deres status er efter sidste kontakt.
+Det kan være at patienten dør af noget andet end det vi undersøger.
+Hvis vi studerer infektioner, kan det være at patienten testede negativ efter tre uger, men positiv efter 5. Vi ved ikke hvornår infektionen faktisk skete.
+Det kan også være at patienten testede positiv allerede da vi startede studiet. Så ved vi heller ikke hvornår det skete.
+Det kan også være at patienten er i live (eller er hændelsesfri) når vi afslutter studiet. Så ved vi heller ikke hvornår hændelsen indtræffer (eller om den overhovedet gør)
+Vi kan også foretage studiet over mange år. Behandlingsformer og dermed prognoser kan derfor ændre sig, og nogen patienter bidrager derfor med en anden hazard end andre.
 
-$$S(t)=P(T>t)$$
+Det kalder vi forskellige ting:
 
-**Overlevelsesfunktionen:** Sandsynligheden for at være event-fri efter tid $t$.
+Højrecensurering: Kontakten ophører mens patienten er hændelsesfri.
+Venstrecensurering: Positiv allrede ved første observation
+Intervalcensurering: Negativ test efter tre uger, positiv efter 5
+Konkurrerende hændelse: Patienten dør af anden årsag end det vi undersøger. Det vil vi behandle som en højrecensurering.
+Administrativ højrecensurering: Patienten er hændelsesfri ved studiets afslutning
+Informativ administrativ censurering: Behandling/prognose ændres sig over tid.
 
-**Risikosættet:** De personer, som stadig observeres og endnu ikke har haft event lige før $t$.
+Hvis patienterne har fælles slutdato, får de sidst inkluderede patienter kortere opfølgning. Og hvis de samtidig har en bedre prognose, kommer længden af opfølgning til at hænge smmen med overlevelsen. Og så er den administrative censur ikke kun censur, men giver også information.
 
-**Hazard $h(t)$:** Den øjeblikkelige event-rate blandt dem, der endnu er event-frie. En rate har enhed fx pr. måned og er ikke en sandsynlighed.
 
-## Et lille datasæt
 
-| Patient | Tid (måneder) | Event |
-|---|---:|---:|
-| A | 2 | 1 |
-| B | 3 | 0 |
-| C | 4 | 1 |
-| D | 4 | 1 |
-| E | 6 | 0 |
-| F | 7 | 1 |
+Vi starter med at patienterne er i live. Efter et stykke tid er der en der dør. Det er der igen lidt senere.
 
-**Spørgsmål:** Hvem er i risiko lige før måned 4?
+Det vil vi gerne kunne beskrive og analysere.
 
-::: {.fragment}
-C, D, E og F. A er død, og B er censureret.
-:::
+Hvis vi løfter os helt op i helikopteren, så findes der en overlevelsesfunktion:
 
-## Kaplan–Meier: ét trin ad gangen
+$$S(t) = P(T > t)$$
 
-$$\widehat S(t)=\prod_{t_i\leq t}\left(1-\frac{d_i}{n_i}\right)$$
+T er tiden fra start tidspunktet til hændelsen. Hændelsen indtræffer ved tiden t. Så S(t) er sandsynligheden for at hændelsen _ikke_ er indtruffet ved tiden t. 
 
-$n_i$: antal i risiko lige før eventtidspunkt $t_i$.  
-$d_i$: antal events ved $t_i$ (kan være flere end ét).
+At patienten stadig er i live.
 
-| Tid | I risiko | Events | Betinget overlevelse | $\widehat S(t)$ |
-|---|---:|---:|---:|---:|
-| 2 | 6 | 1 | $5/6$ | $0.833$ |
-| 4 | 4 | 2 | $2/4$ | $0.417$ |
-| 7 | 1 | 1 | $0/1$ | $0$ |
+Det er jo rimelig lige til, så længe vi ikke bekymrer os om hvordan funktionen _egentlig_ ser ud.
 
-Censurering ved 3 og 6 reducerer senere risikosæt, men giver **ikke** et fald i kurven.
+Men hvis der var 100 patienter, og 30 af dem er døde efter et år, så er overlevelsen $$\widehat{S}(1) = \frac{100 - 30}{100} = 0.70$$
+Og eftersom det er en propotion, ved vi også hvordan vi beregnet et 95% konfidensinterval på det estimat.
 
-## Sådan ser kurven ud
+Det er overlevelsesfunktionen. Sandsynligheden for at være i live, eller mere generelt, event-fri på et bestemt tidspunkt.
 
-![Kaplan–Meier for de seks illustrative patienter. Plusser markerer censurering.](../pics/overlevelse-km.svg){height=410 fig-alt="Overlevelsen falder fra 1 til 5/6 ved måned 2, til 5/12 ved måned 4 og til 0 ved måned 7. Censurering ved måned 3 og 6 giver ingen fald."}
+Det andet centrale begreb er "hazard" h(t). Hvad er "raten", risikoen, for hændelsen, død, til tiden t, for de der stadig er
+"under risiko". De der er tilbage i studiet til tiden t.
 
-Den sidste del bygger på meget få personer. Et stort trin er ikke nødvendigvis stærk evidens.
+Det tredie centrale begreb er "risikosæt". Det er de personer der på et givet tidspunkt stadig følges - og ikke har haft hændelse (teknisk set lige før tidspunktet)
 
-## Prøv Kaplan–Meier i R
+Vi ser på det dansk datasæt om død af malignt melanom, efter operation. 
 
-::: {.smaller}
-Kør cellen. Data er et **konstrueret undervisningseksempel**, ikke eksamensdata.
+Det kan vi plotte - og her plotter vi de to køn med forskellig farve:
 
-```{webr-r}
+```{r}
 library(survival)
-lille <- data.frame(
-  tid = c(2, 3, 4, 4, 6, 7),
-  event = c(1, 0, 1, 1, 0, 1)
+survfit(Surv(time, status == 1)~factor(sex), data = MASS::Melanoma) |>  
+plot(
+  mark.time = FALSE,
+  xscale = 365.25,
+  yscale = 100,
+  xlab = "Tid (år)",
+  ylab = "Overlevelse (%)",
+  col = c("red", "blue"),
+
+  conf.int = TRUE
 )
-km <- survfit(Surv(tid, event == 1) ~ 1, data = lille)
-summary(km)
-plot(km, xlab = "Måneder", ylab = "S(t)",
-     mark.time = TRUE, conf.int = FALSE)
-```
-:::
 
-## Hvad betyder R-koden?
-
-```r
-survfit(Surv(tid, event == 1) ~ 1, data = lille)
 ```
 
-- `Surv()` samler tid og event-indikator i et overlevelsesobjekt.
-- `event == 1` angiver eksplicit, hvad der tæller som event.
-- `~ 1` giver én samlet kurve.
-- `~ factor(gruppe)` ville give en kurve pr. gruppe.
+Dette er Kaplan–Meier-kurver. Den røde er for kvinder, den blå er for mænd. De stiplede linier angiver 95% KI omkring kurven.
 
-**Kontrollér altid kodningen:** I andre datasæt kan fx 1 betyde censureret og 2 betyde død.
+Hvad kan/skal vi se ud af det?
 
-## Læs en overlevelseskurve
+Det er Kaplan-Meier-estimater for melanomspecifik overlevelse efter operation. Den røde kurve viser kvinder, den blå mænd.
+Begge kurver starter ved 100% og falder trinvist ved observerede dødsfald af melanom. 
 
-- Højden ved $t$ estimerer sandsynligheden for at være event-fri efter $t$.
-- Et fald viser events. Et censureringsmærke viser afsluttet observation uden event.
-- Konfidensbånd viser usikkerhed, som typisk vokser sent i forløbet.
-- En tabel med **antal i risiko** viser, hvor mange kurven bygger på.
+Kvindernes kurve ligger højere gennem det meste af opfølgningen. Vi kan aflæse den estimerede melanomspecifikke overlevelse
+efter 5 år, til ca. 80% for kvinder, og ca. 70% for mænd, en forskel på ca. 15 %-point. 
 
-Kurven estimerer ikke, hvornår en bestemt patient vil dø.
+Kan vi sige noget om medianoverlevelsen? Nej, begge kurer holder sig over 50%.
+De stiplede linier viser 95% KI. Efter 5 år er intervallerne ca. 75-90% for kvinder, og 60-80% for mænd.
 
-## Median overlevelse
+Hvorfor bliver konfidensintervallerne bredere? 
+Der er færre patienter i grupperne - så usikkerheden bliver større.
 
-Medianen er det første tidspunkt, hvor $\widehat S(t)\leq 0.5$.
+Hvad er vigtigt her?
 
-I vores lille eksempel er medianen **4 måneder**.
+Det vi modellerer er tid indtil hændelse. Det kan være mange ting. Død, tilbagefald, infektion eller udskrivelse.
 
-Hvis kurven aldrig når 0.5, er medianen ikke nået og kan ikke estimeres ud fra den observerede kurve.
+Vi kan også bruge den mere generelt til at modellere fastholdelse af kunder, driftsikkerhed af dimser i industrien eller analyse af arbejdsløshed. Vi holder os til patienter.
 
-To grupper kan have samme median og alligevel have forskellige overlevelsesforløb. Se på hele kurven.
+Men det er tid til hændelse. Det betyder at derer forskel på om vi har fulgt patienten i 1 år eller 10 år. 
 
-## Fra kurver til en test
+Derfor definerer vi et starttidspunkt, der skal være klinisk relevant, og det samme for alle patienter. Det kan være inklusion
+på venteliste, eller operation for melanoma. Datoerne kan godt være forskellige!
 
-**Kaplan–Meier:** Hvordan ser overlevelsen ud?
+Det event vi observerer er i melanoma eksemplet død. 
 
-**Log-rank:** Er der evidens imod ens overlevelsesfunktioner i grupperne?
 
-**Cox-regression:** Hvordan hænger forklarende variable sammen med hazard, eventuelt efter justering?
+Vi kan miste patienter på flere måder. 
 
-En figur, en p-værdi og et effektmål besvarer forskellige spørgsmål.
+Det kan være at vi mister kontakten til patienten. Han ønsker ikke at deltage i studiet længere, eller fraflytter landet. Vi kan også være heldige at de stadig er i live når studiet slutter.
 
-## Log-rank-testen
+For disse patienter ved vi at de var i live ved sidste opfølgning. Vi ved ikke hvornår hændelsen indtræffer - for der er meget få 
+dokumenterede eksempler på patienter der slet ikke dør. Vi ved ikke hvornår.
 
-$$H_0:S_0(t)=S_1(t)\text{ for alle }t$$
+Det kalder vi for højrecensurering. 
 
-Ved hvert eventtidspunkt sammenligner testen **observerede** events med de **forventede** under nulhypotesen, ud fra gruppernes risikosæt.
+Højrecensurering antyder at venstrecensurering eksisterer.
 
-Afvigelserne samles over opfølgningen.
+Det er ikke så relevant her, vi inkluderer ikke patienter der allerede er døde. Men studerede vi smitte, kunne vi opleve at 
+patienten tester positiv på dag 7. Vi ved ikke om smitten skete på dag 7. Eller på dag 6. Det vi ved med sikkerhed er, at smitten
+skete senest på dag 7. T<= 7
 
-`survdiff(..., rho = 0)` er den almindelige log-rank-test; `rho = 0` er standard.
+En tredie type censurering eksisterer:
 
-For to grupper sammenlignes teststørrelsen med en $\chi^2$-fordeling med 1 frihedsgrad.
+Intervalcensurering. I andre lande hvor man ikke er registreret i caput et nates, kunne det være at vi havde besøgt patienten på dag 3.
+Der var hun i live. Vi besøger patienten igen på dag 7. Der er hun død. Ingen ved hvornår døden indtraf. Det er med andre ord sket mellem dag 3 og dag 7. Men vi ved ikke hvornår. 3 < T <= 7
 
-## Eksamen 2a: tidligere kirurgi
+Vi skal altid vurdere censureringen. Højrecensurering i form af at studiet er afsluttet er ofte en rimelig grund til censurering.
 
-::: {.smaller}
-`surgery` angiver bypassoperation **før** inklusion på ventelisten.
+Men hvis de mest syge forsvinder fra opfølgning - kan vi overvurdere overlevelsen. Hvis de mest raske forsvinder - for "nu er jeg
+rask (nok), så er der ingen grund til at gå til lægen" kan vi undervurdere overlevelsen. Hvis diagnosekriterier ændrer sig (administrativ censurering) kan der også opstå problemer.
 
-```r
-survdiff(Surv(futime, fustat == 1) ~ factor(surgery),
-         data = d_sems)
+
+Hvor kan det gå galt?
+
+I slides gives et eksempel. Hvis vi undersøger effekten af to behandlinger, og den ene er vildt god og betyder at mange patienter er i live når vi slutter studiet - så er der også mange censurerede. De har også haft en chance for at falde ud undervejs, som de ikke ville have haft hvis de var døde.
+I den anden behandling dør de tidligt. Så censureres de ikke. 
+
+Hvis vores data er formatteret korrekt, håndterer kaplan-meier det korrekt.
+
+Vi antager at der ikke er information i censureringen.
+Eller - det at en patient ikke er blevet censureret (og stadig er i risikosættet) - må ikke forudsige resultatet.
+
+Hvis patienterne indgår i studiet over en længere periode - og prognosen bedres (eg ved bedre behandling over tid), kan denne administrative censurering også være et problem. Det kan kræve at vi justerer efter "periode".
+
+Immortal time bias. Hvis vi starter studiet 
+▶ Eksponering defineres som at have modtaget transplantation,
+▶ Skal derfor (nødvendigvis) overleve frem til transplantationstidspunkt for at komme
+i den gruppe.
+Hvis denne tid fejlagtigt tælles med som eksponeret tid, får behandlingen en kunstig
+fordel ("immortal").
+
+Tid til død med hudkræft som eksponering.
+▶ Tid til død med total dosis af en given medicin (over tid) som eksponering. De der
+dør tidligt kan aldrig opnå høj dosis.
+▶ Tid til død, hvor eksponering er "at blive pave". Paver bliver gamle!
+
+
+Competing risk - I vores melanom data indgår eksempelvis både død af melanom og død af anden årsag. Der er noget andet der udløser hændelsen.
+
+I vil blive bedt om at forholde jer til censureringen. 
+
+Den kan også illustreres visuelt:
+
+```{r}
+survfit(Surv(time, status == 1)~factor(sex), data = MASS::Melanoma) |>  
+plot(
+  mark.time = TRUE,
+  xscale = 365.25,
+  yscale = 100,
+  xlab = "Tid (år)",
+  ylab = "Overlevelse (%)",
+  col = c("red", "blue"),
+
+  conf.int = TRUE
+)
 ```
 
-Udskrift fra eksamenssættet:
+Hver lodret streg på kurverne markerer censurering. Og husk - hver gang der censureres en patient, bliver risikosættet mindre.
 
-```text
-                   N Observed Expected (O-E)^2/E (O-E)^2/V
-factor(surgery)=0  87       66     58.6     0.938      4.44
-factor(surgery)=1  16        9     16.4     3.348      4.44
+Kurverne ser forskellige ud. Er de nu også det?
 
-Chisq= 4.4 on 1 degrees of freedom, p= 0.04
+null hypotesen er som sædvanlig at der ingen forskel er. 
+
+
+```{r}
+survdiff(Surv(time, status == 1)~factor(sex), data = MASS::Melanoma)  
 ```
 
-Hvilken analyse er det, og hvad kan vi konkludere?
-:::
+Den giver evidens for at der er forskel i melanomspecifik overlevelse mellem mænd og kvinder. 
 
-## Eksamen 2a: læs tabellen
+Bemærk chisq værdien. Der er en dybere forbindelse til netop chi^2 her - men vi kan tænke på det som en kumuleret værdi. De forventede
+hændelser til hvert tidspunkt, givet fordelen af de to køn i risikosættet beregnes, og summeres.
 
-| Kolonne | Betydning |
-|---|---|
-| `N` | Antal patienter i gruppen |
-| `Observed` | Observerede dødsfald |
-| `Expected` | Forventede dødsfald under $H_0$, ud fra risikosættene |
+O er de samlede dødsfald. E er det vi forventer. E er også det forvendtede antal dødsfald. Det er bidrag til chi^2 værdien som i den test.
+V er så variansen.
 
-Uden tidligere kirurgi: **66 mod 58.6** forventede dødsfald.
+Da p-værdien er under 0.05 - forkaster vi null-hypotesen
 
-Med tidligere kirurgi: **9 mod 16.4** forventede dødsfald.
+hazard ratio - men først efter vi har lavet cox-regression
 
-Det peger mod bedre overlevelse i gruppen med tidligere kirurgi. De to bidrag i sidste kolonne skal **ikke** lægges sammen til teststørrelsen.
+Hvad skal vi kunne med den?
+Vi skal kunne aflæse overlevelsen på et bestemt tidspunkt. Hvad er sandsynligheden for at overleve til 5 år? 
+Hvis kurven når 50% kan vi aflæse tidspunktet for medianoverlevelsen. Hvis kurven ikke når til 50% - kan vi ikke estimere medianen.
+Trinene viser hændelser. Censureringsmarkeringer! Der hvor observationer ophører, uden en registreret hændelse.
+Læse/forstå fænomenet "number at risk". Deraf følger, at kurvens sidste del kan bygge på meget få patienter. Det betyder også at usikkerheden derude er ret stor.
+Læse konfidensintervallerne. 
+Sammenligne to grupper. Hvilken har højest estimeret overlevelse. Hvornår og hvordan adskiller de sig. 
+Men den visuelle sammenligning skal vi efterfølgende regne på.
 
-## Eksamen 2a: et muligt svar
+så hvad er det kurven viser os. Det viser os estimatet af overlevelsesfunktionen:
 
-Der er tale om en **log-rank-test** af nulhypotesen om ens overlevelsesfunktioner blandt patienter med og uden tidligere kirurgi.
 
-Med $p=0.04$ forkastes nulhypotesen på 5 %-niveau. Der er evidens for forskel i overlevelse.
 
-Gruppen med tidligere kirurgi har færre dødsfald end forventet under nulhypotesen, hvilket peger mod bedre overlevelse i denne gruppe.
 
-Testen giver hverken en hazard ratio eller dokumentation for en kausal virkning af kirurgi.
 
-## Log-rank: hvad skal vi passe på?
 
-- Testen tager højde for censurering, men forudsætter passende, ikke-informativ censurering.
-- Den estimerer ikke effektens størrelse og justerer ikke i sig selv for andre prognostiske variable.
-- Den har god styrke ved proportionale hazards.
-- Ved krydsende kurver kan tidlige og sene forskelle udligne hinanden.
 
-Proportionale hazards er ikke et krav for at definere nulhypotesen om ens kurver. Problemet ved krydsende kurver er især styrke og fortolkning.
+Hvad skal vi kunne sige ud fra den kurve?
 
-## Hazard ratio er et rateforhold
 
-$$HR=\frac{h_1(t)}{h_0(t)}$$
 
-- $HR=1$: Samme hazard.
-- $HR=0.70$: 30 % lavere hazard i gruppe 1 end i referencegruppen.
-- $HR=1.50$: 50 % højere hazard.
+Når en patient dør, registrerer vi hændelsen og tiden fra operationen til dødsfaldet.
 
-Under proportional hazards-antagelsen er forholdet konstant over tid.
+Men vi observerer ikke dødstidspunktet for alle patienter. Nogle er stadig i live, når studiet slutter. Vi kan også miste kontakten til en patient undervejs.
 
-**HR = 0.70 betyder ikke 30 % lavere sandsynlighed for død inden et bestemt tidspunkt eller 30 % længere levetid.**
+For disse patienter ved vi, at de har overlevet frem til sidste opfølgning. Vi kender bare ikke deres dødstidspunkt.
 
-## Cox proportional hazards-modellen
+Det kalder vi højrecensurering.
 
-$$h(t\mid X)=h_0(t)\exp(\beta_1X_1+\cdots+\beta_pX_p)$$
+Patienterne bidrager med information frem til det tidspunkt, hvor deres opfølgning slutter.
 
-- $h_0(t)$ er baseline hazard; vi behøver ikke specificere dens form.
-- $\beta_j$ er en log-hazard ratio.
-- $\exp(\beta_j)$ er HR for én enheds stigning i $X_j$, når øvrige variable holdes konstante.
+####
 
-Modellen håndterer censurering og flere forklarende variable samtidigt.
+Overlevelsesanalyse.
 
-## Referencegruppe og enheder
+Vi har et antal patienter som vi følger fra et eller andet tidspunkt, til der indtræder en hændelse. 
 
-For en indikator $X=0/1$:
+Metoden bruges generelt, 
 
-$$\frac{h(t\mid X=1)}{h(t\mid X=0)}=e^\beta$$
 
-Ved ombytning af referencen bliver HR til $1/HR$.
 
-For alder målt i år er $e^{\beta_{alder}}$ HR pr. år og $e^{10\beta_{alder}}$ HR for 10 års forskel.
-
-En justeret sammenhæng er ikke automatisk en kausal effekt.
-
-## Prøv en justeret Cox-model i R {.smaller}
-
-Et separat eksempel med `survival`-pakkens lungekræftdata. Her er **2 = død** og **1 = censureret**; dette er ikke eksamensdata.
-
-```{webr-r}
+```{r}
 library(survival)
-d <- survival::lung
-d$koen <- factor(d$sex, levels = c(1, 2),
-                 labels = c("Mand", "Kvinde"))
-fit <- coxph(Surv(time, status == 2) ~ koen + age,
-             data = d)
+
+fit <- coxph(
+  Surv(time, status == 1) ~ factor(sex) + thickness,
+  data = MASS::Melanoma
+)
+
 summary(fit)
-exp(confint(fit))
 ```
-
-Læs HR for kvinde sammenlignet med mand **ved samme alder**. HR for `age` er pr. ekstra år. Dette er observerede sammenhænge.
-
-## Sådan læses en Cox-udskrift
-
-| Felt | Betydning |
-|---|---|
-| `coef` | Estimeret $\beta$: log-HR |
-| `exp(coef)` | Estimeret HR |
-| `se(coef)` | Standardfejl for log-HR |
-| `z` | $\widehat\beta/SE(\widehat\beta)$ |
-| `Pr(>|z|)` | Tosidet Wald-test af $\beta=0$, dvs. HR = 1 |
-
-Et 95 % Wald-konfidensinterval for HR er:
-
-$$\exp\left(\widehat\beta\pm 1.96\,SE(\widehat\beta)\right)$$
-
-## Eksamen 2b: transplantation
-
-::: {.smaller}
-```r
-summary(coxph(Surv(futime, fustat == 1) ~ factor(transplant),
-              data = d_sems))
-```
-
-```text
-n= 103, number of events= 75
-
-                      coef exp(coef) se(coef)      z Pr(>|z|)
-factor(transplant)1 -1.3234    0.2662   0.2438 -5.428 5.69e-08
-```
-
-`transplant` angiver, om patienten fik en transplantation **under opfølgningen**.
-
-1. Hvilken model er det?
-2. Hvordan læses tallet 0.2662?
-3. Er denne analyse korrekt tilrettelagt?
-:::
-
-## Eksamen 2b: den umiddelbare fortolkning
-
-$$HR=e^{-1.3234}\approx 0.266$$
-
-Patienter klassificeret som transplanterede har i denne model cirka **73 % lavere hazard for død** end patienter klassificeret som ikke-transplanterede.
-
-$$95\%\text{-KI}=\exp(-1.3234\pm1.96\cdot0.2438)
-\approx(0.165;\,0.429)$$
-
-P-værdien er meget lille. **Men en lille p-værdi retter ikke en forkert analyse.**
-
-## Beregn HR og konfidensinterval
-
-Kør cellen og prøv derefter at ændre `beta` til 0.
-
-```{webr-r}
-beta <- -1.3234
-se <- 0.2438
-c(HR = exp(beta),
-  nedre = exp(beta - 1.96 * se),
-  oevre = exp(beta + 1.96 * se))
-z <- beta / se
-2 * pnorm(-abs(z))
-```
-
-Hvad er nulværdien for henholdsvis koefficienten og HR?
-
-::: {.fragment}
-$\beta=0$ svarer til $HR=1$.
-:::
-
-## Fejlen: vi bruger viden fra fremtiden
-
-Patienten skal **overleve frem til transplantationen** for at kunne blive klassificeret som transplanteret.
-
-Hvis hele forløbet fra ventelisteinklusion tælles som transplanteret, tilskriver vi gruppen tid, hvor patienten endnu ikke var transplanteret, men nødvendigvis overlevede.
-
-Det kaldes **immortal time bias**.
-
-Tidlige dødsfald kan kun havne i gruppen uden transplantation. Sammenligningen giver dermed den transplanterede gruppe en kunstig fordel.
-
-## En patient med transplantation på dag 30
-
-| Periode | Faktisk status | Den naive analyse bruger |
-|---|---|---|
-| Dag 0–30 | Ikke transplanteret | Transplanteret |
-| Dag 30–100 | Transplanteret | Transplanteret |
-
-Patienten dør på dag 100.
-
-De første 30 dage er fejlagtigt tilskrevet transplantation. En anden patient, som dør på dag 10, kan aldrig nå at komme i transplantationsgruppen.
-
-**Immortal** beskriver klassifikationen af tiden; patienten er selvfølgelig ikke biologisk udødelig.
-
-## Eksamen 2b: et muligt kritisk svar
-
-Det er en Cox-regression. Den estimerede HR er 0.266, umiddelbart svarende til cirka 73 % lavere dødsrate blandt transplanterede.
-
-Analysen er imidlertid fejlbehæftet, fordi transplantation sker under opfølgningen og behandles som en fast baseline-variabel.
-
-Patienterne skal overleve frem til transplantation for at blive klassificeret som transplanterede. Denne immortal time bias giver transplantation en kunstig overlevelsesfordel og trækker HR nedad.
-
-Resultatet kan derfor ikke bruges som et pålideligt estimat for transplantationens effekt.
-
-## Hvordan tænkes tiden korrekt?
-
-Transplantationsstatus skal være **tidsafhængig**: 0 før transplantation, 1 efter.
-
-Et illustrativt forløb kan opdeles sådan:
-
-| id | start | stop | død ved stop | transplanteret |
-|---|---:|---:|---:|---:|
-| 1 | 0 | 30 | 0 | 0 |
-| 1 | 30 | 100 | 1 | 1 |
-
-```r
-coxph(Surv(start, stop, event) ~ transplant, data = intervaller)
-```
-
-::: {.smaller}
-Princippet ligger ud over den nødvendige beregning i opgave 2b. Korrekt tidskodning fjerner denne fejlkilde, men sikrer ikke i sig selv kontrol for confounding.
-:::
-
-## Tidligere kirurgi eller senere transplantation?
-
-| | `surgery` | `transplant` |
-|---|---|---|
-| Tidspunkt | Før inklusion | Under opfølgningen |
-| Kendt ved tid nul? | Ja | Fremtidig transplantation: nej |
-| Fast gruppe fra tid nul? | Rimelig tidskodning | Skaber immortal time bias |
-
-**Spørg altid:** Kunne vi have bestemt gruppen på det tidspunkt, hvor opfølgningen begyndte?
-
-## Proportionale hazards
-
-Cox-modellen med faste koefficienter antager et konstant hazardforhold over tid.
-
-Det betyder **ikke**, at hazard er konstant, eller at overlevelseskurverne har konstant afstand.
-
-Krydsende kurver, forsinket separation eller en biologisk forventning om ændret effekt giver anledning til nærmere vurdering.
-
-Til diagnostik findes `cox.zph(fit)` og tilhørende plots. En ikke-signifikant test er ikke bevis for, at antagelsen holder.
-
-## Én HR kan skjule tidsforløbet
-
-Hvis hazardforholdet ændres over tid, kan én samlet HR være en misvisende opsummering og afhænge af opfølgningslængden.
-
-Selv i et randomiseret studie sammenligner hazard ved et senere tidspunkt de personer, der **stadig er event-frie** i hver gruppe.
-
-Disse grupper kan over tid have forskellig sammensætning, fordi event og overlevelse har selekteret dem forskelligt.
-
-Se også på overlevelseskurver og absolutte forskelle ved relevante tidspunkter.
-
-## Competing risks
-
-Ved **tid til recidiv** kan patienten dø uden først at få recidiv. Død forhindrer da det event, vi undersøger.
-
-Ved **tid til melanomdød** er død af andre årsager en konkurrerende hændelse.
-
-Man kan ikke uden videre censurere konkurrerende hændelser og fortolke $1-\widehat S(t)$ som sandsynligheden for det bestemte event i virkeligheden.
-
-Det kræver andre metoder, som ligger uden for dette kursus. Ved tid til død af alle årsager er andre dødsårsager en del af eventet.
-
-## Øvelse: vælg metode og fortolkning
-
-1. Vi ønsker sandsynligheden for at være i live efter 1 år. Hvilken metode?
-2. To grupper har $p=0.30$ i en log-rank-test. Har vi vist ens overlevelse?
-3. En Cox-model giver $\beta=\log(1.5)$ for alder pr. 10 år. Hvad betyder det?
-4. Vi grupperer patienter efter, om de gennemfører 6 måneders behandling. Hvilken fejl kan opstå?
-
-## Øvelse: svar
-
-1. Kaplan–Meier: aflæs eller beregn $\widehat S(1\text{ år})$, og angiv usikkerhed.
-2. Nej. Vi har ikke tilstrækkelig evidens til at forkaste ens kurver; det dokumenterer ikke lighed.
-3. 50 % højere hazard ved 10 års højere alder, med øvrige variable holdt konstante og under modellens antagelser.
-4. Immortal time bias, hvis hele opfølgningen fra start tilskrives en gruppe bestemt af senere gennemførelse.
-
-## Tjekliste til eksamenssvaret
-
-1. **Data:** Hvad er tid nul, event og censurering?
-2. **Metode:** Kaplan–Meier, log-rank eller Cox?
-3. **Hypotese:** Ens kurver eller HR = 1?
-4. **Tal:** Reference, retning, størrelse og usikkerhed.
-5. **Kritik:** Censurering, PH, confounding og tidsafhængig eksponering.
-
-I opgave 2b er den afgørende pointe **immortal time bias**, ikke blot at p-værdien er lille.
-
-## Materiale og R-dokumentation {.smaller}
-
-Fagligt niveau og emner følger Torben Martinussens SEMS-forelæsninger:
-
-- F11: Overlevelsesanalyse I. Hvad, pitfalls.
-- F12: Overlevelsesanalyse II. Kaplan-Meier og Log-rank test.
-- F13: Overlevelsesanalyse III. Cox-regression.
-
-Eksamenseksempler og viste udskrifter: **SEMS, ordinær eksamen 22. maj 2026, Statistik, opgave 2a–b**, inklusive modelbesvarelse. Patientdata fra opgaven er ikke vedlagt; udskrifterne er gengivet, ikke genberegnet. Det lille seks-patienters datasæt er konstrueret.
-
-[R-pakken survival: funktionsoversigt](https://stat.ethz.ch/R-manual/R-devel/library/survival/html/00Index.html) · [Surv](https://stat.ethz.ch/R-manual/R-devel/library/survival/html/Surv.html) · [survdiff](https://stat.ethz.ch/R-manual/R-devel/library/survival/html/survdiff.html) · [coxph](https://stat.ethz.ch/R-manual/R-devel/library/survival/html/coxph.html)

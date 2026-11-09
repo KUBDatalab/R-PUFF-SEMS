@@ -10,4 +10,5 @@ format: html
 - [Lineær regression](slides/linreg.qmd){target="_blank"} [(pdf)](downloads/linreg.pdf){target="_blank"}
 - [Logistisk regression](slides/logistisk.qmd){target="_blank"} [(pdf)](downloads/logistisk.pdf){target="_blank"}
 - [Power beregninger](slides/power.qmd){target="_blank"} [(pdf)](downloads/power.pdf){target="_blank"}
+- [Overlevelsesanalyse](slides/survival.qmd){target="_blank"} [(pdf)](downloads/survival.pdf){target="_blank"}
  

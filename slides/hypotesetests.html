@@ -6,23 +6,26 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.9">
 
   <title>PUFF SEMS forberedelse – Konfidensintervaller og hypotesetests</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-00ad5a49dff614330cd349bcec985ec3.css">
   <link rel="stylesheet" href="webr-custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -2270,23 +2273,23 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Vi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bwhacirlho" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bwhacirlho table {
+<div id="bgmvrafdmv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bgmvrafdmv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bwhacirlho thead, #bwhacirlho tbody, #bwhacirlho tfoot, #bwhacirlho tr, #bwhacirlho td, #bwhacirlho th {
+#bgmvrafdmv thead, #bgmvrafdmv tbody, #bgmvrafdmv tfoot, #bgmvrafdmv tr, #bgmvrafdmv td, #bgmvrafdmv th {
   border-style: none;
 }
 
-#bwhacirlho p {
+#bgmvrafdmv p {
   margin: 0;
   padding: 0;
 }
 
-#bwhacirlho .gt_table {
+#bgmvrafdmv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2312,12 +2315,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-left-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_caption {
+#bgmvrafdmv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bwhacirlho .gt_title {
+#bgmvrafdmv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2329,7 +2332,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-width: 0;
 }
 
-#bwhacirlho .gt_subtitle {
+#bgmvrafdmv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2341,7 +2344,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-width: 0;
 }
 
-#bwhacirlho .gt_heading {
+#bgmvrafdmv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2353,13 +2356,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_bottom_border {
+#bgmvrafdmv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_col_headings {
+#bgmvrafdmv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2374,7 +2377,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_col_heading {
+#bgmvrafdmv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2394,7 +2397,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#bwhacirlho .gt_column_spanner_outer {
+#bgmvrafdmv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2406,15 +2409,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 4px;
 }
 
-#bwhacirlho .gt_column_spanner_outer:first-child {
+#bgmvrafdmv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bwhacirlho .gt_column_spanner_outer:last-child {
+#bgmvrafdmv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bwhacirlho .gt_column_spanner {
+#bgmvrafdmv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2426,11 +2429,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   width: 100%;
 }
 
-#bwhacirlho .gt_spanner_row {
+#bgmvrafdmv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bwhacirlho .gt_group_heading {
+#bgmvrafdmv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2456,7 +2459,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   text-align: left;
 }
 
-#bwhacirlho .gt_empty_group_heading {
+#bgmvrafdmv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2471,15 +2474,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: middle;
 }
 
-#bwhacirlho .gt_from_md > :first-child {
+#bgmvrafdmv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bwhacirlho .gt_from_md > :last-child {
+#bgmvrafdmv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bwhacirlho .gt_row {
+#bgmvrafdmv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2498,7 +2501,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#bwhacirlho .gt_stub {
+#bgmvrafdmv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2511,7 +2514,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#bwhacirlho .gt_stub_row_group {
+#bgmvrafdmv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2525,15 +2528,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: top;
 }
 
-#bwhacirlho .gt_row_group_first td {
+#bgmvrafdmv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bwhacirlho .gt_row_group_first th {
+#bgmvrafdmv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bwhacirlho .gt_summary_row {
+#bgmvrafdmv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2543,16 +2546,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#bwhacirlho .gt_first_summary_row {
+#bgmvrafdmv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_first_summary_row.thick {
+#bgmvrafdmv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bwhacirlho .gt_last_summary_row {
+#bgmvrafdmv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2562,7 +2565,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_grand_summary_row {
+#bgmvrafdmv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2572,7 +2575,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#bwhacirlho .gt_first_grand_summary_row {
+#bgmvrafdmv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2582,7 +2585,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_last_grand_summary_row_top {
+#bgmvrafdmv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2592,11 +2595,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_striped {
+#bgmvrafdmv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bwhacirlho .gt_table_body {
+#bgmvrafdmv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2605,7 +2608,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_footnotes {
+#bgmvrafdmv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2619,7 +2622,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_footnote {
+#bgmvrafdmv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2628,7 +2631,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#bwhacirlho .gt_sourcenotes {
+#bgmvrafdmv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2642,7 +2645,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#bwhacirlho .gt_sourcenote {
+#bgmvrafdmv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2650,72 +2653,72 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#bwhacirlho .gt_left {
+#bgmvrafdmv .gt_left {
   text-align: left;
 }
 
-#bwhacirlho .gt_center {
+#bgmvrafdmv .gt_center {
   text-align: center;
 }
 
-#bwhacirlho .gt_right {
+#bgmvrafdmv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bwhacirlho .gt_font_normal {
+#bgmvrafdmv .gt_font_normal {
   font-weight: normal;
 }
 
-#bwhacirlho .gt_font_bold {
+#bgmvrafdmv .gt_font_bold {
   font-weight: bold;
 }
 
-#bwhacirlho .gt_font_italic {
+#bgmvrafdmv .gt_font_italic {
   font-style: italic;
 }
 
-#bwhacirlho .gt_super {
+#bgmvrafdmv .gt_super {
   font-size: 65%;
 }
 
-#bwhacirlho .gt_footnote_marks {
+#bgmvrafdmv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bwhacirlho .gt_asterisk {
+#bgmvrafdmv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bwhacirlho .gt_indent_1 {
+#bgmvrafdmv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bwhacirlho .gt_indent_2 {
+#bgmvrafdmv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bwhacirlho .gt_indent_3 {
+#bgmvrafdmv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bwhacirlho .gt_indent_4 {
+#bgmvrafdmv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bwhacirlho .gt_indent_5 {
+#bgmvrafdmv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bwhacirlho .katex-display {
+#bgmvrafdmv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bwhacirlho div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bgmvrafdmv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2926,7 +2929,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Har vi <span class="math inline">\(\alpha = 0.5\)</span> skal den altså fordeles på begge sider og vi bruger:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
@@ -2935,7 +2938,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Hvis vi er interesseret i om en værdi er mindre (<span class="math inline">\(H_A: \theta &lt; \theta_0\)</span>) - så må testværdien gerne være for stor. Den må blot ikke være for lille.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.644854</code></pre>
 </div>
@@ -2944,7 +2947,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Og hvis vi er interesseret i om en værdi er større (<span class="math inline">\(H_A: \theta &gt; \theta_0\)</span>) - så må testværdien gerne være for lille. Den må blot ikke være for stor.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.644854</code></pre>
 </div>
@@ -3113,7 +3116,7 @@ Eller også får vi oplyst hvad forskellen er på dem. Så skal vi ikke engang t
 <div class="fragment">
 <p>eller</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
@@ -3915,7 +3918,7 @@ samt eventuelt relevant estimat.</p>
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"\u003ci class=\"fas fa-gear\">\u003c/i>","content":"\u003cul class=\"slide-menu-items\">\n\u003cli class=\"slide-tool-item active\" data-item=\"0\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\">\u003ckbd>f\u003c/kbd> Fullscreen\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"1\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\">\u003ckbd>s\u003c/kbd> Speaker View\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"2\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\">\u003ckbd>o\u003c/kbd> Slide Overview\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"3\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\">\u003ckbd>e\u003c/kbd> PDF Export Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"4\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\">\u003ckbd>r\u003c/kbd> Scroll View Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"5\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\">\u003ckbd>?\u003c/kbd> Keyboard Help\u003c/a>\u003c/li>\n\u003c/ul>"}],"openButton":true,"openButtonLabel":"Slide menu"},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -4208,7 +4211,8 @@ samt eventuelt relevant estimat.</p>
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
           // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          window.quartoDecorateExternalLinks = function (root) {
+         var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
           for (var i=0; i<links.length; i++) {
             const link = links[i];
             if (!isInternal(link.href)) {
@@ -4217,8 +4221,69 @@ samt eventuelt relevant estimat.</p>
               if (link.dataset.originalHref !== undefined) {
                 link.href = link.dataset.originalHref;
               }
+              if (!link.classList.contains('no-external-icon')) {
+              }
             }
           }
+          };
+          window.quartoDecorateExternalLinks(window.document);
+        // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+        // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+        const hideOnEscAndFocusOut = {
+          name: 'hideOnEscAndFocusOut',
+          defaultValue: true,
+          fn(instance) {
+            const dismiss = () => {
+              // A show scheduled by the trigger delay would otherwise reopen it
+              instance.clearDelayTimeouts();
+              instance.hide();
+            };
+            const onKeyDown = (event) => {
+              if (event.key !== 'Escape') {
+                return;
+              }
+              // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+              // except an open reveal.js slide menu, which Esc should close too.
+              // The menu handles keys only when its keyboard option is on.
+              const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+                window.Reveal.getConfig().menu?.keyboard !== false;
+              if (!menuHandlesEsc) {
+                event.stopPropagation();
+              }
+              if (instance.popper.contains(window.document.activeElement)) {
+                // Disabled while refocusing so the focus trigger does not reopen it
+                instance.disable();
+                instance.reference.focus();
+                instance.enable();
+              }
+              dismiss();
+            };
+            const onFocusOut = (event) => {
+              const target = event.relatedTarget;
+              if (target && !instance.reference.contains(target) &&
+                  !instance.popper.contains(target)) {
+                dismiss();
+              }
+            };
+            // On the trigger too: a click trigger (code-annotations: select) has no
+            // blur handling. Attached for the instance's lifetime so leaving the
+            // trigger also cancels a show still pending on the trigger delay.
+            instance.reference.addEventListener('focusout', onFocusOut);
+            return {
+              onShow() {
+                window.document.addEventListener('keydown', onKeyDown, true);
+                instance.popper.addEventListener('focusout', onFocusOut);
+              },
+              onHide() {
+                window.document.removeEventListener('keydown', onKeyDown, true);
+                instance.popper.removeEventListener('focusout', onFocusOut);
+              },
+              onDestroy() {
+                instance.reference.removeEventListener('focusout', onFocusOut);
+              },
+            };
+          },
+        };
         function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
           const config = {
             allowHTML: true,
@@ -4232,6 +4297,7 @@ samt eventuelt relevant estimat.</p>
             interactiveBorder: 10,
             theme: 'light-border',
             placement: 'bottom-start',
+            plugins: [hideOnEscAndFocusOut],
           };
           if (contentFn) {
             config.content = contentFn;

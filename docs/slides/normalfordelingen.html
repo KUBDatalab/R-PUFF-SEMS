@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>PUFF SEMS forberedelse – Normalfordelingen</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="webr-custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -2159,8 +2165,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="column">
 <p>Før:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
-<span id="cb2-2"><a></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2173,8 +2179,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="fragment">
 <p>Efter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>breaks <span class="ot">&lt;-</span> breaks<span class="sc">/</span><span class="fl">2.54</span></span>
-<span id="cb3-2"><a></a><span class="fu">hist</span>(højder<span class="sc">/</span><span class="fl">2.54</span>, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>breaks <span class="ot">&lt;-</span> breaks<span class="sc">/</span><span class="fl">2.54</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">hist</span>(højder<span class="sc">/</span><span class="fl">2.54</span>, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2193,8 +2199,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="column">
 <p>Før:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
-<span id="cb4-2"><a></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2207,8 +2213,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="fragment">
 <p>Efter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
-<span id="cb5-2"><a></a><span class="fu">hist</span>(højder<span class="sc">-</span>middel, <span class="at">breaks =</span> breaks<span class="sc">-</span>middel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">hist</span>(højder<span class="sc">-</span>middel, <span class="at">breaks =</span> breaks<span class="sc">-</span>middel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2226,9 +2232,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="column">
 <p>Før:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">hist</span>(højder, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2241,9 +2247,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="fragment">
 <p>Efter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
-<span id="cb7-2"><a></a>breaks <span class="ot">&lt;-</span> (breaks <span class="sc">-</span> middel)<span class="sc">/</span><span class="fl">2.54</span></span>
-<span id="cb7-3"><a></a><span class="fu">hist</span>((højder<span class="sc">-</span>middel)<span class="sc">/</span><span class="fl">2.54</span>, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
+<span id="cb7-2"><a aria-label="2"></a>breaks <span class="ot">&lt;-</span> (breaks <span class="sc">-</span> middel)<span class="sc">/</span><span class="fl">2.54</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="fu">hist</span>((højder<span class="sc">-</span>middel)<span class="sc">/</span><span class="fl">2.54</span>, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2279,11 +2285,11 @@ I enheder vi selv vælger</p>
 <h2>Og uintuitive enheder</h2>
 <p>Vi kan måle i standardafvigelser i stedet for tommer:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
-<span id="cb8-2"><a></a>enhed <span class="ot">&lt;-</span> <span class="fu">sd</span>(højder)</span>
-<span id="cb8-3"><a></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
-<span id="cb8-4"><a></a>breaks <span class="ot">&lt;-</span> (breaks<span class="sc">-</span>middel)<span class="sc">/</span>enhed</span>
-<span id="cb8-5"><a></a><span class="fu">hist</span>((højder<span class="sc">-</span>middel)<span class="sc">/</span>enhed, <span class="at">breaks =</span> breaks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">185</span>, <span class="dv">190</span>, <span class="dv">195</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>enhed <span class="ot">&lt;-</span> <span class="fu">sd</span>(højder)</span>
+<span id="cb8-3"><a aria-label="3"></a>middel <span class="ot">&lt;-</span> <span class="fu">mean</span>(højder)</span>
+<span id="cb8-4"><a aria-label="4"></a>breaks <span class="ot">&lt;-</span> (breaks<span class="sc">-</span>middel)<span class="sc">/</span>enhed</span>
+<span id="cb8-5"><a aria-label="5"></a><span class="fu">hist</span>((højder<span class="sc">-</span>middel)<span class="sc">/</span>enhed, <span class="at">breaks =</span> breaks)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="normalfordelingen_files/figure-revealjs/i_enhder_af_sd-1.png" width="960" class="r-stretch"><aside class="notes">
@@ -2462,7 +2468,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02275013</code></pre>
 </div>
@@ -2506,7 +2512,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964</code></pre>
 </div>
@@ -2530,7 +2536,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>
 </div>
@@ -2784,7 +2790,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; 2)</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9772499</code></pre>
 </div>
@@ -2796,7 +2802,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; ? ) = 0.4</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.2533471</code></pre>
 </div>
@@ -2808,7 +2814,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; 3) - P(Z &lt; 1)</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02140023</code></pre>
 </div>
@@ -2861,7 +2867,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.692</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.692</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04532299</code></pre>
 </div>
@@ -2936,14 +2942,14 @@ Når data, X, er normalfordelt, skriver vi det som X ~ <span class="math inline"
 <section id="øvelser-2" class="slide level2">
 <h2>Øvelser</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2533471</code></pre>
 </div>
@@ -3111,7 +3117,7 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 <div class="fragment">
 <p>Eller:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="dv">200</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="dv">40</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="dv">200</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="dv">40</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 121.6 278.4</code></pre>
 </div>
@@ -3135,7 +3141,7 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.644854</code></pre>
 </div>
@@ -3281,7 +3287,7 @@ P(85 &lt; X &lt; y) = 0.8</p>
 </div>
 <aside class="notes">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> (<span class="fl">0.2</span><span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)))<span class="sc">*</span><span class="dv">15</span><span class="sc">+</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> (<span class="fl">0.2</span><span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)))<span class="sc">*</span><span class="dv">15</span><span class="sc">+</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 126.0293</code></pre>
 </div>
@@ -3317,7 +3323,7 @@ P(85 &lt; X &lt; y) = 0.8</p>
 <p>Beregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fl">0.81</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.057</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fl">0.81</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.057</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.69828 0.92172</code></pre>
 </div>
@@ -3371,7 +3377,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
 <p>Hvor stor en andel af observationerne er mindre end 50 når middelværdien er 47 og standardafvigelsen er 42?</p>
 <p>Vi kan skalere de 50, og putte resultatet ind i pnorm.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">pnorm</span>((<span class="dv">50-47</span>)<span class="sc">/</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">pnorm</span>((<span class="dv">50-47</span>)<span class="sc">/</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5284717</code></pre>
 </div>
@@ -3379,7 +3385,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
 <p>Eller, vi kan lade R gøre det for os:</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">pnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">47</span>, <span class="at">sd =</span> <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">47</span>, <span class="at">sd =</span> <span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5284717</code></pre>
 </div>
@@ -3582,7 +3588,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -3732,13 +3738,14 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

@@ -1,59 +1,38 @@
 [
   {
-    "objectID": "slides/standardfejl_oversigt.html",
-    "href": "slides/standardfejl_oversigt.html",
-    "title": "Oversigt over standardfejl",
-    "section": "",
-    "text": "pdf"
+    "objectID": "slides/survival.html#hvad-er-det",
+    "href": "slides/survival.html#hvad-er-det",
+    "title": "Overlevelsesanalyse",
+    "section": "Hvad er det?",
+    "text": "Hvad er det?\n\nGenerelt:\nFra vi starter med at observere patienter - hvornår indtræffer en hændelse?\nBruges til at undersøge patienters overlevelse.\nMen også til:\n\ntilbagefald (recidiv)\ninfektion\nudskrivedlse\nhvornår virksomheder mister kunder\nhvornår en dims i en maskine fejler\n\nTid til hændelse!"
   },
   {
-    "objectID": "slides/standardfejl_oversigt.html#én-middelværdi",
-    "href": "slides/standardfejl_oversigt.html#én-middelværdi",
-    "title": "Oversigt over standardfejl",
-    "section": "1. Én middelværdi",
-    "text": "1. Én middelværdi\nHvis vi har en stikprøve med middelværdi \\(\\bar{x}\\), standardafvigelse \\(s\\) og størrelse \\(n\\), er standardfejlen:\n\\[\nSE(\\bar{x}) = \\frac{s}{\\sqrt{n}}\n\\]\nHer er:\n\n\\(s\\): stikprøvens standardafvigelse\n\\(n\\): antal observationer\n\nJo større \\(n\\) er, desto mindre bliver standardfejlen."
+    "objectID": "slides/survival.html#kolonne-med-interaktiv-kode",
+    "href": "slides/survival.html#kolonne-med-interaktiv-kode",
+    "title": "Overlevelsesanalyse",
+    "section": "kolonne med interaktiv kode",
+    "text": "kolonne med interaktiv kode\n\n\n\n\n\n# A tibble: 5 × 5\n  Term            Estimate `Std. Error` `z value` `Pr(&gt;|z|)`\n  &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;     \n1 (Intercept)     -5.0526  0.1758       -28.725   &lt;2e-16*** \n2 I((mage-25)/10) 0.7423   0.2149       3.454     0.0005*** \n3 episodes        -0.0752  0.2048       -0.368    0.713     \n4 factor(smoke)2  0.2063   0.2569       0.803     0.421     \n5 factor(smoke)3  0.4364   0.2569       1.699     0.089     \n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/standardfejl_oversigt.html#forskel-mellem-to-middelværdier-ikke-parret",
-    "href": "slides/standardfejl_oversigt.html#forskel-mellem-to-middelværdier-ikke-parret",
-    "title": "Oversigt over standardfejl",
-    "section": "2. Forskel mellem to middelværdier (ikke-parret)",
-    "text": "2. Forskel mellem to middelværdier (ikke-parret)\nNår vi sammenligner to uafhængige grupper, er estimatet (praktisk taget altid) forskellen mellem middelværdierne:\n\\[\n\\bar{x}_1 - \\bar{x}_2\n\\]\nStandardfejlen er:\n\\[\nSE(\\bar{x}_1 - \\bar{x}_2) = \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}\n\\]\nVi skriver ofte: \\(SE_{diff} = \\sqrt{SE_1^2 + SE_2^2}\\)\nHer er:\n\n\\(s_1, s_2\\): standardafvigelserne i de to grupper\n\\(n_1, n_2\\): stikprøvestørrelserne i de to grupper\n\nUsikkerheden kommer derfor fra begge grupper."
+    "objectID": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
+    "href": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
+    "title": "webR in Quarto HTML Documents",
+    "section": "This is a webR-enabled code cell in a Quarto HTML document.",
+    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/standardfejl_oversigt.html#parrede-målinger",
-    "href": "slides/standardfejl_oversigt.html#parrede-målinger",
-    "title": "Oversigt over standardfejl",
-    "section": "3. Parrede målinger",
-    "text": "3. Parrede målinger\nVed parrede data beregner vi først forskelle for hvert individ (eller hvad vi nu undersøger):\n\\[\nd_i = x_i - y_i\n\\]\nDerefter beregnes middelværdien af forskellene:\n\\[\n\\bar{d} = \\frac{1}{n}\\sum_{i=1}^n d_i\n\\]\nStandardafvigelsen af forskellene er givet ved:\n\\[\ns_d = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^n (d_i - \\bar{d})^2}\n\\]\nStandardfejlen bliver så:\n\\[\nSE(\\bar{d}) = \\frac{s_d}{\\sqrt{n}}\n\\]\nDet afgørende er altså, at vi arbejder med forskellene, ikke med de to måleserier hver for sig. I eksamenssituationer vil vi normalt få oplyst standardafvigelsen og antallet af observationer, og skal så beregne standardfejlen selv."
+    "objectID": "slides/side-by-side-demo.html#overskrift-2",
+    "href": "slides/side-by-side-demo.html#overskrift-2",
+    "title": "webR in Quarto HTML Documents",
+    "section": "overskrift 2",
+    "text": "overskrift 2\nting\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/standardfejl_oversigt.html#én-andel",
-    "href": "slides/standardfejl_oversigt.html#én-andel",
-    "title": "Oversigt over standardfejl",
-    "section": "4. Én andel",
-    "text": "4. Én andel\nNår vi estimerer en andel \\(p\\), er standardfejlen givet ved:\n\\[\nSE(p) = \\sqrt{\\frac{p(1-p)}{n}}\n\\]\nHer er:\n\n\\(p\\): den observerede andel\n\\(n\\): stikprøvestørrelsen\n\nStandardfejlen afhænger altså af selve andelen."
-  },
-  {
-    "objectID": "slides/standardfejl_oversigt.html#forskel-mellem-to-andele",
-    "href": "slides/standardfejl_oversigt.html#forskel-mellem-to-andele",
-    "title": "Oversigt over standardfejl",
-    "section": "5. Forskel mellem to andele",
-    "text": "5. Forskel mellem to andele\nNår vi sammenligner to andele, er standardfejlen givet ved:\n\\[\nSE(p_1 - p_2) = \\sqrt{\\frac{p_1(1-p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\n\\]\nHer er der igen bidrag fra begge grupper."
-  },
-  {
-    "objectID": "slides/standardfejl_oversigt.html#odds-ratio-or",
-    "href": "slides/standardfejl_oversigt.html#odds-ratio-or",
-    "title": "Oversigt over standardfejl",
-    "section": "6. Odds ratio (OR)",
-    "text": "6. Odds ratio (OR)\nFor odds ratio arbejder vi på log-skala. Standardfejlen for \\(\\log(OR)\\) er:\n\\[\nSE(\\log(OR)) = \\sqrt{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{1}{d}}\n\\]\nhvor \\(a\\), \\(b\\), \\(c\\), \\(d\\) er cellerne i en 2x2-tabel.\nKonfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet."
-  },
-  {
-    "objectID": "slides/standardfejl_oversigt.html#risk-ratio-rr",
-    "href": "slides/standardfejl_oversigt.html#risk-ratio-rr",
-    "title": "Oversigt over standardfejl",
-    "section": "7. Risk ratio (RR)",
-    "text": "7. Risk ratio (RR)\nFor risk ratio arbejder vi også på log-skala. Standardfejlen for \\(\\log(RR)\\) er:\n\\[\nSE(\\log(RR)) = \\sqrt{\\frac{1}{a} - \\frac{1}{a+b} + \\frac{1}{c} - \\frac{1}{c+d}}\n\\]\nIgen er \\(a\\), \\(b\\), \\(c\\), \\(d\\) cellerne i en 2x2-tabel.\nKonfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet.\n\nHvad er hvad?\nVi antager en 2x2-tabel af formen:\n\\[\n\\begin{array}{c|cc}\n& \\text{Udfald}=1 & \\text{Udfald}=0 \\\\\n\\hline\n\\text{Eksponeret} & a & b \\\\\n\\text{Ikke-eksponeret} & c & d\n\\end{array}\n\\]\nHer er risikoen i den eksponerede gruppe:\n\\[\n\\frac{a}{a+b}\n\\]\nog risikoen i den ikke-eksponerede gruppe:\n\\[\n\\frac{c}{c+d}\n\\]"
+    "objectID": "slides/side-by-side-demo.html#øvelse-1",
+    "href": "slides/side-by-side-demo.html#øvelse-1",
+    "title": "webR in Quarto HTML Documents",
+    "section": "Øvelse 1",
+    "text": "Øvelse 1\n\n\nHer skriver vi hvad der skal stå til venstre\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/powerberegninger_notat.html",
@@ -243,6 +222,279 @@
     "title": "Powerberegninger – huskeliste",
     "section": "Proportioner",
     "text": "Proportioner\nÉn proportion:\n\\[\nn = \\frac{(z_{1-\\alpha/2}+z_{1-\\beta})^2p_0(1-p_0)}{(p-p_0)^2}\n\\]\nTo proportioner, lige store grupper:\n\\[\nn\n=\n\\frac{\n(z_{1-\\alpha/2}+z_{1-\\beta})^2\n\\left[p_1(1-p_1)+p_2(1-p_2)\\right]\n}{\n(p_1-p_2)^2\n}\n\\]"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#hvad-skal-vi-kunne",
+    "href": "slides/overlevelsesanalyse_ai.html#hvad-skal-vi-kunne",
+    "title": "Overlevelsesanalyse",
+    "section": "Hvad skal vi kunne?",
+    "text": "Hvad skal vi kunne?\n\nForklare tid til event, risikosæt og censurering.\nLæse en Kaplan–Meier-kurve og en log-rank-test.\nFortolke koefficienter og hazard ratioer fra Cox-regression.\nGennemskue immortal time bias og andre faldgruber.\n\nVi slutter med opgave 2a og 2b fra SEMS, sommer 2026."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#outcome-er-en-tid",
+    "href": "slides/overlevelsesanalyse_ai.html#outcome-er-en-tid",
+    "title": "Overlevelsesanalyse",
+    "section": "Outcome er en tid",
+    "text": "Outcome er en tid\nVi modellerer tid indtil en hændelse: død, tilbagefald, infektion eller udskrivelse.\nTo personer kan begge være i live ved sidste kontrol, men være fulgt i henholdsvis 1 og 10 år.\nEt simpelt ja/nej-outcome mister den forskel.\nEt gennemsnit af de observerede tider blander tid til event sammen med tid til sidste kontrol."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#før-analysen-definér-tid-nul-og-event",
+    "href": "slides/overlevelsesanalyse_ai.html#før-analysen-definér-tid-nul-og-event",
+    "title": "Overlevelsesanalyse",
+    "section": "Før analysen: definér tid nul og event",
+    "text": "Før analysen: definér tid nul og event\nI eksamensopgaven følger vi patienter på venteliste til hjertetransplantation.\n\n\n\nBegreb\nI opgave 2\n\n\n\n\nTid nul\nInklusion på ventelisten\n\n\nEvent\nDød\n\n\nObserveret tid\nfutime: tid til død eller sidste opfølgning\n\n\nEvent-indikator\nfustat: 1 = død, 0 = censureret\n\n\n\nTid nul skal være klinisk relevant og sammenlignelig mellem patienter."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#censureret-betyder-ikke-event-fri-for-evigt",
+    "href": "slides/overlevelsesanalyse_ai.html#censureret-betyder-ikke-event-fri-for-evigt",
+    "title": "Overlevelsesanalyse",
+    "section": "Censureret betyder ikke event-fri for evigt",
+    "text": "Censureret betyder ikke event-fri for evigt\n\nA dør efter 3 måneder: Vi kender dødstidspunktet.\nB er i live efter 3 måneder og tabes derefter til opfølgning: Vi ved kun, at dødstidspunktet ligger senere.\n\nB er højrecensureret efter 3 måneder.\nB bidrager med information indtil da. Vi hverken fjerner B eller registrerer et dødsfald ved måned 3."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#ikke-informativ-censurering",
+    "href": "slides/overlevelsesanalyse_ai.html#ikke-informativ-censurering",
+    "title": "Overlevelsesanalyse",
+    "section": "Ikke-informativ censurering",
+    "text": "Ikke-informativ censurering\nCensurerede skal, givet de variable analysen tager højde for, være repræsentative for dem, der stadig følges, med hensyn til fremtidig eventtid.\n\nStudiets planlagte afslutning er ofte en rimelig censureringsgrund.\nHvis de mest syge forsvinder fra opfølgningen, kan overlevelsen blive overvurderet.\nOgså administrativ censurering kan give problemer, hvis prognosen ændres med kalenderperioden for inklusion.\n\nÅrsagen til censurering skal vurderes."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#tre-centrale-begreber",
+    "href": "slides/overlevelsesanalyse_ai.html#tre-centrale-begreber",
+    "title": "Overlevelsesanalyse",
+    "section": "Tre centrale begreber",
+    "text": "Tre centrale begreber\n\\[S(t)=P(T&gt;t)\\]\nOverlevelsesfunktionen: Sandsynligheden for at være event-fri efter tid \\(t\\).\nRisikosættet: De personer, som stadig observeres og endnu ikke har haft event lige før \\(t\\).\nHazard \\(h(t)\\): Den øjeblikkelige event-rate blandt dem, der endnu er event-frie. En rate har enhed fx pr. måned og er ikke en sandsynlighed."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#et-lille-datasæt",
+    "href": "slides/overlevelsesanalyse_ai.html#et-lille-datasæt",
+    "title": "Overlevelsesanalyse",
+    "section": "Et lille datasæt",
+    "text": "Et lille datasæt\n\n\n\nPatient\nTid (måneder)\nEvent\n\n\n\n\nA\n2\n1\n\n\nB\n3\n0\n\n\nC\n4\n1\n\n\nD\n4\n1\n\n\nE\n6\n0\n\n\nF\n7\n1\n\n\n\nSpørgsmål: Hvem er i risiko lige før måned 4?\n\nC, D, E og F. A er død, og B er censureret."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#kaplanmeier-ét-trin-ad-gangen",
+    "href": "slides/overlevelsesanalyse_ai.html#kaplanmeier-ét-trin-ad-gangen",
+    "title": "Overlevelsesanalyse",
+    "section": "Kaplan–Meier: ét trin ad gangen",
+    "text": "Kaplan–Meier: ét trin ad gangen\n\\[\\widehat S(t)=\\prod_{t_i\\leq t}\\left(1-\\frac{d_i}{n_i}\\right)\\]\n\\(n_i\\): antal i risiko lige før eventtidspunkt \\(t_i\\).\n\\(d_i\\): antal events ved \\(t_i\\) (kan være flere end ét).\n\n\n\nTid\nI risiko\nEvents\nBetinget overlevelse\n\\(\\widehat S(t)\\)\n\n\n\n\n2\n6\n1\n\\(5/6\\)\n\\(0.833\\)\n\n\n4\n4\n2\n\\(2/4\\)\n\\(0.417\\)\n\n\n7\n1\n1\n\\(0/1\\)\n\\(0\\)\n\n\n\nCensurering ved 3 og 6 reducerer senere risikosæt, men giver ikke et fald i kurven."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#sådan-ser-kurven-ud",
+    "href": "slides/overlevelsesanalyse_ai.html#sådan-ser-kurven-ud",
+    "title": "Overlevelsesanalyse",
+    "section": "Sådan ser kurven ud",
+    "text": "Sådan ser kurven ud\n\n\n\nKaplan–Meier for de seks illustrative patienter. Plusser markerer censurering.\n\n\nDen sidste del bygger på meget få personer. Et stort trin er ikke nødvendigvis stærk evidens."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#prøv-kaplanmeier-i-r",
+    "href": "slides/overlevelsesanalyse_ai.html#prøv-kaplanmeier-i-r",
+    "title": "Overlevelsesanalyse",
+    "section": "Prøv Kaplan–Meier i R",
+    "text": "Prøv Kaplan–Meier i R\n\nKør cellen. Data er et konstrueret undervisningseksempel, ikke eksamensdata.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#hvad-betyder-r-koden",
+    "href": "slides/overlevelsesanalyse_ai.html#hvad-betyder-r-koden",
+    "title": "Overlevelsesanalyse",
+    "section": "Hvad betyder R-koden?",
+    "text": "Hvad betyder R-koden?\nsurvfit(Surv(tid, event == 1) ~ 1, data = lille)\n\nSurv() samler tid og event-indikator i et overlevelsesobjekt.\nevent == 1 angiver eksplicit, hvad der tæller som event.\n~ 1 giver én samlet kurve.\n~ factor(gruppe) ville give en kurve pr. gruppe.\n\nKontrollér altid kodningen: I andre datasæt kan fx 1 betyde censureret og 2 betyde død."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#læs-en-overlevelseskurve",
+    "href": "slides/overlevelsesanalyse_ai.html#læs-en-overlevelseskurve",
+    "title": "Overlevelsesanalyse",
+    "section": "Læs en overlevelseskurve",
+    "text": "Læs en overlevelseskurve\n\nHøjden ved \\(t\\) estimerer sandsynligheden for at være event-fri efter \\(t\\).\nEt fald viser events. Et censureringsmærke viser afsluttet observation uden event.\nKonfidensbånd viser usikkerhed, som typisk vokser sent i forløbet.\nEn tabel med antal i risiko viser, hvor mange kurven bygger på.\n\nKurven estimerer ikke, hvornår en bestemt patient vil dø."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#median-overlevelse",
+    "href": "slides/overlevelsesanalyse_ai.html#median-overlevelse",
+    "title": "Overlevelsesanalyse",
+    "section": "Median overlevelse",
+    "text": "Median overlevelse\nMedianen er det første tidspunkt, hvor \\(\\widehat S(t)\\leq 0.5\\).\nI vores lille eksempel er medianen 4 måneder.\nHvis kurven aldrig når 0.5, er medianen ikke nået og kan ikke estimeres ud fra den observerede kurve.\nTo grupper kan have samme median og alligevel have forskellige overlevelsesforløb. Se på hele kurven."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#fra-kurver-til-en-test",
+    "href": "slides/overlevelsesanalyse_ai.html#fra-kurver-til-en-test",
+    "title": "Overlevelsesanalyse",
+    "section": "Fra kurver til en test",
+    "text": "Fra kurver til en test\nKaplan–Meier: Hvordan ser overlevelsen ud?\nLog-rank: Er der evidens imod ens overlevelsesfunktioner i grupperne?\nCox-regression: Hvordan hænger forklarende variable sammen med hazard, eventuelt efter justering?\nEn figur, en p-værdi og et effektmål besvarer forskellige spørgsmål."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#log-rank-testen",
+    "href": "slides/overlevelsesanalyse_ai.html#log-rank-testen",
+    "title": "Overlevelsesanalyse",
+    "section": "Log-rank-testen",
+    "text": "Log-rank-testen\n\\[H_0:S_0(t)=S_1(t)\\text{ for alle }t\\]\nVed hvert eventtidspunkt sammenligner testen observerede events med de forventede under nulhypotesen, ud fra gruppernes risikosæt.\nAfvigelserne samles over opfølgningen.\nsurvdiff(..., rho = 0) er den almindelige log-rank-test; rho = 0 er standard.\nFor to grupper sammenlignes teststørrelsen med en \\(\\chi^2\\)-fordeling med 1 frihedsgrad."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2a-tidligere-kirurgi",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2a-tidligere-kirurgi",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2a: tidligere kirurgi",
+    "text": "Eksamen 2a: tidligere kirurgi\n\nsurgery angiver bypassoperation før inklusion på ventelisten.\nsurvdiff(Surv(futime, fustat == 1) ~ factor(surgery),\n         data = d_sems)\nUdskrift fra eksamenssættet:\n                   N Observed Expected (O-E)^2/E (O-E)^2/V\nfactor(surgery)=0  87       66     58.6     0.938      4.44\nfactor(surgery)=1  16        9     16.4     3.348      4.44\n\nChisq= 4.4 on 1 degrees of freedom, p= 0.04\nHvilken analyse er det, og hvad kan vi konkludere?"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2a-læs-tabellen",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2a-læs-tabellen",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2a: læs tabellen",
+    "text": "Eksamen 2a: læs tabellen\n\n\n\nKolonne\nBetydning\n\n\n\n\nN\nAntal patienter i gruppen\n\n\nObserved\nObserverede dødsfald\n\n\nExpected\nForventede dødsfald under \\(H_0\\), ud fra risikosættene\n\n\n\nUden tidligere kirurgi: 66 mod 58.6 forventede dødsfald.\nMed tidligere kirurgi: 9 mod 16.4 forventede dødsfald.\nDet peger mod bedre overlevelse i gruppen med tidligere kirurgi. De to bidrag i sidste kolonne skal ikke lægges sammen til teststørrelsen."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2a-et-muligt-svar",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2a-et-muligt-svar",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2a: et muligt svar",
+    "text": "Eksamen 2a: et muligt svar\nDer er tale om en log-rank-test af nulhypotesen om ens overlevelsesfunktioner blandt patienter med og uden tidligere kirurgi.\nMed \\(p=0.04\\) forkastes nulhypotesen på 5 %-niveau. Der er evidens for forskel i overlevelse.\nGruppen med tidligere kirurgi har færre dødsfald end forventet under nulhypotesen, hvilket peger mod bedre overlevelse i denne gruppe.\nTesten giver hverken en hazard ratio eller dokumentation for en kausal virkning af kirurgi."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#log-rank-hvad-skal-vi-passe-på",
+    "href": "slides/overlevelsesanalyse_ai.html#log-rank-hvad-skal-vi-passe-på",
+    "title": "Overlevelsesanalyse",
+    "section": "Log-rank: hvad skal vi passe på?",
+    "text": "Log-rank: hvad skal vi passe på?\n\nTesten tager højde for censurering, men forudsætter passende, ikke-informativ censurering.\nDen estimerer ikke effektens størrelse og justerer ikke i sig selv for andre prognostiske variable.\nDen har god styrke ved proportionale hazards.\nVed krydsende kurver kan tidlige og sene forskelle udligne hinanden.\n\nProportionale hazards er ikke et krav for at definere nulhypotesen om ens kurver. Problemet ved krydsende kurver er især styrke og fortolkning."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#hazard-ratio-er-et-rateforhold",
+    "href": "slides/overlevelsesanalyse_ai.html#hazard-ratio-er-et-rateforhold",
+    "title": "Overlevelsesanalyse",
+    "section": "Hazard ratio er et rateforhold",
+    "text": "Hazard ratio er et rateforhold\n\\[HR=\\frac{h_1(t)}{h_0(t)}\\]\n\n\\(HR=1\\): Samme hazard.\n\\(HR=0.70\\): 30 % lavere hazard i gruppe 1 end i referencegruppen.\n\\(HR=1.50\\): 50 % højere hazard.\n\nUnder proportional hazards-antagelsen er forholdet konstant over tid.\nHR = 0.70 betyder ikke 30 % lavere sandsynlighed for død inden et bestemt tidspunkt eller 30 % længere levetid."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#cox-proportional-hazards-modellen",
+    "href": "slides/overlevelsesanalyse_ai.html#cox-proportional-hazards-modellen",
+    "title": "Overlevelsesanalyse",
+    "section": "Cox proportional hazards-modellen",
+    "text": "Cox proportional hazards-modellen\n\\[h(t\\mid X)=h_0(t)\\exp(\\beta_1X_1+\\cdots+\\beta_pX_p)\\]\n\n\\(h_0(t)\\) er baseline hazard; vi behøver ikke specificere dens form.\n\\(\\beta_j\\) er en log-hazard ratio.\n\\(\\exp(\\beta_j)\\) er HR for én enheds stigning i \\(X_j\\), når øvrige variable holdes konstante.\n\nModellen håndterer censurering og flere forklarende variable samtidigt."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#referencegruppe-og-enheder",
+    "href": "slides/overlevelsesanalyse_ai.html#referencegruppe-og-enheder",
+    "title": "Overlevelsesanalyse",
+    "section": "Referencegruppe og enheder",
+    "text": "Referencegruppe og enheder\nFor en indikator \\(X=0/1\\):\n\\[\\frac{h(t\\mid X=1)}{h(t\\mid X=0)}=e^\\beta\\]\nVed ombytning af referencen bliver HR til \\(1/HR\\).\nFor alder målt i år er \\(e^{\\beta_{alder}}\\) HR pr. år og \\(e^{10\\beta_{alder}}\\) HR for 10 års forskel.\nEn justeret sammenhæng er ikke automatisk en kausal effekt."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#prøv-en-justeret-cox-model-i-r",
+    "href": "slides/overlevelsesanalyse_ai.html#prøv-en-justeret-cox-model-i-r",
+    "title": "Overlevelsesanalyse",
+    "section": "Prøv en justeret Cox-model i R",
+    "text": "Prøv en justeret Cox-model i R\nEt separat eksempel med survival-pakkens lungekræftdata. Her er 2 = død og 1 = censureret; dette er ikke eksamensdata.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLæs HR for kvinde sammenlignet med mand ved samme alder. HR for age er pr. ekstra år. Dette er observerede sammenhænge."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#sådan-læses-en-cox-udskrift",
+    "href": "slides/overlevelsesanalyse_ai.html#sådan-læses-en-cox-udskrift",
+    "title": "Overlevelsesanalyse",
+    "section": "Sådan læses en Cox-udskrift",
+    "text": "Sådan læses en Cox-udskrift\n\n\n\nFelt\nBetydning\n\n\n\n\ncoef\nEstimeret \\(\\beta\\): log-HR\n\n\nexp(coef)\nEstimeret HR\n\n\nse(coef)\nStandardfejl for log-HR\n\n\nz\n\\(\\widehat\\beta/SE(\\widehat\\beta)\\)\n\n\nPr(&gt;|z|)\nTosidet Wald-test af \\(\\beta=0\\), dvs. HR = 1\n\n\n\nEt 95 % Wald-konfidensinterval for HR er:\n\\[\\exp\\left(\\widehat\\beta\\pm 1.96\\,SE(\\widehat\\beta)\\right)\\]"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2b-transplantation",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2b-transplantation",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2b: transplantation",
+    "text": "Eksamen 2b: transplantation\n\nsummary(coxph(Surv(futime, fustat == 1) ~ factor(transplant),\n              data = d_sems))\nn= 103, number of events= 75\n\n                      coef exp(coef) se(coef)      z Pr(&gt;|z|)\nfactor(transplant)1 -1.3234    0.2662   0.2438 -5.428 5.69e-08\ntransplant angiver, om patienten fik en transplantation under opfølgningen.\n\nHvilken model er det?\nHvordan læses tallet 0.2662?\nEr denne analyse korrekt tilrettelagt?"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2b-den-umiddelbare-fortolkning",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2b-den-umiddelbare-fortolkning",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2b: den umiddelbare fortolkning",
+    "text": "Eksamen 2b: den umiddelbare fortolkning\n\\[HR=e^{-1.3234}\\approx 0.266\\]\nPatienter klassificeret som transplanterede har i denne model cirka 73 % lavere hazard for død end patienter klassificeret som ikke-transplanterede.\n\\[95\\%\\text{-KI}=\\exp(-1.3234\\pm1.96\\cdot0.2438)\n\\approx(0.165;\\,0.429)\\]\nP-værdien er meget lille. Men en lille p-værdi retter ikke en forkert analyse."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#beregn-hr-og-konfidensinterval",
+    "href": "slides/overlevelsesanalyse_ai.html#beregn-hr-og-konfidensinterval",
+    "title": "Overlevelsesanalyse",
+    "section": "Beregn HR og konfidensinterval",
+    "text": "Beregn HR og konfidensinterval\nKør cellen og prøv derefter at ændre beta til 0.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHvad er nulværdien for henholdsvis koefficienten og HR?\n\n\\(\\beta=0\\) svarer til \\(HR=1\\)."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#fejlen-vi-bruger-viden-fra-fremtiden",
+    "href": "slides/overlevelsesanalyse_ai.html#fejlen-vi-bruger-viden-fra-fremtiden",
+    "title": "Overlevelsesanalyse",
+    "section": "Fejlen: vi bruger viden fra fremtiden",
+    "text": "Fejlen: vi bruger viden fra fremtiden\nPatienten skal overleve frem til transplantationen for at kunne blive klassificeret som transplanteret.\nHvis hele forløbet fra ventelisteinklusion tælles som transplanteret, tilskriver vi gruppen tid, hvor patienten endnu ikke var transplanteret, men nødvendigvis overlevede.\nDet kaldes immortal time bias.\nTidlige dødsfald kan kun havne i gruppen uden transplantation. Sammenligningen giver dermed den transplanterede gruppe en kunstig fordel."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#en-patient-med-transplantation-på-dag-30",
+    "href": "slides/overlevelsesanalyse_ai.html#en-patient-med-transplantation-på-dag-30",
+    "title": "Overlevelsesanalyse",
+    "section": "En patient med transplantation på dag 30",
+    "text": "En patient med transplantation på dag 30\n\n\n\nPeriode\nFaktisk status\nDen naive analyse bruger\n\n\n\n\nDag 0–30\nIkke transplanteret\nTransplanteret\n\n\nDag 30–100\nTransplanteret\nTransplanteret\n\n\n\nPatienten dør på dag 100.\nDe første 30 dage er fejlagtigt tilskrevet transplantation. En anden patient, som dør på dag 10, kan aldrig nå at komme i transplantationsgruppen.\nImmortal beskriver klassifikationen af tiden; patienten er selvfølgelig ikke biologisk udødelig."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#eksamen-2b-et-muligt-kritisk-svar",
+    "href": "slides/overlevelsesanalyse_ai.html#eksamen-2b-et-muligt-kritisk-svar",
+    "title": "Overlevelsesanalyse",
+    "section": "Eksamen 2b: et muligt kritisk svar",
+    "text": "Eksamen 2b: et muligt kritisk svar\nDet er en Cox-regression. Den estimerede HR er 0.266, umiddelbart svarende til cirka 73 % lavere dødsrate blandt transplanterede.\nAnalysen er imidlertid fejlbehæftet, fordi transplantation sker under opfølgningen og behandles som en fast baseline-variabel.\nPatienterne skal overleve frem til transplantation for at blive klassificeret som transplanterede. Denne immortal time bias giver transplantation en kunstig overlevelsesfordel og trækker HR nedad.\nResultatet kan derfor ikke bruges som et pålideligt estimat for transplantationens effekt."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#hvordan-tænkes-tiden-korrekt",
+    "href": "slides/overlevelsesanalyse_ai.html#hvordan-tænkes-tiden-korrekt",
+    "title": "Overlevelsesanalyse",
+    "section": "Hvordan tænkes tiden korrekt?",
+    "text": "Hvordan tænkes tiden korrekt?\nTransplantationsstatus skal være tidsafhængig: 0 før transplantation, 1 efter.\nEt illustrativt forløb kan opdeles sådan:\n\n\n\nid\nstart\nstop\ndød ved stop\ntransplanteret\n\n\n\n\n1\n0\n30\n0\n0\n\n\n1\n30\n100\n1\n1\n\n\n\ncoxph(Surv(start, stop, event) ~ transplant, data = intervaller)\n\nPrincippet ligger ud over den nødvendige beregning i opgave 2b. Korrekt tidskodning fjerner denne fejlkilde, men sikrer ikke i sig selv kontrol for confounding."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#tidligere-kirurgi-eller-senere-transplantation",
+    "href": "slides/overlevelsesanalyse_ai.html#tidligere-kirurgi-eller-senere-transplantation",
+    "title": "Overlevelsesanalyse",
+    "section": "Tidligere kirurgi eller senere transplantation?",
+    "text": "Tidligere kirurgi eller senere transplantation?\n\n\n\n\n\n\n\n\n\nsurgery\ntransplant\n\n\n\n\nTidspunkt\nFør inklusion\nUnder opfølgningen\n\n\nKendt ved tid nul?\nJa\nFremtidig transplantation: nej\n\n\nFast gruppe fra tid nul?\nRimelig tidskodning\nSkaber immortal time bias\n\n\n\nSpørg altid: Kunne vi have bestemt gruppen på det tidspunkt, hvor opfølgningen begyndte?"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#proportionale-hazards",
+    "href": "slides/overlevelsesanalyse_ai.html#proportionale-hazards",
+    "title": "Overlevelsesanalyse",
+    "section": "Proportionale hazards",
+    "text": "Proportionale hazards\nCox-modellen med faste koefficienter antager et konstant hazardforhold over tid.\nDet betyder ikke, at hazard er konstant, eller at overlevelseskurverne har konstant afstand.\nKrydsende kurver, forsinket separation eller en biologisk forventning om ændret effekt giver anledning til nærmere vurdering.\nTil diagnostik findes cox.zph(fit) og tilhørende plots. En ikke-signifikant test er ikke bevis for, at antagelsen holder."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#én-hr-kan-skjule-tidsforløbet",
+    "href": "slides/overlevelsesanalyse_ai.html#én-hr-kan-skjule-tidsforløbet",
+    "title": "Overlevelsesanalyse",
+    "section": "Én HR kan skjule tidsforløbet",
+    "text": "Én HR kan skjule tidsforløbet\nHvis hazardforholdet ændres over tid, kan én samlet HR være en misvisende opsummering og afhænge af opfølgningslængden.\nSelv i et randomiseret studie sammenligner hazard ved et senere tidspunkt de personer, der stadig er event-frie i hver gruppe.\nDisse grupper kan over tid have forskellig sammensætning, fordi event og overlevelse har selekteret dem forskelligt.\nSe også på overlevelseskurver og absolutte forskelle ved relevante tidspunkter."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#competing-risks",
+    "href": "slides/overlevelsesanalyse_ai.html#competing-risks",
+    "title": "Overlevelsesanalyse",
+    "section": "Competing risks",
+    "text": "Competing risks\nVed tid til recidiv kan patienten dø uden først at få recidiv. Død forhindrer da det event, vi undersøger.\nVed tid til melanomdød er død af andre årsager en konkurrerende hændelse.\nMan kan ikke uden videre censurere konkurrerende hændelser og fortolke \\(1-\\widehat S(t)\\) som sandsynligheden for det bestemte event i virkeligheden.\nDet kræver andre metoder, som ligger uden for dette kursus. Ved tid til død af alle årsager er andre dødsårsager en del af eventet."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#øvelse-vælg-metode-og-fortolkning",
+    "href": "slides/overlevelsesanalyse_ai.html#øvelse-vælg-metode-og-fortolkning",
+    "title": "Overlevelsesanalyse",
+    "section": "Øvelse: vælg metode og fortolkning",
+    "text": "Øvelse: vælg metode og fortolkning\n\nVi ønsker sandsynligheden for at være i live efter 1 år. Hvilken metode?\nTo grupper har \\(p=0.30\\) i en log-rank-test. Har vi vist ens overlevelse?\nEn Cox-model giver \\(\\beta=\\log(1.5)\\) for alder pr. 10 år. Hvad betyder det?\nVi grupperer patienter efter, om de gennemfører 6 måneders behandling. Hvilken fejl kan opstå?"
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#øvelse-svar",
+    "href": "slides/overlevelsesanalyse_ai.html#øvelse-svar",
+    "title": "Overlevelsesanalyse",
+    "section": "Øvelse: svar",
+    "text": "Øvelse: svar\n\nKaplan–Meier: aflæs eller beregn \\(\\widehat S(1\\text{ år})\\), og angiv usikkerhed.\nNej. Vi har ikke tilstrækkelig evidens til at forkaste ens kurver; det dokumenterer ikke lighed.\n50 % højere hazard ved 10 års højere alder, med øvrige variable holdt konstante og under modellens antagelser.\nImmortal time bias, hvis hele opfølgningen fra start tilskrives en gruppe bestemt af senere gennemførelse."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#tjekliste-til-eksamenssvaret",
+    "href": "slides/overlevelsesanalyse_ai.html#tjekliste-til-eksamenssvaret",
+    "title": "Overlevelsesanalyse",
+    "section": "Tjekliste til eksamenssvaret",
+    "text": "Tjekliste til eksamenssvaret\n\nData: Hvad er tid nul, event og censurering?\nMetode: Kaplan–Meier, log-rank eller Cox?\nHypotese: Ens kurver eller HR = 1?\nTal: Reference, retning, størrelse og usikkerhed.\nKritik: Censurering, PH, confounding og tidsafhængig eksponering.\n\nI opgave 2b er den afgørende pointe immortal time bias, ikke blot at p-værdien er lille."
+  },
+  {
+    "objectID": "slides/overlevelsesanalyse_ai.html#materiale-og-r-dokumentation",
+    "href": "slides/overlevelsesanalyse_ai.html#materiale-og-r-dokumentation",
+    "title": "Overlevelsesanalyse",
+    "section": "Materiale og R-dokumentation",
+    "text": "Materiale og R-dokumentation\nFagligt niveau og emner følger Torben Martinussens SEMS-forelæsninger:\n\nF11: Overlevelsesanalyse I. Hvad, pitfalls.\nF12: Overlevelsesanalyse II. Kaplan-Meier og Log-rank test.\nF13: Overlevelsesanalyse III. Cox-regression.\n\nEksamenseksempler og viste udskrifter: SEMS, ordinær eksamen 22. maj 2026, Statistik, opgave 2a–b, inklusive modelbesvarelse. Patientdata fra opgaven er ikke vedlagt; udskrifterne er gengivet, ikke genberegnet. Det lille seks-patienters datasæt er konstrueret.\nR-pakken survival: funktionsoversigt · Surv · survdiff · coxph"
   },
   {
     "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
@@ -1082,7 +1334,7 @@
     "href": "index.html",
     "title": "KUB Datalab slides",
     "section": "",
-    "text": "Intro (pdf)\nNormalfordelingen (pdf)\nKonfidensintervaller og hypotesetests (pdf)\nKategoriske data (pdf)\nLineær regression (pdf)\nLogistisk regression (pdf)\nPower beregninger (pdf)"
+    "text": "Intro (pdf)\nNormalfordelingen (pdf)\nKonfidensintervaller og hypotesetests (pdf)\nKategoriske data (pdf)\nLineær regression (pdf)\nLogistisk regression (pdf)\nPower beregninger (pdf)\nOverlevelsesanalyse (pdf)"
   },
   {
     "objectID": "slides/hypotesetests.html#hvorfor-var-normalfordelingen-vigtig",
@@ -1106,11 +1358,11 @@
     "text": "Den centrale grænseværdisætning\n\nTager vi tilstrækkeligt mange (tilpas store) stikprøver, vil disse stikprøvers middelværdier følge en fordeling.\n\n\nDet vil være en normalfordeling\n\n\nDen normalfordeling vil have en middelværdi der er lig med den “sande” middelværdi for populationen."
   },
   {
-    "objectID": "slides/hypotesetests.html#den-centrale-grænseværdisætning-clt",
-    "href": "slides/hypotesetests.html#den-centrale-grænseværdisætning-clt",
+    "objectID": "slides/hypotesetests.html#den-centrale-grænseværdisætning-1",
+    "href": "slides/hypotesetests.html#den-centrale-grænseværdisætning-1",
     "title": "Konfidensintervaller og hypotesetests",
-    "section": "Den centrale grænseværdisætning (CLT)?",
-    "text": "Den centrale grænseværdisætning (CLT)?\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\n\n\nDet gør vi mange gange.\n\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelingen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Men det springer vi over."
+    "section": "Den centrale grænseværdisætning?",
+    "text": "Den centrale grænseværdisætning?\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\n\n\nDet gør vi mange gange.\n\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelingen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Men det springer vi over."
   },
   {
     "objectID": "slides/hypotesetests.html#en-gang-til---det-er-vigtigt",
@@ -1299,7 +1551,7 @@
     "href": "slides/hypotesetests.html#tilbage-til-plasma-magnesium",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Tilbage til plasma magnesium",
-    "text": "Tilbage til plasma magnesium\n\nVi fik oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere og ikke diabetikere. Og måtte antage normalfordeling i de to populationer:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Sprdening\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nVi beregnede 95% konfidensintervaller på hver af de to grupper, og konstaterede at middelværdien for diabetikere ikke er indeholdt i KI for ikke-diabetikere og omvendt, og at der derfor var signifikant forskel på niveauet.\nDet var i hvert fald konklusionen i modelbesvarelsen.\n\n\nMen jeg antydede at det måske ikke var 100% korrekt at konkludere på den måde…\n\n\nHvordan kunne vi ellers teste - når nu vi har lært den generelle metode for hypotesetestning?"
+    "text": "Tilbage til plasma magnesium\n\nVi fik oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere og ikke diabetikere. Og måtte antage normalfordeling i de to populationer:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Spredning\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nVi beregnede 95% konfidensintervaller på hver af de to grupper, og konstaterede at middelværdien for diabetikere ikke er indeholdt i KI for ikke-diabetikere og omvendt, og at der derfor var signifikant forskel på niveauet.\nDet var i hvert fald konklusionen i modelbesvarelsen.\n\n\nMen jeg antydede at det måske ikke var 100% korrekt at konkludere på den måde…\n\n\nHvordan kunne vi ellers teste - når nu vi har lært den generelle metode for hypotesetestning?"
   },
   {
     "objectID": "slides/hypotesetests.html#forskellen-på-middelværdierne",
@@ -1411,7 +1663,7 @@
     "href": "slides/hypotesetests.html#resten-af-opgaven",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Resten af opgaven",
-    "text": "Resten af opgaven\n\n\nHvor stor skal n være hvis 95% af stikprøverne skal have et snit der ligger mellem \\(\\mu-0.2\\) og \\(\\mu+0.2\\)\n\n95% intervallet er:\n\\(\\mu \\pm 1.96\\text{SEM}\\)\n\n\nSå \\(1.96\\text{SEM} = 0.2\\)\n\n\n\\(1.96\\frac{\\sigma}{\\sqrt{n}} = 0.2\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Resten af opgaven\n\n\nHvor stor skal n være hvis 95% af stikprøverne skal have et snit der ligger mellem \\(\\mu-0.2\\) og \\(\\mu+0.2\\)\n\n95% intervallet er:\n\\(\\mu \\pm 1.96\\text{SEM}\\)\n\n\nSå \\(1.96\\text{SEM} = 0.2\\)\n\n\n\\(1.96\\frac{\\sigma}{\\sqrt{n}} = 0.2\\)\n\\(\\sigma = 1.12\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/hypotesetests.html#hoppeeksamensopgave",
@@ -1425,7 +1677,7 @@
     "href": "slides/hypotesetests.html#hop-videre",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Hop videre",
-    "text": "Hop videre\n\n\n\nEn elle to grupper?\n\n\nParret eller u-parret?\n\n\nEn gruppe - parret t-test. Det er differencen vi kigger på.\n\n\nSå vi skal have fat i SEM.\n\nmean(diff)\n5.053815\nsd(diff)\n37.87201\n\nOg der var 249 børn\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Hop videre\n\n\n\nEn eller to grupper?\n\n\nParret eller u-parret?\n\n\nEn gruppe - parret t-test. Det er differencen vi kigger på.\n\n\nSå vi skal have fat i SEM.\n\nmean(diff)\n5.053815\nsd(diff)\n37.87201\n\nOg der var 249 børn\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/hypotesetests.html#sidste-hop---for-denne-gang",
@@ -1446,7 +1698,7 @@
     "href": "slides/hypotesetests.html#diabetikere---fra-et-interval-til-et-andet-1",
     "title": "Konfidensintervaller og hypotesetests",
     "section": "Diabetikere - fra et interval til et andet",
-    "text": "Diabetikere - fra et interval til et andet\n\n\n90% KI: [89.1; 136.5]\n\nHvordan beregnes et 95% KI?\n\n\n\\(\\mu \\pm1.96\\sigma\\)\n\n\nDe 1.96 var fordi?\n\n\nSå hvilken værdi er der blevet brug ved et 90% KI?\n\n\nKan vi så finde \\(\\sigma\\) fra 90% KI’et?\n\n\nHvad var SEM?\n\n\n\\(SEM = \\frac{\\sigma}{\\sqrt{n}}\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHar I fået fingre i modelbesvarelsen - så er der regnefejl… Det er ikke det eneste problem med den løsning…"
+    "text": "Diabetikere - fra et interval til et andet\n\n\n90% KI: [89.1; 136.5]\n\nHvordan beregnes et 95% KI?\n\n\n\\(\\mu \\pm1.96\\sigma\\)\n\n\nDe 1.96 var fordi?\n\n\nSå hvilken værdi er der blevet brugt ved et 90% KI?\n\n\nKan vi så finde \\(\\sigma\\) fra 90% KI’et?\n\n\nHvad var SEM?\n\n\n\\(SEM = \\frac{\\sigma}{\\sqrt{n}}\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHar I fået fingre i modelbesvarelsen - så er der regnefejl…"
   },
   {
     "objectID": "slides/hypotesetests.html#diabetikere---fra-et-interval-til-et-andet-2",
@@ -2146,7 +2398,7 @@
     "href": "slides/løsninger.html",
     "title": "Opgaveløsninger",
     "section": "",
-    "text": "Hvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))?\n\npnorm(1)*100\n\n[1] 84.13447\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))\n\npnorm(-2)*100\n\n[1] 2.275013\n\n\nhvilken værdi (af σ) er 15.9% af observationerne mindre (end denne værdi)?\n\nqnorm(0.159)\n\n[1] -0.9985763\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\npnorm(-3)\n\n[1] 0.001349898\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\npnorm(2)\n\n[1] 0.9772499\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\n1- pnorm(2)\n\n[1] 0.02275013\n\n\n\n\n\nHvad er 25% af observationerne mindre end?\n\nqnorm(0.25)\n\n[1] -0.6744898\n\n\n\n\n\nHvad er 40% af observationerne større end?\n\nqnorm(1-0.4)\n\n[1] 0.2533471\n\n\n\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\nHvilken andel ligger under 1.5?\nHvilken andel ligger under 1?\nDet er så\n\npnorm(1.5) - pnorm(1)\n\n[1] 0.09184805\n\n\n\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\nHvor meget ligger så uden for det interval?\n53%\nDet skal fordeles ligeligt på begge sider, så 53/2=26.5\n\nqnorm(0.265)\n\n[1] -0.628006\n\n\n\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\nHvis intervallet skal indeholde 95% af observationerne - hvor meget ligger så uden for?\n1-0.95 = 0.05\nDet skal fordeles ligeligt på begge sider så 0.05/2 = 0.025\n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nog\n\nqnorm(1-0.025)\n\n[1] 1.959964\n\n\n\n\n\nNappet direkte fra en eksamensopgave\nFor en population af normalfordelte værdier ved vi at: 40% af værdierne er større end 0.1, og 70% af værdierne er mindre end 1. Hvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\nDet er oplyst at X∼N(μ,σ)\nP(X&gt;0.1)=0.4⇔P(X&lt;0.1)=1−0.4=0.6\nStandardiseret:\nP(X−μσ&lt;0.1−μσ)=0.6⇒0.1−μσ=qnorm(0.6)=0.253\nOg:\nP(X&lt;1)=0.7\nStandardiseret:\nP(X−μσ&lt;1−μσ)=0.7⇒1−μσ=qnorm(0.7)=0.524\nDermed:\n0.1−μσ=0.253⇔0.1−μ=0.253σ\nog\n1−μσ=0.524⇔1−μ=0.524σ\nTræk første ligning fra den anden og isoler σ:\n(1−μ)−(0.1−μ)=0.524σ−0.253σ⇔1−μ−0.1+μ=(0.524−0.253)σ\n1−0.1=0.271σ⇔0.90.271=σ=3.32\nIndsæt i en af ligningerne for at finde μ:\n1−μ=0.524σ⇔1−μ=0.534⋅3.32⇔1−0.534⋅3.32=μ=−0.77\n\n\n\nVi har en normalfordelt population med σ=6.52 . 40% af værdierne er mindre end 0. Hvad er så μ for denne fordeling?\nX∼N(μ,6.52)\nP(X&lt;0) = 0.4\nSkaler: P(Z&lt;0−μ6.52)=0.4\n0−μ6.52=qnorm(0.4)=−0.2533471 Isoler μ\n\n\n\nEn normalfordelt population har middelværdi μ=12.5 og standardafvigelse σ=3.2 . Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er: P(X&lt;10)\nTransformer til standardnormalfordelingen: P(Z&lt;(10−μ)/σ)\nIndsæt\n\npnorm((10-12.5)/3.2)\n\n[1] 0.2173277\n\n\n\n\n\nI en normalfordelt population er μ=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?\nP(x &gt; 95) = 0.25\nP(X &lt; 95) = 1-0.25\nStandardiser\n\\(P(Z &lt; \\frac{95 - \\mu}{\\sigma}) = 0.75\\)\nIndsæt og brug qnorm til at komme af med P\n\\((95-85)/\\sigma = qnorm(0.75)\\)\nIsoler \\(\\sigma\\)\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nEn normalfordelt variabel har μ=50 og σ=8 . For hvilken værdi y er 90% af observationerne &lt; y?\nP(X &lt; y) = 0.9\nStandardiser\nP(Z &lt; (y-μ)/σ) = 0.9\nqnorm of at komme af med P\n(y-μ)/σ = qnorm(0.9)\nIndsæt (y-50)/8 = qnorm(0.9)\nIsoler y\n\ny &lt;- qnorm(0.9)*8+50\ny\n\n[1] 60.25241\n\n\n\n\n\nFor en normalfordeling gælder at σ=4.5 og 75% af værdierne er &gt; 18. Hvad er μ?\nP(X &gt; 18) = 0.75\nP(X &lt; 18) = 1- 0.75\nStandardiser\nP(Z &lt; (18-μ)/σ) = 0.25\nIndsæt og brug qnorm til at komme af med P\n(18-μ)/4.5 = qnorm(0.25)\nIsoler μ\n\nmu &lt;- 18-  qnorm(0.25)*4.5 \nmu\n\n[1] 21.0352\n\n\nManglende interval-grænse En normalfordelt population har μ=100 og σ=15 . Hvis 80% af værdierne ligger mellem 85 og en øvre grænse x , hvad er da denne øvre grænse?\nEller: find y således at: P(85 &lt; X &lt; y) = 0.8\nTAVLE\nSamlet sandsynlighed op til y P(X &lt; y)\nFra det skal vi trække den del hvor X er mindre end 85\nP(X &lt; 85)\nSå: P(X &lt; y) - P(X &lt; 85) = 0.80\nP(X &lt; 85) kan vi beregne\nStandardiser\nP(Z &lt; (85-μ)/σ))\nIndsæt, og brug pnorm for at få sandsynligheden\n\npnorm((85-100)/15)\n\n[1] 0.1586553\n\n\nSå ved vi at P(X &lt; y) - P(X &lt; 85) = 0.80\nbliver P(X &lt; y) - 0.1586553 = 0.80\nog derfor at\nP(X &lt; y) = 0.80 + 0.1586553 = 0.9586553\nStandardiser (igen)\nP(X &lt; (y-μ)σ) = 0.9586553\nAf med P ved hjælp af qnorm, og indsæt\n(y-100)/15 = qnorm(0.9586553)\nIsoler y\ny = 15*qnorm(0.9586553) +100\n\n\n\n“Summariske regnestørrelser” for plasma magnesium er givet. Og vi får lov at antage at det er normalfordelt for de to populationer stikprøverne er trukket:\nA tibble: 2 × 4 gruppe Antal Gennemsnit Spredning     1 Diabetikere 227 0.719 0.068 2 Ikke-diabetikere 140 0.81 0.057 Beregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).\n0.81 + c(-1,1)*0.057\nHVAD ER DET VI GØR MED c(-1,1)\n\n\n\nHvilken andel af målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nEller for: X ~ N(0.719, 0.068) hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\nEller: P(0.7 &lt; X &lt; 0.92) = P(X &lt; 0.92) - P(X &lt; 0.7)\nTAVLE!\nDiabetikerne havde middel = 0.719 og spredning 0.068\nNormaliser\nP(X &lt; 0.92) - P(X &lt; 0.7)\nP(Z &lt; (0.92-0.719)/0.068) - P(Z &lt; (0.7-0.719)/0.068)\n\npnorm((0.92-0.719)/0.068) - pnorm((0.7-0.719)/0.068)\n\n[1] 0.6084767"
+    "text": "Hvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))?\n\npnorm(1)*100\n\n[1] 84.13447\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))\n\npnorm(-2)*100\n\n[1] 2.275013\n\n\nhvilken værdi (af σ) er 15.9% af observationerne mindre (end denne værdi)?\n\nqnorm(0.159)\n\n[1] -0.9985763\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\npnorm(-3)\n\n[1] 0.001349898\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\npnorm(2)\n\n[1] 0.9772499\n\n\n\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\n1- pnorm(2)\n\n[1] 0.02275013\n\n\n\n\n\nHvad er 25% af observationerne mindre end?\n\nqnorm(0.25)\n\n[1] -0.6744898\n\n\n\n\n\nHvad er 40% af observationerne større end?\n\nqnorm(1-0.4)\n\n[1] 0.2533471\n\n\n\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\nHvilken andel ligger under 1.5?\nHvilken andel ligger under 1?\nDet er så\n\npnorm(1.5) - pnorm(1)\n\n[1] 0.09184805\n\n\n\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\nHvor meget ligger så uden for det interval?\n53%\nDet skal fordeles ligeligt på begge sider, så 53/2=26.5\n\nqnorm(0.265)\n\n[1] -0.628006\n\n\n\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\nHvis intervallet skal indeholde 95% af observationerne - hvor meget ligger så uden for?\n1-0.95 = 0.05\nDet skal fordeles ligeligt på begge sider så 0.05/2 = 0.025\n\nqnorm(0.025)\n\n[1] -1.959964\n\n\nog\n\nqnorm(1-0.025)\n\n[1] 1.959964\n\n\n\n\n\nNappet direkte fra en eksamensopgave\nFor en population af normalfordelte værdier ved vi at: 40% af værdierne er større end 0.1, og 70% af værdierne er mindre end 1. Hvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\nDet er oplyst at X∼N(μ,σ)\nP(X&gt;0.1)=0.4⇔P(X&lt;0.1)=1−0.4=0.6\nStandardiseret:\nP(X−μσ&lt;0.1−μσ)=0.6⇒0.1−μσ=qnorm(0.6)=0.253\nOg:\nP(X&lt;1)=0.7\nStandardiseret:\nP(X−μσ&lt;1−μσ)=0.7⇒1−μσ=qnorm(0.7)=0.524\nDermed:\n0.1−μσ=0.253⇔0.1−μ=0.253σ\nog\n1−μσ=0.524⇔1−μ=0.524σ\nTræk første ligning fra den anden og isoler σ:\n(1−μ)−(0.1−μ)=0.524σ−0.253σ⇔1−μ−0.1+μ=(0.524−0.253)σ\n1−0.1=0.271σ⇔0.90.271=σ=3.32\nIndsæt i en af ligningerne for at finde μ:\n1−μ=0.524σ⇔1−μ=0.534⋅3.32⇔1−0.534⋅3.32=μ=−0.77\n\n\n\nVi har en normalfordelt population med σ=6.52 . 40% af værdierne er mindre end 0. Hvad er så μ for denne fordeling?\nX∼N(μ,6.52)\nP(X&lt;0) = 0.4\nSkaler: P(Z&lt;0−μ6.52)=0.4\n0−\\(\\mu\\)/6.52=qnorm(0.4)=−0.2533471 Isoler \\(\\mu\\)\n\n\n\nEn normalfordelt population har middelværdi \\(\\mu\\)=12.5 og standardafvigelse \\(\\sigma\\)=3.2 . Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er: P(X&lt;10)\nTransformer til standardnormalfordelingen: P(Z&lt;(10−\\(\\mu\\))/\\(\\sigma\\))\nIndsæt\n\npnorm((10-12.5)/3.2)\n\n[1] 0.2173277\n\n\n\n\n\nI en normalfordelt population er \\(\\mu\\)=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?\nP(x &gt; 95) = 0.25\nP(X &lt; 95) = 1-0.25\nStandardiser\n\\(P(Z &lt; \\frac{95 - \\mu}{\\sigma}) = 0.75\\)\nIndsæt og brug qnorm til at komme af med P\n\\((95-85)/\\sigma = qnorm(0.75)\\)\nIsoler \\(\\sigma\\)\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nEn normalfordelt variabel har μ=50 og σ=8 . For hvilken værdi y er 90% af observationerne &lt; y?\nP(X &lt; y) = 0.9\nStandardiser\nP(Z &lt; (y-μ)/σ) = 0.9\nqnorm of at komme af med P\n(y-μ)/σ = qnorm(0.9)\nIndsæt (y-50)/8 = qnorm(0.9)\nIsoler y\n\ny &lt;- qnorm(0.9)*8+50\ny\n\n[1] 60.25241\n\n\n\n\n\nFor en normalfordeling gælder at σ=4.5 og 75% af værdierne er &gt; 18. Hvad er μ?\nP(X &gt; 18) = 0.75\nP(X &lt; 18) = 1- 0.75\nStandardiser\nP(Z &lt; (18-μ)/σ) = 0.25\nIndsæt og brug qnorm til at komme af med P\n(18-μ)/4.5 = qnorm(0.25)\nIsoler μ\n\nmu &lt;- 18-  qnorm(0.25)*4.5 \nmu\n\n[1] 21.0352\n\n\nManglende interval-grænse En normalfordelt population har μ=100 og σ=15 . Hvis 80% af værdierne ligger mellem 85 og en øvre grænse x , hvad er da denne øvre grænse?\nEller: find y således at: P(85 &lt; X &lt; y) = 0.8\nTAVLE\nSamlet sandsynlighed op til y P(X &lt; y)\nFra det skal vi trække den del hvor X er mindre end 85\nP(X &lt; 85)\nSå: P(X &lt; y) - P(X &lt; 85) = 0.80\nP(X &lt; 85) kan vi beregne\nStandardiser\nP(Z &lt; (85-μ)/σ))\nIndsæt, og brug pnorm for at få sandsynligheden\n\npnorm((85-100)/15)\n\n[1] 0.1586553\n\n\nSå ved vi at P(X &lt; y) - P(X &lt; 85) = 0.80\nbliver P(X &lt; y) - 0.1586553 = 0.80\nog derfor at\nP(X &lt; y) = 0.80 + 0.1586553 = 0.9586553\nStandardiser (igen)\nP(X &lt; (y-μ)σ) = 0.9586553\nAf med P ved hjælp af qnorm, og indsæt\n(y-100)/15 = qnorm(0.9586553)\nIsoler y\ny = 15*qnorm(0.9586553) +100\n\n\n\n“Summariske regnestørrelser” for plasma magnesium er givet. Og vi får lov at antage at det er normalfordelt for de to populationer stikprøverne er trukket:\nA tibble: 2 × 4 gruppe Antal Gennemsnit Spredning     1 Diabetikere 227 0.719 0.068 2 Ikke-diabetikere 140 0.81 0.057 Beregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).\n0.81 + c(-1,1)*0.057\nHVAD ER DET VI GØR MED c(-1,1)\n\n\n\nHvilken andel af målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nEller for: X ~ N(0.719, 0.068) hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\nEller: P(0.7 &lt; X &lt; 0.92) = P(X &lt; 0.92) - P(X &lt; 0.7)\nTAVLE!\nDiabetikerne havde middel = 0.719 og spredning 0.068\nNormaliser\nP(X &lt; 0.92) - P(X &lt; 0.7)\nP(Z &lt; (0.92-0.719)/0.068) - P(Z &lt; (0.7-0.719)/0.068)\n\npnorm((0.92-0.719)/0.068) - pnorm((0.7-0.719)/0.068)\n\n[1] 0.6084767"
   },
   {
     "objectID": "slides/løsninger.html#et-par-hurtige-øvelser",
@@ -2223,21 +2475,21 @@
     "href": "slides/løsninger.html#øvelse",
     "title": "Opgaveløsninger",
     "section": "",
-    "text": "Vi har en normalfordelt population med σ=6.52 . 40% af værdierne er mindre end 0. Hvad er så μ for denne fordeling?\nX∼N(μ,6.52)\nP(X&lt;0) = 0.4\nSkaler: P(Z&lt;0−μ6.52)=0.4\n0−μ6.52=qnorm(0.4)=−0.2533471 Isoler μ"
+    "text": "Vi har en normalfordelt population med σ=6.52 . 40% af værdierne er mindre end 0. Hvad er så μ for denne fordeling?\nX∼N(μ,6.52)\nP(X&lt;0) = 0.4\nSkaler: P(Z&lt;0−μ6.52)=0.4\n0−\\(\\mu\\)/6.52=qnorm(0.4)=−0.2533471 Isoler \\(\\mu\\)"
   },
   {
     "objectID": "slides/løsninger.html#øvelse---manglende-procentil",
     "href": "slides/løsninger.html#øvelse---manglende-procentil",
     "title": "Opgaveløsninger",
     "section": "",
-    "text": "En normalfordelt population har middelværdi μ=12.5 og standardafvigelse σ=3.2 . Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er: P(X&lt;10)\nTransformer til standardnormalfordelingen: P(Z&lt;(10−μ)/σ)\nIndsæt\n\npnorm((10-12.5)/3.2)\n\n[1] 0.2173277"
+    "text": "En normalfordelt population har middelværdi \\(\\mu\\)=12.5 og standardafvigelse \\(\\sigma\\)=3.2 . Hvor stor en andel af værdierne er mindre end 10?\nMed andre ord, hvad er: P(X&lt;10)\nTransformer til standardnormalfordelingen: P(Z&lt;(10−\\(\\mu\\))/\\(\\sigma\\))\nIndsæt\n\npnorm((10-12.5)/3.2)\n\n[1] 0.2173277"
   },
   {
     "objectID": "slides/løsninger.html#øvelse---manglende-σ",
     "href": "slides/løsninger.html#øvelse---manglende-σ",
     "title": "Opgaveløsninger",
     "section": "",
-    "text": "I en normalfordelt population er μ=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?\nP(x &gt; 95) = 0.25\nP(X &lt; 95) = 1-0.25\nStandardiser\n\\(P(Z &lt; \\frac{95 - \\mu}{\\sigma}) = 0.75\\)\nIndsæt og brug qnorm til at komme af med P\n\\((95-85)/\\sigma = qnorm(0.75)\\)\nIsoler \\(\\sigma\\)\n\\(10/qnorm(0.75) = \\sigma\\)"
+    "text": "I en normalfordelt population er \\(\\mu\\)=85 og 25% af værdierne er større end 95. Hvad er σ for denne fordeling?\nP(x &gt; 95) = 0.25\nP(X &lt; 95) = 1-0.25\nStandardiser\n\\(P(Z &lt; \\frac{95 - \\mu}{\\sigma}) = 0.75\\)\nIndsæt og brug qnorm til at komme af med P\n\\((95-85)/\\sigma = qnorm(0.75)\\)\nIsoler \\(\\sigma\\)\n\\(10/qnorm(0.75) = \\sigma\\)"
   },
   {
     "objectID": "slides/løsninger.html#manglende-værdi-kendt-procentil",
@@ -2646,6 +2898,13 @@
     "text": "Laparotomi - ilt\nVi sammenligner død (1) for de to ilt-regimer X og Y:\nodds for død\n\n(odds_x &lt;- 139/414)\n\n[1] 0.3357488\n\n(odds_y &lt;- 107/418)\n\n[1] 0.2559809\n\n\nOR - vi er interesserede i det høje iltregime\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.311617\n\n\n\n(SE_log_OR &lt;- sqrt(1/414 + 1/139 + 1/418 + 1/107))\n\n[1] 0.146109\n\n\n95% KI:\n\n(log_odds_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_OR)\n\n[1] -0.0151131  0.5576342\n\nexp(log_odds_ki)\n\n[1] 0.9850005 1.7465357\n\n\nSå vi estimereer at odds for at dø ved det høje ilt regime (X) er ca 31% højere end ved det lave, med et 95% KI på xx, der indeholder 1, og derfor ikke er signifikant.\nHusk forskellen på OR og RR - det er odds, ikke risiko!"
   },
   {
+    "objectID": "slides/løsninger.html#laparotomi---diagnose",
+    "href": "slides/løsninger.html#laparotomi---diagnose",
+    "title": "Opgaveløsninger",
+    "section": "Laparotomi - diagnose",
+    "text": "Laparotomi - diagnose\nTabellen deles nu op efter den opererede patients diagnose (cancer, ja,nej):\nNu laver vi samme øvelse, men på hver gruppe.\nCancer patienter:\n\n(odds_x &lt;- 101/188)\n\n[1] 0.537234\n\n(odds_y &lt;- 74/213)\n\n[1] 0.3474178\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.546363\n\n(SE_log_or &lt;- sqrt(1/101 + 1/74 + 1/188 + 1/213))\n\n[1] 0.1828346\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] 0.07754983 0.79426143\n\nexp(log_ki)\n\n[1] 1.080636 2.212806\n\n\nodds for at dø for cancerpatienter er ca. 1.55 gange højere ved det høje iltregime end ved det lave. 1 er ikke indeholdt i 95% KI for OR, og estimatet er derfor signifikant på et 5% niveau. Vi ser det også ved at log_ki ikke indeholder 0.\nFor ikke-cancerpatienter\n\n(odds_x &lt;- 38/226) \n\n[1] 0.1681416\n\n(odds_y &lt;- 33/205)\n\n[1] 0.1609756\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.044516\n\n(SE_log_or &lt;- sqrt(1/38 + 1/226 + 1/33 + 1/205))\n\n[1] 0.2567521\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] -0.4596806  0.5467877\n\nexp(log_ki)\n\n[1] 0.6314853 1.7276943\n\n\nHer estimerer vi at odds for at dø er 1.04 (4%) højer for at dø ved det høje ilt-regime sammenlignet med det lave for ikke-cancerpatienter, med det fundne 95% KI. Da 1 er indeholdt i KI, kan vi konkludere at estimatet ikke er signifikant.\nSå ilt-regimet har betyding for cancer patienter, men ikke for ikke-cancerpatienter."
+  },
+  {
     "objectID": "slides/løsninger.html#levertal",
     "href": "slides/løsninger.html#levertal",
     "title": "Opgaveløsninger",
@@ -2653,11 +2912,46 @@
     "text": "Levertal\nUndersøg om der er en statistisk signifikant sammenhæng mellem de to variable.\nHer kører vi en chi^2 test:\ninput:\n\ninput &lt;- matrix(c(66,106,99,308), ncol = 2, byrow = TRUE)\nchisq.test(input, correct = FALSE)\n\n\n    Pearson's Chi-squared test\n\ndata:  input\nX-squared = 11.709, df = 1, p-value = 0.0006219\n\n\nDet svarer til en p-værdi der er &lt;0.001. Så der er signifikant forskel. modelbesvarlsaer bruger ofte formuleringen “klart signifikant”. teknisk set er der ikke noget der er mere signifikant end andet. det er signifikant på et bestemt niveua. Eller også er det ikke. Det er ikke “næsten” eller “meget” signifikant."
   },
   {
+    "objectID": "slides/løsninger.html#levertal---regression",
+    "href": "slides/løsninger.html#levertal---regression",
+    "title": "Opgaveløsninger",
+    "section": "Levertal - regression",
+    "text": "Levertal - regression\nNu udfører vi følgende analyse i R: &gt; model &lt;- glm(status~factor(AG.positiv)+factor(sex)+age, binomial) &gt; summary(model)\nOR for AG.positiv\n\n(OR &lt;- exp(0.594643))\n\n[1] 1.812384\n\n\nog vi estimerer derfor at odds for at status er 1 (at man er syg) er en faktor 1.8 større\nhvis AG.positive patienter, sammenlignet med AG.negative.\nKI:\n\n(KI_log_or &lt;- 0.594643 + c(-1,1)*1.96*0.199556)\n\n[1] 0.2035132 0.9857728\n\nexp(KI_log_or)\n\n[1] 1.225701 2.679882\n\n\nOg det vi så svarer er: ORE for AG.positiv estimerer vi til\nDa det ikke indeholder 1, er resultatet signifikant (i overensstemmelse med hvad vi så fra p-værdien)"
+  },
+  {
+    "objectID": "slides/løsninger.html#levertal---prediktion",
+    "href": "slides/løsninger.html#levertal---prediktion",
+    "title": "Opgaveløsninger",
+    "section": "Levertal - prediktion",
+    "text": "Levertal - prediktion\nPrædikter sandsynlighednen for at have status 1 (syg) for en AG.positiv kvinde på 50.\n\n(log_odds_syg &lt;- -0.446661 +  0.594643 + 50*0.015131 )\n\n[1] 0.904532\n\n(odds_syg &lt;- exp(log_odds_syg))\n\n[1] 2.470775\n\n(sandsynlighed &lt;- odds_syg/(1+odds_syg))\n\n[1] 0.7118799\n\n\nSå sandsynligheden for at være syg, hvis man er AG.positiv 50-årig kvinde er 71%"
+  },
+  {
     "objectID": "slides/løsninger.html#bilirubin",
     "href": "slides/løsninger.html#bilirubin",
     "title": "Opgaveløsninger",
     "section": "Bilirubin",
     "text": "Bilirubin\n\nbaseret på ovenstående table ønske beregnet relativ risiko (med tilhørende 95% KI ) til belysning af effekten af behandlingen på det betragtede udfald. Husk at konkludere.\n\nRisiko ved behandling:\n\n(R_udc &lt;- 42/(134+42))\n\n[1] 0.2386364\n\n(R_pla &lt;- 55/(118+55))\n\n[1] 0.3179191\n\n(RR &lt;- R_udc/R_pla)\n\n[1] 0.7506198\n\n\nRR er 0.75 - det betyder at der er en ca. 25% reduceret risiko for treatment failure ved UDC behandlingen. KI\n\n(SE_log_rr &lt;- sqrt(1/42 - 1/(134+42) + 1/55 - 1/(118+55)))\n\n[1] 0.174726\n\n(KI_log &lt;- log(RR) + c(-1,1)*1.96*SE_log_rr)\n\n[1] -0.6293189  0.0556070\n\nexp(KI_log)\n\n[1] 0.5329547 1.0571821"
+  },
+  {
+    "objectID": "slides/løsninger.html#bilirun---regression",
+    "href": "slides/løsninger.html#bilirun---regression",
+    "title": "Opgaveløsninger",
+    "section": "Bilirun - regression",
+    "text": "Bilirun - regression\nNu udførtes følgende analyse: &gt; model &lt;- glm(Y ~ factor(R) + X, family =“binomial”) summary(model)\nSåvel behandlingen som X er statistisk signifikante på et 5% niveua.\nDet giver ikke mening at tolke på X, der er en standardiseret udgave af logaritmen af bilirubin (målt i umol/L). Så det er en stigning i OR for hver stigning på en standardafvigelse af logaritmen af bilirubin, relativt til middelværdien.\nFor den forklarende variabel R, der er det vi faktisk kan styre selv - det var behandling UDC vs. placebo\nOR\n\nexp(-0.9054)\n\n[1] 0.4043801\n\n\nNår der kontrolleres for bilirubin. når den er ca. 0.4, så svarer det til en reduktion på ca. 60% i odds for treatment failure ved aktiv behandling kontra placebo.\nKI\n\n(KI_log &lt;- -0.9054 + c(-1,1)*1.96*0.2967)\n\n[1] -1.486932 -0.323868\n\nexp(KI_log)\n\n[1] 0.2260652 0.7233457\n\n\nFor den forklarende variabel X får vi en estimeret odds ratio (OR) på behandlingen på exp(-0.9054) = 0.4043801 når der kontrolleres for den forklarende variabel X.\nDet tilhøreden 95% konfidensinterval findes ved: exp(-0.9054 + c(-1,1)1.960.2967)\nOR påp 0.4 svarer til en reduktion i odds for treatment failure på ca 60%, ved aktiv behandling vs. placebo, når der kontrolleres for bilirubin. Da KI ikke indeholder 1, er effekten signifikant."
+  },
+  {
+    "objectID": "slides/løsninger.html#powerrelationen-opstilles",
+    "href": "slides/løsninger.html#powerrelationen-opstilles",
+    "title": "Opgaveløsninger",
+    "section": "powerrelationen opstilles",
+    "text": "powerrelationen opstilles\n\nqnorm(0.975) + qnorm(0.9)\n\n[1] 3.241516\n\n\n3.2 = 300/(430/sqrt(n)) 3.2430/sqrt(n) = 300 sqrt(n)300 = 3.2430 sqrt(n) = 3.2430/300 n = (3.2*430/300)^2\n\n(3.2*430/300)^2\n\n[1] 21.03751\n\n\nog vi runder op!"
+  },
+  {
+    "objectID": "slides/løsninger.html#isoler-delta",
+    "href": "slides/løsninger.html#isoler-delta",
+    "title": "Opgaveløsninger",
+    "section": "Isoler delta",
+    "text": "Isoler delta\n\nqnorm(0.975) + qnorm(0.9)\n\n[1] 3.241516\n\n\n3.2 = delta/(430/sqrt(100))\n3.2 = delta/(430/10) delta = 43*3.2\n\n43*(qnorm(0.975) + qnorm(0.9))\n\n[1] 139.3852"
   },
   {
     "objectID": "slides/power.html#hvad-katten-er-det",
@@ -2763,6 +3057,13 @@
     "title": "Powerberegninger",
     "section": "Hvordan beregnes standardfejlen?",
     "text": "Hvordan beregnes standardfejlen?\nEn proportion: \\(SE = \\sqrt{\\frac{p(1-p)}{n}}\\)\nForskel mellem to proportioner: \\(SE = \\sqrt{\\frac{p_1(1 - p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\\)\nForskel mellem to proportioner, hvor grupperne er lige store: \\(SE = \\sqrt{\\frac{p_1(1 - p_1) + p_2(1-p_2)}{n}}\\)"
+  },
+  {
+    "objectID": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
+    "href": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
+    "title": "Powerberegninger",
+    "section": "Og hvad gør vi så i praksis?",
+    "text": "Og hvad gør vi så i praksis?\n\nVi har powerrelationen\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-\\alpha/2}+z_{1-\\beta}\\)\n\n\\(z_{1-\\alpha/2} = 1.96\\) (hvis \\(\\alpha = 0.05\\)). \\(z_{1-\\beta}\\) beregner vi med qnorm(1-beta)\n\n\nVi får oplyst at vi vil kunne se en bestemt forskel i to middelværdier (det var effekten), ofte “behandling vs. placebo”.\n\n\nMed en power på 80% (svarende til \\(\\beta = 0.2\\))\n\n\nVi får at vide at der skal være lige mange i hver gruppe.\n\n\nHvis vi er heldige får vi også at vide at vi må antage at standardafvigelsen er den samme i de to grupper (og hvad den er).\n\n\nOg vi ved så, at vi kan beregne standardfejlen ved \\(\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\n\n\nOg fordi \\(n_1 = n_2\\)\n\n\nSå er det “bare” at indsætte tallene i powerrelationen, og isolere n.\n\n\n\nEller også får vi at vide at \\(n_1 = 100\\) og vi skal finde \\(n_2\\). Eller vi får oplyst både \\(n_1\\) og \\(n_2\\) og alt det andet, men skal beregne den forskel vi kan forvente at se.\nGrundlæggende: Vi får alt, bortset fra én parameter oplyst. Indsæt i formlen, isoler det manglende."
   },
   {
     "objectID": "slides/power.html#et-par-fælder",
@@ -2877,339 +3178,283 @@
     "text": "Husk dog!\nDet her er til eksamensbrug.\nNår I skal til at lave forskning, så bør I basere jer på t-fordelingen i stedet.\nDen er bredere, og kan håndtere at variansen ikke er kendt, men skal estimeres.\nDen kan også klare sig med færre observationer.\nOg når I planlægger forsøget: Så finder I hvor mange observationer/patienter I skal bruge teoretisk.\nOg ganger med 2 for at få noget sikkerhedsmargen på det."
   },
   {
-    "objectID": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
-    "href": "slides/side-by-side-demo.html#this-is-a-webr-enabled-code-cell-in-a-quarto-html-document.",
-    "title": "webR in Quarto HTML Documents",
-    "section": "This is a webR-enabled code cell in a Quarto HTML document.",
-    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/R-cheatsheet_notat.html",
+    "href": "slides/R-cheatsheet_notat.html",
+    "title": "R Cheat Sheet",
+    "section": "",
+    "text": "pdf\nDet er ikke meget R I faktisk skal bruge.\nOg egentlig ville jeg foreslå at I deltog på et af vores introkurser til R.\nDette er langt fra færdigt. Fortæl gerne hvad der er brug for!"
   },
   {
-    "objectID": "slides/side-by-side-demo.html#overskrift-2",
-    "href": "slides/side-by-side-demo.html#overskrift-2",
-    "title": "webR in Quarto HTML Documents",
-    "section": "overskrift 2",
-    "text": "overskrift 2\nting\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/R-cheatsheet_notat.html#gem-en-værdi",
+    "href": "slides/R-cheatsheet_notat.html#gem-en-værdi",
+    "title": "R Cheat Sheet",
+    "section": "Gem en værdi",
+    "text": "Gem en værdi\nDet er lettere at skrive “SE” end at skrive 0.4847285\n\nSE &lt;- 0.4847285\n\nOg hvis vi har en beregning af SE, kan vi lige så godt gemme resultatet direkte:\n\nSE &lt;- 3.1414/sqrt(42)\n\nVil vi gerne se værdien igen, skriver vi “bare” SE\n\nSE\n\n[1] 0.4847285\n\n\nHUSK der er forskel på store og små bogstaver. SE er noget andet end se."
   },
   {
-    "objectID": "slides/side-by-side-demo.html#øvelse-1",
-    "href": "slides/side-by-side-demo.html#øvelse-1",
-    "title": "webR in Quarto HTML Documents",
-    "section": "Øvelse 1",
-    "text": "Øvelse 1\n\n\nHer skriver vi hvad der skal stå til venstre\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/R-cheatsheet_notat.html#vektorer",
+    "href": "slides/R-cheatsheet_notat.html#vektorer",
+    "title": "R Cheat Sheet",
+    "section": "Vektorer",
+    "text": "Vektorer\nVi har undertiden behov for at arbejde med mere end en værdi. Det kalder vi en “vektor”\nVi laver vektorer med funktionen c():\n\nvektor &lt;- c(42, 47, 666)\n\nHvis vi vil se den igen:\n\nvektor\n\n[1]  42  47 666\n\n\nR er hvad vi kalder vektoriseret. De fleste (men ikke alle!) operationer vil virke på hvert enkelt element i vektoren:\n\nvektor + 1\n\n[1]  43  48 667\n\n\nBemærk at vi lægger 1 til hver værdi i vektoren.\nDet er derfor vi i stedet for at skrive\n\n10 + 1.96*SE\n\n[1] 10.95007\n\n\nog\n\n10 - 1.96*SE\n\n[1] 9.049932\n\n\nfor at få et konfidensinterval, kan skrive:\n\n10 + c(-1,1)*1.96*SE\n\n[1]  9.049932 10.950068\n\n\nc(-1,1) ganget med 1.96 giver\n\nc(-1,1)*1.96\n\n[1] -1.96  1.96\n\n\nGanger vi også med SE får vi:\n\nc(-1,1)*1.96*SE\n\n[1] -0.9500679  0.9500679\n\n\nOg lægger vi 10 til det, lægger vi 10 til hvert element i det resultat.\nBemærk også at vi ikke ændrede på vektoren:\n\nvektor\n\n[1]  42  47 666\n\n\nVil vi gøre det skal vi huske at gemme resultatet i vektoren. Eller “objektet” som vi også kalder den_\n\nvektor &lt;- vektor + 1\n\nNu er vektor ændret:\n\nvektor\n\n[1]  43  48 667\n\n\nFunktioner virker også på vektorer – på hvert element:\n\nsqrt(vektor)\n\n[1]  6.557439  6.928203 25.826343\n\n\nHvad var en funktion?\nDet er en “opskrift” eller metode der tager noget input, og giver noget output.\nVi så sqrt(), der giver os kvadratroden på inputtet. Da vi gav den en vektor, gav den os kvadratroden på hvert element eller værdi i vektoren.\nInden vi går videre med funktioner, ser vi lige på manglende værdier.\nDem får I næppe brug for til eksamen, men det er nyttigt at kende alligevel.\nNu laver vi en ny vektor der indeholder værdierne fra den gamle vektor, og en manglende værdi:\n\nny_vektor &lt;- c(vektor, NA)\n\nManglende værdier angiver vi med “NA”. Husk at “NA” er noget andet end “na” eller “Na”.\nLæg mærke til at når vi skriver vektor, spytter R værdierne i vektor ud. Så c() funktionen får værdierne fra den oprindelige vektor, og en ekstra værdi, NA.\nManglende værdier optræder ofte i den virkelige verden. De angiver at “her skulle der have været en værdi, men vi ved ikke hvad den er”.\nTilbage til funktioner.\nmean() funktionen giver middelværdien eller gennemsnittet af inputtet:\n\nmean(vektor)\n\n[1] 252.6667\n\n\nMen hvis der er en manglende værdi i inputtet, får vi at vide at resultatet er ukendt:\n\nmean(ny_vektor)\n\n[1] NA\n\n\nDet gør vi fordi middelværdien findes ved at lægge alle tallene sammen, og dividere med antallet. Og resultatet af 42 + NA er ukendt. Vi ved jo ikke hvad den ukendte værdi dækker over. Derfor er resultatet af mean() også ukendt hvis inputtet indeholder ukendte værdier.\nFunktioner kan tage mere end et input. Det så vi i c() funktionen, der kunne tage mange inputs. Hvert input adskilte vi med et komma.\nFunktioner kan også tage en speciel type input, som vi kalder argumenter. Det er input der ændrer på den måde funktionen fungerer.\nDe har et navn, og skal have en værdi. mean() har et specielt argument na.rm. Hvis na.rm er sand, fjerner mean() de manglende værdier før middelværdien beregnes:\n\nmean(ny_vektor, na.rm = TRUE)\n\n[1] 252.6667\n\n\nHusk at “TRUE” er noget andet end “true”.\nLangt de fleste funktioner har argumenter. Nogen af dem skal vi angive:\n\nmean(x = ny_vektor)\n\n[1] NA\n\n\nOg hvis vi angiver dem i den rækkefølge funktionen forventer at få dem i, behøver vi ikke skrive navnet på dem. Derfor virker\n\nmean(ny_vektor)\n\n[1] NA\n\n\nuden at vi angiver at argumentet hedder “x”.\nBortset fra det første argument, som vi sjældent gider at navngive, er det en rigtig god ide at angive navnene på de øvrige argumenter.\nSå behøver man nemlig ikke selv huske rækkefølgen.\nArgumenter har normalt en “default” værdi. Den værdi funktionen antager at argumentet har, hvis vi ikke fortæller andet.\nmean() kan tage argumentet na.rm. Men hvis vi ikke angiver noget, antager mean() at værdien som default er FALSE. Vil vi have funktionen til at gøre noget andet end default, skal vi fortælle den det.\nListen over argumenter finder vi ved at køre kommandoen:\n\n?mean\n\nDet åbner hjælpefilen, og der kan vi læse hvilke argumenter funktionen kan tage.\nNyttige funktioner:\nc()\nsqrt()\nmean()\nmedian()\nsd()\nqnorm\npnorm"
   },
   {
-    "objectID": "slides/løsninger.html#laparotomi---diagnose",
-    "href": "slides/løsninger.html#laparotomi---diagnose",
-    "title": "Opgaveløsninger",
-    "section": "Laparotomi - diagnose",
-    "text": "Laparotomi - diagnose\nTabellen deles nu op efter den opererede patients diagnose (cancer, ja,nej):\nNu laver vi samme øvelse, men på hver gruppe.\nCancer patienter:\n\n(odds_x &lt;- 101/188)\n\n[1] 0.537234\n\n(odds_y &lt;- 74/213)\n\n[1] 0.3474178\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.546363\n\n(SE_log_or &lt;- sqrt(1/101 + 1/74 + 1/188 + 1/213))\n\n[1] 0.1828346\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] 0.07754983 0.79426143\n\nexp(log_ki)\n\n[1] 1.080636 2.212806\n\n\nodds for at dø for cancerpatienter er ca. 1.55 gange højere ved det høje iltregime end ved det lave. 1 er ikke indeholdt i 95% KI for OR, og estimatet er derfor signifikant på et 5% niveau. Vi ser det også ved at log_ki ikke indeholder 0.\nFor ikke-cancerpatienter\n\n(odds_x &lt;- 38/226) \n\n[1] 0.1681416\n\n(odds_y &lt;- 33/205)\n\n[1] 0.1609756\n\n(OR &lt;- odds_x/odds_y)\n\n[1] 1.044516\n\n(SE_log_or &lt;- sqrt(1/38 + 1/226 + 1/33 + 1/205))\n\n[1] 0.2567521\n\n(log_ki &lt;- log(OR) + c(-1,1)*1.96*SE_log_or)\n\n[1] -0.4596806  0.5467877\n\nexp(log_ki)\n\n[1] 0.6314853 1.7276943\n\n\nHer estimerer vi at odds for at dø er 1.04 (4%) højer for at dø ved det høje ilt-regime sammenlignet med det lave for ikke-cancerpatienter, med det fundne 95% KI. Da 1 er indeholdt i KI, kan vi konkludere at estimatet ikke er signifikant.\nSå ilt-regimet har betyding for cancer patienter, men ikke for ikke-cancerpatienter."
+    "objectID": "slides/standardfejl_oversigt.html",
+    "href": "slides/standardfejl_oversigt.html",
+    "title": "Oversigt over standardfejl",
+    "section": "",
+    "text": "pdf"
   },
   {
-    "objectID": "slides/løsninger.html#levertal---regression",
-    "href": "slides/løsninger.html#levertal---regression",
-    "title": "Opgaveløsninger",
-    "section": "Levertal - regression",
-    "text": "Levertal - regression\nNu udfører vi følgende analyse i R: &gt; model &lt;- glm(status~factor(AG.positiv)+factor(sex)+age, binomial) &gt; summary(model)\nOR for AG.positiv\n\n(OR &lt;- exp(0.594643))\n\n[1] 1.812384\n\n\nog vi estimerer derfor at odds for at status er 1 (at man er syg) er en faktor 1.8 større\nhvis AG.positive patienter, sammenlignet med AG.negative.\nKI:\n\n(KI_log_or &lt;- 0.594643 + c(-1,1)*1.96*0.199556)\n\n[1] 0.2035132 0.9857728\n\nexp(KI_log_or)\n\n[1] 1.225701 2.679882\n\n\nOg det vi så svarer er: ORE for AG.positiv estimerer vi til\nDa det ikke indeholder 1, er resultatet signifikant (i overensstemmelse med hvad vi så fra p-værdien)"
+    "objectID": "slides/standardfejl_oversigt.html#én-middelværdi",
+    "href": "slides/standardfejl_oversigt.html#én-middelværdi",
+    "title": "Oversigt over standardfejl",
+    "section": "1. Én middelværdi",
+    "text": "1. Én middelværdi\nHvis vi har en stikprøve med middelværdi \\(\\bar{x}\\), standardafvigelse \\(s\\) og størrelse \\(n\\), er standardfejlen:\n\\[\nSE(\\bar{x}) = \\frac{s}{\\sqrt{n}}\n\\]\nHer er:\n\n\\(s\\): stikprøvens standardafvigelse\n\\(n\\): antal observationer\n\nJo større \\(n\\) er, desto mindre bliver standardfejlen."
   },
   {
-    "objectID": "slides/løsninger.html#levertal---prediktion",
-    "href": "slides/løsninger.html#levertal---prediktion",
-    "title": "Opgaveløsninger",
-    "section": "Levertal - prediktion",
-    "text": "Levertal - prediktion\nPrædikter sandsynlighednen for at have status 1 (syg) for en AG.positiv kvinde på 50.\n\n(log_odds_syg &lt;- -0.446661 +  0.594643 + 50*0.015131 )\n\n[1] 0.904532\n\n(odds_syg &lt;- exp(log_odds_syg))\n\n[1] 2.470775\n\n(sandsynlighed &lt;- odds_syg/(1+odds_syg))\n\n[1] 0.7118799\n\n\nSå sandsynligheden for at være syg, hvis man er AG.positiv 50-årig kvinde er 71%"
+    "objectID": "slides/standardfejl_oversigt.html#forskel-mellem-to-middelværdier-ikke-parret",
+    "href": "slides/standardfejl_oversigt.html#forskel-mellem-to-middelværdier-ikke-parret",
+    "title": "Oversigt over standardfejl",
+    "section": "2. Forskel mellem to middelværdier (ikke-parret)",
+    "text": "2. Forskel mellem to middelværdier (ikke-parret)\nNår vi sammenligner to uafhængige grupper, er estimatet (praktisk taget altid) forskellen mellem middelværdierne:\n\\[\n\\bar{x}_1 - \\bar{x}_2\n\\]\nStandardfejlen er:\n\\[\nSE(\\bar{x}_1 - \\bar{x}_2) = \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}\n\\]\nVi skriver ofte: \\(SE_{diff} = \\sqrt{SE_1^2 + SE_2^2}\\)\nHer er:\n\n\\(s_1, s_2\\): standardafvigelserne i de to grupper\n\\(n_1, n_2\\): stikprøvestørrelserne i de to grupper\n\nUsikkerheden kommer derfor fra begge grupper."
   },
   {
-    "objectID": "slides/løsninger.html#bilirun---regression",
-    "href": "slides/løsninger.html#bilirun---regression",
-    "title": "Opgaveløsninger",
-    "section": "Bilirun - regression",
-    "text": "Bilirun - regression\nNu udførtes følgende analyse: &gt; model &lt;- glm(Y ~ factor(R) + X, family =“binomial”) summary(model)\nSåvel behandlingen som X er statistisk signifikante på et 5% niveua.\nDet giver ikke mening at tolke på X, der er en standardiseret udgave af logaritmen af bilirubin (målt i umol/L). Så det er en stigning i OR for hver stigning på en standardafvigelse af logaritmen af bilirubin, relativt til middelværdien.\nFor den forklarende variabel R, der er det vi faktisk kan styre selv - det var behandling UDC vs. placebo\nOR\n\nexp(-0.9054)\n\n[1] 0.4043801\n\n\nNår der kontrolleres for bilirubin. når den er ca. 0.4, så svarer det til en reduktion på ca. 60% i odds for treatment failure ved aktiv behandling kontra placebo.\nKI\n\n(KI_log &lt;- -0.9054 + c(-1,1)*1.96*0.2967)\n\n[1] -1.486932 -0.323868\n\nexp(KI_log)\n\n[1] 0.2260652 0.7233457\n\n\nFor den forklarende variabel X får vi en estimeret odds ratio (OR) på behandlingen på exp(-0.9054) = 0.4043801 når der kontrolleres for den forklarende variabel X.\nDet tilhøreden 95% konfidensinterval findes ved: exp(-0.9054 + c(-1,1)1.960.2967)\nOR påp 0.4 svarer til en reduktion i odds for treatment failure på ca 60%, ved aktiv behandling vs. placebo, når der kontrolleres for bilirubin. Da KI ikke indeholder 1, er effekten signifikant."
+    "objectID": "slides/standardfejl_oversigt.html#parrede-målinger",
+    "href": "slides/standardfejl_oversigt.html#parrede-målinger",
+    "title": "Oversigt over standardfejl",
+    "section": "3. Parrede målinger",
+    "text": "3. Parrede målinger\nVed parrede data beregner vi først forskelle for hvert individ (eller hvad vi nu undersøger):\n\\[\nd_i = x_i - y_i\n\\]\nDerefter beregnes middelværdien af forskellene:\n\\[\n\\bar{d} = \\frac{1}{n}\\sum_{i=1}^n d_i\n\\]\nStandardafvigelsen af forskellene er givet ved:\n\\[\ns_d = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^n (d_i - \\bar{d})^2}\n\\]\nStandardfejlen bliver så:\n\\[\nSE(\\bar{d}) = \\frac{s_d}{\\sqrt{n}}\n\\]\nDet afgørende er altså, at vi arbejder med forskellene, ikke med de to måleserier hver for sig. I eksamenssituationer vil vi normalt få oplyst standardafvigelsen og antallet af observationer, og skal så beregne standardfejlen selv."
   },
   {
-    "objectID": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
-    "href": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
-    "title": "Powerberegninger",
-    "section": "Og hvad gør vi så i praksis?",
-    "text": "Og hvad gør vi så i praksis?\n\nVi har powerrelationen\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-\\alpha/2}+z_{1-\\beta}\\)\n\n\\(z_{1-\\alpha/2} = 1.96\\) (hvis \\(\\alpha = 0.05\\)). \\(z_{1-\\beta}\\) beregner vi med qnorm(1-beta)\n\n\nVi får oplyst at vi vil kunne se en bestemt forskel i to middelværdier (det var effekten), ofte “behandling vs. placebo”.\n\n\nMed en power på 80% (svarende til \\(\\beta = 0.2\\))\n\n\nVi får at vide at der skal være lige mange i hver gruppe.\n\n\nHvis vi er heldige får vi også at vide at vi må antage at standardafvigelsen er den samme i de to grupper (og hvad den er).\n\n\nOg vi ved så, at vi kan beregne standardfejlen ved \\(\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\n\n\nOg fordi \\(n_1 = n_2\\)\n\n\nSå er det “bare” at indsætte tallene i powerrelationen, og isolere n.\n\n\n\nEller også får vi at vide at \\(n_1 = 100\\) og vi skal finde \\(n_2\\). Eller vi får oplyst både \\(n_1\\) og \\(n_2\\) og alt det andet, men skal beregne den forskel vi kan forvente at se.\nGrundlæggende: Vi får alt, bortset fra én parameter oplyst. Indsæt i formlen, isoler det manglende."
+    "objectID": "slides/standardfejl_oversigt.html#én-andel",
+    "href": "slides/standardfejl_oversigt.html#én-andel",
+    "title": "Oversigt over standardfejl",
+    "section": "4. Én andel",
+    "text": "4. Én andel\nNår vi estimerer en andel \\(p\\), er standardfejlen givet ved:\n\\[\nSE(p) = \\sqrt{\\frac{p(1-p)}{n}}\n\\]\nHer er:\n\n\\(p\\): den observerede andel\n\\(n\\): stikprøvestørrelsen\n\nStandardfejlen afhænger altså af selve andelen."
   },
   {
-    "objectID": "slides/hypotesetests.html#den-centrale-grænseværdisætning-1",
-    "href": "slides/hypotesetests.html#den-centrale-grænseværdisætning-1",
-    "title": "Konfidensintervaller og hypotesetests",
-    "section": "Den centrale grænseværdisætning?",
-    "text": "Den centrale grænseværdisætning?\n\nVi er interesseret i gennemsnitshøjden af danske mænd. Vi ved ikke hvilken sandsynlighedsfordeling der beskriver danske mænds højde.\n\nSå vi tager en stikprøve på eksempelvis 20 mænd fra populationen (alle danske mænd) og måler deres højde.\n\n\nVi beregner gennemsnittet af den stikprøve og gemmer det.\n\n\nDet gentager vi mange gange. Ny stikprøve - mål - beregn gennemsnit. Ny stikprøve - mål - beregn gennemsnit.\n\n\nDet gør vi mange gange.\n\n\nDet giver en masse gennemsnit/middelværdier.\n\n\nDe middelværdier vil følge normalfordelingen.\n\n\nUanset hvilken sandsynlighedsfordeling danske mænds højde følger.\n\n\nDet kan man føre bevis for. Men det springer vi over."
+    "objectID": "slides/standardfejl_oversigt.html#forskel-mellem-to-andele",
+    "href": "slides/standardfejl_oversigt.html#forskel-mellem-to-andele",
+    "title": "Oversigt over standardfejl",
+    "section": "5. Forskel mellem to andele",
+    "text": "5. Forskel mellem to andele\nNår vi sammenligner to andele, er standardfejlen givet ved:\n\\[\nSE(p_1 - p_2) = \\sqrt{\\frac{p_1(1-p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\n\\]\nHer er der igen bidrag fra begge grupper."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#hvad-skal-vi-kunne",
-    "href": "slides/overlevelsesanalyse.html#hvad-skal-vi-kunne",
+    "objectID": "slides/standardfejl_oversigt.html#odds-ratio-or",
+    "href": "slides/standardfejl_oversigt.html#odds-ratio-or",
+    "title": "Oversigt over standardfejl",
+    "section": "6. Odds ratio (OR)",
+    "text": "6. Odds ratio (OR)\nFor odds ratio arbejder vi på log-skala. Standardfejlen for \\(\\log(OR)\\) er:\n\\[\nSE(\\log(OR)) = \\sqrt{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{1}{d}}\n\\]\nhvor \\(a\\), \\(b\\), \\(c\\), \\(d\\) er cellerne i en 2x2-tabel.\nKonfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet."
+  },
+  {
+    "objectID": "slides/standardfejl_oversigt.html#risk-ratio-rr",
+    "href": "slides/standardfejl_oversigt.html#risk-ratio-rr",
+    "title": "Oversigt over standardfejl",
+    "section": "7. Risk ratio (RR)",
+    "text": "7. Risk ratio (RR)\nFor risk ratio arbejder vi også på log-skala. Standardfejlen for \\(\\log(RR)\\) er:\n\\[\nSE(\\log(RR)) = \\sqrt{\\frac{1}{a} - \\frac{1}{a+b} + \\frac{1}{c} - \\frac{1}{c+d}}\n\\]\nIgen er \\(a\\), \\(b\\), \\(c\\), \\(d\\) cellerne i en 2x2-tabel.\nKonfidensinterval og test laves på log-skala og kan bagefter transformeres tilbage ved at tage exponentialfunktionen. En klassisk fejl er at glemme at logaritmere estimatet.\n\nHvad er hvad?\nVi antager en 2x2-tabel af formen:\n\\[\n\\begin{array}{c|cc}\n& \\text{Udfald}=1 & \\text{Udfald}=0 \\\\\n\\hline\n\\text{Eksponeret} & a & b \\\\\n\\text{Ikke-eksponeret} & c & d\n\\end{array}\n\\]\nHer er risikoen i den eksponerede gruppe:\n\\[\n\\frac{a}{a+b}\n\\]\nog risikoen i den ikke-eksponerede gruppe:\n\\[\n\\frac{c}{c+d}\n\\]"
+  },
+  {
+    "objectID": "slides/survival.html#hvordan-kan-vi-beskrive-det",
+    "href": "slides/survival.html#hvordan-kan-vi-beskrive-det",
     "title": "Overlevelsesanalyse",
-    "section": "Hvad skal vi kunne?",
-    "text": "Hvad skal vi kunne?\n\nForklare tid til event, risikosæt og censurering.\nLæse en Kaplan–Meier-kurve og en log-rank-test.\nFortolke koefficienter og hazard ratioer fra Cox-regression.\nGennemskue immortal time bias og andre faldgruber.\n\nVi slutter med opgave 2a og 2b fra SEMS, sommer 2026."
+    "section": "Hvordan kan vi beskrive det?",
+    "text": "Hvordan kan vi beskrive det?\n\nVi skal vide hvornår hændelsen indtræffer\n\nVi skal derfor kende et starttidspunkt\n\nHvor mange patienter er i studiet på et givet tidspunkt?\n\nDet ændrer sig over tid!\n\n\nPå et givet tidspunkt har de patienter der er tilbage, en given risiko for at opleve hændelsen.\nDet kalder vi for hazard:\n\\[h(t)\\]"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#outcome-er-en-tid",
-    "href": "slides/overlevelsesanalyse.html#outcome-er-en-tid",
+    "objectID": "slides/survival.html#overlevelsesfunktionen",
+    "href": "slides/survival.html#overlevelsesfunktionen",
     "title": "Overlevelsesanalyse",
-    "section": "Outcome er en tid",
-    "text": "Outcome er en tid\nVi modellerer tid indtil en hændelse: død, tilbagefald, infektion eller udskrivelse.\nTo personer kan begge være i live ved sidste kontrol, men være fulgt i henholdsvis 1 og 10 år.\nEt simpelt ja/nej-outcome mister den forskel.\nEt gennemsnit af de observerede tider blander tid til event sammen med tid til sidste kontrol."
+    "section": "Overlevelsesfunktionen",
+    "text": "Overlevelsesfunktionen\n\nPå et tidspunkt t har vi overlevelsen \\(S(t)\\).\nEt infinitisemalt tidsrum senere er der indtruffet et antal hændelser. Overlevelsen er nu \\(S'(t)\\). Det er ændringen. Vi kan også beskrive det som hældningen af overlevelseskurven.\nDen hazard der var er derfor:\n\\[h(t) = -\\frac{S'(t)}{S(t)}\\]\nMed lidt matematik kan vi så beregne \\(S(t)\\):\n\\[\nS(t) = \\exp\\left(-\\int_0^t h(u)\\,du\\right)\n\\]"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#før-analysen-definér-tid-nul-og-event",
-    "href": "slides/overlevelsesanalyse.html#før-analysen-definér-tid-nul-og-event",
+    "objectID": "slides/survival.html#hvad-kan-vi-udlede-af-hazard",
+    "href": "slides/survival.html#hvad-kan-vi-udlede-af-hazard",
     "title": "Overlevelsesanalyse",
-    "section": "Før analysen: definér tid nul og event",
-    "text": "Før analysen: definér tid nul og event\nI eksamensopgaven følger vi patienter på venteliste til hjertetransplantation.\n\n\n\nBegreb\nI opgave 2\n\n\n\n\nTid nul\nInklusion på ventelisten\n\n\nEvent\nDød\n\n\nObserveret tid\nfutime: tid til død eller sidste opfølgning\n\n\nEvent-indikator\nfustat: 1 = død, 0 = censureret\n\n\n\nTid nul skal være klinisk relevant og sammenlignelig mellem patienter."
+    "section": "Hvad kan vi udlede af hazard?",
+    "text": "Hvad kan vi udlede af hazard?\nHvis vi kender hazard, ved vi hvor mange der (sandsynligvis) har oplevet hændelsen fra start til nu.\nSå ved vi også hvor mange der er hændelsesfri (har overlevet)\nDet kalder vi overlevelsesfunktionen:\n\\[S(t)\\]"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#censureret-betyder-ikke-event-fri-for-evigt",
-    "href": "slides/overlevelsesanalyse.html#censureret-betyder-ikke-event-fri-for-evigt",
+    "objectID": "slides/survival.html#kan-vi-bruge-den-til-noget",
+    "href": "slides/survival.html#kan-vi-bruge-den-til-noget",
     "title": "Overlevelsesanalyse",
-    "section": "Censureret betyder ikke event-fri for evigt",
-    "text": "Censureret betyder ikke event-fri for evigt\n\nA dør efter 3 måneder: Vi kender dødstidspunktet.\nB er i live efter 3 måneder og tabes derefter til opfølgning: Vi ved kun, at dødstidspunktet ligger senere.\n\nB er højrecensureret efter 3 måneder.\nB bidrager med information indtil da. Vi hverken fjerner B eller registrerer et dødsfald ved måned 3."
+    "section": "Kan vi bruge den til noget?",
+    "text": "Kan vi bruge den til noget?\nJep!\nHvis altså vi kender hazard og den er konstant over tid. Så kan vi eksempelvis beregne 5-års overlevelsen:\n\\[\n\\begin{aligned}\nS(t) &= \\exp\\left(-\\int_0^t h(u)\\,du\\right) \\\\\n     &= \\exp\\left(-h(u) \\cdot \\Delta_u \\right ) \\\\\n     &= \\exp \\left(-0.1\\cdot (5-0)  \\right) \\\\\n     &= \\exp(-0.5) \\\\\n     &= 0.607\n\\end{aligned}\n\\]"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#ikke-informativ-censurering",
-    "href": "slides/overlevelsesanalyse.html#ikke-informativ-censurering",
+    "objectID": "slides/survival.html#min-slide-overskrift",
+    "href": "slides/survival.html#min-slide-overskrift",
     "title": "Overlevelsesanalyse",
-    "section": "Ikke-informativ censurering",
-    "text": "Ikke-informativ censurering\nCensurerede skal, givet de variable analysen tager højde for, være repræsentative for dem, der stadig følges, med hensyn til fremtidig eventtid.\n\nStudiets planlagte afslutning er ofte en rimelig censureringsgrund.\nHvis de mest syge forsvinder fra opfølgningen, kan overlevelsen blive overvurderet.\nOgså administrativ censurering kan give problemer, hvis prognosen ændres med kalenderperioden for inklusion.\n\nÅrsagen til censurering skal vurderes."
+    "section": "Min Slide Overskrift",
+    "text": "Min Slide Overskrift\nHer er lidt introducerende tekst.\n\\[\n\\begin{aligned}\nf(x) &= (x + 2)^2 \\\\\n     &= x^2 + 4x + 4\n\\end{aligned}\n\\]\nHer fortsætter teksten efter formlen."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#tre-centrale-begreber",
-    "href": "slides/overlevelsesanalyse.html#tre-centrale-begreber",
+    "objectID": "slides/survival.html#starttidspunktet",
+    "href": "slides/survival.html#starttidspunktet",
     "title": "Overlevelsesanalyse",
-    "section": "Tre centrale begreber",
-    "text": "Tre centrale begreber\n\\[S(t)=P(T&gt;t)\\]\nOverlevelsesfunktionen: Sandsynligheden for at være event-fri efter tid \\(t\\).\nRisikosættet: De personer, som stadig observeres og endnu ikke har haft event lige før \\(t\\).\nHazard \\(h(t)\\): Den øjeblikkelige event-rate blandt dem, der endnu er event-frie. En rate har enhed fx pr. måned og er ikke en sandsynlighed."
+    "section": "Starttidspunktet",
+    "text": "Starttidspunktet\n\nVi studerer “tid til hændelse”.\nHvis vi vil sammenligne den tid for to patienter, er vi nødt til at have et starttidspunkt (\\(t = 0, t_0, T = 0\\)).\nEllers er sammenligningen ubrugelig!\nHvorfor?\n\nDet er ikke interessant at både patient A og patient B dør som 70-årige et antal år efter en operation.\n\n\nDet interessante er hvor længe de overlever efter operationen.\n\n\nVi skal derfor have et starttidspunkt der er defineret på samme måde for begge patienter. Det skal være (i denne kontekst) klinisk relevant\n\n\nDatoen for starttidspunkt på gerne være forskellig. Reglen for hvad starttidspunktet er, skal blot være ens."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#et-lille-datasæt",
-    "href": "slides/overlevelsesanalyse.html#et-lille-datasæt",
+    "objectID": "slides/survival.html#faldgruber",
+    "href": "slides/survival.html#faldgruber",
     "title": "Overlevelsesanalyse",
-    "section": "Et lille datasæt",
-    "text": "Et lille datasæt\n\n\n\nPatient\nTid (måneder)\nEvent\n\n\n\n\nA\n2\n1\n\n\nB\n3\n0\n\n\nC\n4\n1\n\n\nD\n4\n1\n\n\nE\n6\n0\n\n\nF\n7\n1\n\n\n\nSpørgsmål: Hvem er i risiko lige før måned 4?\n\nC, D, E og F. A er død, og B er censureret."
+    "section": "Faldgruber",
+    "text": "Faldgruber\n\nVi lærer en del af hvor mange der oplever hændelsen efter en bestemt tid.\nVi lærer mere hvis vi også inddrager de der ikke har haft hændelsen endnu (er hændelsesfrie)\nDet introducerer muligheden for fejlkilder…\n\nVi kan tabe kontakten til patienterne, og kender ikke status efter sidste kontakt.\nPatienten kan dø af noget andet end det vi undersøger.\nStuderes infektioner, kan patienten teste negativ efter tre uger, men positiv efter 5. Det faktiske tidspunkt for infektionen er ukendt.\nPatienten testede positiv allerede da studiet startede. Infektionstidspunkt er ukendt.\nPatienten er i live (hændelsesfri) ved studiets afslutning. Om eller hvornår hændelsen indtræffer er ukendt.\nStudiet foretages over mange år. Behandlingsformer og prognoser kan ændre sig. Nogen patienter bidrager derfor med en anden hazard end andre."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#kaplanmeier-ét-trin-ad-gangen",
-    "href": "slides/overlevelsesanalyse.html#kaplanmeier-ét-trin-ad-gangen",
+    "objectID": "slides/survival.html#hvad-kalder-vi-det",
+    "href": "slides/survival.html#hvad-kalder-vi-det",
     "title": "Overlevelsesanalyse",
-    "section": "Kaplan–Meier: ét trin ad gangen",
-    "text": "Kaplan–Meier: ét trin ad gangen\n\\[\\widehat S(t)=\\prod_{t_i\\leq t}\\left(1-\\frac{d_i}{n_i}\\right)\\]\n\\(n_i\\): antal i risiko lige før eventtidspunkt \\(t_i\\).\n\\(d_i\\): antal events ved \\(t_i\\) (kan være flere end ét).\n\n\n\nTid\nI risiko\nEvents\nBetinget overlevelse\n\\(\\widehat S(t)\\)\n\n\n\n\n2\n6\n1\n\\(5/6\\)\n\\(0.833\\)\n\n\n4\n4\n2\n\\(2/4\\)\n\\(0.417\\)\n\n\n7\n1\n1\n\\(0/1\\)\n\\(0\\)\n\n\n\nCensurering ved 3 og 6 reducerer senere risikosæt, men giver ikke et fald i kurven."
+    "section": "Hvad kalder vi det?",
+    "text": "Hvad kalder vi det?\n\n\nHøjrecensurering: Kontakten ophører mens patienten er hændelsesfri.\nVenstrecensurering: Positiv allerede ved første observation\nIntervalcensurering: Negativ test efter tre uger, positiv efter 5\nKonkurrerende hændelse: Patienten dør af anden årsag end det vi undersøger. Det vil vi behandle som en højrecensurering.\nAdministrativ højrecensurering: Patienten er hændelsesfri ved studiets afslutning\nInformativ administrativ censurering: Behandling/prognose ændres sig over tid.\n\nAng. sidste - hvis patienterne har fælles slutdato, får de sidst inkluderede kortere opfølgning. Bedres prognosen samtidig, er der en sammenhæng mellem længden af opfølgning og overlevelse. Og så er den administrative censur ikke kun censur, men også information."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#sådan-ser-kurven-ud",
-    "href": "slides/overlevelsesanalyse.html#sådan-ser-kurven-ud",
+    "objectID": "slides/survival.html#vi-skal-altid-forholde-os-til-censuren",
+    "href": "slides/survival.html#vi-skal-altid-forholde-os-til-censuren",
     "title": "Overlevelsesanalyse",
-    "section": "Sådan ser kurven ud",
-    "text": "Sådan ser kurven ud\n\n\n\nKaplan–Meier for de seks illustrative patienter. Plusser markerer censurering.\n\n\nDen sidste del bygger på meget få personer. Et stort trin er ikke nødvendigvis stærk evidens."
+    "section": "Vi skal altid forholde os til censuren!",
+    "text": "Vi skal altid forholde os til censuren!\nDet er fristende at fjerne censurerede patienter fra analyse.\nMen den højrecensurerede patient bidrager jo med information frem til tidspunktet for censuren!\nDet kunne skyldes at vi sammenligner to behandlinger. I den ene overlever patienterne frem til studiet afsluttes. De bliver (administrativt) højrecensurerede. I den anden dør de inden studiet slutter. De bliver ikke censureret. Fjerner vi de censurerede patienter fra studiet, bliver vurderingen af overlevelsen skæv."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#prøv-kaplanmeier-i-r",
-    "href": "slides/overlevelsesanalyse.html#prøv-kaplanmeier-i-r",
+    "objectID": "slides/survival.html#vi-antager-noget",
+    "href": "slides/survival.html#vi-antager-noget",
     "title": "Overlevelsesanalyse",
-    "section": "Prøv Kaplan–Meier i R",
-    "text": "Prøv Kaplan–Meier i R\n\nKør cellen. Data er et konstrueret undervisningseksempel, ikke eksamensdata.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "section": "Vi antager noget!",
+    "text": "Vi antager noget!\nMere avancerede teknikker kan håndtere censur der er informativ. De simple modeller vi ser på her, antager at censuren ikke er informativ.\nDet kan vi også formulere som at det at en patient ikke er censureret, ikke må kunne bruges til at forudsige resultatet.\nHvis meget syge patienter forsvinder ud af opfølgning (højrecensureres), kan vores estimat for overlevelse blive for optimistisk.\nAdministrativ censur er almindeligvis harmløs.\nBedres prognosen over tid, og strækker studiet sig over flere år, kan administrativ censur være et problem\nMed mindre vi kan inkludere tiden (periode) i analysen, så kan den være harmløs (og nyttig) igen."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#hvad-betyder-r-koden",
-    "href": "slides/overlevelsesanalyse.html#hvad-betyder-r-koden",
+    "objectID": "slides/survival.html#en-særlig-bias",
+    "href": "slides/survival.html#en-særlig-bias",
     "title": "Overlevelsesanalyse",
-    "section": "Hvad betyder R-koden?",
-    "text": "Hvad betyder R-koden?\nsurvfit(Surv(tid, event == 1) ~ 1, data = lille)\n\nSurv() samler tid og event-indikator i et overlevelsesobjekt.\nevent == 1 angiver eksplicit, hvad der tæller som event.\n~ 1 giver én samlet kurve.\n~ factor(gruppe) ville give en kurve pr. gruppe.\n\nKontrollér altid kodningen: I andre datasæt kan fx 1 betyde censureret og 2 betyde død."
+    "section": "En særlig bias",
+    "text": "En særlig bias\nImmortal time bias\nVi undersøger overlevelsen efter en behandling, og sætter starttidspunktet til inklusion på venteliste.\nKun de patienter der overlever frem til de får behandlingen, kan få behandlingen. De er “garanteret” at de ikke dør før de får behandlingen. De er “udødelige”.\nHelt kort: Hvis vi sammenligner en eksponeret gruppe med en ueksponeret gruppe, og kommer til at tælle tiden før eksponeringen som eksponeret tid, får den eksponerede gruppe en kunstig fordel - fordi de definitorisk har skulle være hændelsesfri i hele perioden indtil eksponeringen."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#læs-en-overlevelseskurve",
-    "href": "slides/overlevelsesanalyse.html#læs-en-overlevelseskurve",
+    "objectID": "slides/survival.html#hvad-med-competing-risks",
+    "href": "slides/survival.html#hvad-med-competing-risks",
     "title": "Overlevelsesanalyse",
-    "section": "Læs en overlevelseskurve",
-    "text": "Læs en overlevelseskurve\n\nHøjden ved \\(t\\) estimerer sandsynligheden for at være event-fri efter \\(t\\).\nEt fald viser events. Et censureringsmærke viser afsluttet observation uden event.\nKonfidensbånd viser usikkerhed, som typisk vokser sent i forløbet.\nEn tabel med antal i risiko viser, hvor mange kurven bygger på.\n\nKurven estimerer ikke, hvornår en bestemt patient vil dø."
+    "section": "Hvad med competing risks?",
+    "text": "Hvad med competing risks?\nDet er ikke pensum i SEMS, så det springer vi over."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#median-overlevelse",
-    "href": "slides/overlevelsesanalyse.html#median-overlevelse",
+    "objectID": "slides/survival.html#sku-vi-ikke-se-noget-data",
+    "href": "slides/survival.html#sku-vi-ikke-se-noget-data",
     "title": "Overlevelsesanalyse",
-    "section": "Median overlevelse",
-    "text": "Median overlevelse\nMedianen er det første tidspunkt, hvor \\(\\widehat S(t)\\leq 0.5\\).\nI vores lille eksempel er medianen 4 måneder.\nHvis kurven aldrig når 0.5, er medianen ikke nået og kan ikke estimeres ud fra den observerede kurve.\nTo grupper kan have samme median og alligevel have forskellige overlevelsesforløb. Se på hele kurven."
+    "section": "Sku vi ikke se noget data?",
+    "text": "Sku vi ikke se noget data?\n\nNår vi arbejder med overlevelsesanalyse, er standardpakken survival. Er den ikke installeret, gøres det med: installl.packages(\"survival\"). Vi er også glade for tidyverse pakken. survival har medfølgende data, blandt andet overlevelse af patienter med fremskreden lungekræft. Vi betragter den relevante del af datasættet:\n\nlibrary(survival)\nlibrary(tidyverse)\nlung |&gt; select(time, status, sex) |&gt; head()\n\n  time status sex\n1  306      2   1\n2  455      2   1\n3 1010      1   1\n4  210      2   1\n5  883      2   1\n6 1022      1   1\n\n\nMere komplext er data ikke.\nPatient 1 var mand (sex = 1), og han døde (status = 2) efter 306 dages opfølgning (time).\nPatient 3 var også mand, og blev højrecensureret (status = 1) efter 1010 dage, hvor han stadig var i live."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#fra-kurver-til-en-test",
-    "href": "slides/overlevelsesanalyse.html#fra-kurver-til-en-test",
+    "objectID": "slides/survival.html#et-par-graf",
+    "href": "slides/survival.html#et-par-graf",
     "title": "Overlevelsesanalyse",
-    "section": "Fra kurver til en test",
-    "text": "Fra kurver til en test\nKaplan–Meier: Hvordan ser overlevelsen ud?\nLog-rank: Er der evidens imod ens overlevelsesfunktioner i grupperne?\nCox-regression: Hvordan hænger forklarende variable sammen med hazard, eventuelt efter justering?\nEn figur, en p-værdi og et effektmål besvarer forskellige spørgsmål."
+    "section": "Et par graf",
+    "text": "Et par graf"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#log-rank-testen",
-    "href": "slides/overlevelsesanalyse.html#log-rank-testen",
+    "objectID": "slides/survival.html#risikosæt",
+    "href": "slides/survival.html#risikosæt",
     "title": "Overlevelsesanalyse",
-    "section": "Log-rank-testen",
-    "text": "Log-rank-testen\n\\[H_0:S_0(t)=S_1(t)\\text{ for alle }t\\]\nVed hvert eventtidspunkt sammenligner testen observerede events med de forventede under nulhypotesen, ud fra gruppernes risikosæt.\nAfvigelserne samles over opfølgningen.\nsurvdiff(..., rho = 0) er den almindelige log-rank-test; rho = 0 er standard.\nFor to grupper sammenlignes teststørrelsen med en \\(\\chi^2\\)-fordeling med 1 frihedsgrad."
+    "section": "Risikosæt",
+    "text": "Risikosæt\nDet er de patienter der stadig er under risiko for at opleve hændelsen på et bestemt tidspunkt.\nDet er det antal der skal ganges med hazard på et givet tidspunkt for at estimere hvor mange der kommer til at opleve hændelsen på det tidspunkt."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2a-tidligere-kirurgi",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2a-tidligere-kirurgi",
+    "objectID": "slides/survival.html#hvordan-udvikler-det-sig",
+    "href": "slides/survival.html#hvordan-udvikler-det-sig",
     "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2a: tidligere kirurgi",
-    "text": "Eksamen 2a: tidligere kirurgi\n\nsurgery angiver bypassoperation før inklusion på ventelisten.\nsurvdiff(Surv(futime, fustat == 1) ~ factor(surgery),\n         data = d_sems)\nUdskrift fra eksamenssættet:\n                   N Observed Expected (O-E)^2/E (O-E)^2/V\nfactor(surgery)=0  87       66     58.6     0.938      4.44\nfactor(surgery)=1  16        9     16.4     3.348      4.44\n\nChisq= 4.4 on 1 degrees of freedom, p= 0.04\nHvilken analyse er det, og hvad kan vi konkludere?"
+    "section": "Hvordan udvikler det sig?",
+    "text": "Hvordan udvikler det sig?\nEr der flere eller færre patienter efter en hændelse?\nDer er færre. En patient er død.\nRisikosættet bliver derfor mindre.\nHvad når der sker censurering?\nSå bliver risikosættet også mindre. Men de patienter der censureres efter et år, var stadig med i risikosættet indtil da."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2a-læs-tabellen",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2a-læs-tabellen",
+    "objectID": "slides/survival.html#kaplan-meier",
+    "href": "slides/survival.html#kaplan-meier",
     "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2a: læs tabellen",
-    "text": "Eksamen 2a: læs tabellen\n\n\n\nKolonne\nBetydning\n\n\n\n\nN\nAntal patienter i gruppen\n\n\nObserved\nObserverede dødsfald\n\n\nExpected\nForventede dødsfald under \\(H_0\\), ud fra risikosættene\n\n\n\nUden tidligere kirurgi: 66 mod 58.6 forventede dødsfald.\nMed tidligere kirurgi: 9 mod 16.4 forventede dødsfald.\nDet peger mod bedre overlevelse i gruppen med tidligere kirurgi. De to bidrag i sidste kolonne skal ikke lægges sammen til teststørrelsen."
+    "section": "Kaplan-Meier",
+    "text": "Kaplan-Meier\nVi kan godt give os i kast med at tælle og altsådden noget. Men det bliver I ikke bedt om for så skulle nogen finde ud af at distribuere data til jer.\n\nfit &lt;- survfit(Surv(time, status == 2)~1, data = lung)\nplot(fit, mark.time = TRUE)"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2a-et-muligt-svar",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2a-et-muligt-svar",
+    "objectID": "slides/survival.html#hvad-skete-der-der",
+    "href": "slides/survival.html#hvad-skete-der-der",
     "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2a: et muligt svar",
-    "text": "Eksamen 2a: et muligt svar\nDer er tale om en log-rank-test af nulhypotesen om ens overlevelsesfunktioner blandt patienter med og uden tidligere kirurgi.\nMed \\(p=0.04\\) forkastes nulhypotesen på 5 %-niveau. Der er evidens for forskel i overlevelse.\nGruppen med tidligere kirurgi har færre dødsfald end forventet under nulhypotesen, hvilket peger mod bedre overlevelse i denne gruppe.\nTesten giver hverken en hazard ratio eller dokumentation for en kausal virkning af kirurgi."
+    "section": "Hvad skete der der?",
+    "text": "Hvad skete der der?\nfit &lt;- survfit(Surv(time, status == 2)~1, data = lung)\nSurv(time, status == 2) laver et “survival objekt”. Det formatterer data, så funktionen Surv kan forstå dem.\nDet er almindeligt at vi blot skriver det sådan. Fuldt udfoldet med argumentnavne bliver det:\nSurv(time = time, event = status == 2)\nDet ser således ud:\n\n\n[1]  306   455  1010+  210   883  1022+\n\n\nPatient 1 har hændelse efter 306 dage, patient 2 efter 455 dage, patient 3 er højrecensureret efter 1010, og var stadig i live.\nsurvfit(Surv(time, status == 2)~1, data = lung) fitter det survival objekt Surv leverer. Vi siger “som funktion af 1” med ~1. Vi medtager alle observationer, og opdeler ikke efter noget. Vi skal specificere hvilket data vi arbejder på, med data = lung. Resultatet gemmer vi i objektet fit\nEndelig plotter vi med plot(fit, mark.time = TRUE)\nmark.time = TRUE specificerer at vi også plotter hvornår der er censureringshændelser"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#log-rank-hvad-skal-vi-passe-på",
-    "href": "slides/overlevelsesanalyse.html#log-rank-hvad-skal-vi-passe-på",
+    "objectID": "slides/survival.html#hvad-skal-vi-kunne-sige-ud-fra-det",
+    "href": "slides/survival.html#hvad-skal-vi-kunne-sige-ud-fra-det",
     "title": "Overlevelsesanalyse",
-    "section": "Log-rank: hvad skal vi passe på?",
-    "text": "Log-rank: hvad skal vi passe på?\n\nTesten tager højde for censurering, men forudsætter passende, ikke-informativ censurering.\nDen estimerer ikke effektens størrelse og justerer ikke i sig selv for andre prognostiske variable.\nDen har god styrke ved proportionale hazards.\nVed krydsende kurver kan tidlige og sene forskelle udligne hinanden.\n\nProportionale hazards er ikke et krav for at definere nulhypotesen om ens kurver. Problemet ved krydsende kurver er især styrke og fortolkning."
+    "section": "Hvad skal vi kunne sige ud fra det?",
+    "text": "Hvad skal vi kunne sige ud fra det?\n\nVi skal kunne aflæse overlevelsen på et bestemt tidspunkt. Enheden på x-aksen er i dage, så ved 365 dage kan vi aflæse 1-års overlevelsen. Vi estimerer den til ca 41% ved 365 dage.\nVi skal kunne aflæse medianoverlevelsen. Det er der hvor kurven passerer 50%. Det er ca. 310 dage.\nVi skal kunne forklare trin og mærker. Kurven falder ved dødsfald (hændelse). Mærkerne (+) viser højrecensurering.\nVi skal vide at de højrecensurerede patienter bidrager med information, og er i risikosættet frem til mærket.\nVi skal forstå, at risikosættet bliver mindre for hvert fald i kurven. Og for hver censurering.\nVi skal derfor også forstå, at overlevelsen efter 800 dage, baserer sig på ret få patienter. Der er ikke mange tilbage i risikosættet.\nSelve kurven viser den estimerede overlevelseskurve (S(t)).\nDe stiplede linier er 95% KI.\nHvorfor bliver det bredere over tid?\nFordi risikosættet bliver mindre. Fuldstændigt som da vi beregnede KI på proportioner!"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#hazard-ratio-er-et-rateforhold",
-    "href": "slides/overlevelsesanalyse.html#hazard-ratio-er-et-rateforhold",
+    "objectID": "slides/survival.html#kan-vi-få-mere-data-ud",
+    "href": "slides/survival.html#kan-vi-få-mere-data-ud",
     "title": "Overlevelsesanalyse",
-    "section": "Hazard ratio er et rateforhold",
-    "text": "Hazard ratio er et rateforhold\n\\[HR=\\frac{h_1(t)}{h_0(t)}\\]\n\n\\(HR=1\\): Samme hazard.\n\\(HR=0.70\\): 30 % lavere hazard i gruppe 1 end i referencegruppen.\n\\(HR=1.50\\): 50 % højere hazard.\n\nUnder proportional hazards-antagelsen er forholdet konstant over tid.\nHR = 0.70 betyder ikke 30 % lavere sandsynlighed for død inden et bestemt tidspunkt eller 30 % længere levetid."
+    "section": "Kan vi få mere data ud?",
+    "text": "Kan vi få mere data ud?\nJa, men det får I i givet fald som tabel, og skal ikke selv producere den:\n\n\n  time n.risk n.event n.censor      surv      cumhaz     std.err    std.chaz\n1    5    228       1        0 0.9956140 0.004385965 0.004376336 0.004385965\n2   11    227       3        0 0.9824561 0.017601824 0.008694643 0.008800928\n3   12    224       1        0 0.9780702 0.022066110 0.009699183 0.009868444\n4   13    223       2        0 0.9692982 0.031034720 0.011424650 0.011730480\n5   15    221       1        0 0.9649123 0.035559606 0.012185800 0.012572938\n6   26    220       1        0 0.9605263 0.040105061 0.012895585 0.013369365\n      lower     upper\n1 0.9870734 1.0000000\n2 0.9655619 0.9996460\n3 0.9592437 0.9972662\n4 0.9471630 0.9919508\n5 0.9413217 0.9890941\n6 0.9355811 0.9861367\n\n\nTil opfølgningstiden 5, var der n.risk = 228 i risikosættet. Der indtræder n.event= 1 event. n.censor = 0 er blevet censureret på det tidspunkt. Overlevelsen (surv) er derefter på 99.6%. Den kumulerede hazard (cumhaz) patienterne er blevet udsat for er 0.44%. std.err er standardfejlen på surv, std.chaz er standardfejlen på cumhaz. Og lower/upper er nedre og øvre grænser for et 95% KI for surv."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#cox-proportional-hazards-modellen",
-    "href": "slides/overlevelsesanalyse.html#cox-proportional-hazards-modellen",
+    "objectID": "slides/survival.html#er-der-forskel-på-kønnene",
+    "href": "slides/survival.html#er-der-forskel-på-kønnene",
     "title": "Overlevelsesanalyse",
-    "section": "Cox proportional hazards-modellen",
-    "text": "Cox proportional hazards-modellen\n\\[h(t\\mid X)=h_0(t)\\exp(\\beta_1X_1+\\cdots+\\beta_pX_p)\\]\n\n\\(h_0(t)\\) er baseline hazard; vi behøver ikke specificere dens form.\n\\(\\beta_j\\) er en log-hazard ratio.\n\\(\\exp(\\beta_j)\\) er HR for én enheds stigning i \\(X_j\\), når øvrige variable holdes konstante.\n\nModellen håndterer censurering og flere forklarende variable samtidigt."
+    "section": "Er der forskel på kønnene?",
+    "text": "Er der forskel på kønnene?\nDet er der, vi laver et Kaplan-Meier estimat af overlevelsen som funktion af køn, og plotter. Det vil her være nyttigt at få at vide at mænd er blå og kvinder røde.\n\nfit &lt;- survfit(Surv(time, status == 2)~sex, data = lung)\nplot(fit, mark.time = TRUE, col = c(\"blue\", \"red\"), conf.int = TRUE)\n\n\nHvad kan vi læse ud af det?\nVi skal kunne læse det samme som før. Men nu er den estimerede 1-års overlevelse forskellig mellem de to køn. Mænd ca. 34%, kvinder ca. 53%. Det kan vi også udtrykke som at kvinders estimerede 1-års overlevelse er ca. 19 procentpoint højere.\nMedianoverlevelsen er også forskellig, 270 vs 426 dage for mænd hhv kvinder.\nVi kan se at kvinders overlevelseskurve er højere end mænds gennem næsten hele opfølgningen. Vi\nKan vi konkludere at der er forskel?\nNope. Der skal være meget tydelig (MEGET) forskel på de to kurver for at vi kan det grafisk. Overlappet mellem KI’er fortæller os også at det er noget snask."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#referencegruppe-og-enheder",
-    "href": "slides/overlevelsesanalyse.html#referencegruppe-og-enheder",
+    "objectID": "slides/survival.html#kan-vi-få-mere-at-vide",
+    "href": "slides/survival.html#kan-vi-få-mere-at-vide",
     "title": "Overlevelsesanalyse",
-    "section": "Referencegruppe og enheder",
-    "text": "Referencegruppe og enheder\nFor en indikator \\(X=0/1\\):\n\\[\\frac{h(t\\mid X=1)}{h(t\\mid X=0)}=e^\\beta\\]\nVed ombytning af referencen bliver HR til \\(1/HR\\).\nFor alder målt i år er \\(e^{\\beta_{alder}}\\) HR pr. år og \\(e^{10\\beta_{alder}}\\) HR for 10 års forskel.\nEn justeret sammenhæng er ikke automatisk en kausal effekt."
+    "section": "Kan vi få mere at vide?",
+    "text": "Kan vi få mere at vide?\nJa. men ikke meget\n\nDer tilføjes hvor mange der er “i risiko” for de to køn."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#prøv-en-justeret-cox-model-i-r",
-    "href": "slides/overlevelsesanalyse.html#prøv-en-justeret-cox-model-i-r",
+    "objectID": "slides/survival.html#hvis-i-selv-skal",
+    "href": "slides/survival.html#hvis-i-selv-skal",
     "title": "Overlevelsesanalyse",
-    "section": "Prøv en justeret Cox-model i R",
-    "text": "Prøv en justeret Cox-model i R\nEt separat eksempel med survival-pakkens lungekræftdata. Her er 2 = død og 1 = censureret; dette er ikke eksamensdata.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLæs HR for kvinde sammenlignet med mand ved samme alder. HR for age er pr. ekstra år. Dette er observerede sammenhænge."
+    "section": "Hvis I selv skal",
+    "text": "Hvis I selv skal\n\nsurvminer::ggsurvplot(\n  fit,\n  data = lung,\n  risk.table = TRUE,\n  risk.table.title = \"Antal i risiko\",\n  break.time.by = 200,\n  palette = c(\"blue\", \"red\"),\n  legend.title = \"Køn\",\n  legend.labs = c(\"Mænd\", \"Kvinder\"),\n  xlab = \"Opfølgningstid (dage)\",\n  ylab = \"Estimeret overlevelse\"\n)"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#sådan-læses-en-cox-udskrift",
-    "href": "slides/overlevelsesanalyse.html#sådan-læses-en-cox-udskrift",
+    "objectID": "slides/survival.html#faldgruber-1",
+    "href": "slides/survival.html#faldgruber-1",
     "title": "Overlevelsesanalyse",
-    "section": "Sådan læses en Cox-udskrift",
-    "text": "Sådan læses en Cox-udskrift\n\n\n\nFelt\nBetydning\n\n\n\n\ncoef\nEstimeret \\(\\beta\\): log-HR\n\n\nexp(coef)\nEstimeret HR\n\n\nse(coef)\nStandardfejl for log-HR\n\n\nz\n\\(\\widehat\\beta/SE(\\widehat\\beta)\\)\n\n\nPr(&gt;|z|)\nTosidet Wald-test af \\(\\beta=0\\), dvs. HR = 1\n\n\n\nEt 95 % Wald-konfidensinterval for HR er:\n\\[\\exp\\left(\\widehat\\beta\\pm 1.96\\,SE(\\widehat\\beta)\\right)\\]"
+    "section": "Faldgruber",
+    "text": "Faldgruber\nMedianen bruger kun et punkt på kurven. To kurver kan have samme median og være meget forskellige. Hvis kurven aldrig kommer under 0.5, kan medianen ikke estimeres."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2b-transplantation",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2b-transplantation",
+    "objectID": "slides/survival.html#hvad-er-den-god-til",
+    "href": "slides/survival.html#hvad-er-den-god-til",
     "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2b: transplantation",
-    "text": "Eksamen 2b: transplantation\n\nsummary(coxph(Surv(futime, fustat == 1) ~ factor(transplant),\n              data = d_sems))\nn= 103, number of events= 75\n\n                      coef exp(coef) se(coef)      z Pr(&gt;|z|)\nfactor(transplant)1 -1.3234    0.2662   0.2438 -5.428 5.69e-08\ntransplant angiver, om patienten fik en transplantation under opfølgningen.\n\nHvilken model er det?\nHvordan læses tallet 0.2662?\nEr denne analyse korrekt tilrettelagt?"
+    "section": "Hvad er den god til?",
+    "text": "Hvad er den god til?\n\ndeskriptiv beskrivelse af survival (overlevelsesfunktionen) over tid\nvisualisering af censur og størrelsen af risikosættet.\nenkel sammenligning af to (eller flere) grupper"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2b-den-umiddelbare-fortolkning",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2b-den-umiddelbare-fortolkning",
+    "objectID": "slides/survival.html#hvad-kan-den-ikke",
+    "href": "slides/survival.html#hvad-kan-den-ikke",
     "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2b: den umiddelbare fortolkning",
-    "text": "Eksamen 2b: den umiddelbare fortolkning\n\\[HR=e^{-1.3234}\\approx 0.266\\]\nPatienter klassificeret som transplanterede har i denne model cirka 73 % lavere hazard for død end patienter klassificeret som ikke-transplanterede.\n\\[95\\%\\text{-KI}=\\exp(-1.3234\\pm1.96\\cdot0.2438)\n\\approx(0.165;\\,0.429)\\]\nP-værdien er meget lille. Men en lille p-værdi retter ikke en forkert analyse."
+    "section": "Hvad kan den ikke?",
+    "text": "Hvad kan den ikke?\n\njustere for andre parametre\nHåndtere forklarende (kontinuærte) variable\nestimere hvad forskellen i hazard er for de to (eller flere) grupper (andet end punktvis)"
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#beregn-hr-og-konfidensinterval",
-    "href": "slides/overlevelsesanalyse.html#beregn-hr-og-konfidensinterval",
+    "objectID": "slides/survival.html#hvordan-ser-vi-så-forskel",
+    "href": "slides/survival.html#hvordan-ser-vi-så-forskel",
     "title": "Overlevelsesanalyse",
-    "section": "Beregn HR og konfidensinterval",
-    "text": "Beregn HR og konfidensinterval\nKør cellen og prøv derefter at ændre beta til 0.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHvad er nulværdien for henholdsvis koefficienten og HR?\n\n\\(\\beta=0\\) svarer til \\(HR=1\\)."
+    "section": "Hvordan ser vi så forskel?",
+    "text": "Hvordan ser vi så forskel?\nDet findes der en statistisk test til: log-rank test.\nVi genbruger vores data fra før, hvor vi estimerede overlevelseskurverne for de to køn:\n\n\nCall:\nsurvdiff(formula = Surv(time, status == 2) ~ sex, data = lung)\n\n        N Observed Expected (O-E)^2/E (O-E)^2/V\nsex=1 138      112     91.6      4.55      10.3\nsex=2  90       53     73.4      5.68      10.3\n\n Chisq= 10.3  on 1 degrees of freedom, p= 0.001 \n\n\nNu er det ikke survfit, men survdiff.\nHvad skal vi kunne læse af det?\nDer var 138 mænd i studiet. Vi observerede 112 dødsfald blandt dem. Der var 90 kvinder i studiet. Blandt dem observerede vi 53 dødsfald.\nFor hvert punkt i datasættet, beregnes det forventede antal dødsfald for mænd og kvinder, under antagelse af at der ikke er forskel på hazard for de to grupper. Det samlede, kumulerede antal dødsfald for mænd, hhv kvinder er 91.6 og 73.4\nTeknikken kan forstås som en art kumuleret chi^2 test. Og derfor en chisq værdi. Den giver en p-værdi på 0.001.\nDerfor kan vi forkaste null-hypotesen på et 5% niveau. Der er statistisk evidens for en forskel i overlevelsen mellem mænd og kvinder.\nMændene havde flere dødsfald end forventet under null-hypotesen. Kvinderne færre. Det stemmer overens med Kaplan-Meier kurverne, hvor kvinderne har en højere estimeret overlevelse gennem næsten hele opfølgningen.\nDer justeres ikke for noget i sammenligningen."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#fejlen-vi-bruger-viden-fra-fremtiden",
-    "href": "slides/overlevelsesanalyse.html#fejlen-vi-bruger-viden-fra-fremtiden",
+    "objectID": "slides/survival.html#styrker",
+    "href": "slides/survival.html#styrker",
     "title": "Overlevelsesanalyse",
-    "section": "Fejlen: vi bruger viden fra fremtiden",
-    "text": "Fejlen: vi bruger viden fra fremtiden\nPatienten skal overleve frem til transplantationen for at kunne blive klassificeret som transplanteret.\nHvis hele forløbet fra ventelisteinklusion tælles som transplanteret, tilskriver vi gruppen tid, hvor patienten endnu ikke var transplanteret, men nødvendigvis overlevede.\nDet kaldes immortal time bias.\nTidlige dødsfald kan kun havne i gruppen uden transplantation. Sammenligningen giver dermed den transplanterede gruppe en kunstig fordel."
+    "section": "Styrker",
+    "text": "Styrker\nBruger hele kurven/datasættet, ikke kun medianen eller 1-års overlevelsen. Tager højde for censurering (Husk - patienter bidrager med information indtil de censureres) Den standardmetode der bruges ude i den virkelige verden."
   },
   {
-    "objectID": "slides/overlevelsesanalyse.html#en-patient-med-transplantation-på-dag-30",
-    "href": "slides/overlevelsesanalyse.html#en-patient-med-transplantation-på-dag-30",
+    "objectID": "slides/survival.html#svagheder",
+    "href": "slides/survival.html#svagheder",
     "title": "Overlevelsesanalyse",
-    "section": "En patient med transplantation på dag 30",
-    "text": "En patient med transplantation på dag 30\n\n\n\nPeriode\nFaktisk status\nDen naive analyse bruger\n\n\n\n\nDag 0–30\nIkke transplanteret\nTransplanteret\n\n\nDag 30–100\nTransplanteret\nTransplanteret\n\n\n\nPatienten dør på dag 100.\nDe første 30 dage er fejlagtigt tilskrevet transplantation. En anden patient, som dør på dag 10, kan aldrig nå at komme i transplantationsgruppen.\nImmortal beskriver klassifikationen af tiden; patienten er selvfølgelig ikke biologisk udødelig."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#eksamen-2b-et-muligt-kritisk-svar",
-    "href": "slides/overlevelsesanalyse.html#eksamen-2b-et-muligt-kritisk-svar",
-    "title": "Overlevelsesanalyse",
-    "section": "Eksamen 2b: et muligt kritisk svar",
-    "text": "Eksamen 2b: et muligt kritisk svar\nDet er en Cox-regression. Den estimerede HR er 0.266, umiddelbart svarende til cirka 73 % lavere dødsrate blandt transplanterede.\nAnalysen er imidlertid fejlbehæftet, fordi transplantation sker under opfølgningen og behandles som en fast baseline-variabel.\nPatienterne skal overleve frem til transplantation for at blive klassificeret som transplanterede. Denne immortal time bias giver transplantation en kunstig overlevelsesfordel og trækker HR nedad.\nResultatet kan derfor ikke bruges som et pålideligt estimat for transplantationens effekt."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#hvordan-tænkes-tiden-korrekt",
-    "href": "slides/overlevelsesanalyse.html#hvordan-tænkes-tiden-korrekt",
-    "title": "Overlevelsesanalyse",
-    "section": "Hvordan tænkes tiden korrekt?",
-    "text": "Hvordan tænkes tiden korrekt?\nTransplantationsstatus skal være tidsafhængig: 0 før transplantation, 1 efter.\nEt illustrativt forløb kan opdeles sådan:\n\n\n\nid\nstart\nstop\ndød ved stop\ntransplanteret\n\n\n\n\n1\n0\n30\n0\n0\n\n\n1\n30\n100\n1\n1\n\n\n\ncoxph(Surv(start, stop, event) ~ transplant, data = intervaller)\n\nPrincippet ligger ud over den nødvendige beregning i opgave 2b. Korrekt tidskodning fjerner denne fejlkilde, men sikrer ikke i sig selv kontrol for confounding."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#tidligere-kirurgi-eller-senere-transplantation",
-    "href": "slides/overlevelsesanalyse.html#tidligere-kirurgi-eller-senere-transplantation",
-    "title": "Overlevelsesanalyse",
-    "section": "Tidligere kirurgi eller senere transplantation?",
-    "text": "Tidligere kirurgi eller senere transplantation?\n\n\n\n\n\n\n\n\n\nsurgery\ntransplant\n\n\n\n\nTidspunkt\nFør inklusion\nUnder opfølgningen\n\n\nKendt ved tid nul?\nJa\nFremtidig transplantation: nej\n\n\nFast gruppe fra tid nul?\nRimelig tidskodning\nSkaber immortal time bias\n\n\n\nSpørg altid: Kunne vi have bestemt gruppen på det tidspunkt, hvor opfølgningen begyndte?"
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#proportionale-hazards",
-    "href": "slides/overlevelsesanalyse.html#proportionale-hazards",
-    "title": "Overlevelsesanalyse",
-    "section": "Proportionale hazards",
-    "text": "Proportionale hazards\nCox-modellen med faste koefficienter antager et konstant hazardforhold over tid.\nDet betyder ikke, at hazard er konstant, eller at overlevelseskurverne har konstant afstand.\nKrydsende kurver, forsinket separation eller en biologisk forventning om ændret effekt giver anledning til nærmere vurdering.\nTil diagnostik findes cox.zph(fit) og tilhørende plots. En ikke-signifikant test er ikke bevis for, at antagelsen holder."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#én-hr-kan-skjule-tidsforløbet",
-    "href": "slides/overlevelsesanalyse.html#én-hr-kan-skjule-tidsforløbet",
-    "title": "Overlevelsesanalyse",
-    "section": "Én HR kan skjule tidsforløbet",
-    "text": "Én HR kan skjule tidsforløbet\nHvis hazardforholdet ændres over tid, kan én samlet HR være en misvisende opsummering og afhænge af opfølgningslængden.\nSelv i et randomiseret studie sammenligner hazard ved et senere tidspunkt de personer, der stadig er event-frie i hver gruppe.\nDisse grupper kan over tid have forskellig sammensætning, fordi event og overlevelse har selekteret dem forskelligt.\nSe også på overlevelseskurver og absolutte forskelle ved relevante tidspunkter."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#competing-risks",
-    "href": "slides/overlevelsesanalyse.html#competing-risks",
-    "title": "Overlevelsesanalyse",
-    "section": "Competing risks",
-    "text": "Competing risks\nVed tid til recidiv kan patienten dø uden først at få recidiv. Død forhindrer da det event, vi undersøger.\nVed tid til melanomdød er død af andre årsager en konkurrerende hændelse.\nMan kan ikke uden videre censurere konkurrerende hændelser og fortolke \\(1-\\widehat S(t)\\) som sandsynligheden for det bestemte event i virkeligheden.\nDet kræver andre metoder, som ligger uden for dette kursus. Ved tid til død af alle årsager er andre dødsårsager en del af eventet."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#øvelse-vælg-metode-og-fortolkning",
-    "href": "slides/overlevelsesanalyse.html#øvelse-vælg-metode-og-fortolkning",
-    "title": "Overlevelsesanalyse",
-    "section": "Øvelse: vælg metode og fortolkning",
-    "text": "Øvelse: vælg metode og fortolkning\n\nVi ønsker sandsynligheden for at være i live efter 1 år. Hvilken metode?\nTo grupper har \\(p=0.30\\) i en log-rank-test. Har vi vist ens overlevelse?\nEn Cox-model giver \\(\\beta=\\log(1.5)\\) for alder pr. 10 år. Hvad betyder det?\nVi grupperer patienter efter, om de gennemfører 6 måneders behandling. Hvilken fejl kan opstå?"
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#øvelse-svar",
-    "href": "slides/overlevelsesanalyse.html#øvelse-svar",
-    "title": "Overlevelsesanalyse",
-    "section": "Øvelse: svar",
-    "text": "Øvelse: svar\n\nKaplan–Meier: aflæs eller beregn \\(\\widehat S(1\\text{ år})\\), og angiv usikkerhed.\nNej. Vi har ikke tilstrækkelig evidens til at forkaste ens kurver; det dokumenterer ikke lighed.\n50 % højere hazard ved 10 års højere alder, med øvrige variable holdt konstante og under modellens antagelser.\nImmortal time bias, hvis hele opfølgningen fra start tilskrives en gruppe bestemt af senere gennemførelse."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#tjekliste-til-eksamenssvaret",
-    "href": "slides/overlevelsesanalyse.html#tjekliste-til-eksamenssvaret",
-    "title": "Overlevelsesanalyse",
-    "section": "Tjekliste til eksamenssvaret",
-    "text": "Tjekliste til eksamenssvaret\n\nData: Hvad er tid nul, event og censurering?\nMetode: Kaplan–Meier, log-rank eller Cox?\nHypotese: Ens kurver eller HR = 1?\nTal: Reference, retning, størrelse og usikkerhed.\nKritik: Censurering, PH, confounding og tidsafhængig eksponering.\n\nI opgave 2b er den afgørende pointe immortal time bias, ikke blot at p-værdien er lille."
-  },
-  {
-    "objectID": "slides/overlevelsesanalyse.html#materiale-og-r-dokumentation",
-    "href": "slides/overlevelsesanalyse.html#materiale-og-r-dokumentation",
-    "title": "Overlevelsesanalyse",
-    "section": "Materiale og R-dokumentation",
-    "text": "Materiale og R-dokumentation\nFagligt niveau og emner følger Torben Martinussens SEMS-forelæsninger:\n\nF11: Overlevelsesanalyse I. Hvad, pitfalls.\nF12: Overlevelsesanalyse II. Kaplan-Meier og Log-rank test.\nF13: Overlevelsesanalyse III. Cox-regression.\n\nEksamenseksempler og viste udskrifter: SEMS, ordinær eksamen 22. maj 2026, Statistik, opgave 2a–b, inklusive modelbesvarelse. Patientdata fra opgaven er ikke vedlagt; udskrifterne er gengivet, ikke genberegnet. Det lille seks-patienters datasæt er konstrueret.\nR-pakken survival: funktionsoversigt · Surv · survdiff · coxph"
+    "section": "Svagheder",
+    "text": "Svagheder\nGiver evidens mod null-hypotesen (hvis altså den gør) Siger intet om effektstørrelse baseres på antagelse om proportional hazard"
   }
 ]

@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>PUFF SEMS forberedelse – Konfidensintervaller og hypotesetests</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="webr-custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -2267,23 +2273,23 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Vi får oplyst “summariske regnestørrelser” for plasma magnesium for diabetikere. Vi får lov at antage at plasma magnesium er normalfordelt for de to populationer stikprøverne er trukket fra:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="zrkocpliib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zrkocpliib table {
+<div id="oufpennvpf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oufpennvpf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zrkocpliib thead, #zrkocpliib tbody, #zrkocpliib tfoot, #zrkocpliib tr, #zrkocpliib td, #zrkocpliib th {
+#oufpennvpf thead, #oufpennvpf tbody, #oufpennvpf tfoot, #oufpennvpf tr, #oufpennvpf td, #oufpennvpf th {
   border-style: none;
 }
 
-#zrkocpliib p {
+#oufpennvpf p {
   margin: 0;
   padding: 0;
 }
 
-#zrkocpliib .gt_table {
+#oufpennvpf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2309,12 +2315,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-left-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_caption {
+#oufpennvpf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zrkocpliib .gt_title {
+#oufpennvpf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2326,7 +2332,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-width: 0;
 }
 
-#zrkocpliib .gt_subtitle {
+#oufpennvpf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2338,7 +2344,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-width: 0;
 }
 
-#zrkocpliib .gt_heading {
+#oufpennvpf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2350,13 +2356,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_bottom_border {
+#oufpennvpf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_col_headings {
+#oufpennvpf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2371,7 +2377,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_col_heading {
+#oufpennvpf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2391,7 +2397,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#zrkocpliib .gt_column_spanner_outer {
+#oufpennvpf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2403,15 +2409,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 4px;
 }
 
-#zrkocpliib .gt_column_spanner_outer:first-child {
+#oufpennvpf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zrkocpliib .gt_column_spanner_outer:last-child {
+#oufpennvpf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zrkocpliib .gt_column_spanner {
+#oufpennvpf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2423,11 +2429,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   width: 100%;
 }
 
-#zrkocpliib .gt_spanner_row {
+#oufpennvpf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zrkocpliib .gt_group_heading {
+#oufpennvpf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2453,7 +2459,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   text-align: left;
 }
 
-#zrkocpliib .gt_empty_group_heading {
+#oufpennvpf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2468,15 +2474,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: middle;
 }
 
-#zrkocpliib .gt_from_md > :first-child {
+#oufpennvpf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zrkocpliib .gt_from_md > :last-child {
+#oufpennvpf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zrkocpliib .gt_row {
+#oufpennvpf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2495,7 +2501,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   overflow-x: hidden;
 }
 
-#zrkocpliib .gt_stub {
+#oufpennvpf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2508,7 +2514,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#zrkocpliib .gt_stub_row_group {
+#oufpennvpf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2522,15 +2528,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   vertical-align: top;
 }
 
-#zrkocpliib .gt_row_group_first td {
+#oufpennvpf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zrkocpliib .gt_row_group_first th {
+#oufpennvpf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zrkocpliib .gt_summary_row {
+#oufpennvpf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2540,16 +2546,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#zrkocpliib .gt_first_summary_row {
+#oufpennvpf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_first_summary_row.thick {
+#oufpennvpf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zrkocpliib .gt_last_summary_row {
+#oufpennvpf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2559,7 +2565,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_grand_summary_row {
+#oufpennvpf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2569,7 +2575,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#zrkocpliib .gt_first_grand_summary_row {
+#oufpennvpf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2579,7 +2585,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-top-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_last_grand_summary_row_top {
+#oufpennvpf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2589,11 +2595,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_striped {
+#oufpennvpf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zrkocpliib .gt_table_body {
+#oufpennvpf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2602,7 +2608,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-bottom-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_footnotes {
+#oufpennvpf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2616,7 +2622,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_footnote {
+#oufpennvpf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2625,7 +2631,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#zrkocpliib .gt_sourcenotes {
+#oufpennvpf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2639,7 +2645,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   border-right-color: #D3D3D3;
 }
 
-#zrkocpliib .gt_sourcenote {
+#oufpennvpf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2647,77 +2653,77 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   padding-right: 5px;
 }
 
-#zrkocpliib .gt_left {
+#oufpennvpf .gt_left {
   text-align: left;
 }
 
-#zrkocpliib .gt_center {
+#oufpennvpf .gt_center {
   text-align: center;
 }
 
-#zrkocpliib .gt_right {
+#oufpennvpf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zrkocpliib .gt_font_normal {
+#oufpennvpf .gt_font_normal {
   font-weight: normal;
 }
 
-#zrkocpliib .gt_font_bold {
+#oufpennvpf .gt_font_bold {
   font-weight: bold;
 }
 
-#zrkocpliib .gt_font_italic {
+#oufpennvpf .gt_font_italic {
   font-style: italic;
 }
 
-#zrkocpliib .gt_super {
+#oufpennvpf .gt_super {
   font-size: 65%;
 }
 
-#zrkocpliib .gt_footnote_marks {
+#oufpennvpf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zrkocpliib .gt_asterisk {
+#oufpennvpf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zrkocpliib .gt_indent_1 {
+#oufpennvpf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zrkocpliib .gt_indent_2 {
+#oufpennvpf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zrkocpliib .gt_indent_3 {
+#oufpennvpf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zrkocpliib .gt_indent_4 {
+#oufpennvpf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zrkocpliib .gt_indent_5 {
+#oufpennvpf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zrkocpliib .katex-display {
+#oufpennvpf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zrkocpliib div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#oufpennvpf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="gruppe" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">gruppe</th>
@@ -2923,7 +2929,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Har vi <span class="math inline">\(\alpha = 0.5\)</span> skal den altså fordeles på begge sider og vi bruger:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
@@ -2932,7 +2938,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Hvis vi er interesseret i om en værdi er mindre (<span class="math inline">\(H_A: \theta &lt; \theta_0\)</span>) - så må testværdien gerne være for stor. Den må blot ikke være for lille.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.644854</code></pre>
 </div>
@@ -2941,7 +2947,7 @@ Ensidet: En forskel i en bestemt retning</p>
 <div class="fragment">
 <p>Og hvis vi er interesseret i om en værdi er større (<span class="math inline">\(H_A: \theta &gt; \theta_0\)</span>) - så må testværdien gerne være for lille. Den må blot ikke være for stor.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.644854</code></pre>
 </div>
@@ -3057,7 +3063,7 @@ Eller også får vi oplyst hvad forskellen er på dem. Så skal vi ikke engang t
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
-  gruppe           Antal Gennemsnit Sprdening
+  gruppe           Antal Gennemsnit Spredning
   &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
 1 Diabetikere        227      0.719     0.068
 2 Ikke-diabetikere   140      0.81      0.057</code></pre>
@@ -3110,7 +3116,7 @@ Eller også får vi oplyst hvad forskellen er på dem. Så skal vi ikke engang t
 <div class="fragment">
 <p>eller</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964  1.959964</code></pre>
 </div>
@@ -3392,6 +3398,7 @@ SEM = <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span></p>
 </div>
 <div class="fragment">
 <p><span class="math inline">\(1.96\frac{\sigma}{\sqrt{n}} = 0.2\)</span></p>
+<p><span class="math inline">\(\sigma = 1.12\)</span></p>
 </div>
 </div><div class="column">
 <div id="qwebr-insertion-location-9"></div>
@@ -3446,7 +3453,7 @@ diff: forskel på cohR og cohL</p>
 <div class="columns">
 <div class="column">
 <div class="fragment">
-<p>En elle to grupper?</p>
+<p>En eller to grupper?</p>
 </div>
 <div class="fragment">
 <p>Parret eller u-parret?</p>
@@ -3515,7 +3522,7 @@ sd(diff)<br>
 <p>De 1.96 var fordi?</p>
 </div>
 <div class="fragment">
-<p>Så hvilken værdi er der blevet brug ved et 90% KI?</p>
+<p>Så hvilken værdi er der blevet brugt ved et 90% KI?</p>
 </div>
 <div class="fragment">
 <p>Kan vi så finde <span class="math inline">\(\sigma\)</span> fra 90% KI’et?</p>
@@ -3531,7 +3538,7 @@ sd(diff)<br>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
 <div class="tiny">
-<p>Har I fået fingre i modelbesvarelsen - så er der regnefejl… Det er ikke det eneste problem med den løsning…</p>
+<p>Har I fået fingre i modelbesvarelsen - så er der regnefejl…</p>
 </div>
 </section>
 <section id="diabetikere---fra-et-interval-til-et-andet-2" class="slide level2">
@@ -4065,7 +4072,7 @@ samt eventuelt relevant estimat.</p>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -4215,13 +4222,14 @@ samt eventuelt relevant estimat.</p>
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

@@ -4,13 +4,465 @@ format:
   revealjs:
     logo: "kubdatalab.png"
     css: webr-custom.css
+    html-math-method: mathjax
 engine: knitr
 filters:
   - webr
 ---
 
+## Hvad er det?
+
+:::: smaller
+Generelt: 
+
+Fra vi starter med at observere patienter - hvornår indtræffer en hændelse?
+
+Bruges til at undersøge patienters overlevelse.
+
+Men også til:
+
+- tilbagefald (recidiv)
+- infektion
+- udskrivedlse
+- hvornår virksomheder mister kunder
+- hvornår en dims i en maskine fejler
+
+Tid til hændelse!
+
+::::
+
+## Hvordan kan vi beskrive det?
+
+- Vi skal vide hvornår hændelsen indtræffer
+    - Vi skal derfor kende et starttidspunkt
+- Hvor mange patienter er i studiet på et givet tidspunkt?
+    - Det ændrer sig over tid!
+
+På et givet tidspunkt har de patienter der er tilbage, en given risiko for at opleve hændelsen.
+
+Det kalder vi for hazard:
+
+$$h(t)$$
 
 
+## Hvad kan vi udlede af hazard?
+
+Hvis vi kender hazard, ved vi hvor mange der (sandsynligvis) har oplevet hændelsen fra start til nu.
+
+Så ved vi også hvor mange der er hændelsesfri (har overlevet)
+
+Det kalder vi overlevelsesfunktionen:
+
+$$S(t)$$
+
+
+## Overlevelsesfunktionen
+
+:::: smaller
+På et tidspunkt t har vi overlevelsen $S(t)$.
+
+Et infinitisemalt tidsrum senere er der indtruffet et antal hændelser. Overlevelsen er nu $S'(t)$. Det er ændringen. Vi kan også beskrive det som hældningen af overlevelseskurven.
+
+Den `hazard` der var er derfor:
+
+$$h(t) = -\frac{S'(t)}{S(t)}$$
+
+Med lidt matematik kan vi så beregne $S(t)$:
+
+$$
+S(t) = \exp\left(-\int_0^t h(u)\,du\right)
+$$
+::::
+
+## Kan vi bruge den til noget?
+
+Jep!
+
+Hvis altså vi kender `hazard` og den er konstant over tid. Så kan vi eksempelvis beregne 5-års overlevelsen:
+
+
+$$
+\begin{aligned}
+S(t) &= \exp\left(-\int_0^t h(u)\,du\right) \\
+     &= \exp\left(-h(u) \cdot \Delta_u \right ) \\
+     &= \exp \left(-0.1\cdot (5-0)  \right) \\
+     &= \exp(-0.5) \\
+     &= 0.607
+\end{aligned}
+$$
+
+## Starttidspunktet
+
+:::: smaller
+
+Vi studerer "tid til hændelse".
+
+Hvis vi vil sammenligne den tid for to patienter, er vi nødt til at have et starttidspunkt ($t = 0, t_0, T = 0$).
+
+Ellers er sammenligningen ubrugelig!
+
+Hvorfor? 
+
+:::: incremental
+:::: fragment
+Det er ikke interessant at både patient A og patient B dør som 70-årige et antal år efter en operation. 
+::::
+:::: fragment
+Det interessante er hvor længe de overlever _efter_ operationen.
+::::
+:::: fragment
+Vi skal derfor have et starttidspunkt der er defineret på samme måde for begge patienter. Det skal være (i denne kontekst) klinisk relevant
+::::
+
+:::: fragment
+Datoen for starttidspunkt på gerne være forskellig. Reglen for hvad starttidspunktet er, skal blot være ens.
+::::
+
+::::
+::::
+
+## Faldgruber
+
+:::: smaller
+
+Vi lærer en del af hvor mange der oplever hændelsen efter en bestemt tid. 
+
+Vi lærer mere hvis vi også inddrager de der ikke har haft hændelsen endnu (er hændelsesfrie)
+
+Det introducerer muligheden for fejlkilder...
+
+:::: incremental
+- Vi kan tabe kontakten til patienterne, og kender ikke status efter sidste kontakt.
+- Patienten kan dø af noget andet end det vi undersøger.
+- Studeres infektioner, kan patienten teste negativ efter tre uger, men positiv efter 5. Det faktiske tidspunkt for infektionen er ukendt.
+- Patienten testede positiv allerede da studiet startede. Infektionstidspunkt er ukendt.
+- Patienten er i live (hændelsesfri) ved studiets afslutning. Om eller hvornår hændelsen indtræffer er ukendt.
+- Studiet foretages over mange år. Behandlingsformer og prognoser kan ændre sig. Nogen patienter bidrager derfor med en anden hazard end andre.
+
+::::
+::::
+
+
+## Hvad kalder vi det?
+
+:::: smaller
+
+- **Højrecensurering**: Kontakten ophører mens patienten er hændelsesfri.
+- **Venstrecensurering**: Positiv allerede ved første observation
+- **Intervalcensurering**: Negativ test efter tre uger, positiv efter 5
+- **Konkurrerende hændelse**: Patienten dør af anden årsag end det vi undersøger. Det vil vi behandle som en højrecensurering.
+- **Administrativ højrecensurering**: Patienten er hændelsesfri ved studiets afslutning
+- **Informativ administrativ censurering**: Behandling/prognose ændres sig over tid.
+
+Ang. sidste - hvis patienterne har fælles slutdato, får de sidst inkluderede kortere opfølgning. Bedres prognosen samtidig, er der en sammenhæng mellem længden af opfølgning og overlevelse. Og så er den administrative censur ikke kun censur, men også information.
+
+::::
+
+## Vi skal altid forholde os til censuren!
+
+Det er fristende at fjerne censurerede patienter fra analyse.
+
+Men den højrecensurerede patient bidrager jo med information frem til tidspunktet for censuren!
+
+Det kunne skyldes at vi sammenligner to behandlinger. I den ene overlever patienterne frem til studiet afsluttes. De bliver (administrativt) højrecensurerede.
+I den anden dør de inden studiet slutter. De bliver ikke censureret. Fjerner vi de censurerede patienter fra studiet, bliver vurderingen af overlevelsen skæv.
+
+## Vi antager noget!
+
+Mere avancerede teknikker kan håndtere censur der er informativ. De simple modeller vi ser på her, antager at censuren _ikke_ er informativ.
+
+Det kan vi også formulere som at det at en patient ikke er censureret, ikke må kunne bruges til at forudsige resultatet.
+
+Hvis meget syge patienter forsvinder ud af opfølgning (højrecensureres), kan vores estimat for overlevelse blive for optimistisk.
+
+Administrativ censur er almindeligvis harmløs.
+
+Bedres prognosen over tid, og strækker studiet sig over flere år, kan administrativ censur være et problem
+
+Med mindre vi kan inkludere tiden (periode) i analysen, så kan den være harmløs (og nyttig) igen.
+
+
+## En særlig bias
+
+Immortal time bias
+
+Vi undersøger overlevelsen efter en behandling, og sætter starttidspunktet til inklusion på venteliste.
+
+Kun de patienter der overlever frem til de får behandlingen, kan få behandlingen. De er "garanteret" at de ikke dør før de får behandlingen. De er "udødelige".
+
+Helt kort: Hvis vi sammenligner en eksponeret gruppe med en ueksponeret gruppe, og kommer til at tælle tiden før eksponeringen som eksponeret tid, får den eksponerede gruppe en kunstig fordel - fordi de definitorisk har skulle være hændelsesfri i hele perioden indtil eksponeringen.
+
+## Hvad med competing risks?
+
+Det er ikke pensum i SEMS, så det springer vi over.
+
+## Risikosæt
+
+Det er de patienter der stadig er under risiko for at opleve hændelsen på et bestemt tidspunkt.
+
+Det er det antal der skal ganges med hazard på et givet tidspunkt for at estimere hvor mange der kommer til at opleve hændelsen på det tidspunkt.
+
+## Hvordan udvikler det sig?
+
+Er der flere eller færre patienter efter en hændelse?
+
+Der er færre. En patient er død.
+
+Risikosættet bliver derfor mindre.
+
+Hvad når der sker censurering?
+
+Så bliver risikosættet også mindre. Men de patienter der censureres efter et år, var stadig med i risikosættet indtil da.
+
+
+## Sku vi ikke se noget data?
+
+:::: evensmaller 
+Når vi arbejder med overlevelsesanalyse, er standardpakken `survival`. Er den ikke installeret, gøres det med:
+`installl.packages("survival")`. Vi er også glade for `tidyverse` pakken. `survival` har medfølgende data, blandt andet overlevelse af
+patienter med fremskreden lungekræft. Vi betragter den relevante del af datasættet:
+
+```{r echo = TRUE}
+library(survival)
+library(tidyverse)
+lung |> select(time, status, sex) |> head()
+```
+
+Mere komplext er data ikke. 
+
+Patient 1 var mand (sex = 1), og han døde (status = 2) efter 306 dages opfølgning (time).
+
+Patient 3 var også mand, og blev højrecensureret (status = 1) efter 1010 dage, hvor han stadig var i live.
+
+::::
+
+## Kaplan-Meier
+
+Vi kan godt give os i kast med at tælle og altsådden noget. Men det bliver I ikke bedt om for så skulle nogen finde ud af at distribuere data til jer.
+
+```{r echo = TRUE}
+fit <- survfit(Surv(time, status == 2)~1, data = lung)
+plot(fit, mark.time = TRUE)
+```
+
+
+## Hvad skete der der?
+
+
+`fit <- survfit(Surv(time, status == 2)~1, data = lung)`
+
+`Surv(time, status == 2)` laver et "survival objekt". Det formatterer data, så funktionen `Surv` kan forstå dem. 
+
+Det er almindeligt at vi blot skriver det sådan. Fuldt udfoldet med argumentnavne bliver det:
+
+`Surv(time = time, event = status == 2)`
+
+Det ser således ud: 
+
+```{r}
+with(lung, Surv(time = time, event = status == 2)) |> head()
+```
+
+Patient 1 har hændelse efter 306 dage, patient 2 efter 455 dage,
+patient 3 er højrecensureret efter 1010, og var stadig i live.
+
+
+
+`survfit(Surv(time, status == 2)~1, data = lung)` fitter det survival objekt Surv leverer. Vi siger "som funktion af 1" med `~1`. Vi medtager alle observationer, og opdeler ikke efter noget. Vi skal specificere hvilket data vi arbejder på, med `data = lung`. Resultatet gemmer vi i objektet `fit`
+
+Endelig plotter vi med 
+`plot(fit, mark.time = TRUE)`
+
+`mark.time = TRUE` specificerer at vi også plotter hvornår der er censureringshændelser
+
+## Hvad skal vi kunne sige ud fra det?
+
+```{r}
+fit <- survfit(Surv(time, status == 2)~1, data = lung)
+plot(fit, mark.time = TRUE)
+```
+
+Vi skal kunne aflæse overlevelsen på et bestemt tidspunkt. Enheden på x-aksen er i dage, så ved 365 dage kan vi aflæse 1-års overlevelsen. Vi estimerer den til ca 41% ved 365 dage.
+
+Vi skal kunne aflæse medianoverlevelsen. Det er der hvor kurven passerer 50%. Det er ca. 310 dage.
+
+Vi skal kunne forklare trin og mærker. Kurven falder ved dødsfald (hændelse). Mærkerne (+) viser højrecensurering.
+
+Vi skal vide at de højrecensurerede patienter bidrager med information, og er i risikosættet frem til mærket. 
+
+Vi skal forstå, at risikosættet bliver mindre for hvert fald i kurven. Og for hver censurering. 
+
+Vi skal derfor også forstå, at overlevelsen efter 800 dage, baserer sig på ret få patienter. Der er ikke mange tilbage i risikosættet.
+
+Selve kurven viser den estimerede overlevelseskurve (S(t)). 
+
+De stiplede linier er 95% KI. 
+
+Hvorfor bliver det bredere over tid?
+
+Fordi risikosættet bliver mindre. Fuldstændigt som da vi beregnede KI på proportioner!
+
+
+## Kan vi få mere data ud?
+
+Ja, men det får I i givet fald som tabel, og skal ikke selv producere den:
+```{r}
+summary(fit, data.frame = TRUE) |> head()
+```
+
+Til opfølgningstiden 5, var der n.risk = 228 i risikosættet. Der indtræder n.event= 1 event. n.censor = 0 er blevet censureret på det tidspunkt. Overlevelsen (surv) er derefter på 99.6%. Den kumulerede hazard (cumhaz) patienterne er blevet udsat for er 0.44%. std.err er standardfejlen på surv, std.chaz er standardfejlen på cumhaz. Og lower/upper er nedre og øvre grænser for et 95% KI for surv.
+
+## Er der forskel på kønnene?
+
+Det er der, vi laver et Kaplan-Meier estimat af overlevelsen som funktion af køn, og plotter. Det vil her være nyttigt at få at vide at mænd er blå og kvinder røde.
+
+```{r echo = TRUE}
+fit <- survfit(Surv(time, status == 2)~sex, data = lung)
+plot(fit, mark.time = TRUE, col = c("blue", "red"), conf.int = TRUE)
+```
+
+Hvad kan vi læse ud af det?
+
+Vi skal kunne læse det samme som før. Men nu er den estimerede 1-års overlevelse forskellig mellem de to køn. 
+Mænd ca. 34%, kvinder ca. 53%. Det kan vi også udtrykke som at kvinders estimerede 1-års overlevelse er ca. 19 procentpoint højere.
+
+Medianoverlevelsen er også forskellig, 270 vs 426 dage for mænd hhv kvinder. 
+
+Vi kan se at kvinders overlevelseskurve er højere end mænds gennem næsten hele opfølgningen. Vi
+
+Kan vi konkludere at der er forskel? 
+
+Nope. Der skal være meget tydelig (MEGET) forskel på de to kurver for at vi kan det grafisk. Overlappet mellem KI'er fortæller os også at det er noget snask.
+
+## Kan vi få mere at vide?
+
+Ja. men ikke meget
+
+```{r}
+survminer::ggsurvplot(
+  fit,
+  data = lung,
+  risk.table = TRUE,
+  risk.table.title = "Antal i risiko",
+  break.time.by = 200,
+  palette = c("blue", "red"),
+  legend.title = "Køn",
+  legend.labs = c("Mænd", "Kvinder"),
+  xlab = "Opfølgningstid (dage)",
+  ylab = "Estimeret overlevelse"
+)
+```
+
+Der tilføjes hvor mange der er "i risiko" for de to køn. 
+
+## Hvis I selv skal
+
+```{r echo = TRUE, eval = FALSE}
+survminer::ggsurvplot(
+  fit,
+  data = lung,
+  risk.table = TRUE,
+  risk.table.title = "Antal i risiko",
+  break.time.by = 200,
+  palette = c("blue", "red"),
+  legend.title = "Køn",
+  legend.labs = c("Mænd", "Kvinder"),
+  xlab = "Opfølgningstid (dage)",
+  ylab = "Estimeret overlevelse"
+)
+```
+
+## Faldgruber
+
+
+Medianen bruger kun et punkt på kurven.
+To kurver kan have samme median og være _meget_ forskellige.
+Hvis kurven aldrig kommer under 0.5, kan medianen ikke estimeres.
+
+## Hvad er den god til?
+
+- deskriptiv beskrivelse af survival (overlevelsesfunktionen) over tid
+- visualisering af censur og størrelsen af risikosættet.
+- enkel sammenligning af to (eller flere) grupper
+
+
+## Hvad kan den ikke?
+
+- justere for andre parametre
+- Håndtere forklarende (kontinuærte) variable
+- estimere hvad forskellen i hazard er for de to (eller flere) grupper (andet end punktvis)
+
+## Hvordan ser vi så forskel?
+
+Det findes der en statistisk test til: log-rank test.
+
+Vi genbruger vores data fra før, hvor vi estimerede overlevelseskurverne for de to køn:
+
+```{r}
+survdiff(Surv(time, status == 2)~sex, data = lung)
+```
+
+Nu er det ikke survfit, men survdiff. 
+
+Hvad skal vi kunne læse af det?
+
+Der var 138 mænd i studiet. Vi observerede 112 dødsfald blandt dem.
+Der var 90 kvinder i studiet. Blandt dem observerede vi 53 dødsfald.
+
+For hvert punkt i datasættet, beregnes det forventede antal dødsfald for mænd og kvinder, under antagelse af at der ikke er forskel på hazard for de to grupper. Det samlede, kumulerede antal dødsfald for mænd, hhv kvinder er 91.6 og 73.4
+
+Teknikken kan forstås som en art kumuleret chi^2 test. Og derfor en chisq værdi. Den giver en p-værdi på 0.001.
+
+Derfor kan vi forkaste null-hypotesen på et 5% niveau. Der er statistisk evidens for en forskel i overlevelsen mellem mænd og kvinder.
+
+Mændene havde flere dødsfald end forventet under null-hypotesen. Kvinderne færre. Det stemmer overens med Kaplan-Meier kurverne, hvor kvinderne har en højere estimeret overlevelse gennem næsten hele opfølgningen. 
+
+Der justeres ikke for noget i sammenligningen.
+
+## Styrker
+
+Bruger hele kurven/datasættet, ikke kun medianen eller 1-års overlevelsen.
+Tager højde for censurering (Husk - patienter bidrager med information indtil de censureres)
+Den standardmetode der bruges ude i den virkelige verden.
+
+## Svagheder
+
+Giver evidens mod null-hypotesen (hvis altså den gør)
+Siger intet om effektstørrelse
+baseres på antagelse om proportional hazard
+
+
+## Hvad var proportional hazard?
+
+Hazard var den risiko en gruppe under risiko havde for at opleve hændelsen. 
+
+I følge jeres undervisning:
+
+Den øjeblikkelige event-rate omkrint tid t blandt dem, der stadig er event-frie lige før t.
+
+Det er altid til et bestemt punkt. Og vi har mere end en gruppe.
+
+Fænomenet proportional hazard udtrykker at der er en proportionalitet mellem to hazard kurver, to grupper.
+
+Hvis hazard for den ene  gruppe fordobles fra uge 1 til uge 7. Så fordobles hazard for den anden gruppe også (fra uge 1 til uge 7).
+
+Den faktiske hazard kan godt ændre sig undervejs. Men så ændrer den sig for begge grupper.
+
+## Hazard ratio
+
+Og det er det forhold vi er på jagt efter når vi vil se forskel på to grupper. Hvad er hazard ratio (HR) mellem 
+to grupper:
+
+$$HR = \frac{h_{kvinder}}{h_{mænd}}$$
+
+Det er den vi antager er konstant over tid.
+
+Hvis HR er ca 0.20, så er der ca. 20% lavere hazard for kvinder som der er for mænd.
+
+Det fortæller intet om medianoverlevelsen. Eller den relative risiko grupperne imellem til et bestemt tidspunkt.
+
+
+## Hvordan finder vi så den?
 
 ## kolonne med interaktiv kode
 :::: {.columns}

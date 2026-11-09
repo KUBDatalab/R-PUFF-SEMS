@@ -40,7 +40,7 @@ $$
 Det behøver vi ikke bekymre os om, men det betyder at hvis $h(t)$ er uafhængig af tiden - at sandsynligheden for at opleve hændelsen ikke ændrer sig over tid, 
 kan vi beregne sandsynligheden for at overleve (være hændelsesfri) efter eksempel 5 år. Hvis harzard er konstant 0.1 pr år, bliver regnestykket:
 
-$$S(5) = e^{-0.1 \dot 5} = 0.607$$
+$$S(5) = e^{-0.1 \cdot 5} = 0.607$$
 Eller 60.7%
 
 
@@ -82,7 +82,7 @@ Vi starter med at patienterne er i live. Efter et stykke tid er der en der dør.
 
 Det vil vi gerne kunne beskrive og analysere.
 
-Hvis vi løfter os helt op i helikopteren, så findes der en overlevelsesfunktion:
+Hvis vi løfter os helt op i helikopteren, så findes der en overlevelsesfunktion: |> 
 
 $$S(t) = P(T > t)$$
 

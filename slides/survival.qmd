@@ -464,6 +464,55 @@ Det fortæller intet om medianoverlevelsen. Eller den relative risiko grupperne 
 
 ## Hvordan finder vi så den?
 
+Kaplan-Meier estimerer survival - evt som funktion af en eller flere kategoriske variable.
+
+Cox proportional hazards modellen estimerer hazard - som funktion af en eller flere variable.
+
+Den antager at der eksisterer en `baseline hazard`, som kan stige, eller falde, som funktion af
+forklarende variable.
+
+$$
+h(t | X) = h_0(t)\exp(\beta_1x_1 + \beta_2x_2 + ... + \beta_kx_k )
+$$
+Hvis man tager logaritmen på begge sider - så begynder det at ligne noget lineært:
+
+$$\ln(h(t)) = \alpha(t) + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k
+$$
+
+Det behøver vi ikke bruge tid på - men der er (som sædvanligt) - en lidt dybere sammenhæng mellem tingene...
+
+## I praksis
+
+Vi ser stadig på lungekræft. Det så ud til at dødeligheden var forskellig mellem køn.
+
+Cox modellen siger at 
+
+$$
+h(t) = h_0(t)\exp(\beta\cdot\text{køn})
+$$
+Her har vi sat mænd som baseline, med værdien 0. Exponential leddet bliver da 1 for mænd ($\exp(\beta \cdot 0) = 1$), og $\beta$ for kvinder.
+
+Hazard ratio bliver så:
+
+$$HR = \frac{h_0(t)\exp(\beta)}{h_0(t)} = \exp(\beta)$$
+## Og i praksis
+
+```{r}
+fit <- coxph(Surv(time, status == 2)~factor(sex), data = lung)
+summary(fit)
+```
+
+
+I dette datasæt er mænd kodet som 1 og kvinder som 2.
+
+Hvad kan vi læse af det?
+
+228 patienter. 165 hændelser (død). resten er højre censurerede. Vi ved at mænd er kodet som 1 - de er referencegruppen. factor(sex)2 sammenligner kvinder med mænd.
+
+
+
+Blandt patienter, der stadig er i live på samme tidspunkt i opfølgningen, er kvindernes estimerede øjeblikkelige dødsrate cirka 41 % lavere end mændenes (HR 0,588, 95 % KI 0,424–0,816, \(p=0{,}00149\)). Under antagelsen om proportionale hazards gælder det samme forhold gennem hele opfølgningen.
+
 ## kolonne med interaktiv kode
 :::: {.columns}
 :::: {.column}

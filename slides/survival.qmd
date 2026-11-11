@@ -513,6 +513,40 @@ Hvad kan vi læse af det?
 
 Blandt patienter, der stadig er i live på samme tidspunkt i opfølgningen, er kvindernes estimerede øjeblikkelige dødsrate cirka 41 % lavere end mændenes (HR 0,588, 95 % KI 0,424–0,816, \(p=0{,}00149\)). Under antagelsen om proportionale hazards gælder det samme forhold gennem hele opfølgningen.
 
+
+## Korrigeret for
+
+Eller - "multipel regression"
+
+
+## Styrker
+
+Tager højde for censurering
+Tillader flere forklarende variable
+Kan laves uden at kende hazard-funktionen
+Den alle bruger
+
+
+## Svagheder
+
+Hvis KM-kurverne krydser er antagelsen om proportional hazard være tvivlsom
+Ved tydeligt forsinket effekt af behandling er PH også tvivlsom
+Hvis der er grund til at tro at effekten af behandling ændres over tid
+
+
+## Faldgruber
+
+Hazard Ratio er:
+en ratio, ikke en risiko
+forskellig fra forskel i median overlevelsen
+svær at fortolke klinisk
+ikke kausalt enkel.
+ikke en behandlingseffekt
+
+## En opgave
+
+
+
 ## kolonne med interaktiv kode
 :::: {.columns}
 :::: {.column}

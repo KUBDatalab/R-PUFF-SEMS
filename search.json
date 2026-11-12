@@ -298,7 +298,84 @@
     "href": "slides/survival.html#hvordan-finder-vi-så-den",
     "title": "Overlevelsesanalyse",
     "section": "Hvordan finder vi så den?",
-    "text": "Hvordan finder vi så den?"
+    "text": "Hvordan finder vi så den?\nKaplan-Meier estimerer survival - evt som funktion af en eller flere kategoriske variable.\nCox proportional hazards modellen estimerer hazard - som funktion af en eller flere variable.\nDen antager at der eksisterer en baseline hazard, som kan stige, eller falde, som funktion af forklarende variable.\n\\[\nh(t | X) = h_0(t)\\exp(\\beta_1x_1 + \\beta_2x_2 + ... + \\beta_kx_k )\n\\] Hvis man tager logaritmen på begge sider - så begynder det at ligne noget lineært:\n\\[\\ln(h(t)) = \\alpha(t) + \\beta_1 x_1 + \\beta_2 x_2 + \\dots + \\beta_k x_k\n\\]\nDet behøver vi ikke bruge tid på - men der er (som sædvanligt) - en lidt dybere sammenhæng mellem tingene…"
+  },
+  {
+    "objectID": "slides/survival.html#i-praksis",
+    "href": "slides/survival.html#i-praksis",
+    "title": "Overlevelsesanalyse",
+    "section": "I praksis",
+    "text": "I praksis\nVi ser stadig på lungekræft. Det så ud til at dødeligheden var forskellig mellem køn.\nCox modellen siger at\n\\[\nh(t) = h_0(t)\\exp(\\beta\\cdot\\text{køn})\n\\] Her har vi sat mænd som baseline, med værdien 0. Exponential leddet bliver da 1 for mænd (\\(\\exp(\\beta \\cdot 0) = 1\\)), og \\(\\beta\\) for kvinder.\nHazard ratio bliver så:\n\\[HR = \\frac{h_0(t)\\exp(\\beta)}{h_0(t)} = \\exp(\\beta)\\] ## Og i praksis\n\n\nCall:\ncoxph(formula = Surv(time, status == 2) ~ factor(sex), data = lung)\n\n  n= 228, number of events= 165 \n\n                coef exp(coef) se(coef)      z Pr(&gt;|z|)   \nfactor(sex)2 -0.5310    0.5880   0.1672 -3.176  0.00149 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n             exp(coef) exp(-coef) lower .95 upper .95\nfactor(sex)2     0.588      1.701    0.4237     0.816\n\nConcordance= 0.579  (se = 0.021 )\nLikelihood ratio test= 10.63  on 1 df,   p=0.001\nWald test            = 10.09  on 1 df,   p=0.001\nScore (logrank) test = 10.33  on 1 df,   p=0.001\n\n\nI dette datasæt er mænd kodet som 1 og kvinder som 2.\nHvad kan vi læse af det?\n228 patienter. 165 hændelser (død). resten er højre censurerede. Vi ved at mænd er kodet som 1 - de er referencegruppen. factor(sex)2 sammenligner kvinder med mænd.\nBlandt patienter, der stadig er i live på samme tidspunkt i opfølgningen, er kvindernes estimerede øjeblikkelige dødsrate cirka 41 % lavere end mændenes (HR 0,588, 95 % KI 0,424–0,816, (p=0{,}00149)). Under antagelsen om proportionale hazards gælder det samme forhold gennem hele opfølgningen."
+  },
+  {
+    "objectID": "slides/survival.html#korrigeret-for",
+    "href": "slides/survival.html#korrigeret-for",
+    "title": "Overlevelsesanalyse",
+    "section": "Korrigeret for",
+    "text": "Korrigeret for\nEller - “multipel regression”\nHvad nu hvis det ikke kun er køn, men også alder der påvirker overlevelseskurven? Eller forskellig dosis af medicin? Eller forskellige typer af implantater?\nCox-regressionen tillader os - fuldstændig som vi har set med andre regressioner, at have mere end en forklarende variabel:\n\n\nCall:\ncoxph(formula = Surv(time, status == 2) ~ factor(sex) + age, \n    data = lung)\n\n  n= 228, number of events= 165 \n\n                  coef exp(coef)  se(coef)      z Pr(&gt;|z|)   \nfactor(sex)2 -0.513219  0.598566  0.167458 -3.065  0.00218 **\nage           0.017045  1.017191  0.009223  1.848  0.06459 . \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n             exp(coef) exp(-coef) lower .95 upper .95\nfactor(sex)2    0.5986     1.6707    0.4311    0.8311\nage             1.0172     0.9831    0.9990    1.0357\n\nConcordance= 0.603  (se = 0.025 )\nLikelihood ratio test= 14.12  on 2 df,   p=9e-04\nWald test            = 13.47  on 2 df,   p=0.001\nScore (logrank) test = 13.72  on 2 df,   p=0.001\n\n\nHvordan læser vi det?"
+  },
+  {
+    "objectID": "slides/survival.html#styrker-1",
+    "href": "slides/survival.html#styrker-1",
+    "title": "Overlevelsesanalyse",
+    "section": "Styrker",
+    "text": "Styrker\nTager højde for censurering Tillader flere forklarende variable Kan laves uden at kende hazard-funktionen Den alle bruger"
+  },
+  {
+    "objectID": "slides/survival.html#svagheder-1",
+    "href": "slides/survival.html#svagheder-1",
+    "title": "Overlevelsesanalyse",
+    "section": "Svagheder",
+    "text": "Svagheder\nCox-regressionen antager proportional hazard (der er kun en simpel faktor til forskel)\nDet kan være tvivlsomt hvis\nKM-kurverne krydser er antagelsen om proportional hazard være tvivlsom der er tydeligt forsinket effekt af behandling er PH også tvivlsom der er grund til at tro at effekten af behandling ændres over tid"
+  },
+  {
+    "objectID": "slides/survival.html#faldgruber-2",
+    "href": "slides/survival.html#faldgruber-2",
+    "title": "Overlevelsesanalyse",
+    "section": "Faldgruber",
+    "text": "Faldgruber\nHazard Ratio er: - en ratio, ikke en risiko - forskellig fra forskel i median overlevelsen - svær at fortolke klinisk - ikke kausalt enkel. - ikke en behandlingseffekt"
+  },
+  {
+    "objectID": "slides/survival.html#en-opgave",
+    "href": "slides/survival.html#en-opgave",
+    "title": "Overlevelsesanalyse",
+    "section": "En opgave",
+    "text": "En opgave"
+  },
+  {
+    "objectID": "slides/survival.html#opgave-2",
+    "href": "slides/survival.html#opgave-2",
+    "title": "Overlevelsesanalyse",
+    "section": "Opgave 2",
+    "text": "Opgave 2\nData stammer fra Stanford Heart Transplant studiet, hvor patienter med svær hjertesygdom blev fulgt over tid fra de blev inkluderet på en venteliste med henblik på at få foretaget en hjertetransplantation. Nogle patienter modtog en hjertetransplantation under opfølgningen. Det primære endepunkt er tid til død fra inklusion i studiet. Følgende variable er til rådighed:\n\nfutime: Opfølgningstid fra patienten blev inkluderet på venteliste til død eller lost to follow-up.\nfustat: Event-indikator (1 = død, 0 = censureret)\ntransplant: Indikator for om patienten har fået transplantation (1 = ja, 0 = nej)\nwait.time: Tid til transplantation\nsurgery: Indikator for tidligere kirurgi (bypass operation) foretaget før inklusion i studiet."
+  },
+  {
+    "objectID": "slides/survival.html#de-første-seks-datalinjer",
+    "href": "slides/survival.html#de-første-seks-datalinjer",
+    "title": "Overlevelsesanalyse",
+    "section": "De første seks datalinjer",
+    "text": "De første seks datalinjer\n\nhead(d_sems)\n\n\n\n\n\n\n\n\n\n\nfustat\nfutime\nwait.time\ntransplant\nsurgery\n\n\n\n\n1\n1\n49\nNA\n0\n0\n\n\n2\n1\n5\nNA\n0\n0\n\n\n3\n1\n15\n0\n1\n0\n\n\n4\n1\n38\n35\n1\n0\n\n\n5\n1\n17\nNA\n0\n0\n\n\n6\n1\n2\nNA\n0\n0"
+  },
+  {
+    "objectID": "slides/survival.html#opgave-2a",
+    "href": "slides/survival.html#opgave-2a",
+    "title": "Overlevelsesanalyse",
+    "section": "Opgave 2a",
+    "text": "Opgave 2a\nEn forsker lavede følgende analyse:\n\nsurvdiff(Surv(futime, fustat == 1) ~ factor(surgery), data = d_sems)\n\n\n\n\n\n\n\n\n\n\nN\nObserved\nExpected\n(O-E)^2/E\n(O-E)^2/V\n\n\n\n\nfactor(surgery)=0\n87\n66\n58.6\n0.938\n4.44\n\n\nfactor(surgery)=1\n16\n9\n16.4\n3.348\n4.44\n\n\n\n\n\n\n\nChisq= 4.4 on 1 degrees of freedom, p= 0.04\na) Hvilken analyse er der tale om og hvad kan du konkludere på baggrund af den?"
+  },
+  {
+    "objectID": "slides/survival.html#opgave-2b",
+    "href": "slides/survival.html#opgave-2b",
+    "title": "Overlevelsesanalyse",
+    "section": "Opgave 2b",
+    "text": "Opgave 2b\nNu blev følgende analyse udført med tilhørende udskrift:\n\nsummary(coxph(Surv(futime, fustat == 1) ~ factor(transplant), data = d_sems))\n\nn= 103, number of events= 75\n\n\n\n\n\n\n\n\n\ncoef\nexp(coef)\nse(coef)\nz\nPr(&gt;|z|)\n\n\n\n\nfactor(transplant)1\n-1.3234\n0.2662\n0.2438\n-5.428\n5.69e-08 ***\n\n\n\n\n\n\n\nb) Hvilken type analyse er der tale om, og hvordan fortolkes resultatet? Vurder herefter kritisk, om analysen er korrekt i denne sammenhæng. Hvis ikke, beskriv hvilket problem der opstår, og hvordan det påvirker konklusionen."
+  },
+  {
+    "objectID": "slides/survival.html#punktnoter-til-fordeling",
+    "href": "slides/survival.html#punktnoter-til-fordeling",
+    "title": "Overlevelsesanalyse",
+    "section": "Punktnoter til fordeling",
+    "text": "Punktnoter til fordeling\nSamme femårsoverlevelse kan dække over meget forskellige forløb. Tjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i. Kurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri. Kurven falder ved observerede hændelser og ligger fladt imellem dem. En censureringsstreg viser, hvor længe en deltager bidrog med opfølgning. Frafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose. En lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk. Når få er i risiko, kan én hændelse give et stort fald. Den lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint. Krydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid. Medianen aflæses dér, hvor kurven når eller passerer 50 %. »Median ikke nået« kan også skyldes kort opfølgning. Log-rank-testen sammenligner de samlede overlevelsesforløb. Ved proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri. En lille p-værdi kan sagtens ledsage en klinisk beskeden forskel."
   },
   {
     "objectID": "slides/survival.html#kolonne-med-interaktiv-kode",

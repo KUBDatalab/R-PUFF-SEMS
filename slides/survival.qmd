@@ -542,10 +542,14 @@ Det findes der en statistisk test til: log-rank test.
 
 Vi genbruger vores data fra før, hvor vi estimerede overlevelseskurverne for de to køn:
 
+
+:::: columns
+:::: column
 ```{r}
 survdiff(Surv(time, status == 2)~sex, data = lung)
 ```
 
+:::: smaller 
 Nu er det ikke survfit, men survdiff!
 
 Hvad skal vi kunne læse af det?
@@ -553,44 +557,50 @@ Hvad skal vi kunne læse af det?
 Der var 138 mænd i studiet. Vi observerede 112 dødsfald blandt dem.
 Der var 90 kvinder i studiet. Blandt dem observerede vi 53 dødsfald.
 
-For hvert punkt i datasættet, beregnes det forventede antal dødsfald for mænd og kvinder, under antagelse af at der ikke er forskel på hazard for de to grupper. Det samlede, kumulerede antal dødsfald for mænd, hhv kvinder er 91.6 og 73.4
+
+::::
+::::
+:::: column
+:::: evensmaller
+
+For hvert punkt i datasættet, beregnes det forventede antal dødsfald for mænd og kvinder, under antagelse af at hazard er ens for de to grupper. Det samlede, kumulerede antal dødsfald for mænd, hhv kvinder er 91.6 og 73.4
 
 Teknikken kan forstås som en art kumuleret chi^2 test. Og derfor en chisq værdi. Den giver en p-værdi på 0.001.
 
-Derfor kan vi forkaste null-hypotesen på et 5% niveau. Der er statistisk evidens for en forskel i overlevelsen mellem mænd og kvinder.
+Derfor forkaster vi null-hypotesen på et 5% niveau. Der er statistisk evidens for en forskel i overlevelsen mellem mænd og kvinder.
 
-Mændene havde flere dødsfald end forventet under null-hypotesen. Kvinderne færre. Det stemmer overens med Kaplan-Meier kurverne, hvor kvinderne har en højere estimeret overlevelse gennem næsten hele opfølgningen. 
+Mændene havde flere dødsfald end forventet under null-hypotesen. Kvinderne færre. Det matcher KM-kurverne, hvor kvinderne har en højere estimeret overlevelse gennem næsten hele opfølgningen. 
 
 Der justeres ikke for noget i sammenligningen.
+::::
+::::
+::::
+
 
 ## Styrker
 
-Bruger hele kurven/datasættet, ikke kun medianen eller 1-års overlevelsen.
-Tager højde for censurering (Husk - patienter bidrager med information indtil de censureres)
-Den standardmetode der bruges ude i den virkelige verden.
+- Bruger hele kurven/datasættet, ikke kun medianen eller 1-års overlevelsen.
+- Tager højde for censurering (Husk - patienter bidrager med information indtil de censureres)
+- Den standardmetode der bruges ude i den virkelige verden.
 
 ## Svagheder
 
-Giver evidens mod null-hypotesen (hvis altså den gør)
-Siger intet om effektstørrelse
-baseres på antagelse om proportional hazard
+- Giver evidens mod null-hypotesen (hvis altså den gør)
+- Siger intet om effektstørrelse
+- Baseres på antagelse om proportional hazard
 
 
 ## Hvad var proportional hazard?
 
-Hazard var den risiko en gruppe under risiko havde for at opleve hændelsen. 
-
-I følge jeres undervisning:
-
-Den øjeblikkelige event-rate omkrint tid t blandt dem, der stadig er event-frie lige før t.
-
-Det er altid til et bestemt punkt. Og vi har mere end en gruppe.
-
-Fænomenet proportional hazard udtrykker at der er en proportionalitet mellem to hazard kurver, to grupper.
-
-Hvis hazard for den ene  gruppe fordobles fra uge 1 til uge 7. Så fordobles hazard for den anden gruppe også (fra uge 1 til uge 7).
-
-Den faktiske hazard kan godt ændre sig undervejs. Men så ændrer den sig for begge grupper.
+:::: incremental
+- Hazard var den risiko en gruppe under risiko havde for at opleve hændelsen. 
+- I følge jeres undervisning:
+  - Den øjeblikkelige event-rate omkrint tid t blandt dem, der stadig er event-frie lige før t.
+- Det er altid til et bestemt punkt. Og vi har mere end en gruppe.
+- Fænomenet proportional hazard udtrykker at der er en proportionalitet mellem to hazard kurver, to grupper.
+- Hvis hazard for den ene  gruppe fordobles fra uge 1 til uge 7. Så fordobles hazard for den anden gruppe også (fra uge 1 til uge 7).
+- Den faktiske hazard kan godt ændre sig undervejs. Men så ændrer den sig for begge grupper.
+::::
 
 ## Hazard ratio
 
@@ -608,94 +618,202 @@ Det fortæller intet om medianoverlevelsen. Eller den relative risiko grupperne 
 
 ## Hvordan finder vi så den?
 
+:::: incremental
 Kaplan-Meier estimerer survival - evt som funktion af en eller flere kategoriske variable.
 
+:::: fragment
 Cox proportional hazards modellen estimerer hazard - som funktion af en eller flere variable.
+::::
 
+:::: fragment
 Den antager at der eksisterer en `baseline hazard`, som kan stige, eller falde, som funktion af
 forklarende variable.
-
+::::
+:::: fragment
 $$
 h(t | X) = h_0(t)\exp(\beta_1x_1 + \beta_2x_2 + ... + \beta_kx_k )
 $$
+::::
+:::: fragment
 Hvis man tager logaritmen på begge sider - så begynder det at ligne noget lineært:
 
 $$\ln(h(t)) = \alpha(t) + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k
 $$
 
+:::: reallysmall
 Det behøver vi ikke bruge tid på - men der er (som sædvanligt) - en lidt dybere sammenhæng mellem tingene...
-
+::::
+::::
+::::
 ## I praksis
 
-Vi ser stadig på lungekræft. Det så ud til at dødeligheden var forskellig mellem køn.
+Vi ser stadig på lungekræft. KM antydede forskellig dødelighed for de to køn.
 
 Cox modellen siger at 
 
 $$
 h(t) = h_0(t)\exp(\beta\cdot\text{køn})
 $$
-Her har vi sat mænd som baseline, med værdien 0. Exponential leddet bliver da 1 for mænd ($\exp(\beta \cdot 0) = 1$), og $\beta$ for kvinder.
+Her mænd baseline, med værdien 0. 
+
+Exponential leddet bliver da 1 for mænd ($\exp(\beta \cdot 0) = 1$), og $\exp(\beta)$ for kvinder.
 
 Hazard ratio bliver så:
 
 $$HR = \frac{h_0(t)\exp(\beta)}{h_0(t)} = \exp(\beta)$$
-## Og i praksis
 
+:::: reallysmall
+Hvad der ender som baseline afhænger af hvordan vi har kodet den kategoriske værdi køn.
+::::
+
+## Og i praksis
+:::: columns
+:::: column
+:::: smaller
 ```{r}
 fit <- coxph(Surv(time, status == 2)~factor(sex), data = lung)
 summary(fit)
 ```
 
 
-I dette datasæt er mænd kodet som 1 og kvinder som 2.
-
 Hvad kan vi læse af det?
 
-228 patienter. 165 hændelser (død). resten er højre censurerede. Vi ved at mænd er kodet som 1 - de er referencegruppen. factor(sex)2 sammenligner kvinder med mænd.
+228 patienter. 165 hændelser (død). Resten er højre censurerede. Vi ved at mænd er kodet som 1 - de er referencegruppen. factor(sex)2 sammenligner kvinder med mænd.
+::::
+::::
+:::: column
+:::: evensmaller
 
+Blandt patienter, der stadig er i live på samme tidspunkt i opfølgningen, er kvindernes estimerede øjeblikkelige dødsrate cirka 41 % lavere end mændenes. Eller ca. 0.588 gange mændenes.
 
+$\beta$ er -0.5310. Det var koefficienten, der gav os HR ved at tage `exp` til den.
 
-Blandt patienter, der stadig er i live på samme tidspunkt i opfølgningen, er kvindernes estimerede øjeblikkelige dødsrate cirka 41 % lavere end mændenes (HR 0,588, 95 % KI 0,424–0,816, \(p=0{,}00149\)). Under antagelsen om proportionale hazards gælder det samme forhold gennem hele opfølgningen.
+$\exp(-0.5310) = 0.588$ og $1 - 0.588 = 0.412$
 
+$\exp(-\text{coef})$ giver den ækvivalente - mændenes dødsrate relativt til kvindernes:
+
+ $\exp(- -0.5310) = 1.701$
+
+Altså ca 70% højere.
+
+p-værdien tester som sædvanlig om vi kan afvise null-hypotesen at coef er 0.
+
+KI:
+
+```{r, echo = TRUE}
+exp(-0.5310 +c(-1,1)*1.96*0.1672)
+```
+
+::::
+::::
+::::
 
 ## Korrigeret for
-
+:::: reallysmall
 Eller - "multipel regression"
 
 Hvad nu hvis det ikke kun er køn, men også alder der påvirker overlevelseskurven? Eller forskellig dosis af medicin? Eller forskellige typer af implantater?
 
 Cox-regressionen tillader os - fuldstændig som vi har set med andre regressioner, at have mere end en forklarende variabel:
+:::: 
+:::: columns
+:::: column
+:::: reallysmall
+```{r, echo = TRUE, eval = FALSE , R.options = list(width = 100)}
+library(survival)
+fit <- coxph(Surv(time, status == 2)~factor(sex) + age , data = lung)
+summary(fit)
+```
+::::
+::::
+:::: column
+:::: reallysmall
+```{r, R.options = list(width = 100)}
+library(survival)
+fit <- coxph(Surv(time, status == 2)~factor(sex) + age , data = lung)
+summary(fit)
+```
+::::
+::::
+::::
 
-```{r}
+
+
+## Hvordan læser vi det?
+
+:::: columns
+:::: column
+:::: evensmaller
+```{r, R.options = list(width = 100)}
 library(survival)
 fit <- coxph(Surv(time, status == 2)~factor(sex) + age , data = lung)
 summary(fit)
 ```
 
-Hvordan læser vi det?
+Fortsat 228 patienter fra start
+
+165 events (død)
+
+Resten højre censurerede.
+
+Kvinders hazard er 0.599 gange mændenes - svarende til 1 - 0.599 = 40.1% lavere dødsrate
+
+::::
+::::
+:::: column
+:::: evensmaller
+
+Mændenes er tilsvarende ca. 67% højere (exp(-coef)).
+
+Begge justeret eller korrigeret for alder. Så: Ved samme alder.
+
+exp(coef) for `age` er 1.0172, eller ca. 1.7% højere for den et år ældre patient
+
+Er forskellen 10 år, skal vi beregne hvor meget højere den øjeblikke dødsrate (hazard) er ved:
+
+```{r echo = TRUE}
+exp(10*0.017045)
+```
+
+Altså en ca. 18.5% højere dødsrate ved en 10 års aldersforskel
+
+Men! Hvad er p-værdien for `age` koefficienten?
+
+::::
+:::: reallysmall
+
+Concordance fortæller os hvor god modellen er. Den stiger fra 0.579 til 0.603. Modellen rangerer sammenlignelige patientpar lidt bedre end når alder ikke medtages i modellen. Man kan tænke på den som $R^2$ fra den lineære regression, men her er det et mål for hvor godt Cox-modellen får rangeret sammenlignelige patientpar.
+
+De tre nederste tests tester om begge koefficienter er 0.
+
+::::
+::::
+::::
+
+
 
 ## Styrker
 
-Tager højde for censurering
-Tillader flere forklarende variable
-Kan laves uden at kende hazard-funktionen
-Den alle bruger
+- Tager højde for censurering
+- Tillader flere forklarende variable
+- Kan laves uden at kende hazard-funktionen
+- Den alle bruger
 
 
 ## Svagheder
 
-Cox-regressionen antager proportional hazard (der er kun en simpel faktor til forskel)
+- Cox-regressionen antager proportional hazard (der er kun en simpel faktor til forskel)
 
-Det kan være tvivlsomt hvis
-
-KM-kurverne krydser er antagelsen om proportional hazard være tvivlsom
-der er tydeligt forsinket effekt af behandling er PH også tvivlsom
-der er grund til at tro at effekten af behandling ændres over tid
+- Det kan være tvivlsomt hvis
+  - KM-kurverne krydser er antagelsen om proportional hazard være tvivlsom
+  - der er tydeligt forsinket effekt af behandling er PH også tvivlsom
+  - der er grund til at tro at effekten af behandling ændres over tid
 
 
 ## Faldgruber
 
 Hazard Ratio er:
+
 - en ratio, ikke en risiko
 - forskellig fra forskel i median overlevelsen
 - svær at fortolke klinisk
@@ -704,8 +822,7 @@ Hazard Ratio er:
 
 ## En opgave
 
-
-```{r include = FALSE}
+```{r}
 library(tibble)
 library(gt)
 
@@ -732,15 +849,23 @@ format_r_output <- function(data) {
 }
 ```
 
-## Opgave 2
+:::: smaller
 
-Data stammer fra Stanford Heart Transplant studiet, hvor patienter med svær hjertesygdom blev fulgt over tid fra de blev inkluderet på en venteliste med henblik på at få foretaget en hjertetransplantation. Nogle patienter modtog en hjertetransplantation under opfølgningen. Det primære endepunkt er tid til død fra inklusion i studiet. Følgende variable er til rådighed:
+Vi følger patienter med svær hjertesygdom over tid, fra de blev inkluderet på venteliste - for at få en hjertetransplantation.
+
+Nogle patienter modtog under opfølgning en transplantation.
+
+Endepunktet er tid til død, fra inklusion i studiet.
+
+Vi har følgende variable i datasættet:
 
 - `futime`: Opfølgningstid fra patienten blev inkluderet på venteliste til død eller lost to follow-up.
 - `fustat`: Event-indikator (1 = død, 0 = censureret)
 - `transplant`: Indikator for om patienten har fået transplantation (1 = ja, 0 = nej)
 - `wait.time`: Tid til transplantation
 - `surgery`: Indikator for tidligere kirurgi (bypass operation) foretaget før inklusion i studiet.
+
+::::
 
 ## De første seks datalinjer
 
@@ -751,22 +876,26 @@ head(d_sems)
 ```{r echo = FALSE}
 tribble(
   ~Row, ~fustat, ~futime, ~wait.time, ~transplant, ~surgery,
-  "1",  "1",     "49",    "NA",       "0",         "0",
-  "2",  "1",     "5",     "NA",       "0",         "0",
-  "3",  "1",     "15",    "0",        "1",         "0",
-  "4",  "1",     "38",    "35",       "1",         "0",
-  "5",  "1",     "17",    "NA",       "0",         "0",
-  "6",  "1",     "2",     "NA",       "0",         "0"
+  1,  1,     49,    NA,       0,         0,
+  2,  1,     5,     NA,       0,         0,
+  3,  1,     15,    0,        1,         0,
+  4,  1,     38,    35,       1,         0,
+  5,  1,     17,    NA,       0,         0,
+  6,  1,     2,     NA,       0,         0
 ) |>
   format_r_output()
 ```
 
-## Opgave 2a
+## Opgave fortsat
 
-En forsker lavede følgende analyse:
+:::: columns
+:::: column
 
-```{r eval = FALSE, echo = TRUE}
-survdiff(Surv(futime, fustat == 1) ~ factor(surgery), data = d_sems)
+Følgende analyse laves:
+
+```{r eval = FALSE, echo = TRUE, R.options = list(width = 100)}
+survdiff(Surv(futime, fustat == 1) ~ factor(surgery), 
+         data = d_sems)
 ```
 
 ```{r echo = FALSE}
@@ -777,20 +906,67 @@ tribble(
 ) |>
   format_r_output()
 ```
+:::: reallysmall
+Chisq= 4.4 on 1 degrees of freedom, p= 0.04
 
-`Chisq= 4.4 on 1 degrees of freedom, p= 0.04`
+Hvilken analyse? Hvad kan vi konkludere?
 
-**a)** Hvilken analyse er der tale om og hvad kan du konkludere på baggrund af den?
+:::: incremental
 
-## Opgave 2b
+:::: fragment
+log-rank test (`survdiff`)
+::::
+:::: fragment
+Dvs en sammenligning af de estimerede overlevelseskurver mellem patienter der tidligere har fået kirurgi, og de der ikke har. (`factor(surgery)`)
+::::
+:::: fragment
+Hvad er null-hypotesen?
+::::
+:::: fragment
+Det er, at der ikke er forskel på de to grupper.
+::::
+:::: fragment
+p-værdien er 0.04, derfor?
+::::
+::::
 
+::::
+::::
+
+:::: column
+:::: reallysmall
+:::: incremental
+:::: fragment
+Vi forkaster null-hypotesen på et 5% niveau. Der er dermed evidens for at der er forskel i overlevelse mellem patienter der tidligere har fået kirurgi, og patienter der ikke har. 
+
+:::: fragment
+Gruppen uden tidligere kirurgi (surgery = 0) har flere dødsfald end forventet. Gruppen med tidligere kirurgi færre.
+::::
+:::: fragment
+Det antyder?
+::::
+:::: fragment
+At der er bedre overlevelse blandt patienter med tidligere kirurgi.
+::::   
+::::
+::::
+::::
+::::
+
+::::
+## Opgave fortsat 2
+
+:::: columns
+:::: column
+:::: smaller
 Nu blev følgende analyse udført med tilhørende udskrift:
 
-```{r eval = FALSE, echo = TRUE}
-summary(coxph(Surv(futime, fustat == 1) ~ factor(transplant), data = d_sems))
+```{r eval = FALSE, echo = TRUE , R.options = list(width = 100)}
+summary(coxph(Surv(futime, fustat == 1) ~ factor(transplant), 
+        data = d_sems))
 ```
 
-`n= 103, number of events= 75`
+n= 103, number of events= 75
 
 ```{r echo = FALSE}
 tribble(
@@ -800,7 +976,79 @@ tribble(
   format_r_output()
 ```
 
-**b)** Hvilken type analyse er der tale om, og hvordan fortolkes resultatet? Vurder herefter kritisk, om analysen er korrekt i denne sammenhæng. Hvis ikke, beskriv hvilket problem der opstår, og hvordan det påvirker konklusionen.
+Hvilken analyse? Fortolk resulatet. Vurder kritisk om analysen er korrekt i denne sammenhæng. Hvis ikke, beskriv problemet og hvordan det påvirker konklusionen. (så... Mon ikke der er et problem?)
+
+:::: incremental
+:::: fragment
+Cox-regression (`coxph`) med `transplant` som forklarende variabel
+::::
+
+:::: fragment
+Estimatet for `transplant` er -1.32.
+::::
+
+
+::::
+
+::::
+
+::::
+:::: column
+:::: incremental
+:::: fragment
+hazard ration er derfor `exp(-1.32) = 0.27`
+::::
+
+:::: fragment
+Det vil vi fortolke som at patienter der er blevet transplanteret, har 1-0.27 = 0.73, ca. 73% lavere dødsrate end patienter der ikke er blevet transplanteret.
+::::
+:::: fragment
+I opgaveteksten stod: "Vi følger patienter med svær hjertesygdom over tid, fra de blev inkluderet på venteliste - for at få en hjertetransplantation."
+::::
+
+:::: fragment
+Hvad fortæller det os?
+::::
+
+:::: fragment
+At transplantation ikke er baseline variabel. Det var ikke fra transplantation at vi fulgte dem!
+::::
+
+:::: fragment
+Patienter skal overleve fra inklusion på venteliste, frem til transplantationen for at vi overhovedet ser dem.
+::::
+
+:::: fragment
+Transplantation er derfor en tidsafhængig variabel. 
+::::
+
+:::: fragment
+Og de patienter der får transplantationen, er derfor "udødelige". For de _skal_ overleve for at vi har dem med. 
+::::
+
+:::: fragment
+Den tranplanterede gruppe får derfor en kunstig overlevelsesfordel.
+::::
+
+:::: fragment
+Effekten af transplantation overvurderes derfor.
+::::
+
+:::: fragment
+Og den esitmerede hazard ratio bliver derfor lav.
+::::
+
+:::: fragment
+Her husker vi at nævne "immortal time bias"
+::::
+
+
+::::
+
+
+::::
+
+::::
 
 ## Punktnoter til fordeling
 
@@ -819,34 +1067,3 @@ Medianen aflæses dér, hvor kurven når eller passerer 50 %.
 Log-rank-testen sammenligner de samlede overlevelsesforløb.
 Ved proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri.
 En lille p-værdi kan sagtens ledsage en klinisk beskeden forskel.
-
-## kolonne med interaktiv kode
-:::: {.columns}
-:::: {.column}
-:::: {.tiny}
-```{r}
-library(tidyverse)
-library(gt)
-tribble(~Term, ~Estimate, ~`Std. Error`, ~`z value`, ~`Pr(>|z|)`,
-"(Intercept)", "-5.0526", "0.1758", "-28.725", "<2e-16***",
-"I((mage-25)/10)", "0.7423", "0.2149", "3.454", "0.0005***",
-"episodes", "-0.0752", "0.2048", "-0.368", "0.713",
-"factor(smoke)2", "0.2063", "0.2569", "0.803", "0.421",
-"factor(smoke)3", "0.4364", "0.2569", "1.699", "0.089"
-) 
-
-```
-
-
-::::
-::::
-
-:::: {.column}
-```{webr-r}
-#| context: interactive
-#| layout: horizontal
-#| autorun: false
-
-```
-::::
-::::

@@ -5,6 +5,7 @@ format:
     logo: "kubdatalab.png"
     css: webr-custom.css
     html-math-method: mathjax
+    include-after-body: wake-lock.html
     slide-number: "c/t"
     width: 1440
     height: 810
@@ -980,7 +981,7 @@ Hvilken analyse? Fortolk resulatet. Vurder kritisk om analysen er korrekt i denn
 
 :::: incremental
 :::: fragment
-Cox-regression (`coxph`) med `transplant` som forklarende variabel
+Cox-regression (`coxph`) med `transplant` som forklarende (kategorisk) variabel (`factor(transplant)`)
 ::::
 
 :::: fragment
@@ -994,9 +995,12 @@ Estimatet for `transplant` er -1.32.
 
 ::::
 :::: column
+
+:::: reallysmall
+
 :::: incremental
 :::: fragment
-hazard ration er derfor `exp(-1.32) = 0.27`
+Hazard ration er derfor `exp(-1.32) = 0.27`
 ::::
 
 :::: fragment
@@ -1035,13 +1039,13 @@ Effekten af transplantation overvurderes derfor.
 ::::
 
 :::: fragment
-Og den esitmerede hazard ratio bliver derfor lav.
+Og den estimerede hazard ratio bliver derfor lav.
 ::::
 
 :::: fragment
 Her husker vi at nævne "immortal time bias"
 ::::
-
+::::
 
 ::::
 

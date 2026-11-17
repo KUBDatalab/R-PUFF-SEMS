@@ -5,6 +5,9 @@ format:
   revealjs:
     logo: "kubdatalab.png"
     css: webr-custom.css
+    html-math-method: mathjax
+    include-after-body: wake-lock.html
+    slide-number: "c/t"
 engine: knitr
 filters:
   - webr

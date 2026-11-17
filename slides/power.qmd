@@ -201,7 +201,7 @@ proportioner?
 
 Hvis vi kender værdierne af fire af dem - så kan vi finde værdien af den femte.
 
-## Og hvad spørges der til til eksamen?
+## Og hvad spørges der om til eksamen?
 
 :::: {.smaller}
 

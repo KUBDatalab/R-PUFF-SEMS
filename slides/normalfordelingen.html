@@ -3455,7 +3455,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -3588,7 +3588,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -3614,6 +3614,26 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
         ]
       });
     </script>
+      <script>
+            (() => {
+              let lock;
+
+              async function keepScreenOn() {
+                if (!navigator.wakeLock || document.hidden || lock?.released === false) {
+                  return;
+                }
+
+                try {
+                  lock = await navigator.wakeLock.request("screen");
+                } catch (error) {
+                  console.warn("Kunne ikke holde skærmen tændt.", error);
+                }
+              }
+
+              document.addEventListener("visibilitychange", keepScreenOn);
+              keepScreenOn();
+            })();
+            </script>
     
     <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.

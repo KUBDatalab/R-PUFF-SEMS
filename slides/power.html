@@ -2182,8 +2182,8 @@ Data understøtter <em>ikke</em> den alternative hypotese</p>
 <p>Vi har en hemmelig sjette parameter. Nemlig hvilken test det er vi laver. Sammenligner vi middelværdier? Eller proportioner?</p>
 <p>Hvis vi kender værdierne af fire af dem - så kan vi finde værdien af den femte.</p>
 </section>
-<section id="og-hvad-spørges-der-til-til-eksamen" class="slide level2">
-<h2>Og hvad spørges der til til eksamen?</h2>
+<section id="og-hvad-spørges-der-om-til-eksamen" class="slide level2">
+<h2>Og hvad spørges der om til eksamen?</h2>
 <div class="smaller">
 <p>Her er fire værdier. Find den femte.</p>
 <div class="fragment">
@@ -2642,7 +2642,7 @@ z_{1-\alpha/2}+z_{1-\beta} = \frac{\delta}{\frac{430}{\sqrt{100}}}
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -2775,7 +2775,7 @@ z_{1-\alpha/2}+z_{1-\beta} = \frac{\delta}{\frac{430}{\sqrt{100}}}
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2801,6 +2801,26 @@ z_{1-\alpha/2}+z_{1-\beta} = \frac{\delta}{\frac{430}{\sqrt{100}}}
         ]
       });
     </script>
+      <script>
+            (() => {
+              let lock;
+
+              async function keepScreenOn() {
+                if (!navigator.wakeLock || document.hidden || lock?.released === false) {
+                  return;
+                }
+
+                try {
+                  lock = await navigator.wakeLock.request("screen");
+                } catch (error) {
+                  console.warn("Kunne ikke holde skærmen tændt.", error);
+                }
+              }
+
+              document.addEventListener("visibilitychange", keepScreenOn);
+              keepScreenOn();
+            })();
+            </script>
     
     <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.

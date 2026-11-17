@@ -87,7 +87,7 @@ Vi har et datasæt med følgende variable:
 
 Og vi kan modellere fosterdød ved:
 
-```{r eval = FALSE, echo = TRUE}
+```{r glm-eksempel, eval = FALSE, echo = TRUE}
 glm(factor(death) ~ I((mage-25)/10) + episodes + factor(smoke), data = dataset, family = "binomial")
 ```
 
@@ -101,7 +101,7 @@ Den der sære konstruktion med I((mage-25)/10), hvor kom den fra? Den var oplyst
 
 :::: evensmaller
 
-```{r eval = FALSE, echo = TRUE}
+```{r glm-eksempel-2, eval = FALSE, echo = TRUE}
 glm(factor(death) ~ I((mage-25)/10) + episodes + factor(smoke), data = dataset, family = "binomial")
 ```
 
@@ -137,7 +137,7 @@ Og fordi `glm` er en generel funktion, der kan modellere mange forskellige ting,
 :::: {.columns}
 :::: {.column}
 :::: {.tiny}
-```{r}
+```{r resultat-visning}
 library(tidyverse)
 library(gt)
 tribble(~Term, ~Estimate, ~`Std. Error`, ~`z value`, ~`Pr(>|z|)`,
@@ -209,7 +209,7 @@ p=2⋅P(Z≥∣z∣). Eller: 2*(1 - pnorm(abs(z)))
 ## Estimaterne
 
 :::: {.tiny}
-```{r}
+```{r estimat-eksempel}
 library(tidyverse)
 library(gt)
 tribble(~Term, ~Estimate, ~`Std. Error`, ~`z value`, ~`Pr(>|z|)`,
@@ -341,7 +341,7 @@ Vi exponentierer!
 ## Mors rygning
 
 
-```{r echo = FALSE}
+```{r estimater, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -421,7 +421,7 @@ $p = \frac{\text{odds}}{1 + \text{odds}}$
 
 :::: {.columns}
 :::: {.column}
-```{r echo = FALSE}
+```{r estimater-2, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -509,7 +509,7 @@ $p = \frac{\text{odds}}{1 + \text{odds}}$
 
 :::: {.columns}
 :::: {.column}
-```{r echo = FALSE}
+```{r mors-rygning-alder, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -619,7 +619,7 @@ Det er 2.1 gange højere _odds_ der er associeret med en stigning på 10 år i m
 
 :::: {.columns}
 :::: {.column}
-```{r echo = FALSE}
+```{r mors-rygning-prediktion, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -696,7 +696,7 @@ eller, cowboy-trick:
 
 :::: {.columns}
 :::: {.column}
-```{r echo = FALSE}
+```{r mors-rygning-prediktion-2, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -804,7 +804,7 @@ tribble(~Surv3y, ~don_age_cat, ~SMOKE,
 :::: {.column}
 vi får følgende output:
 
-```{r echo = FALSE}
+```{r surv-output, echo = FALSE}
 Surv3y <- c(
   rep(0,153),
   rep(0,117),
@@ -838,7 +838,7 @@ sammenhæng, skal det kvantificeres som en relativ risiko med tilhørende 95% ko
 :::: {.columns}
 :::: {.column}
 ::::{.smaller}
-```{r echo = FALSE}
+```{r SMOKE-table, echo = FALSE}
 table(Surv3y,SMOKE)
 ```
 
@@ -885,7 +885,7 @@ Hvad betyder det hvis RR = 1?
 
 Nu udfører vi en analyse, og får følgende output:
 
-```{r echo = FALSE}
+```{r SMOKE-estimater, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -952,7 +952,7 @@ variable.
 :::: {.evensmaller}
 Hvad kan vi konkludere på baggrund af den analyse? Beregn relevante odds ratios (OR), beregn også de tilhørende 95% konfidensintervaller
 
-```{r echo = FALSE}
+```{r smoke-konklusioner, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -1083,7 +1083,7 @@ Den effekt er signifikant (på et 5% niveau)
 :::: reallysmall 
 Endelig blev følgende regnestykke fortaget:
 
-```{r echo = TRUE}
+```{r smoke-estimat, echo = TRUE}
 exp(-1.2848)/(1+exp(-1.2848))
 ```
 
@@ -1152,7 +1152,7 @@ En del, men ikke alle børn blev vaccineret med DTP (difteri, tetanus og pertuss
 Vi får oplyst de seks første observationer i datasættet:
 
 
-```{r}
+```{r dtp-head}
 tribble(~alder, ~status, ~dtp, ~etngr, ~vaegt,
 0.592, 0,  1, 1, 5.6,
 0.425, 1 , 1 ,1 , 6.0,
@@ -1176,7 +1176,7 @@ etniskgr: etnisk gruppe 0: Manjaco, Fula, 1: Mandinga og anden
 
 Og optælling:  
 
-```{r}
+```{r dtp-count}
 dtp <- c(
   rep(0, 526), rep(0, 9),
   rep(1, 892), rep(1, 46)
@@ -1188,7 +1188,7 @@ status <- c(
 )
 ```
 
-```{r echo = TRUE}
+```{r dtp-status-table, echo = TRUE}
 table(dtp,status)
 ```
 ::::
@@ -1223,7 +1223,7 @@ Status er den primære responsvariabel - det vi undersøger.
 
 Og så tabellen
 
-```{r}
+```{r dtp-table-2}
 dtp <- c(
   rep(0, 526), rep(0, 9),
   rep(1, 892), rep(1, 46)
@@ -1235,7 +1235,7 @@ status <- c(
 )
 ```
 
-```{r echo = TRUE}
+```{r dtp-table-3, echo = TRUE}
 table(dtp,status)
 ```
 
@@ -1298,7 +1298,7 @@ HUSK! Vi regner på log(RR)
 ::::
 :::: {.column}
 :::: smaller
-```{r}
+```{r dtp-status-table}
 table(dtp,status)
 ```
 ::::
@@ -1356,7 +1356,7 @@ Eksemplet på data var:
 ::::
 :::: {.fragment}
 
-```{r}
+```{r dtp-etng-head}
 tribble(~alder, ~status, ~dtp, ~etngr, ~vaegt,
 0.592, 0,  1, 1, 5.6,
 0.425, 1 , 1 ,1 , 6.0,
@@ -1402,7 +1402,7 @@ Typisk bliver I hjulpet hvis I læser det næste spørgsmål. Der er nemlig ofte
 "Den korrekte analyse gav nedenstående resultat:"
 
 
-```{r}
+```{r dtp-estimater}
 tribble(~Coefficients, ~Estimate, ~`Std. Error`, ~`t value`, ~`Pr(>|t|)`,
 "(Intercept)", 0.05666, 0.02866, 1.98, "0.048 *",
 "factor(dtp)1", 0.02609, 0.01162, 2.25, "0.025 *",
@@ -1605,7 +1605,7 @@ Nu udfører vi denne analyse i R:
 >model1 <- glm(SRH_dik ~ factor(HBAlC_dik)+ factor(SEX) + Age, family = "binomial")  
 >summary(model1)
 
-```{r echo = FALSE}
+```{r blodsukker-estimater, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -1716,7 +1716,7 @@ HBAlC - altså om patienten er i glykæmisk kontrol, er ikke signifikant.
 
 Vi må hellere beregne nogle 95% KI også og odds-ratios også.
 
-```{r echo = FALSE}
+```{r glykæmisk-kontrol, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -1797,7 +1797,7 @@ Hvad så vi så?
 
 Køn var statistisk signifikant med tilhørende odds-ratio på 
 
-```{r echo = TRUE}
+```{r odds-ratio, echo = TRUE}
 exp(0.252051)
 ```
 ::::
@@ -1811,7 +1811,7 @@ Mandlige diabetikere har 28% større odds for (selvrapporteret) godt helbred sam
 :::: {.fragment}
 Og med et 95% KI på 
 
-```{r echo = TRUE}
+```{r male-odds, echo = TRUE}
 exp(0.252051 + c(-1,1)*1.96*0.117514)
 ```
 
@@ -1820,7 +1820,7 @@ Med alder og HBA1C_dik fastholdt.
 :::: {.fragment}
 Age var også statistisk signifikant med tilhørende odds-ratio på 
 
-```{r echo = TRUE}
+```{r age-odds, echo = TRUE}
 exp(-0.015573)
 ```
 ::::
@@ -1835,7 +1835,7 @@ exp(-0.015573)
 :::: {.fragment}
 Og et 95% KI på:
 
-```{r echo = TRUE}
+```{r KI-age, echo = TRUE}
 exp(-0.015573 +c(-1,1)*1.96*0.005099)
 ```
 ::::
@@ -1849,7 +1849,7 @@ Hvad hvis vi øger med 5 år?
 
 ::::
 :::: {.fragment}
-```{r echo = TRUE}
+```{r femaars, echo = TRUE}
 exp(-0.015573*5)
 ```
 ::::
@@ -1861,7 +1861,7 @@ Koefficienten ganger vi "bare" med 5. Usikkerheden - den akkumulerer, så den sk
 ::::
 :::: {.fragment}
 Så:
-```{r echo = TRUE}
+```{r ki-femaar, echo = TRUE}
 exp(-0.015573*5 +c(-1,1)*1.96*0.005099*5)
 ```
 ::::
@@ -1897,7 +1897,7 @@ Vi har følgende variable:
 :::: {.smaller}
 De første 6 observationer:
 
-```{r echo = FALSE}
+```{r oxygen-data, echo = FALSE}
 ilt_data <- tribble(~Allokering, ~diagn_cancer, ~blod, ~bmi, ~dead,
 "Y", "n", "n", 29.3, 0,
 "X", "n", "n", 28.1 ,0,
@@ -1907,7 +1907,7 @@ ilt_data <- tribble(~Allokering, ~diagn_cancer, ~blod, ~bmi, ~dead,
 "Y", "n", "n", 18.2, 0)
 ```
 
-```{r}
+```{r oxygen-head}
 head(ilt_data)
 ```
 
@@ -1971,7 +1971,7 @@ En logistisk regression med dead som kategorisk responsvariabel og bmi som konti
 
 Når vi gør det, får vi følgende resultat (de synes det er sjovt at fjerne dele af output):
 
-```{r echo = FALSE}
+```{r laparotomi, echo = FALSE}
 library(tidyverse)
 library(gt)
 
@@ -2121,7 +2121,7 @@ er de glade for at nævne at det er tæt på at være signifikant.
 
 Tabellen deles nu op efter den opererede patients diagnose (cancer, ja/nej):
 
-```{r echo = FALSE}
+```{r labarotomi-tabel, echo = FALSE}
 dead <- c(
   rep(1,101), rep(1,74), rep(0,188), rep(0,213),
   rep(1,38),  rep(1,33), rep(0,226), rep(0,205)
@@ -2139,7 +2139,7 @@ diagn_cancer <- c(
 
 ```
 
-```{r echo = TRUE}
+```{r allokerings-tabel, echo = TRUE}
 table(dead, Allokering, diagn_cancer)
 
 ```
@@ -2205,7 +2205,7 @@ Så ilt-regime har betydning for cancerpatienter, men ikke for ikke-cancerpatien
 
 583 personer er henvist til undersøgelse pga mistanke om leversygdom
 De første seks observationer:
-```{r}
+```{r levertal-head}
 library(tidyverse)
 tribble(~age, ~albumin, ~ratio, ~globulin, ~status, ~idnr, ~sex, ~l_ratio,
 65, 3.3, 0.90, 3.666667, 1, 1, "F",  -0.1053605,

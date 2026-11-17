@@ -49,7 +49,7 @@ Der er typisk to opgaver - med delspørgsmål
 :::: smaller
 
 - Normalfordelingseksersits
-- Beregning af konfidensintervaller og signifikans (SEMS og KI for middelværdier)
+- Beregning af konfidensintervaller og signifikans (SEM og KI for middelværdier)
 - Hypotesetest - primært parret t-test
 - Vurdering af konfidensinterval baseret på antal observationer. 
 - Sandsynligheder for kategoriske variable. RR, OR, konfidensintervaller og signifkans

@@ -1,0 +1,20 @@
+  <script>
+        (() => {
+          let lock;
+
+          async function keepScreenOn() {
+            if (!navigator.wakeLock || document.hidden || lock?.released === false) {
+              return;
+            }
+
+            try {
+              lock = await navigator.wakeLock.request("screen");
+            } catch (error) {
+              console.warn("Kunne ikke holde skærmen tændt.", error);
+            }
+          }
+
+          document.addEventListener("visibilitychange", keepScreenOn);
+          keepScreenOn();
+        })();
+        </script>

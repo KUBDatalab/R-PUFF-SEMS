@@ -5,6 +5,9 @@ format:
   revealjs:
     logo: "kubdatalab.png"
     css: webr-custom.css
+    html-math-method: mathjax
+    include-after-body: wake-lock.html
+    slide-number: "c/t"
 engine: knitr
 filters:
   - webr
@@ -201,7 +204,7 @@ proportioner?
 
 Hvis vi kender værdierne af fire af dem - så kan vi finde værdien af den femte.
 
-## Og hvad spørges der til til eksamen?
+## Og hvad spørges der om til eksamen?
 
 :::: {.smaller}
 

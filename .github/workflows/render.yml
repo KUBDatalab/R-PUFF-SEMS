@@ -40,6 +40,8 @@ jobs:
         run: quarto install chrome-headless-shell
 
       - name: Install TinyTeX
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: quarto install tinytex --update-path
 
       - name: Install DeckTape

@@ -1298,7 +1298,7 @@ HUSK! Vi regner på log(RR)
 ::::
 :::: {.column}
 :::: smaller
-```{r dtp-status-table}
+```{r dtp-status-table-2}
 table(dtp,status)
 ```
 ::::

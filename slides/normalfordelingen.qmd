@@ -472,12 +472,12 @@ $P(X \geq -1) + P(X < -1) = 1$
 
 . . .
 
-$P(X \geq -1) = 1 - P(X < -1)
+$P(X \geq -1) = 1 - P(X < -1)$
 
 
 ## qnorm
 
-qnorm(p) fortæller os den værdi _x_, hvor sandsynligheden for at være mindre end _x_ er _p_. 
+qnorm(p) fortæller os den værdi _x_, hvor sandsynligheden for at være mindre end _x_, er _p_. 
 
 . . . 
 
@@ -1253,7 +1253,9 @@ standardafvigelse $\sigma = 3.2$. Hvor stor en andel af værdierne
 er mindre end 10?
 
 :::: {.fragment}
-Med andre ord, hvad er: $P(X < 10)$
+Med andre ord, hvad er: 
+
+$P(X < 10)$
 ::::
 :::: {.fragment}
 Transformer til standardnormalfordelingen:  
@@ -1472,7 +1474,7 @@ Tavle!
 ::::
 
 ::::notes
-```{r}
+```{r echo = TRUE}
 pnorm((0.92-0.719)/0.068) - pnorm((0.7-0.719)/0.068)
 ```
 ::::

@@ -362,6 +362,12 @@ $\sigma$ er den "sande" standardafvigelse i populationen. Vi har ikke målt på 
 
 ::::
 
+:::: notes
+x-hat er vores estimat på en værdi for x. Vi ved det ikke. Det er et estimat. Derfor hatten. Hvorfor en hat? En konvention der formentlig skyldes Ronald Fisher, en af de helt store på det her område, der brugte det i en bog fra 1922. 
+
+::::
+
+
 ## En del af en eksamensopgave
 :::: {.columns}
 :::: {.column}
@@ -392,10 +398,10 @@ Ja, det ligner noget vi har set før. Dengang skulle vi se på det interval der 
 
 :::: notes
 
-$SEM_{dia} = \frac{0.068}{\sqrt(227)}$
+$SEM_{dia} = \frac{0.068/}{\sqrt{227}}$
 
 
-$SEM_{ikke-dia} = \frac{0.057}{\sqrt(140)}$
+$SEM_{ikke-dia} = \frac{0.057}{\sqrt{140}}$
 
 det vi skal lægge mærke til er, at middel for diabetikere ikke er indeholdt i ki for non diabetikere.
 Og omvendt.  
@@ -543,6 +549,11 @@ Vi kalder $H_0$ for "null"-hypotesen, fordi "null" er en prætentiøs måde at s
 ::::
 
 ::::
+
+:::: notes
+Hvorfor theta? Det er også Fisher der fandt på det. 
+::::
+
 ## Den alternative hypotese
 :::: smaller
 

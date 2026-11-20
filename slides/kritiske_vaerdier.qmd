@@ -34,7 +34,7 @@ Det kan vi illustere:
 
 # Tosidet kritisk område
 
-Her tester vi om vores estimat er forskelligt fra en bestemt værdi. Eksempelvis om om forskellen på to middelværdier er forskellig fra 0. 
+Her tester vi om vores estimat er forskelligt fra en bestemt værdi. Eksempelvis om forskellen på to middelværdier er forskellig fra 0. 
 
 $H_0: \mu_1 = \mu_2$
 

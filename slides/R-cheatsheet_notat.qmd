@@ -100,13 +100,18 @@ c(-1,1)*1.96*SE
 Og lægger vi 10 til det, lægger vi 10 til hvert element i det resultat.
 
 
-Bemærk også at vi ikke ændrede på vektoren:
+Når vi laver matematik på en vektor, ændrer vi den ikke:
 
+```{r}
+vektor + 1
+```
+
+Men `vektor` er uændret:
 ```{r}
 vektor
 ```
 
-Vil vi gøre det skal vi huske at gemme resultatet i vektoren. Eller "objektet" som vi også kalder den_
+Vil ændre vektorens indhold skal vi huske at gemme resultatet i vektoren. Eller "objektet" som vi også kalder den_
 
 ```{r}
 vektor <- vektor + 1

@@ -276,7 +276,7 @@ $$
 
 
 $f(x)$ er sandsynligheden for at se en observation med værdien x.  
-$\mu$ og $\sigma$ har vi mødt før.
+$\mu$ og $\sigma$ har vi mødt før, det var populationens middelværdi og standardafvigelse.
 
 . . . 
  

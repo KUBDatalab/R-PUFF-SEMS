@@ -41,6 +41,8 @@ SE
 
 HUSK der er forskel på store og små bogstaver. `SE` er noget andet end `se`.
 
+Det vi laver her er et såkaldt `objekt`.
+
 ## Vektorer
 
 Vi har undertiden behov for at arbejde med mere end en værdi. Det kalder vi en "vektor"

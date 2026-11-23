@@ -39,7 +39,7 @@
     "href": "slides/intro.html#noter-om-historiske-opgaver",
     "title": "Intro",
     "section": "Noter om historiske opgaver",
-    "text": "Noter om historiske opgaver\nDer er typisk to opgaver - med delspørgsmål\n\n\nNormalfordelingseksersits\nBeregning af konfidensintervaller og signifikans (SEM og KI for middelværdier)\nHypotesetest - primært parret t-test\nVurdering af konfidensinterval baseret på antal observationer.\nSandsynligheder for kategoriske variable. RR, OR, konfidensintervaller og signifkans\nChi-i-anden test\nLineær regression, tolkning og prediktion\nLogistisk regression, tolkning og prediktion\nPowerberegninger"
+    "text": "Noter om historiske opgaver\nDer er typisk to opgaver - med delspørgsmål\n\n\nNormalfordelingseksersits\nBeregning af konfidensintervaller og signifikans (SEM og KI for middelværdier)\nHypotesetest - primært parret t-test\nVurdering af konfidensinterval baseret på antal observationer.\nSandsynligheder for kategoriske variable. RR, OR, konfidensintervaller og signifkans\nChi-i-anden test\nLineær regression, tolkning og prediktion\nLogistisk regression, tolkning og prediktion\nPowerberegninger\nOverlevelsesanalyse"
   },
   {
     "objectID": "slides/intro.html#vi-kører-slides",
@@ -53,7 +53,7 @@
     "href": "slides/intro.html#spørg",
     "title": "Intro",
     "section": "Spørg!",
-    "text": "Spørg!\n\nDer er 6 hovedoverskrifter.\n\nOg vi har 2x3 = 6 timer.\n\n\nSå ca. en time til hver.\n\n\nDen sidste handler om en ret sjælden type opgaver, så den bruger vi som buffer.\n\n\nVi kører en smule teori - nok til at kunne løse opgaver.\n\n\nOg så løser vi opgaver.\n\n\nNogen af emnerne har ikke så mange opgaver. Men de dukker op igen senere!\n\n\nDet er ikke meget vigtigt at I har en dyb forståelse af teorien.\n\n\nMen det er lidt vigtigt at I ikke er alt for forvirrede over metoderne.\n\n\nSå spørg!\n\n\nLass uns anfangen!"
+    "text": "Spørg!\n\nDer er 7 hovedoverskrifter.\n\nOg vi har 3x3 = 9 timer.\n\n\nSå ca. fem kvarter til hver.\n\n\nDe sidste handler om en ret sjælden type opgaver, så dem bruger vi som buffer.\n\n\nVi kører en smule teori - nok til at kunne løse opgaver.\n\n\nOg så løser vi opgaver.\n\n\nNogen af emnerne har ikke så mange opgaver. Men de dukker op igen senere!\n\n\nDet er ikke meget vigtigt at I har en dyb forståelse af teorien.\n\n\nMen det er lidt vigtigt at I ikke er alt for forvirrede over metoderne.\n\n\nSå spørg!\n\n\nLass uns anfangen!"
   },
   {
     "objectID": "slides/R-cheatsheet_notat.html",
@@ -798,11 +798,11 @@
     "text": "Opgave fortsat 2\n\n\n\nNu blev følgende analyse udført med tilhørende udskrift:\n\nsummary(coxph(Surv(futime, fustat == 1) ~ factor(transplant), \n        data = d_sems))\n\nn= 103, number of events= 75\n\n\n\n\n\n\n\n\n\ncoef\nexp(coef)\nse(coef)\nz\nPr(&gt;|z|)\n\n\n\n\nfactor(transplant)1\n-1.3234\n0.2662\n0.2438\n-5.428\n5.69e-08 ***\n\n\n\n\n\n\n\nHvilken analyse? Fortolk resulatet. Vurder kritisk om analysen er korrekt i denne sammenhæng. Hvis ikke, beskriv problemet og hvordan det påvirker konklusionen. (så… Mon ikke der er et problem?)\n\nCox-regression (coxph) med transplant som forklarende (kategorisk) variabel (factor(transplant))\n\n\nEstimatet for transplant er -1.32.\n\n\n\n\n\nHazard ration er derfor exp(-1.32) = 0.27\n\n\nDet vil vi fortolke som at patienter der er blevet transplanteret, har 1-0.27 = 0.73, ca. 73% lavere dødsrate end patienter der ikke er blevet transplanteret.\n\n\nI opgaveteksten stod: “Vi følger patienter med svær hjertesygdom over tid, fra de blev inkluderet på venteliste - for at få en hjertetransplantation.”\n\n\nHvad fortæller det os?\n\n\nAt transplantation ikke er baseline variabel. Det var ikke fra transplantation at vi fulgte dem!\n\n\nPatienter skal overleve fra inklusion på venteliste, frem til transplantationen for at vi overhovedet ser dem.\n\n\nTransplantation er derfor en tidsafhængig variabel.\n\n\nOg de patienter der får transplantationen, er derfor “udødelige”. For de skal overleve for at vi har dem med.\n\n\nDen tranplanterede gruppe får derfor en kunstig overlevelsesfordel.\n\n\nEffekten af transplantation overvurderes derfor.\n\n\nOg den estimerede hazard ratio bliver derfor lav.\n\n\nHer husker vi at nævne “immortal time bias”"
   },
   {
-    "objectID": "slides/survival.html#punktnoter-til-fordeling",
-    "href": "slides/survival.html#punktnoter-til-fordeling",
+    "objectID": "slides/survival.html#huskeliste",
+    "href": "slides/survival.html#huskeliste",
     "title": "Overlevelsesanalyse",
-    "section": "Punktnoter til fordeling",
-    "text": "Punktnoter til fordeling\nSamme femårsoverlevelse kan dække over meget forskellige forløb. Tjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i. Kurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri. Kurven falder ved observerede hændelser og ligger fladt imellem dem. En censureringsstreg viser, hvor længe en deltager bidrog med opfølgning. Frafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose. En lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk. Når få er i risiko, kan én hændelse give et stort fald. Den lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint. Krydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid. Medianen aflæses dér, hvor kurven når eller passerer 50 %. »Median ikke nået« kan også skyldes kort opfølgning. Log-rank-testen sammenligner de samlede overlevelsesforløb. Ved proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri. En lille p-værdi kan sagtens ledsage en klinisk beskeden forskel."
+    "section": "Huskeliste",
+    "text": "Huskeliste\n\n\nSamme femårsoverlevelse kan dække over meget forskellige forløb.\nTjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i.\nKurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri.\nKurven falder ved observerede hændelser og ligger fladt imellem dem.\nEn censureringsstreg viser, hvor længe en deltager bidrog med opfølgning.\nFrafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose.\nEn lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk.\nNår få er i risiko, kan én hændelse give et stort fald.\nDen lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint.\nKrydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid.\nMedianen aflæses dér, hvor kurven når eller passerer 50 %.\n“Median ikke nået” kan også skyldes kort opfølgning.\nLog-rank-testen sammenligner de samlede overlevelsesforløb.\nVed proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri.\nEn lille p-værdi kan sagtens ledsage en klinisk beskeden forskel."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
@@ -1782,7 +1782,7 @@
     "href": "slides/power.html#et-par-fælder",
     "title": "Powerberegninger",
     "section": "Et par fælder",
-    "text": "Et par fælder\nVi runder altid op. Hvis n beregnes til 7.8, runder vi op til 8.\nResultatet af vores beregninger er næsten altid antallet af mange observationer der skal være i hver gruppe.\nHvis n er 8, skal vi bruge 16 observationer.\nUndtagelsen er selvfølgelig hvis vi får at vide at der er 100 observationer i den ene gruppe. Så får vi svaret på hvor mange vi skal bruge i den anden gruppe."
+    "text": "Et par fælder\nVi runder altid op. Hvis n beregnes til 7.8, runder vi op til 8.\nResultatet af vores beregninger er næsten altid antallet af hvor mange observationer der skal være i hver gruppe.\nHvis n er 8, skal vi bruge 16 observationer.\nUndtagelsen er selvfølgelig hvis vi får at vide at der er 100 observationer i den ene gruppe. Så får vi svaret på hvor mange vi skal bruge i den anden gruppe."
   },
   {
     "objectID": "slides/power.html#så-er-vi-klar-lad-os-tage-et-eksempel",

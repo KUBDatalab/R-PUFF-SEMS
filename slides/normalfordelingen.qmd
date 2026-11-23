@@ -378,6 +378,22 @@ Hvis vores observationer er normalfordelte med $\mu = 0$ og $\sigma = 1$
 
 - For hvilken værdi (af $\sigma$) er 15.9% af observationerne mindre (end denne værdi)? <span class="fragment"> -1 ($\sigma$) </span>
 
+:::: notes
+
+```{r echo = TRUE, eval = FALSE}
+pnorm(1)*100
+```
+
+```{r echo = TRUE, eval = FALSE}
+pnorm(-2)*100
+```
+
+```{r echo = TRUE, eval = FALSE}
+qnorm(0.159)
+```
+
+::::
+
 
 ## Og et par stykker til
 
@@ -576,15 +592,21 @@ Det er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være m
 ::::
 
 
+:::: notes
+```{r, echo = TRUE, eval = FALSE}
+pnorm(-3)
+```
+
+::::
+
+
 ## Øvelse 2
 
 :::: {.columns}
 :::: {.column}
 Hvilken andel af observationerne i standardnormalfordelingen er mindre end 2?
 
-::::notes
-Det er en sandsynlighed vi er på jagt efter så pnorm
-::::
+
 
 ::::
 :::: {.column}
@@ -597,6 +619,13 @@ Det er en sandsynlighed vi er på jagt efter så pnorm
 ::::
 ::::
 
+::::notes
+Det er en sandsynlighed vi er på jagt efter så pnorm
+
+```{r echo = TRUE, eval = FALSE}
+pnorm(2)
+```
+::::
 
 ## Øvelse 3
 
@@ -618,6 +647,15 @@ observationerne er mindre end 2. Sandsynligheden for at observationen er, er 1. 
 
 ```
 ::::
+::::
+
+
+:::: notes
+
+```{r, echo = TRUE, eval = FALSE}
+pnorm(2)
+```
+
 ::::
 
 ## Øvelse 4
@@ -645,6 +683,12 @@ Nu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm
 ::::
 ::::
 
+:::: notes
+
+```{r echo = TRUE, eval = FALSE}
+qnorm(0.25)
+```
+::::
 
 ## Øvelse 5
 
@@ -665,6 +709,13 @@ Det svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men 
 
 ```
 ::::
+::::
+
+:::: notes
+
+```{r, echo = TRUE, eval = FALSE}
+qnorm(1-0.4)
+```
 ::::
 
 
@@ -690,6 +741,22 @@ Sandsynligheden er arealet under kurven fra -uendelig til værdien. Så. Arealet
 ::::
 ::::
 
+:::: notes
+Hvilken andel af observationerne ligger mellem 1 og 1.5?
+
+Hvilken andel ligger under 1.5?
+
+Hvilken andel ligger under 1?
+
+Det er så
+
+```{r, echo = TRUE, eval = FALSE}
+pnorm(1.5) - pnorm(1)
+```
+
+
+::::
+
 
 ## Øvelse 7
 
@@ -706,7 +773,9 @@ Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på d
 
 Vi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)
 
-Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved qnorm(1-0.265)
+Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved:
+
+qnorm(1-0.265)
 
 ::::
 
@@ -738,6 +807,10 @@ Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på d
 Vi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien
 
 Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.
+
+qnorm(0.025)
+
+qnorm(1-0.025)
 
 ::::
 
@@ -1276,6 +1349,8 @@ $P(Z < \frac{10 - \mu}{\sigma})$
 
 ::::notes
 
+transformer til standardnormalfordelingen:
+
 pnorm((10-12.5)/3.2)
 
 ::::
@@ -1319,6 +1394,25 @@ $10/qnorm(0.75) = \sigma$
 ::::
 ::::
 
+:::: notes
+
+Standardiser
+
+𝑃⁡(𝑍 <
+95−𝜇
+𝜎
+ 
+) =0.75
+
+Indsæt og brug qnorm til at komme af med P
+
+(95 −85)/𝜎 =𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75)
+
+Isoler 𝜎
+
+10/𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75) =𝜎
+::::
+
 
 ## Manglende værdi, kendt procentil:
 :::: {.columns}
@@ -1358,6 +1452,26 @@ $\frac{y-50}{8} = qnorm(0.9)$
 ```
 
 ::::
+::::
+
+:::: notes
+P(X < y) = 0.9
+
+Standardiser
+
+P(Z < (y-μ)/σ) = 0.9
+
+qnorm of at komme af med P
+
+(y-μ)/σ = qnorm(0.9)
+
+Indsæt (y-50)/8 = qnorm(0.9)
+
+Isoler y
+
+y <- qnorm(0.9)*8+50
+y
+
 ::::
 
 ## Manglende middelværdi (variant 2):

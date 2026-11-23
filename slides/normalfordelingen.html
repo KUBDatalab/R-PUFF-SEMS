@@ -2423,6 +2423,27 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <ul>
 <li>For hvilken værdi (af <span class="math inline">\(\sigma\)</span>) er 15.9% af observationerne mindre (end denne værdi)? <span class="fragment"> -1 (<span class="math inline">\(\sigma\)</span>) </span></li>
 </ul>
+<aside class="notes">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.159</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section id="og-et-par-stykker-til" class="slide level2">
@@ -2468,7 +2489,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02275013</code></pre>
 </div>
@@ -2512,7 +2533,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.959964</code></pre>
 </div>
@@ -2536,7 +2557,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>
 </div>
@@ -2606,14 +2627,10 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
-</section>
-<section id="øvelse-2" class="slide level2">
-<h2>Øvelse 2</h2>
-<div class="columns">
-<div class="column">
-<p>Hvilken andel af observationerne i standardnormalfordelingen er mindre end 2?</p>
 <aside class="notes">
-<p>Det er en sandsynlighed vi er på jagt efter så pnorm</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2625,10 +2642,32 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="øvelse-2" class="slide level2">
+<h2>Øvelse 2</h2>
+<div class="columns">
+<div class="column">
+<p>Hvilken andel af observationerne i standardnormalfordelingen er mindre end 2?</p>
 </div><div class="column">
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<p>Det er en sandsynlighed vi er på jagt efter så pnorm</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="øvelse-3" class="slide level2">
 <h2>Øvelse 3</h2>
@@ -2652,6 +2691,21 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="øvelse-4" class="slide level2">
 <h2>Øvelse 4</h2>
@@ -2678,6 +2732,21 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="øvelse-5" class="slide level2">
 <h2>Øvelse 5</h2>
@@ -2701,6 +2770,21 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="øvelse-6" class="slide level2">
 <h2>Øvelse 6</h2>
@@ -2724,6 +2808,25 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<p>Hvilken andel af observationerne ligger mellem 1 og 1.5?</p>
+<p>Hvilken andel ligger under 1.5?</p>
+<p>Hvilken andel ligger under 1?</p>
+<p>Det er så</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="øvelse-7" class="slide level2">
 <h2>Øvelse 7</h2>
@@ -2734,7 +2837,8 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>Det der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.</p>
 <p>0.53/2 = 0.265</p>
 <p>Vi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)</p>
-<p>Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved qnorm(1-0.265)</p>
+<p>Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved:</p>
+<p>qnorm(1-0.265)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2761,6 +2865,8 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>0.05/2 = 0.025</p>
 <p>Vi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien</p>
 <p>Og er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.</p>
+<p>qnorm(0.025)</p>
+<p>qnorm(1-0.025)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2790,7 +2896,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; 2)</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9772499</code></pre>
 </div>
@@ -2802,7 +2908,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; ? ) = 0.4</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.2533471</code></pre>
 </div>
@@ -2814,7 +2920,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <p>P(Z &lt; 3) - P(Z &lt; 1)</p>
 <p>Hvor svaret er:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02140023</code></pre>
 </div>
@@ -2867,7 +2973,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.692</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.692</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04532299</code></pre>
 </div>
@@ -2942,14 +3048,14 @@ Når data, X, er normalfordelt, skriver vi det som X ~ <span class="math inline"
 <section id="øvelser-2" class="slide level2">
 <h2>Øvelser</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2533471</code></pre>
 </div>
@@ -3117,7 +3223,7 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 <div class="fragment">
 <p>Eller:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="dv">200</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="dv">40</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="dv">200</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="dv">40</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 121.6 278.4</code></pre>
 </div>
@@ -3141,7 +3247,7 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.644854</code></pre>
 </div>
@@ -3191,6 +3297,7 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
 <aside class="notes">
+<p>transformer til standardnormalfordelingen:</p>
 <p>pnorm((10-12.5)/3.2)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -3228,6 +3335,25 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 <div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<p>Standardiser</p>
+<p>𝑃⁡(𝑍 &lt; 95−𝜇 𝜎</p>
+<p>) =0.75</p>
+<p>Indsæt og brug qnorm til at komme af med P</p>
+<p>(95 −85)/𝜎 =𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75)</p>
+<p>Isoler 𝜎</p>
+<p>10/𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75) =𝜎</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="manglende-værdi-kendt-procentil" class="slide level2">
 <h2>Manglende værdi, kendt procentil:</h2>
@@ -3253,6 +3379,26 @@ P(Z &lt; (y - 200 )/ 40 ) = 0.975</p>
 <div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div></div>
+<aside class="notes">
+<p>P(X &lt; y) = 0.9</p>
+<p>Standardiser</p>
+<p>P(Z &lt; (y-μ)/σ) = 0.9</p>
+<p>qnorm of at komme af med P</p>
+<p>(y-μ)/σ = qnorm(0.9)</p>
+<p>Indsæt (y-50)/8 = qnorm(0.9)</p>
+<p>Isoler y</p>
+<p>y &lt;- qnorm(0.9)*8+50 y</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="manglende-middelværdi-variant-2" class="slide level2">
 <h2>Manglende middelværdi (variant 2):</h2>
@@ -3288,7 +3434,7 @@ P(85 &lt; X &lt; y) = 0.8</p>
 </div>
 <aside class="notes">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> (<span class="fl">0.2</span><span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)))<span class="sc">*</span><span class="dv">15</span><span class="sc">+</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> (<span class="fl">0.2</span><span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)))<span class="sc">*</span><span class="dv">15</span><span class="sc">+</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 126.0293</code></pre>
 </div>
@@ -3324,7 +3470,7 @@ P(85 &lt; X &lt; y) = 0.8</p>
 <p>Beregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fl">0.81</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.057</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a><span class="fl">0.81</span> <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.057</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.69828 0.92172</code></pre>
 </div>
@@ -3348,7 +3494,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
 </div></div>
 <aside class="notes">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">pnorm</span>((<span class="fl">0.92-0.719</span>)<span class="sc">/</span><span class="fl">0.068</span>) <span class="sc">-</span> <span class="fu">pnorm</span>((<span class="fl">0.7-0.719</span>)<span class="sc">/</span><span class="fl">0.068</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a><span class="fu">pnorm</span>((<span class="fl">0.92-0.719</span>)<span class="sc">/</span><span class="fl">0.068</span>) <span class="sc">-</span> <span class="fu">pnorm</span>((<span class="fl">0.7-0.719</span>)<span class="sc">/</span><span class="fl">0.068</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6084767</code></pre>
 </div>
@@ -3379,7 +3525,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
 <p>Hvor stor en andel af observationerne er mindre end 50 når middelværdien er 47 og standardafvigelsen er 42?</p>
 <p>Vi kan skalere de 50, og putte resultatet ind i pnorm.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">pnorm</span>((<span class="dv">50-47</span>)<span class="sc">/</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">pnorm</span>((<span class="dv">50-47</span>)<span class="sc">/</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5284717</code></pre>
 </div>
@@ -3387,7 +3533,7 @@ P(X &lt; 0.92) - P(X &lt; 0.7)</p>
 <p>Eller, vi kan lade R gøre det for os:</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">47</span>, <span class="at">sd =</span> <span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">47</span>, <span class="at">sd =</span> <span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5284717</code></pre>
 </div>

@@ -914,7 +914,7 @@
     "href": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
     "title": "Normalfordelingen",
     "section": "Et par hurtige øvelser",
-    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\))"
+    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\)) \n\n\n\npnorm(1)*100\n\n\npnorm(-2)*100\n\n\nqnorm(0.159)"
   },
   {
     "objectID": "slides/normalfordelingen.html#og-et-par-stykker-til",
@@ -984,56 +984,56 @@
     "href": "slides/normalfordelingen.html#øvelse-1",
     "title": "Normalfordelingen",
     "section": "Øvelse 1",
-    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være mere præcis.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være mere præcis.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(-3)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-2",
     "href": "slides/normalfordelingen.html#øvelse-2",
     "title": "Normalfordelingen",
     "section": "Øvelse 2",
-    "text": "Øvelse 2\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 2\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDet er en sandsynlighed vi er på jagt efter så pnorm\n\npnorm(2)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-3",
     "href": "slides/normalfordelingen.html#øvelse-3",
     "title": "Normalfordelingen",
     "section": "Øvelse 3",
-    "text": "Øvelse 3\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. Den giver os sandsynligheden for at observationerne er mindre end 2. Sandsynligheden for at observationen er, er 1. Så 1-pnorm(2)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 3\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. Den giver os sandsynligheden for at observationerne er mindre end 2. Sandsynligheden for at observationen er, er 1. Så 1-pnorm(2)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(2)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-4",
     "href": "slides/normalfordelingen.html#øvelse-4",
     "title": "Normalfordelingen",
     "section": "Øvelse 4",
-    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nI standardnormalfordelingen\n\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm(0.25)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nI standardnormalfordelingen\n\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm(0.25)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(0.25)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-5",
     "href": "slides/normalfordelingen.html#øvelse-5",
     "title": "Normalfordelingen",
     "section": "Øvelse 5",
-    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6. Så: qnorm(1-0.4) eller qnorm(0.6)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6. Så: qnorm(1-0.4) eller qnorm(0.6)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(1-0.4)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-6",
     "href": "slides/normalfordelingen.html#øvelse-6",
     "title": "Normalfordelingen",
     "section": "Øvelse 6",
-    "text": "Øvelse 6\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\n\nVi kender værdierne, og skal bruge sandsynlighederne. Så pnorm. Sandsynligheden er arealet under kurven fra -uendelig til værdien. Så. Arealet fra -uendelig til 1.5. Minus arealet fra -uendelig til 1, trukket fra, giver os arealet mellem de to punkter\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 6\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\n\nVi kender værdierne, og skal bruge sandsynlighederne. Så pnorm. Sandsynligheden er arealet under kurven fra -uendelig til værdien. Så. Arealet fra -uendelig til 1.5. Minus arealet fra -uendelig til 1, trukket fra, giver os arealet mellem de to punkter\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\nHvilken andel ligger under 1.5?\nHvilken andel ligger under 1?\nDet er så\n\npnorm(1.5) - pnorm(1)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-7",
     "href": "slides/normalfordelingen.html#øvelse-7",
     "title": "Normalfordelingen",
     "section": "Øvelse 7",
-    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved qnorm(1-0.265)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved:\nqnorm(1-0.265)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
     "href": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
     "title": "Normalfordelingen",
     "section": "Øvelse 8 - og det vigtigste tal I skal kende!",
-    "text": "Øvelse 8 - og det vigtigste tal I skal kende!\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 95% er 1 - 0.95 = 0.05. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.05/2 = 0.025\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse 8 - og det vigtigste tal I skal kende!\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 95% er 1 - 0.95 = 0.05. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.05/2 = 0.025\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\nqnorm(0.025)\nqnorm(1-0.025)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/normalfordelingen.html#hvorfor-var-det-vigtigt",
@@ -1194,21 +1194,21 @@
     "href": "slides/normalfordelingen.html#øvelse---manglende-procentil",
     "title": "Normalfordelingen",
     "section": "Øvelse - Manglende procentil:",
-    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\n\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\n\n\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\npnorm((10-12.5)/3.2)"
+    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\n\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\n\n\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ntransformer til standardnormalfordelingen:\npnorm((10-12.5)/3.2)"
   },
   {
     "objectID": "slides/normalfordelingen.html#øvelse---manglende-sigma",
     "href": "slides/normalfordelingen.html#øvelse---manglende-sigma",
     "title": "Normalfordelingen",
     "section": "Øvelse - Manglende \\(\\sigma\\)",
-    "text": "Øvelse - Manglende \\(\\sigma\\)\n\n\nI en normalfordelt population er \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er \\(\\sigma\\) for denne fordeling?\n\nP(X &gt; 95) = 0.25\n\n\nP(X&lt;95) = 1-0.25 = 0.75\n\n\n\\(P(Z&lt; \\frac{95-\\mu}{\\sigma}) = 0.75\\)\n\n\n\\((95-85)/\\sigma = qnorm(0.75)\\)\n\n\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Øvelse - Manglende \\(\\sigma\\)\n\n\nI en normalfordelt population er \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er \\(\\sigma\\) for denne fordeling?\n\nP(X &gt; 95) = 0.25\n\n\nP(X&lt;95) = 1-0.25 = 0.75\n\n\n\\(P(Z&lt; \\frac{95-\\mu}{\\sigma}) = 0.75\\)\n\n\n\\((95-85)/\\sigma = qnorm(0.75)\\)\n\n\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nStandardiser\n𝑃⁡(𝑍 &lt; 95−𝜇 𝜎\n) =0.75\nIndsæt og brug qnorm til at komme af med P\n(95 −85)/𝜎 =𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75)\nIsoler 𝜎\n10/𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75) =𝜎"
   },
   {
     "objectID": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
     "href": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
     "title": "Normalfordelingen",
     "section": "Manglende værdi, kendt procentil:",
-    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\nEller: P(X&lt;y) = 0.9\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\n\\(\\frac{y-50}{8} = qnorm(0.9)\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\nEller: P(X&lt;y) = 0.9\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\n\\(\\frac{y-50}{8} = qnorm(0.9)\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nP(X &lt; y) = 0.9\nStandardiser\nP(Z &lt; (y-μ)/σ) = 0.9\nqnorm of at komme af med P\n(y-μ)/σ = qnorm(0.9)\nIndsæt (y-50)/8 = qnorm(0.9)\nIsoler y\ny &lt;- qnorm(0.9)*8+50 y"
   },
   {
     "objectID": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",

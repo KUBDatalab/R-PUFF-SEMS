@@ -1054,20 +1054,22 @@ Her husker vi at nævne "immortal time bias"
 
 ::::
 
-## Punktnoter til fordeling
+## Huskeliste
 
-Samme femårsoverlevelse kan dække over meget forskellige forløb.
-Tjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i.
-Kurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri.
-Kurven falder ved observerede hændelser og ligger fladt imellem dem.
-En censureringsstreg viser, hvor længe en deltager bidrog med opfølgning.
-Frafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose.
-En lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk.
-Når få er i risiko, kan én hændelse give et stort fald.
-Den lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint.
-Krydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid.
-Medianen aflæses dér, hvor kurven når eller passerer 50 %.
-»Median ikke nået« kan også skyldes kort opfølgning.
-Log-rank-testen sammenligner de samlede overlevelsesforløb.
-Ved proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri.
-En lille p-værdi kan sagtens ledsage en klinisk beskeden forskel.
+:::: smaller
+- Samme femårsoverlevelse kan dække over meget forskellige forløb.
+- Tjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i.
+- Kurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri.
+- Kurven falder ved observerede hændelser og ligger fladt imellem dem.
+- En censureringsstreg viser, hvor længe en deltager bidrog med opfølgning.
+- Frafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose.
+- En lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk.
+- Når få er i risiko, kan én hændelse give et stort fald.
+- Den lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint.
+- Krydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid.
+- Medianen aflæses dér, hvor kurven når eller passerer 50 %.
+- "Median ikke nået" kan også skyldes kort opfølgning.
+- Log-rank-testen sammenligner de samlede overlevelsesforløb.
+- Ved proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri.
+- En lille p-værdi kan sagtens ledsage en klinisk beskeden forskel.
+::::

@@ -57,6 +57,7 @@ Der er typisk to opgaver - med delspørgsmål
 - Lineær regression, tolkning og prediktion
 - Logistisk regression, tolkning og prediktion
 - Powerberegninger
+- Overlevelsesanalyse
 
 ::::
 
@@ -73,16 +74,16 @@ Fordi
 ## Spørg!
 
 :::: {.smaller}
-Der er 6 hovedoverskrifter.
+Der er 7 hovedoverskrifter.
 
 ::::{.fragment}
-Og vi har 2x3 = 6 timer.
+Og vi har 3x3 = 9 timer.
 ::::
 ::::{.fragment}
-Så ca. en time til hver.
+Så ca. fem kvarter til hver.
 ::::
 ::::{.fragment}
-Den sidste handler om en ret sjælden type opgaver, så den bruger vi som buffer.
+De sidste handler om en ret sjælden type opgaver, så dem bruger vi som buffer.
 ::::
 ::::{.fragment}
 Vi kører en smule teori - nok til at kunne løse opgaver.

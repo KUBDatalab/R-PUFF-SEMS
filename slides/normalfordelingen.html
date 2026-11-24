@@ -3093,8 +3093,50 @@ Hvad er middelværdi og spredning i denne normalfordeling?</p>
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>P(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side) Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.</p>
-<p>Facit middel = -0.74 spredning = 3.32</p>
+<p>P(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side)</p>
+<p>Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.</p>
+<p>(0.1 - mu)/sd = qnorm(0.60) -&gt; 0.1-mu = qnorm(0.60) * sd</p>
+<p>(1-mu)/sd = qnorm(0.7) -&gt; 1-mu = qnorm(0.7) * sd</p>
+<p>Træk den ene fra den anden</p>
+<p>1- mu - (0.1 - mu) = qnorm(0.7) * sd - qnorm(0.60) * sd 1- 0.1 = sd(qnorm(0.7) - qnorm(0.60))</p>
+<p>s = 3.32</p>
+<p>indsæt og find middel = -0.74</p>
+<p>Ja, Det er en statistikeksamen. Og I skal kunne løse to ligninger med to ubekendte…</p>
+<p>I bør have adgang til Maple, der kan løse ligningerne for jer.</p>
+<p>R kan også direkte. Det kræver så at I forstår lineær algebra…</p>
+<p>Men sætter vi mu = x og sd = y</p>
+<p>Så skal vi have dem på en bestemt form:</p>
+<p>Vi har</p>
+<p>0.1-mu = qnorm(0.60) * sd og 1-mu = qnorm(0.7) * sd</p>
+som bliver til [
+<span class="math display">\[\begin{aligned}
+0.1-x &amp;= \operatorname{qnorm}(0.60)\cdot y\\
+1-x &amp;= \operatorname{qnorm}(0.70)\cdot y
+\end{aligned}\]</span>
+<p>]</p>
+<p>lægger x til på begge sider, og får:</p>
+<p>x + qnorm(0.60)y = 0.1</p>
+<p>og</p>
+<p>x + qnorm(0.7)y = 1</p>
+[
+<span class="math display">\[\begin{pmatrix}
+1 &amp; \operatorname{qnorm}(0.60)\\
+1 &amp; \operatorname{qnorm}(0.70)
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix}
+0.1\\1
+\end{pmatrix}\]</span>
+<p>]</p>
+<p>Det kan vi smide i en matrix_:</p>
+<p>A &lt;- matrix(c(1, qnorm(0.60), 1, qnorm(0.70)), nrow = 2, byrow = TRUE)</p>
+<p>b &lt;- c(0.1, 1)</p>
+<p>Og løse med funktionen <code>solve</code></p>
+<p>solve(A, b)</p>
+<p>første værdi i resultatet er x (mu) den anden y (sd)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

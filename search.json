@@ -805,452 +805,249 @@
     "text": "Huskeliste\n\n\nSamme femårsoverlevelse kan dække over meget forskellige forløb.\nTjek først, hvad hændelsen er, hvor tiden starter, og hvilken enhed den måles i.\nKurvens højde ved et givet tidspunkt er den estimerede sandsynlighed for stadig at være hændelsesfri.\nKurven falder ved observerede hændelser og ligger fladt imellem dem.\nEn censureringsstreg viser, hvor længe en deltager bidrog med opfølgning.\nFrafald kan skævvride kurven, hvis det hænger sammen med deltagernes prognose.\nEn lang, flad hale kan bygge på ganske få deltagere. Tjek number at risk.\nNår få er i risiko, kan én hændelse give et stort fald.\nDen lodrette afstand mellem to kurver ved samme tidspunkt er en forskel i procentpoint.\nKrydsende kurver giver grund til at undersøge, om hazardforholdet ændrer sig over tid.\nMedianen aflæses dér, hvor kurven når eller passerer 50 %.\n“Median ikke nået” kan også skyldes kort opfølgning.\nLog-rank-testen sammenligner de samlede overlevelsesforløb.\nVed proportionale hazards betyder HR = 0,70 en 30 % lavere øjeblikkelig hændelsesrate blandt dem, der stadig er hændelsesfri.\nEn lille p-værdi kan sagtens ledsage en klinisk beskeden forskel."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
-    "href": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
-    "title": "Normalfordelingen",
-    "section": "Hvad er en sandsynlighedsfordeling?",
-    "text": "Hvad er en sandsynlighedsfordeling?\n\n\nNår vi måler noget får vi som regel en række forskellige resultater.\nHøjde af mænd er et eksempel. Nogen er 1,85 meter. Andre 1,80 meter.\nNår vi laver et histogram af alle de målinger, kunne det se således ud:\n\n\n\n\n\n\n\n\n\n\nHvad er mest sandsynligt - at være mellem 190 og 195 cm eller at være mellem 180 og 185 cm høj?"
+    "objectID": "slides/ligninger.html",
+    "href": "slides/ligninger.html",
+    "title": "To ligninger med to ubekendte",
+    "section": "",
+    "text": "pdf"
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling-1",
-    "href": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling-1",
-    "title": "Normalfordelingen",
-    "section": "Hvad er en sandsynlighedsfordeling?",
-    "text": "Hvad er en sandsynlighedsfordeling?\nEn sandsynlighedsfordeling beskriver hvordan vores målinger fordeler sig.\n\nHvad er sandsynligheden for at se en observation der ligger under en bestemt værdi?\nHvad er sandsynligheden for at se en observation der ligger over en bestemt værdi?\nHvad er sandsynligheden for at se en observation der ligger mellem to forskellige værdier?\nI hvilket interval finder vi en bestemt andel af observationerne?"
+    "objectID": "slides/ligninger.html#kan-r-gøre-det",
+    "href": "slides/ligninger.html#kan-r-gøre-det",
+    "title": "To ligninger med to ubekendte",
+    "section": "Kan R gøre det?",
+    "text": "Kan R gøre det?\nDet er stadig lidt træls. R kan gøre det direkte. Men det kræver at man omskriver ligningerne til en bestemt form:\n\\[a\\mu + b\\sigma = c\\] \\[d\\mu + e\\sigma = f\\] Og skriver dem som:\n\\[\n\\begin{bmatrix}\na & b \\\\\nd & e\n\\end{bmatrix}\n\\begin{bmatrix}\nx \\\\\ny\n\\end{bmatrix}\n=\n\\begin{bmatrix}\nc \\\\\nf\n\\end{bmatrix}\n\\]\nI det konkrete tilfælde, omskriver vi\n\\[1 - \\mu = \\text{qnorm}(0.7)\\sigma\\]\ntil\n\\[\\mu + \\text{qnorm}(0.7)\\sigma = 1\\]\nOg\n\\[0.1 - \\mu = \\text{qnorm}(0.6)\\sigma\\]\ntil:\n\\[\\mu + \\text{qnorm}(0.6)\\sigma = 0.1\\]\nPå matrixformen bliver det så:\n\\[\n\\begin{bmatrix}\n1 & qnorm(0.7) \\\\\n1 & qnorm(0.6)\n\\end{bmatrix}\n\\begin{bmatrix}\n\\mu \\\\\n\\sigma\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n1 \\\\\n0.1\n\\end{bmatrix}\n\\]\nHvad hjælper det?\nJo, hvis vi har en matrix A, der er lig med matricen på venstre side, og en vektor b, der er lig vektoren på højre side, så kan R løse det med funktionen:\n\nsolve(A,b)\n\nSå det gør vi:\n\nA &lt;- matrix(c(1, qnorm(0.7), 1, qnorm(0.6)), nrow = 2, byrow = TRUE)\nA\n\n     [,1]      [,2]\n[1,]    1 0.5244005\n[2,]    1 0.2533471\n\n\nog\n\nb &lt;- c(1,0.1)\nb\n\n[1] 1.0 0.1\n\n\nSå kan R løse det:\n\nsolve(A,b)\n\n[1] -0.7412084  3.3203788\n\n\nDen første værdi er \\(\\mu\\) og den anden er \\(\\sigma\\). Fordi:\n\\[\\begin{bmatrix}\n\\mu \\\\\n\\sigma\n\\end{bmatrix}\n\\] Har \\(\\mu\\) som den første værdi, og \\(\\sigma\\) som den anden.\nJeg ved ikke om det er lettere…"
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
-    "href": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
-    "title": "Normalfordelingen",
-    "section": "Hvordan kan vi beskrive alle de her observationer?",
-    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 180.4502 186.4626 177.9874 177.4196 185.7843 180.2988 179.8931 173.9258\n [9] 161.4282 177.1444 176.0613 182.8983 183.7391 172.5858 181.4504 175.7152\n[17] 190.8205 179.2345 191.1287 179.4572 189.3403 180.9383 178.3995 181.1429\n[25] 192.3280 173.8034 174.1068 193.6825 184.9176 167.8660 190.7934 187.2641\n[33] 170.8997 175.9713 189.1951 183.7850 186.4898 176.4555 180.5784 184.0614\n[41] 183.3628 177.0054 182.4882 179.2966 184.9816 168.2755 176.6872 182.8446\n[49] 182.7467 176.8393\n\n\n\nGennemsnit eller middelværdi. Begge ord bruges!\n\n\nHvordan de varierer\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
+    "objectID": "slides/ligninger.html#er-der-ikke-en-pakke-der-kan-gøre-det-for-os",
+    "href": "slides/ligninger.html#er-der-ikke-en-pakke-der-kan-gøre-det-for-os",
+    "title": "To ligninger med to ubekendte",
+    "section": "Er der ikke en pakke der kan gøre det for os?",
+    "text": "Er der ikke en pakke der kan gøre det for os?\nJo. Flere forskellige endda. Det bliver det ikke nødvendigvis meget lettere af…\n\nlibrary(Ryacas) # Den skal så installeres med install.packages(\"Ryacas\")\n\n# Definér de ubekendte som symboler\nmu &lt;- ysym(\"mu\")\nsigma &lt;- ysym(\"sigma\")\n\n# Ligningernes venstre- og højresider\nvenstre &lt;- c(0.1 - mu,\n             1   - mu)\n\nhoejre &lt;- c(qnorm(0.60) * sigma,\n            qnorm(0.70) * sigma)\n\nsolve(venstre, hoejre, c(\"mu\", \"sigma\"))\n\n{{mu==(-0.7412083551), sigma==3.3203788191}} \n\n\nDet er måske en smule lettere…"
   },
   {
-    "objectID": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",
-    "href": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",
-    "title": "Normalfordelingen",
-    "section": "Middelværdi og standardafvigelse",
-    "text": "Middelværdi og standardafvigelse\n\\(x\\) er vores målinger. \\(x_i\\) er en fancy måde at skrive at der er flere: \\(x_1, x_2, x_3, ... x_i\\). og vi har ialt \\(N\\) observationer\nMiddelværdien: \\[\\mu = \\frac{\\sum{x_i}}{N}\\]\nStandardafvigelsen\n\\[\\sigma = \\sqrt{\\frac{\\sum(x_i - \\mu)^2}{N}  }\\]\n\nVi kan forstå standardafvigelsen som den gennemsnitlige forskel der er mellem observationerne og middelværdien.\nHvorfor kvadrerer vi? Forskellen kan være positiv eller negativ. Det betyder at når vi lægger dem sammen, kan resultatet blive 0. Også selvom forskellene faktisk er ret store. Så vi kvadrerer dem. og tager kvadratroden bagefter. Det betyder også at store afvigelser fra middelværdien “fylder” mere i standardafvigelsen."
+    "objectID": "slides/power.html#hvad-katten-er-det",
+    "href": "slides/power.html#hvad-katten-er-det",
+    "title": "Powerberegninger",
+    "section": "Hvad katten er det?",
+    "text": "Hvad katten er det?\nNår vi laver statistiske test opstiller vi en NULL-hypotese; \\(H_0\\), og en alternativ hypotese, \\(H_A\\).\nGrundlæggende: Vi opstiller en hypotese om at der ikke sker noget. Eksempelvis at den sande forskel på to middelværdier er 0.\nI de fleste tilfælde vil vi gerne kunne afvise \\(H_0\\)."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvornår-bruger-vi-græske-bogstaver",
-    "href": "slides/normalfordelingen.html#hvornår-bruger-vi-græske-bogstaver",
-    "title": "Normalfordelingen",
-    "section": "Hvornår bruger vi græske bogstaver?",
-    "text": "Hvornår bruger vi græske bogstaver?\n\nLæg mærke til at vi undertiden bruger græske bogstaver.\nKender vi den sande værdi af gennemsnittet af alle danske mænds højde? Normalt ikke.\n\n\nDet gør vi når vi kender de “sande” værdier:\n\n\nMiddelværdi: \\(\\mu\\). Standardafvigelse: \\(\\sigma\\)\n\n\nDe latinske bogstaver bruger vi når vi “kun” kender værdierne fra vores stikprøve:\n\n\nMiddelværdi: \\(\\bar{x}\\). Standardafvigelse: \\(s\\)"
+    "objectID": "slides/power.html#vi-har-prøvet-det",
+    "href": "slides/power.html#vi-har-prøvet-det",
+    "title": "Powerberegninger",
+    "section": "Vi har prøvet det",
+    "text": "Vi har prøvet det\n\nTo grupper, med hver deres middelværdi \\(\\mu\\) og standardafvigelse \\(\\sigma\\) og antal observationer, n, i hver gruppe.\nBeregn SEM for hver af grupperne: \\(SEM = \\frac{\\sigma}{\\sqrt{n}}\\)\nBeregn en samlet SE for differencen: \\(SE_{diff} = \\sqrt{SEM_{1}^2 + SEM_2^2}\\)\nOg et 95% konfidensinterval:\n\\((\\mu_1 - \\mu_2) \\pm 1.96SE _{diff}\\)\nLigger 0 i intervallet, er der ingen forskel (på et 5% signifikansniveua). Ligger det udenfor, er der forskel, og vi afviser \\(H_0\\) (på et 5% signifikansniveau)."
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-hvis-vi-måler-i-en-anden-enhed",
-    "href": "slides/normalfordelingen.html#og-hvis-vi-måler-i-en-anden-enhed",
-    "title": "Normalfordelingen",
-    "section": "Og hvis vi måler i en anden enhed?",
-    "text": "Og hvis vi måler i en anden enhed?\nTommer fx?\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nbreaks &lt;- breaks/2.54\nhist(højder/2.54, breaks = breaks)"
+    "objectID": "slides/power.html#hvad-betød-det",
+    "href": "slides/power.html#hvad-betød-det",
+    "title": "Powerberegninger",
+    "section": "Hvad betød det?",
+    "text": "Hvad betød det?\nKan vi ikke afvise \\(H_0\\) betyder det blandt andet at forskellen på middelværdierne ikke er så stor at vi kan konkludere at der faktisk er forskel.\n\nMen det kunne være at der var en forskel alligevel.\n\n\n\\(\\alpha\\) giver os den kritiske værdi. Den sammenligner vi med testværdien.\n\n\nVi har også set p-værdier. Det er risikoen for at vi afviser \\(H_0\\). Selvom \\(H_0\\) er sand.\n\n\nVi spørger grundlæggende om p-værdien er mindre end \\(\\alpha\\). Er den det er vi normalt glade."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvordan-kan-vi-ellers-mishandle-tal",
-    "href": "slides/normalfordelingen.html#hvordan-kan-vi-ellers-mishandle-tal",
-    "title": "Normalfordelingen",
-    "section": "Hvordan kan vi ellers mishandle tal?",
-    "text": "Hvordan kan vi ellers mishandle tal?\nHvis vi trækker ting fra?\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nmiddel &lt;- mean(højder)\nhist(højder-middel, breaks = breaks-middel)"
+    "objectID": "slides/power.html#det-kan-gå-galt-på-to-måder",
+    "href": "slides/power.html#det-kan-gå-galt-på-to-måder",
+    "title": "Powerberegninger",
+    "section": "Det kan gå galt på to måder:",
+    "text": "Det kan gå galt på to måder:\nType 1 fejl: Der ser ud til at være en effekt. Eller et positivt resultat.\n\nVi kan forkaste \\(H_0\\)\n\n\nMen det er en fejl!\nDer er ikke en effekt.\nData understøtter ikke den alternative hypotese\n\n\nDet er en falsk positiv\n\n\nVi forkastede \\(H_0\\) ved en fejl\n\n\nPå et \\(\\alpha = 0.05\\) niveau\n\n\nSom er risikoen for at vi ser en falsk positiv.\n\n\nDet er ikke så godt…"
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-begge-dele",
-    "href": "slides/normalfordelingen.html#og-begge-dele",
-    "title": "Normalfordelingen",
-    "section": "Og begge dele",
-    "text": "Og begge dele\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\n\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nmiddel &lt;- mean(højder)\nbreaks &lt;- (breaks - middel)/2.54\nhist((højder-middel)/2.54, breaks = breaks)"
+    "objectID": "slides/power.html#eksistensen-af-type-1-fejl-indikerer-eksistensen-af-type-2-fejl",
+    "href": "slides/power.html#eksistensen-af-type-1-fejl-indikerer-eksistensen-af-type-2-fejl",
+    "title": "Powerberegninger",
+    "section": "Eksistensen af type 1 fejl indikerer eksistensen af type 2 fejl",
+    "text": "Eksistensen af type 1 fejl indikerer eksistensen af type 2 fejl\n\nOg eksistensen af \\(\\alpha\\) indikerer eksistensen af \\(\\beta\\).\n\n\nVi kan også begå fejl på en anden måde.\n\n\nDet gør vi, hvis test- eller p-værdien fortæller os at vi ikke kan forkaste \\(H_0\\)\n\n\nSå konkluderer vi at der ikke er forskel. Selvom der i virkeligheden er forskel!\n\n\nDet er en type 2 fejl. En falsk negativ.\n\n\nRisikoen for at begå en type 2 fejl kan vi også sætte tal på.\n\n\nDen kalder vi \\(\\beta\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvorfor-gør-vi-det",
-    "href": "slides/normalfordelingen.html#hvorfor-gør-vi-det",
-    "title": "Normalfordelingen",
-    "section": "Hvorfor gør vi det?",
-    "text": "Hvorfor gør vi det?\n\nFordi vi kan!\n\n\nVi får et histogram der beskriver fordelingen ganske som før.\n\n\nPå en måde, der beskriver fordelingen omkring gennemsnittet.\n\n\nVi kan nu se hvor mange der er højere end gennemsnittet.\nOg hvor mange der er lavere end gennemsnittet.\nI enheder vi selv vælger\n\n\nEr det meget sandsynligt at møde en mand der er 7 tommer højere end gennemsnittet?"
+    "objectID": "slides/power.html#det-omvendte-af-beta",
+    "href": "slides/power.html#det-omvendte-af-beta",
+    "title": "Powerberegninger",
+    "section": "Det omvendte af \\(\\beta\\)",
+    "text": "Det omvendte af \\(\\beta\\)\n\nRisikoen for at begå en type 2 fejl er en svaghed.\n\nDet omvendte kalder vi power. Det er den “styrke” vores test har.\n\n\nEller\n\n\n\nSandsynligheden for at testen finder forskellen, når forskellen faktisk findes!\nPower er sandsynligheden for ikke at begå en type 2 fejl.\n\n\n\nHvis \\(\\beta\\) er risikoen for at vores test ikke finder forskellen, selvom den findes.\n\n\nSå er power sandsynligheden for at vores test finder forskellen. Når altså den faktisk er der.\n\n\n\\(power = 1 - \\beta\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-uintuitive-enheder",
-    "href": "slides/normalfordelingen.html#og-uintuitive-enheder",
-    "title": "Normalfordelingen",
-    "section": "Og uintuitive enheder",
-    "text": "Og uintuitive enheder\nVi kan måle i standardafvigelser i stedet for tommer:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nenhed &lt;- sd(højder)\nmiddel &lt;- mean(højder)\nbreaks &lt;- (breaks-middel)/enhed\nhist((højder-middel)/enhed, breaks = breaks)\n\n\n\nEr det sandsynligt at møde en mand der er 3 standardafvigelser lavere end gennemsnittet?"
+    "objectID": "slides/power.html#hvad-afhænger-de-her-ting-af",
+    "href": "slides/power.html#hvad-afhænger-de-her-ting-af",
+    "title": "Powerberegninger",
+    "section": "Hvad afhænger de her ting af?",
+    "text": "Hvad afhænger de her ting af?\nHelt intuitiv.\n\nJo flere observationer vi har - jo større er chancen for at vi finder en forskel (der faktisk er der).\n\n\nJo mindre standardafvigelser vi har - jo større er chancen for at vi kan se forskelle på det vi sammenligner.\n\n\nJo større reel forskel der er, jo lettere bliver det at få øje på den.\n\n\nNår \\(\\alpha\\) stiger, bliver det lettere at forkaste \\(H_0\\) Det bliver også lettere at finde en forskel hvis power stiger (~ \\(\\beta\\) falder). Til gengæld stiger risikoen for falsk positive."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvad-er-normalfordelingen",
-    "href": "slides/normalfordelingen.html#hvad-er-normalfordelingen",
-    "title": "Normalfordelingen",
-    "section": "Hvad er normalfordelingen?",
-    "text": "Hvad er normalfordelingen?\nHøjderne fra før var normalfordelte\n\nDe fleste eksamensopgaver I støder på, har en formulering om at I kan antage at data er normalfordelte.\nHvad betyder det?\n\n\nUndersøger vi hvilke sandsynlighedsfordelinger mange forskellige ting følger\n\n\nSå er der en bestemt sandsynlighedsfordeling der optræder flere gange end andre.\n\n\nDet er den “normale” fordeling\n\nDet er ikke en normativ betegnelse, normal i denne kontekst betyder blot den hyppigst forekommende"
+    "objectID": "slides/power.html#vi-har-fem-parametre",
+    "href": "slides/power.html#vi-har-fem-parametre",
+    "title": "Powerberegninger",
+    "section": "Vi har fem parametre",
+    "text": "Vi har fem parametre\n\nStikprøvestørrelserne (n)\nStandardafvigelserne (på stikprøverne, \\(\\sigma\\))\nØnsket forskel vi vil kunne finde (\\(\\delta\\))\nRisikoen for type 1 fejl (\\(\\alpha\\))\nRisikoen for type 2 fejl (\\(\\beta\\))\n\nVi har en hemmelig sjette parameter. Nemlig hvilken test det er vi laver. Sammenligner vi middelværdier? Eller proportioner?\nHvis vi kender værdierne af fire af dem - så kan vi finde værdien af den femte."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvordan-ser-den-ud",
-    "href": "slides/normalfordelingen.html#hvordan-ser-den-ud",
-    "title": "Normalfordelingen",
-    "section": "Hvordan ser den ud?",
-    "text": "Hvordan ser den ud?\nObservationer der er normalfordelte, følger denne fordeling:\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\n\\]\n\\(f(x)\\) er sandsynligheden for at se en observation med værdien x.\n\\(\\mu\\) og \\(\\sigma\\) har vi mødt før, det var populationens middelværdi og standardafvigelse.\n\nDet er der jo ingen der orker at arbejde med…\n\n\nDet vigtige er at den 100% styres af \\(\\mu\\) og \\(\\sigma\\)"
+    "objectID": "slides/power.html#og-hvad-spørges-der-om-til-eksamen",
+    "href": "slides/power.html#og-hvad-spørges-der-om-til-eksamen",
+    "title": "Powerberegninger",
+    "section": "Og hvad spørges der om til eksamen?",
+    "text": "Og hvad spørges der om til eksamen?\n\nHer er fire værdier. Find den femte.\n\nEksempelvis: Vi ønsker et signifikansniveau på 5% og en power på 80%. Vi ønsker at kunne se en forskel på 42 i middelværdierne på to stikprøver, standardafvigelsen kan antages at være den samme i begge stikprøver. Der er 100 observationer i den ene stikprøve. Hvor mange skal der være i den anden?\n\n\nDet handler typisk om beregning af stikprøvestørrelser.\nHvor mange patienter skal vi have med i vores forsøg for at vi kan forvente at se en effekt af ene bestemt størrelse?\n\n\nEller beregning af effektstørrelser.\nHvor stor en forskel mellem to grupper forventer vi at kunne få øje på. Når vi har et bestemt antal patienter med i forsøget.\n\n\nDet er dog ikke et specielt hyppigt forekommende eksamensspørgsmål."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvordan-ser-den-ud-1",
-    "href": "slides/normalfordelingen.html#hvordan-ser-den-ud-1",
-    "title": "Normalfordelingen",
-    "section": "Hvordan ser den ud?",
-    "text": "Hvordan ser den ud?\n\n\n\nHer har vi målinger der kan gå fra -4 til 4 standardafvigelser.\nOg har \\(\\mu = 0\\) og \\(\\sigma = 1\\).\nHusk - det er en sandsynlighedsfordeling\nArealet under kurven er 1 ~ 100%.\nFor alle værdierne er med og sandsynligheden for at vi ser en værdi er 100%"
+    "objectID": "slides/power.html#det-har-r-funktioner-til.",
+    "href": "slides/power.html#det-har-r-funktioner-til.",
+    "title": "Powerberegninger",
+    "section": "Det har R funktioner til.",
+    "text": "Det har R funktioner til.\n\npower.t.test()\npower.prop.test()\npower.anova.test()\n\nDen sidste har jeg ikke set i eksamensopgaver, så den springer vi over.\nDer er lidt flere detaljer, two sample eller one sample? Eller parret?\nGiv dem fire af de fem parametre, og de beregner den femte."
   },
   {
-    "objectID": "slides/normalfordelingen.html#standardnormalfordelingen",
-    "href": "slides/normalfordelingen.html#standardnormalfordelingen",
-    "title": "Normalfordelingen",
-    "section": "Standardnormalfordelingen",
-    "text": "Standardnormalfordelingen\nNår \\(\\mu = 0\\) og \\(\\sigma = 1\\) kalder vi den for “standardnormalfordelingen”.\nDen skriver vi som: \\(N(0,1)\\)\n\nAndre normale fordelinger findes\n\n\nDem skriver vi som \\(X \\sim N(\\mu,\\sigma)\\)\n\n\nDe kan omregnes (skaleres) til standardnormalfordelingen\n\n\nDet var det vi gjorde da vi trak middelværdien fra højderne. For så blev højdernes middelværdi 0.\n\n\nOg da vi dividerede det hele med standardafvigelsen - blev enheden på x-aksen målt i standardafvigelser.\n\nDet at kunne skalere til og fra standardnormalfordelingen er dels nyttigt for at kunne løse opgaverne. Det tester om I har forstået hvad der foregår, og det er ret vigtigt.\nDet handler også om at i gamle dage havde vi ikke programmer der kunne lave beregningerne for en hvilken som helst normalfordeling. Så matematikere sad møjsommeligt og beregnede værdier for standardnormalfordelingen. Og så kunne man slå op i tabeller."
+    "objectID": "slides/power.html#men-dem-bruger-vi-ikke",
+    "href": "slides/power.html#men-dem-bruger-vi-ikke",
+    "title": "Powerberegninger",
+    "section": "Men dem bruger vi ikke…",
+    "text": "Men dem bruger vi ikke…\nFor eksamen tester ikke om I kan putte tal ind i en funktion.\nEksamen tester om I har forstået nok til at I kan gøre det i hånden.\nI har muligvis fået udleveret et notat om beregning af stikprøvestørrelser.\nDet har jeg i hvert fald set at tidligere årgange har fået.\nSådan et notat har jeg ikke kunne finde.\nHar I sådan et - så skal I bruge det!\nHvis I ikke har, så er der et bud på hvordan her."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvilke-egenskaber-har-den",
-    "href": "slides/normalfordelingen.html#hvilke-egenskaber-har-den",
-    "title": "Normalfordelingen",
-    "section": "Hvilke egenskaber har den?",
-    "text": "Hvilke egenskaber har den?\n\n\nlink\n\n\nBemærk at enheden på x-aksen er i “standardafvigelser”. At den går fra minus uendelig til uendelig sammenhængen mellem median og middelværdi Læg også mærke til at z-scores er lig med enheden. T-scores er en normalisering fra psykometrien. Den bruger vi ikke her."
+    "objectID": "slides/power.html#i-stedet",
+    "href": "slides/power.html#i-stedet",
+    "title": "Powerberegninger",
+    "section": "I stedet",
+    "text": "I stedet\n💥Powerrelationen!💪\n\n\\[\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\nDen effekt vi ønsker at kunne se - divideret med standardfejlen, skal være lig med \\(z_{1-α/2}+z_{1-β}\\)\nDet gælder altid. Forskellen fra test til test bestemmer hvordan vi beregner standardfejlen.\nHusk hvordan vi så på testværdierne. Var de langt nok væk fra 0 målt i standardfejl? Det er samme metode.\nVi skal blot lidt længere væk, fordi vi ikke bare lige akkurat skal forkaste \\(H_0\\). Vi skal være ekstra sikre - og hvor meget styres af den ønskede power.\n\n“Altid” er med et par forbehold. Der antages normalitet. Det er mere kompliceret ved små stikprøver. Og ikke-lineære modeller. Og når standardfejlen afhænger af det vi prøver at estimere (her er der ingen simpel formel, og man simulerer i stedet)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
-    "href": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
-    "title": "Normalfordelingen",
-    "section": "Et par hurtige øvelser",
-    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\)) \n\n\n\npnorm(1)*100\n\n\npnorm(-2)*100\n\n\nqnorm(0.159)"
+    "objectID": "slides/power.html#de-sære-tegn",
+    "href": "slides/power.html#de-sære-tegn",
+    "title": "Powerberegninger",
+    "section": "De sære tegn",
+    "text": "De sære tegn\nLad os lige repetere:\n\\(z_{1-α/2}\\) og \\(z_{1-β}\\) kender vi godt.\n\\(z_{1-α/2}\\) er kvantilen der matcher 0.975 (% observationer der er mindre end…). Det giver:\n\nqnorm(1-0.05/2)\n\n[1] 1.959964\n\n\nDen har vi set før.\n\\(z_{1-β}\\) er kvantilen der matcher vores power. En power på 0.8 er populær (og det er så \\(\\beta = 0.2\\)):\n\nqnorm(1-0.2)\n\n[1] 0.8416212"
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-et-par-stykker-til",
-    "href": "slides/normalfordelingen.html#og-et-par-stykker-til",
-    "title": "Normalfordelingen",
-    "section": "Og et par stykker til",
-    "text": "Og et par stykker til\nHvis højden af alle danske mænd er normalfordelt med en middelværdi på 180 cm, og standardafvigelse på 5 cm.\nHvor stor en andel af dem er så lavere end 170 cm?\n\nForskellen er 170-180 = -10 cm\nHvad er det i standardafvigelser?\n\n\n-10 / 5 = -2\n-2 standardafvigelser fra middelværdien\n\n\nOg lige før så vi at det var 2.3%\n\n\nSå hvis vi skalerer data til standardnormalfordelingen, kan vi “let” se hvor mange der er højere eller lavere end noget bestemt."
+    "objectID": "slides/power.html#hvordan-beregnes-standardfejlen",
+    "href": "slides/power.html#hvordan-beregnes-standardfejlen",
+    "title": "Powerberegninger",
+    "section": "Hvordan beregnes standardfejlen?",
+    "text": "Hvordan beregnes standardfejlen?\nDet har vi set før:\nEn middelværdi: \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\)\nForskel på to middelværdier: \\(SE = \\sqrt{SE_1^2 + SE_2^2} = \\sqrt{\\left(\\frac{\\sigma_1}{\\sqrt{n_1}}\\right)^2 + \\left(\\frac{\\sigma_2}{\\sqrt{n_2}}\\right)^2} = \\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\nForskel på to middelværdier, hvor grupperne er lige store: \\(SE = \\sigma\\sqrt{\\frac{2}{n}}\\)\nParrede målinger: \\(SE = \\frac{\\sigma_d}{\\sqrt{n}}\\) hvor \\(\\sigma_d\\) er standardafvigelsen af forskellene"
   },
   {
-    "objectID": "slides/normalfordelingen.html#fine-tal---hvordan-finder-vi-dem-selv",
-    "href": "slides/normalfordelingen.html#fine-tal---hvordan-finder-vi-dem-selv",
-    "title": "Normalfordelingen",
-    "section": "Fine tal - hvordan finder vi dem selv?",
-    "text": "Fine tal - hvordan finder vi dem selv?\nVi ville vide hvor stor en andel af mændene der var lavere end -2 standardafvigelser fra middelværdien.\n\nIfølge grafen lå 2.3% af observationerne under \\(-2\\sigma\\).\n\n\nHvordan finder vi selv det tal?\n\n\n\npnorm\nqnorm"
+    "objectID": "slides/power.html#hvordan-beregnes-standardfejlen-1",
+    "href": "slides/power.html#hvordan-beregnes-standardfejlen-1",
+    "title": "Powerberegninger",
+    "section": "Hvordan beregnes standardfejlen?",
+    "text": "Hvordan beregnes standardfejlen?\nEn proportion: \\(SE = \\sqrt{\\frac{p(1-p)}{n}}\\)\nForskel mellem to proportioner: \\(SE = \\sqrt{\\frac{p_1(1 - p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\\)\nForskel mellem to proportioner, hvor grupperne er lige store: \\(SE = \\sqrt{\\frac{p_1(1 - p_1) + p_2(1-p_2)}{n}}\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#pnorm",
-    "href": "slides/normalfordelingen.html#pnorm",
-    "title": "Normalfordelingen",
-    "section": "pnorm",
-    "text": "pnorm\npnorm(x) fortæller hvad sandsynligheden p er for at se en observation der er mindre end x.\n\nNår x er afstanden til middelværdien, målt i enheder af standardafvigelsen.\n\n\n\npnorm(-2)\n\n[1] 0.02275013\n\n\n\n\nVi kan også skrive det som:\nP(X &lt; -2) = 0.02275013\n\n\nLæses: Sandsynligheden (P) for at værdien (X) er mindre end -2 er 0.02275013\nVi taler også om at det er 2.3% kvantilen, eller 2.3 percentilen."
+    "objectID": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
+    "href": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
+    "title": "Powerberegninger",
+    "section": "Og hvad gør vi så i praksis?",
+    "text": "Og hvad gør vi så i praksis?\n\nVi har powerrelationen\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-\\alpha/2}+z_{1-\\beta}\\)\n\n\\(z_{1-\\alpha/2} = 1.96\\) (hvis \\(\\alpha = 0.05\\)). \\(z_{1-\\beta}\\) beregner vi med qnorm(1-beta)\n\n\nVi får oplyst at vi vil kunne se en bestemt forskel i to middelværdier (det var effekten), ofte “behandling vs. placebo”.\n\n\nMed en power på 80% (svarende til \\(\\beta = 0.2\\))\n\n\nVi får at vide at der skal være lige mange i hver gruppe.\n\n\nHvis vi er heldige får vi også at vide at vi må antage at standardafvigelsen er den samme i de to grupper (og hvad den er).\n\n\nOg vi ved så, at vi kan beregne standardfejlen ved \\(\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\n\n\nOg fordi \\(n_1 = n_2\\)\n\n\nSå er det “bare” at indsætte tallene i powerrelationen, og isolere n.\n\n\n\nEller også får vi at vide at \\(n_1 = 100\\) og vi skal finde \\(n_2\\). Eller vi får oplyst både \\(n_1\\) og \\(n_2\\) og alt det andet, men skal beregne den forskel vi kan forvente at se.\nGrundlæggende: Vi får alt, bortset fra én parameter oplyst. Indsæt i formlen, isoler det manglende."
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-omvendt",
-    "href": "slides/normalfordelingen.html#og-omvendt",
-    "title": "Normalfordelingen",
-    "section": "Og omvendt?",
-    "text": "Og omvendt?\nHvis sandsynligheden for at at X er mindre end -1 skrives som:\nP(X &lt; -1)\nHvad er så sandsynligheden for at X er \\(\\geq -1\\)?\n\n\\(P(X \\geq -1)\\)\n\n\nX er enten mindre end 1. Eller større end 1. Den samlede sansynlighed for at X er er 1, så:\n\n\n\\(P(X \\geq -1) + P(X &lt; -1) = 1\\)\n\n\n\\(P(X \\geq -1) = 1 - P(X &lt; -1)\\)"
+    "objectID": "slides/power.html#et-par-fælder",
+    "href": "slides/power.html#et-par-fælder",
+    "title": "Powerberegninger",
+    "section": "Et par fælder",
+    "text": "Et par fælder\nVi runder altid op. Hvis n beregnes til 7.8, runder vi op til 8.\nResultatet af vores beregninger er næsten altid antallet af hvor mange observationer der skal være i hver gruppe.\nHvis n er 8, skal vi bruge 16 observationer.\nUndtagelsen er selvfølgelig hvis vi får at vide at der er 100 observationer i den ene gruppe. Så får vi svaret på hvor mange vi skal bruge i den anden gruppe."
   },
   {
-    "objectID": "slides/normalfordelingen.html#qnorm",
-    "href": "slides/normalfordelingen.html#qnorm",
-    "title": "Normalfordelingen",
-    "section": "qnorm",
-    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x, er p.\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\n\n\nP(X &lt; ?) = 0.025\n\n\n\nqnorm(0.025)\n\n[1] -1.959964\n\n\n\n\nDet kalder vi også for 2.5 percentilen. Eller 2.5% kvantilen. På engelsk quantile. Deraf “q”."
+    "objectID": "slides/power.html#så-er-vi-klar-lad-os-tage-et-eksempel",
+    "href": "slides/power.html#så-er-vi-klar-lad-os-tage-et-eksempel",
+    "title": "Powerberegninger",
+    "section": "Så er vi klar, lad os tage et eksempel!",
+    "text": "Så er vi klar, lad os tage et eksempel!\nVi skal sammenligne en enzymkoncentration for patienter med en bestemt sygdom med en rask kontrolgruppe, således at der er lige mange patienter og kontroller i studiet. Hvor mange patienter skal inkluderes i studiet hvis forskelle i enzymkoncentrationen på mindre end 1 standardafvigelse (\\(\\sigma\\)) ikke er relevante.\nØnsket styrke er 80% eller 0.8, så \\(\\beta = 1-0.8=0.2\\), signifikansniveauet sættes til 5%, så \\(\\alpha = 0.05\\).\nVi får lov at antage at enzymkoncentrationen varierer lige meget blandt patienter og kontroller."
   },
   {
-    "objectID": "slides/normalfordelingen.html#og-omvendt-1",
-    "href": "slides/normalfordelingen.html#og-omvendt-1",
-    "title": "Normalfordelingen",
-    "section": "Og omvendt?",
-    "text": "Og omvendt?\nFor hvilken værdi er 0.025, eller 2.5% af observationerne større (eller lig med)?\n\nP(X &gt; ?) = 0.025\n\n\nDet er så den værdi hvor 1-0.025 = 0.975 er mindre\n\n\nP(X &lt; ?) = 1 - 0.025\n\n\n\nqnorm(1-0.025)\n\n[1] 1.959964"
+    "objectID": "slides/power.html#første-trin",
+    "href": "slides/power.html#første-trin",
+    "title": "Powerberegninger",
+    "section": "Første trin",
+    "text": "Første trin\nHvilken type udfald?\n\nMiddelværdier - forskel på to grupper. En differens. Grupperne skal være lige store.\n\n\nHvordan ser vores standardfejl så ud?\n\n\nSE = \\(\\sigma\\sqrt{\\frac{2}{n}}\\)\n\n\nHvilken effekt ønsker vi at kunne se?\n\n\nØnsket effekt vi vil kunne opdage er 1\\(\\sigma\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#eller",
-    "href": "slides/normalfordelingen.html#eller",
-    "title": "Normalfordelingen",
-    "section": "Eller",
-    "text": "Eller\n\npnorm giver os sandsynligheden p, når vi har en kvantil\nqnorm giver os quantilen når vi har en sandsynlighed\n\nP(X &lt; kvantil) = sandsynlighed\n\nHvis vi ved hvad værdien/kvantilen er, bruger vi pnorm til at beregne sandsynligheden\nHvis vi ved hvad sandsynligheden er, bruger vi qnorm til at beregne kvantilen"
+    "objectID": "slides/power.html#opstil-powerrelationen",
+    "href": "slides/power.html#opstil-powerrelationen",
+    "title": "Powerberegninger",
+    "section": "Opstil powerrelationen",
+    "text": "Opstil powerrelationen\n\\[\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\n\nVenstre side:\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = \\frac{\\sigma}{\\text{SE}}=  \\frac{\\sigma}{\\sigma\\sqrt{\\frac{2}{n}}} = \\frac{1}{\\sqrt{\\frac{2}{n}}}\\)\n\n\nDen skal være lig med\n\\(z_{1-α/2}+z_{1-β} = z_{1-0.05/2}+z_{1-0.2} = z_{0.975}+z_{0.8}\\)\nEller:\n\nqnorm(0.975) + qnorm(0.8)\n\n[1] 2.801585"
   },
   {
-    "objectID": "slides/normalfordelingen.html#husk",
-    "href": "slides/normalfordelingen.html#husk",
-    "title": "Normalfordelingen",
-    "section": "HUSK!",
-    "text": "HUSK!\nVi får altid svar på “hvor meget er mindre end”?\nSom i: X% er mindre end Y kvantil (målt i standardafvigelser).\nVi kender enten X eller Y, og skal beregne den anden."
+    "objectID": "slides/power.html#så-er-vi-klar-til-at-regne",
+    "href": "slides/power.html#så-er-vi-klar-til-at-regne",
+    "title": "Powerberegninger",
+    "section": "Så er vi klar til at regne",
+    "text": "Så er vi klar til at regne\n\n\nHøjre side:\nqnorm(0.975) + qnorm(0.8)\n\n\\(\\frac{1}{\\sqrt{\\frac{2}{n}}} = 2.801585\\)\n\n\n\\(1 = \\sqrt{\\frac{2}{n}}\\cdot2.801585\\)\n\n\n\\(1^2 = \\frac{2}{n}\\cdot2.801585^2\\)\n\n\n\\(n = 2\\cdot2.801585^2\\)\n\n\nOg resultatet er pr gruppe! Husk at runde op!\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
-    "href": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
-    "title": "Normalfordelingen",
-    "section": "Typiske spørgsmål (v)i får:",
-    "text": "Typiske spørgsmål (v)i får:\n(til eksamen)\n\nHvor mange procent af observationerne er under 0.4?\nHvor mange procent af observationerne ligger mellem -2 og 2?\nDe 65.5% mindste observationer; hvad er de mindre end?\nIndenfor hvilket interval ligger 95.45% af observationerne?\n\n\nDe hænger sammen. 1 og 3 er hinandens omvendte 2 og 4 er også hinandens omvendte"
+    "objectID": "slides/power.html#del-to-af-opgaven",
+    "href": "slides/power.html#del-to-af-opgaven",
+    "title": "Powerberegninger",
+    "section": "Del to af opgaven",
+    "text": "Del to af opgaven\nSamme opgave som før.\nMen nu får vi oplyst at der allerede er målinger af enzym koncentrationen fra 100 kontroller.\nHvor mange patienter har vi så brug for (med samme forudsætninger som tidligere).\n\nBemærk at vi nu ikke længere har lige mange i hver gruppe!"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-1",
-    "href": "slides/normalfordelingen.html#øvelse-1",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 1",
-    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være mere præcis.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(-3)"
+    "objectID": "slides/power.html#hvordan-ser-vores-standardfejl-så-ud",
+    "href": "slides/power.html#hvordan-ser-vores-standardfejl-så-ud",
+    "title": "Powerberegninger",
+    "section": "Hvordan ser vores standardfejl så ud?",
+    "text": "Hvordan ser vores standardfejl så ud?\n\n\n\\(\\text{SE} = \\sqrt{SE_1^2 + SE_2^2} = \\sqrt{\\frac{\\sigma^2}{n_1} + \\frac{\\sigma^2}{n_2}} = \\sqrt{\\sigma^2(\\frac{1}{n_1} + \\frac{1}{n_2})} = \\sigma\\sqrt{\\frac{1}{n_1} +\\frac{1}{n_2}}\\)\n\n\nVi skal stadig bruge powerrelationen:\n\n\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-α/2}+z_{1-β}\\)\n\n\nOg effekten er stadig 1\\(\\sigma\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-2",
-    "href": "slides/normalfordelingen.html#øvelse-2",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 2",
-    "text": "Øvelse 2\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDet er en sandsynlighed vi er på jagt efter så pnorm\n\npnorm(2)"
+    "objectID": "slides/power.html#næste-trin",
+    "href": "slides/power.html#næste-trin",
+    "title": "Powerberegninger",
+    "section": "Næste trin",
+    "text": "Næste trin\nIndsæt i powerrelationen:\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} = \\frac{\\delta}{σ\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}}\n= z_{1-α/2}+z_{1-β}\n\\]\n\n\\(\\delta = \\sigma\\) og \\(n_1 = 100\\)\n\n\nSå skal vi “bare” isolere \\(n_2\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-3",
-    "href": "slides/normalfordelingen.html#øvelse-3",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 3",
-    "text": "Øvelse 3\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. Den giver os sandsynligheden for at observationerne er mindre end 2. Sandsynligheden for at observationen er, er 1. Så 1-pnorm(2)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(2)"
+    "objectID": "slides/power.html#så-er-vi-klar-til-at-regne-1",
+    "href": "slides/power.html#så-er-vi-klar-til-at-regne-1",
+    "title": "Powerberegninger",
+    "section": "Så er vi klar til at regne",
+    "text": "Så er vi klar til at regne\n\n\n\\[\n\\frac{\\sigma}{\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}} \\\\\n= z_{1-0.05/2}+z_{1-0.2}\n\\]\nDet tager vi nok lettest på en tavle\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-4",
-    "href": "slides/normalfordelingen.html#øvelse-4",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 4",
-    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nI standardnormalfordelingen\n\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm(0.25)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(0.25)"
+    "objectID": "slides/power.html#lad-os-prøve-en-gang-til",
+    "href": "slides/power.html#lad-os-prøve-en-gang-til",
+    "title": "Powerberegninger",
+    "section": "Lad os prøve en gang til",
+    "text": "Lad os prøve en gang til\n\nFødselsvægten for børn født indenfor termin med gestationsalder 40 uger antages approksimativt normalfordelt med middelværdi 3500 gram og spredning 430 gram. Vi antager at det er populationsværdier\nDet ønskes undersøgt om fødselsvægten for børn hvis mødre røg gennem hele graviditeten har samme middelværdi (\\(\\mu\\)).\nHvis der indsamles n observationer af fødselsvægten af børn af disse mødre, hvilken test ville vi så anvende for at undersøge om deres gennemsnitlige fødselsvægt X er lig \\(\\mu\\) = 3500?\nAngiv konkret teststørrelse beregnet baseret på de n observationer.\n\nVi vil skulle beregne SEM for disse børn \\(\\left(\\frac{\\sigma}{\\sqrt{n}}\\right)\\)\nOg dernæst teststørrelsen: \\(\\frac{X - 3500}{SEM}\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-5",
-    "href": "slides/normalfordelingen.html#øvelse-5",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 5",
-    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6. Så: qnorm(1-0.4) eller qnorm(0.6)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(1-0.4)"
+    "objectID": "slides/power.html#og-så-til-powerberegningen",
+    "href": "slides/power.html#og-så-til-powerberegningen",
+    "title": "Powerberegninger",
+    "section": "Og så til powerberegningen",
+    "text": "Og så til powerberegningen\nHvis den sande \\(\\mu\\) (og det er altså for de rygende kvinder) er under 3200 gram (eller over 3800 gram), og vi kun vil acceptere en 10% risiko for ikke at opdage en sådan forskel på de to middelværdier, hvor stor en stikprøve skal der så anvendes, med et signifikans niveau på 5%.\nHvad er \\(H_0\\) og \\(H_A\\)?\n\n\\(H_0: \\mu = 3500\\)\n\\(H_A: \\mu \\neq 3500\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-6",
-    "href": "slides/normalfordelingen.html#øvelse-6",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 6",
-    "text": "Øvelse 6\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\n\nVi kender værdierne, og skal bruge sandsynlighederne. Så pnorm. Sandsynligheden er arealet under kurven fra -uendelig til værdien. Så. Arealet fra -uendelig til 1.5. Minus arealet fra -uendelig til 1, trukket fra, giver os arealet mellem de to punkter\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\nHvilken andel ligger under 1.5?\nHvilken andel ligger under 1?\nDet er så\n\npnorm(1.5) - pnorm(1)"
+    "objectID": "slides/power.html#hvad-får-vi-oplyst",
+    "href": "slides/power.html#hvad-får-vi-oplyst",
+    "title": "Powerberegninger",
+    "section": "Hvad får vi oplyst?",
+    "text": "Hvad får vi oplyst?\nØnsket afvigelse vi skal kunne opdage:\n\n\\(\\delta = 3800-3500 = 300\\)\n\n\nRisikoen for ikke at opdage forskellen må være på 10%:\n\n\n\\(\\beta = 0.1\\)\n\n\nEller: Power = 0.9\n\n\nSignifikansniveau 5%: \\(\\alpha = 0.05\\)\n\n\nStandardafvigelse \\(\\sigma = 430\\)"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-7",
-    "href": "slides/normalfordelingen.html#øvelse-7",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 7",
-    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved:\nqnorm(1-0.265)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/power.html#powerrelationen-opstilles",
+    "href": "slides/power.html#powerrelationen-opstilles",
+    "title": "Powerberegninger",
+    "section": "Powerrelationen opstilles",
+    "text": "Powerrelationen opstilles\n\n\n\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} \\\\\n= \\frac{\\delta}{SE}\n= z_{1-α/2}+z_{1-β}\n\\]\n\nHvad fik vi oplyst?\n\n\n\\(\\beta = 0.1\\), \\(\\delta = 300\\), \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\), \\(\\sigma = 430\\), \\(\\alpha = 0.05\\)\n\n\nIndsæt\n\n\n\\[\nz_{1-\\alpha/2}+z_{1-\\beta} = \\frac{300}{\\frac{430}{\\sqrt{n}}}\n\\]\n\n\nIsoler n - det gør vi på tavlen\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nResultat: k*430/300)^2\n(( qnorm(1-(0.05/2)) + qnorm(1-0.1))*430 / 300)^2"
   },
   {
-    "objectID": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
-    "href": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
-    "title": "Normalfordelingen",
-    "section": "Øvelse 8 - og det vigtigste tal I skal kende!",
-    "text": "Øvelse 8 - og det vigtigste tal I skal kende!\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 95% er 1 - 0.95 = 0.05. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.05/2 = 0.025\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\nqnorm(0.025)\nqnorm(1-0.025)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/power.html#del-2",
+    "href": "slides/power.html#del-2",
+    "title": "Powerberegninger",
+    "section": "Del 2",
+    "text": "Del 2\nHvis vi vil have en stikprøve på 100 - hvor stor en forskel på \\(\\mu\\) og 3500 kan vi forvente at kunne finde.\nSamme forudsætninger som før."
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvorfor-var-det-vigtigt",
-    "href": "slides/normalfordelingen.html#hvorfor-var-det-vigtigt",
-    "title": "Normalfordelingen",
-    "section": "Hvorfor var det vigtigt?",
-    "text": "Hvorfor var det vigtigt?\nI vil rigtig mange gange blive spurgt: Indenfor hvilket interval ligger 95% af observationerne?\nNu ved I, at 95% af observationerne ligger mellem -1.96 og 1.96 standardafvigelser fra middelværdien."
+    "objectID": "slides/power.html#opstil-powerrelationen-1",
+    "href": "slides/power.html#opstil-powerrelationen-1",
+    "title": "Powerberegninger",
+    "section": "Opstil powerrelationen",
+    "text": "Opstil powerrelationen\n\n\n\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} = \\\\\n\\frac{\\delta}{SE} = z_{1-α/2}+z_{1-β}\n\\]\n\nHvad fik vi oplyst?\n\n\n\\(\\beta = 0.1\\), \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\), \\(\\sigma = 430\\), n = 100\n\n\nIndsæt\n\n\n\\[\nz_{1-\\alpha/2}+z_{1-\\beta} = \\frac{\\delta}{\\frac{430}{\\sqrt{100}}}\n\\]\n\n\nIsoler \\(\\delta\\) - det gør vi på tavlen\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nDet er den størrelse vi kan forvente at opdage (mindst) med en sandsynlighed på 90%"
   },
   {
-    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får",
-    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får",
-    "title": "Normalfordelingen",
-    "section": "Hvad er det egentlig at vi får?",
-    "text": "Hvad er det egentlig at vi får?\nVi spørger generelt om\nHvad er sandsynligheden for at en observation er mindre end noget.\nEller, i standardnormalfordelingen:\nP(Z &lt; 2)\nHvor svaret er:\n\npnorm(2)\n\n[1] 0.9772499"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-1",
-    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-1",
-    "title": "Normalfordelingen",
-    "section": "Hvad er det egentlig at vi får?",
-    "text": "Hvad er det egentlig at vi får?\nEller, omvendt, for hvilken værdi er sandsynligheden for at se en værdi der er mindre noget bestemt:\nP(Z &lt; ? ) = 0.4\nHvor svaret er:\n\nqnorm(0.4)\n\n[1] -0.2533471"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-2",
-    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-2",
-    "title": "Normalfordelingen",
-    "section": "Hvad er det egentlig at vi får?",
-    "text": "Hvad er det egentlig at vi får?\nEller vi bliver spurgt om hvad sandsynligheden er for at vores observationer ligger mellem to værdier:\nP(Z &lt; 3) - P(Z &lt; 1)\nHvor svaret er:\n\npnorm(3) - pnorm(2)\n\n[1] 0.02140023"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#hvorfor-z",
-    "href": "slides/normalfordelingen.html#hvorfor-z",
-    "title": "Normalfordelingen",
-    "section": "Hvorfor Z?",
-    "text": "Hvorfor Z?\n\nOg ikke X?\n\n\nDet er en konvention: I standardnormalfordelingen skriver vi Z.\n\n\nI en normalfordeling generelt, skriver vi X\n\n\nNår vi skal fra X til Z trækker vi middelværdien af X fra, og dividerer med standardafvigelsen.\n\n\n\\(Z = \\frac{X-\\mu}{\\sigma}\\)\n\n\nOg den anden vej:\n\\(X = Z\\sigma + \\mu\\)\n\n\nDet kalder vi at “skalere”.\n\n\n\nNår vi skalerer X til Z taler vi også om at vi beregner en z-score for en given værdi af x. Det er et lækkert ord at bruge i en eksamensbesvarelse."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#så-i-praksis",
-    "href": "slides/normalfordelingen.html#så-i-praksis",
-    "title": "Normalfordelingen",
-    "section": "Så i praksis?",
-    "text": "Så i praksis?\nHvis \\(\\mu\\) er 181 og \\(\\sigma\\) er 6.5 og vi vil vide hvad sandsynligheden er for at være mindre end 170 cm høj.\n\nDet kan vi skrive som: P(X&lt;170)\n\n\nHavde vi i stedet haft P(Z &lt; ?) var vi i standardnormalfordelingen og kunne bruge pnorm\n\n\nDerfor skalerer vi, og skalerer vi X, skal vi også skalere 170:\n\n\n\\(P(X&lt;170) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{170 - 181}{6.5}) = P(Z &lt; -1.692)\\)\n\n\n\npnorm(-1.692)\n\n[1] 0.04532299\n\n\n\nOg det er sandsynligheden for at være 1.7 standardafvigelser lavere end gennemsnittet."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#notation",
-    "href": "slides/normalfordelingen.html#notation",
-    "title": "Normalfordelingen",
-    "section": "Notation",
-    "text": "Notation\nDen standardiserede normalfordeling skriver vi som N(0,1)\nEn generel normalfordeling skriver vi som \\(N(\\mu, \\sigma)\\)\nNår data, X, er normalfordelt, skriver vi det som X ~ \\(N(\\mu, \\sigma)\\)\nI praksis:\nP(X &lt; 170) = P(\\(\\frac{X-\\mu}{\\sigma}\\) &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nEller kortere: P(Z &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nNår vi normaliserer 170 med \\(\\mu\\) og \\(\\sigma\\), får vi en z-score. Det var den vi så på plottet af normalfordelingen."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#og-den-anden-vej",
-    "href": "slides/normalfordelingen.html#og-den-anden-vej",
-    "title": "Normalfordelingen",
-    "section": "Og den anden vej",
-    "text": "Og den anden vej\nSå undertiden beregner vi Z. Og så skal vi bagefter finde ud af hvad X er.\n\nHvis vi ved hvordan vi går fra X til Z, så ved vi også hvordan vi går fra Z til X.\n\n\nEn ene vej trækker vi \\(\\mu\\) fra og dividerer med \\(\\sigma\\)\n\n\nDen anden vej?\n\n\nGanger med \\(\\sigma\\) og lægger \\(\\mu\\) til"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelser",
-    "href": "slides/normalfordelingen.html#øvelser",
-    "title": "Normalfordelingen",
-    "section": "Øvelser",
-    "text": "Øvelser\nFor en normalfordelt population ved vi at 50% af værdierne er mindre end 0, og 60% er mindre end 1. Hvad er middelværdi og spredning?\n\nDet kan vi skrive som:\n\nP(X&lt;0) = 0.5\n\nP(X&lt;1) = 0.6"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelser-1",
-    "href": "slides/normalfordelingen.html#øvelser-1",
-    "title": "Normalfordelingen",
-    "section": "Øvelser",
-    "text": "Øvelser\nVi antager at \\(X \\sim N(\\mu, \\sigma)\\)\n\nSkaler til standardnormalfordelingen:\n\n\n\\(P(X &lt; 0) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{0-\\mu}{\\sigma}) = P(Z &lt; \\frac{0-\\mu}{\\sigma}) = 0.5\\)\n\n\n\\(P(X&lt;1) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{1-\\mu}{\\sigma}) = P(Z &lt; \\frac{1-\\mu}{\\sigma})= 0.6\\)\n\n\nKender vi sandsynligheden og skal finde kvantilen bruger vi?\n\n\nqnorm\n\n\nSå:\n\\(\\frac{0-\\mu}{\\sigma}  = qnorm(0.5)\\) og\n\\(\\frac{1-\\mu}{\\sigma}  = qnorm(0.6)\\)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelser-2",
-    "href": "slides/normalfordelingen.html#øvelser-2",
-    "title": "Normalfordelingen",
-    "section": "Øvelser",
-    "text": "Øvelser\n\nqnorm(0.5)\n\n[1] 0\n\n\n\n\nqnorm(0.6)\n\n[1] 0.2533471\n\n\n\n\nDerfor:\n\\(\\frac{0-\\mu}{\\sigma}  = 0\\)\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25\\)\nLøs først den ene ligning, og så den anden"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelser-3",
-    "href": "slides/normalfordelingen.html#øvelser-3",
-    "title": "Normalfordelingen",
-    "section": "Øvelser",
-    "text": "Øvelser\nDen første er den letteste:\n\\(\\frac{0-\\mu}{\\sigma}  = 0 \\Leftrightarrow 0 - \\mu = 0\\sigma \\Leftrightarrow 0-0\\sigma = \\mu \\Leftrightarrow \\mu = 0\\)\n\nIndsæt i anden ligning:\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25 \\Leftrightarrow \\frac{1-0}{\\sigma} = 0.25 \\Leftrightarrow 1 = 0.25\\sigma \\Leftrightarrow \\frac{1}{0.25} = \\sigma = 4\\)\n\n\nSmutvej: Hvis 50% af observationerne er mindre end 0, betyder det at 0 er medianen. I en normalfordeling er medianen lig middelværdien. Så vi ved meget hurtigt at \\(\\mu = 0\\)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#endnu-en-øvelse",
-    "href": "slides/normalfordelingen.html#endnu-en-øvelse",
-    "title": "Normalfordelingen",
-    "section": "Endnu en øvelse",
-    "text": "Endnu en øvelse\n\nNappet direkte fra en eksamensopgave\n\nFor en population af normalfordelte værdier ved vi at:\n40% af værdierne er større end 0.1, og\n70% af værdierne er mindre end 1.\nHvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nP(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side) Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.\nFacit middel = -0.74 spredning = 3.32"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#løsning",
-    "href": "slides/normalfordelingen.html#løsning",
-    "title": "Normalfordelingen",
-    "section": "Løsning",
-    "text": "Løsning\n\nDet er oplyst at \\(X\\sim N(\\mu,\\sigma)\\)\n\\(P(X&gt;0.1) = 0.4 \\Leftrightarrow P(X&lt;0.1) = 1-0.4 = 0.6\\)\nStandardiseret:\n\\(P(\\frac{X-\\mu}{\\sigma}&lt;\\frac{0.1-\\mu}{\\sigma}) = 0.6 \\Rightarrow \\frac{0.1-\\mu}{\\sigma} = qnorm(0.6) = 0.253\\)\nOg:\n\\(P(X&lt;1) = 0.7\\)\nStandardiseret:\n\\(P(\\frac{X-\\mu}{\\sigma}&lt;\\frac{1-\\mu}{\\sigma}) = 0.7 \\Rightarrow \\frac{1-\\mu}{\\sigma} = qnorm(0.7) = 0.524\\)\nDermed:\n\\(\\frac{0.1-\\mu}{\\sigma} = 0.253 \\Leftrightarrow 0.1-\\mu = 0.253\\sigma\\)\nog\n\\(\\frac{1-\\mu}{\\sigma} = 0.524 \\Leftrightarrow 1-\\mu = 0.524\\sigma\\)\nTræk første ligning fra den anden og isoler \\(\\sigma\\):\n\\((1 - \\mu) - (0.1 - \\mu) = 0.524\\sigma - 0.253\\sigma \\Leftrightarrow 1 - \\mu - 0.1 + \\mu = (0.524-0.253)\\sigma\\)\n\\(1-0.1 = 0.271\\sigma \\Leftrightarrow \\frac{0.9}{0.271} = \\sigma = 3.32\\)\nIndsæt i en af ligningerne for at finde \\(\\mu\\):\n\\(1-\\mu = 0.524\\sigma \\Leftrightarrow 1 - \\mu = 0.534\\cdot3.32 \\Leftrightarrow 1 - 0.534\\cdot3.32 = \\mu = -0.77\\)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
-    "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
-    "title": "Normalfordelingen",
-    "section": "Hvorfor er den vigtig for jer?",
-    "text": "Hvorfor er den vigtig for jer?\nRet ofte er der en typeopgave der grundlæggende tester om I forstår normalfordelingen.\nDet er sådan nogen vi har været igennem.\nOg så bruges den i de statistiske tests. Det kommer vi også til."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområdet",
-    "href": "slides/normalfordelingen.html#normalområdet",
-    "title": "Normalfordelingen",
-    "section": "Normalområdet",
-    "text": "Normalområdet\nPopulært spørgsmål - hvad er normalområdet for “noget”?\nHvis de 95% hyppigste observationer i en normalfordelt population er “normalområdet”. I hvilket interval ligger de så?\n\nHvis de er centreret om en middelværdi, så ligger 100% - 95% = 5% udenfor\n\n\nSå 2.5% ligger lavere, og 2.5% ligger højere.\n\n\nKender vi middelværdi og standardafvigelse kan vi beregne intervallet i hvilket 95% af observationerne ligger"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområdet---øvelse",
-    "href": "slides/normalfordelingen.html#normalområdet---øvelse",
-    "title": "Normalfordelingen",
-    "section": "Normalområdet - øvelse",
-    "text": "Normalområdet - øvelse\nHvis middelværdi for serum-kolesterol er 200 mg/dL og standardafgivelsen er 40 mg/dL, hvad er så normalområdet? Defineret som det interval i hvilket 95% af værdierne vil ligge?"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområdet---nedre-grænse",
-    "href": "slides/normalfordelingen.html#normalområdet---nedre-grænse",
-    "title": "Normalfordelingen",
-    "section": "Normalområdet - nedre grænse",
-    "text": "Normalområdet - nedre grænse\n\\(X \\sim N(200, 40)\\)\n\nNedre grænse er den værdi hvor (100-95)/2 = 2.5% af værdierne er mindre.\n\n\nP(X &lt; y) = 0.025\n\n\nStandardiser:\n\\(P(Z &lt; \\frac{y-200}{40}) = 0.025\\)\n\n\ny-200/40 = qnorm(0.025) = - 1.959964\n\n\nIsoler y:\n\n\ny = 200 + -1.959964*40 = 122\n\nDer er en del domænespecifikke ting der spiller ind her."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
-    "href": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
-    "title": "Normalfordelingen",
-    "section": "Normalområdet - øvre grænse",
-    "text": "Normalområdet - øvre grænse\nDen øvre grænse er så den grænse under hvilken de 95% i normalområdet og de 2.5% under normalområdet ligger.\n\nDvs. P(X &lt; y) = 0.95+0.025 = P(X &lt; y) = 0.975\n\n\nEller der hvor 2.5% ligger over:\nP(X &gt; y) = 0.025 &lt;=&gt; P(X &lt; y) = 1 - 0.025\n\n\nStandardiser:\nP(Z &lt; (y - 200 )/ 40 ) = 0.975\n\n\n(y - 200) / 40 = qnorm(0.975) = 1.959964\n\n\nIsoler y:\n\n\ny = 200 + 1.959964 * 40 = 278"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområdet-genvej",
-    "href": "slides/normalfordelingen.html#normalområdet-genvej",
-    "title": "Normalfordelingen",
-    "section": "Normalområdet genvej",
-    "text": "Normalområdet genvej\nSvaret viste sig at være:\n\nNedre grænse = middelværdi - 1.96*standardafvigelsen\nØvre grænse = middelværdi + 1.96*standardafvigelsen\n\n\nEller:\n\n200 + c(-1,1)*1.96*40\n\n[1] 121.6 278.4\n\n\n\n\nHelt generelt:\n\\(\\mu \\pm1.96\\cdot\\sigma\\)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#hvad-hvis-det-er-et-90-interval-der-er-det-normale",
-    "href": "slides/normalfordelingen.html#hvad-hvis-det-er-et-90-interval-der-er-det-normale",
-    "title": "Normalfordelingen",
-    "section": "Hvad hvis det er et 90% interval der er det normale?",
-    "text": "Hvad hvis det er et 90% interval der er det normale?\n\nSå skal vi bare finde ud af hvad 1.96 skal ændres til.\n\n\n10% skal ligge udenfor området.\n\n\nDvs 5% skal ligge under, og 5% skal ligge over.\n\n\n\nqnorm(1-0.05)\n\n[1] 1.644854\n\n\n\n\nEller: \\(\\mu \\pm1.64\\cdot\\sigma\\)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelse",
-    "href": "slides/normalfordelingen.html#øvelse",
-    "title": "Normalfordelingen",
-    "section": "Øvelse",
-    "text": "Øvelse\n\n\nVi har en normalfordelt population med \\(\\sigma = 6.52\\). 40% af værdierne er mindre end 0. Hvad er så \\(\\mu\\) for denne fordeling?\n\n\\(X \\sim N(\\mu, 6.52)\\)\n\n\nP(X&lt;0) = 0.4\n\n\nSkaler: \\(P(Z &lt; \\frac{0-\\mu}{6.52}) = 0.4\\)\n\n\n\\(\\frac{0-\\mu}{6.52} = qnorm(0.4) = -0.2533471\\) Isoler \\(\\mu\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelse---manglende-procentil",
-    "href": "slides/normalfordelingen.html#øvelse---manglende-procentil",
-    "title": "Normalfordelingen",
-    "section": "Øvelse - Manglende procentil:",
-    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\n\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\n\n\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ntransformer til standardnormalfordelingen:\npnorm((10-12.5)/3.2)"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#øvelse---manglende-sigma",
-    "href": "slides/normalfordelingen.html#øvelse---manglende-sigma",
-    "title": "Normalfordelingen",
-    "section": "Øvelse - Manglende \\(\\sigma\\)",
-    "text": "Øvelse - Manglende \\(\\sigma\\)\n\n\nI en normalfordelt population er \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er \\(\\sigma\\) for denne fordeling?\n\nP(X &gt; 95) = 0.25\n\n\nP(X&lt;95) = 1-0.25 = 0.75\n\n\n\\(P(Z&lt; \\frac{95-\\mu}{\\sigma}) = 0.75\\)\n\n\n\\((95-85)/\\sigma = qnorm(0.75)\\)\n\n\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nStandardiser\n𝑃⁡(𝑍 &lt; 95−𝜇 𝜎\n) =0.75\nIndsæt og brug qnorm til at komme af med P\n(95 −85)/𝜎 =𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75)\nIsoler 𝜎\n10/𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75) =𝜎"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
-    "href": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
-    "title": "Normalfordelingen",
-    "section": "Manglende værdi, kendt procentil:",
-    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\nEller: P(X&lt;y) = 0.9\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\n\\(\\frac{y-50}{8} = qnorm(0.9)\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nP(X &lt; y) = 0.9\nStandardiser\nP(Z &lt; (y-μ)/σ) = 0.9\nqnorm of at komme af med P\n(y-μ)/σ = qnorm(0.9)\nIndsæt (y-50)/8 = qnorm(0.9)\nIsoler y\ny &lt;- qnorm(0.9)*8+50 y"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",
-    "href": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",
-    "title": "Normalfordelingen",
-    "section": "Manglende middelværdi (variant 2):",
-    "text": "Manglende middelværdi (variant 2):\n\n\nFor en normalfordeling gælder at \\(\\sigma = 4.5\\) og 75% af værdierne er &gt; 18. Hvad er \\(\\mu\\)?\n\nP(X&gt;18) = 0.75\n\n\nP(X&lt;18) = 1 - 0.75 = 0.25\n\n\nStandardiser: \\(P(Z &lt; \\frac{18-\\mu}{\\sigma}) = 0.25\\)\n\n\n\\(\\frac{18-\\mu}{\\sigma} = qnorm(.25) = -0.6744898\\) Indsæt \\(\\sigma = 4.5\\) og isoler \\(\\mu\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#manglende-interval-grænse",
-    "href": "slides/normalfordelingen.html#manglende-interval-grænse",
-    "title": "Normalfordelingen",
-    "section": "Manglende interval-grænse",
-    "text": "Manglende interval-grænse\n\n\nEn normalfordelt population har \\(\\mu = 100\\) og \\(\\sigma = 15\\). Hvis 80% af værdierne ligger mellem 85 og en øvre grænse \\(x\\), hvad er da denne øvre grænse?\nEller: find y således at:\nP(85 &lt; X &lt; y) = 0.8\n\nTavle!\n\n\n\nqnorm(1 - (0.2- pnorm(-1)))*15+100\n\n[1] 126.0293\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområde---en-eksamensopgave",
-    "href": "slides/normalfordelingen.html#normalområde---en-eksamensopgave",
-    "title": "Normalfordelingen",
-    "section": "Normalområde - en eksamensopgave",
-    "text": "Normalområde - en eksamensopgave\n“Summariske regnestørrelser” for plasma magnesium er givet. Og vi får lov at antage at det er normalfordelt for de to populationer stikprøverne er trukket:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Spredning\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nBeregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).\n\n\n0.81 + c(-1,1)*1.96*0.057\n\n[1] 0.69828 0.92172"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområde",
-    "href": "slides/normalfordelingen.html#normalområde",
-    "title": "Normalfordelingen",
-    "section": "Normalområde",
-    "text": "Normalområde\n\n\nHvilken andel af målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nEller for: X ~ N(0.719, 0.068) hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\n\nEller: P(0.7 &lt; X &lt; 0.92) =\nP(X &lt; 0.92) - P(X &lt; 0.7)\n\n\nTavle!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm((0.92-0.719)/0.068) - pnorm((0.7-0.719)/0.068)\n\n[1] 0.6084767"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#normalområde---cowboy-trick",
-    "href": "slides/normalfordelingen.html#normalområde---cowboy-trick",
-    "title": "Normalfordelingen",
-    "section": "Normalområde - cowboy trick",
-    "text": "Normalområde - cowboy trick\n1.96 er det magiske tal. Så det er overflødigt at lave standardiseringen.\ngå direkte til:\nmiddelværdi +/- 1.96*sd\neller\nmiddelværdi + c(-1,1)* 1.96 * standardafvigelse"
-  },
-  {
-    "objectID": "slides/normalfordelingen.html#cowboy-trick-2",
-    "href": "slides/normalfordelingen.html#cowboy-trick-2",
-    "title": "Normalfordelingen",
-    "section": "Cowboy trick 2",
-    "text": "Cowboy trick 2\n\nHvor stor en andel af observationerne er mindre end 50 når middelværdien er 47 og standardafvigelsen er 42?\nVi kan skalere de 50, og putte resultatet ind i pnorm.\n\npnorm((50-47)/42)\n\n[1] 0.5284717\n\n\nEller, vi kan lade R gøre det for os:\n\n\npnorm(50, mean = 47, sd = 42)\n\n[1] 0.5284717\n\n\n\n\nFor de typeopgaver hvor vi skal finde \\(\\mu\\) og/eller \\(\\sigma\\) hjælper det ikke. Eksamenstaktisk er det nok også bedre at skalere manuelt (det demonstrerer at I har forstået teknikken; det er det de tester). Men så har I en kontrol på om I har regnet rigtigt."
+    "objectID": "slides/power.html#husk-dog",
+    "href": "slides/power.html#husk-dog",
+    "title": "Powerberegninger",
+    "section": "Husk dog!",
+    "text": "Husk dog!\nDet her er til eksamensbrug.\nNår I skal til at lave forskning, så bør I basere jer på t-fordelingen i stedet.\nDen er bredere, og kan håndtere at variansen ikke er kendt, men skal estimeres.\nDen kan også klare sig med færre observationer.\nOg når I planlægger forsøget: Så finder I hvor mange observationer/patienter I skal bruge teoretisk.\nOg ganger med 2 for at få noget sikkerhedsmargen på det."
   },
   {
     "objectID": "slides/linreg.html#hvad-er-det-nu-det-er",
@@ -1666,228 +1463,452 @@
     "text": "Det var den lineære regression\nVi skal kunne opstille sådan en\nVi skal kunne beregne evt. manglende estimater, standardfejl eller t-værdier\nVi skal kunne fortolke outputtet af regressionen\nVi skal kunne prædiktere en værdi ud fra modellen"
   },
   {
-    "objectID": "slides/power.html#hvad-katten-er-det",
-    "href": "slides/power.html#hvad-katten-er-det",
-    "title": "Powerberegninger",
-    "section": "Hvad katten er det?",
-    "text": "Hvad katten er det?\nNår vi laver statistiske test opstiller vi en NULL-hypotese; \\(H_0\\), og en alternativ hypotese, \\(H_A\\).\nGrundlæggende: Vi opstiller en hypotese om at der ikke sker noget. Eksempelvis at den sande forskel på to middelværdier er 0.\nI de fleste tilfælde vil vi gerne kunne afvise \\(H_0\\)."
+    "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
+    "href": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling",
+    "title": "Normalfordelingen",
+    "section": "Hvad er en sandsynlighedsfordeling?",
+    "text": "Hvad er en sandsynlighedsfordeling?\n\n\nNår vi måler noget får vi som regel en række forskellige resultater.\nHøjde af mænd er et eksempel. Nogen er 1,85 meter. Andre 1,80 meter.\nNår vi laver et histogram af alle de målinger, kunne det se således ud:\n\n\n\n\n\n\n\n\n\n\nHvad er mest sandsynligt - at være mellem 190 og 195 cm eller at være mellem 180 og 185 cm høj?"
   },
   {
-    "objectID": "slides/power.html#vi-har-prøvet-det",
-    "href": "slides/power.html#vi-har-prøvet-det",
-    "title": "Powerberegninger",
-    "section": "Vi har prøvet det",
-    "text": "Vi har prøvet det\n\nTo grupper, med hver deres middelværdi \\(\\mu\\) og standardafvigelse \\(\\sigma\\) og antal observationer, n, i hver gruppe.\nBeregn SEM for hver af grupperne: \\(SEM = \\frac{\\sigma}{\\sqrt{n}}\\)\nBeregn en samlet SE for differencen: \\(SE_{diff} = \\sqrt{SEM_{1}^2 + SEM_2^2}\\)\nOg et 95% konfidensinterval:\n\\((\\mu_1 - \\mu_2) \\pm 1.96SE _{diff}\\)\nLigger 0 i intervallet, er der ingen forskel (på et 5% signifikansniveua). Ligger det udenfor, er der forskel, og vi afviser \\(H_0\\) (på et 5% signifikansniveau)."
+    "objectID": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling-1",
+    "href": "slides/normalfordelingen.html#hvad-er-en-sandsynlighedsfordeling-1",
+    "title": "Normalfordelingen",
+    "section": "Hvad er en sandsynlighedsfordeling?",
+    "text": "Hvad er en sandsynlighedsfordeling?\nEn sandsynlighedsfordeling beskriver hvordan vores målinger fordeler sig.\n\nHvad er sandsynligheden for at se en observation der ligger under en bestemt værdi?\nHvad er sandsynligheden for at se en observation der ligger over en bestemt værdi?\nHvad er sandsynligheden for at se en observation der ligger mellem to forskellige værdier?\nI hvilket interval finder vi en bestemt andel af observationerne?"
   },
   {
-    "objectID": "slides/power.html#hvad-betød-det",
-    "href": "slides/power.html#hvad-betød-det",
-    "title": "Powerberegninger",
-    "section": "Hvad betød det?",
-    "text": "Hvad betød det?\nKan vi ikke afvise \\(H_0\\) betyder det blandt andet at forskellen på middelværdierne ikke er så stor at vi kan konkludere at der faktisk er forskel.\n\nMen det kunne være at der var en forskel alligevel.\n\n\n\\(\\alpha\\) giver os den kritiske værdi. Den sammenligner vi med testværdien.\n\n\nVi har også set p-værdier. Det er risikoen for at vi afviser \\(H_0\\). Selvom \\(H_0\\) er sand.\n\n\nVi spørger grundlæggende om p-værdien er mindre end \\(\\alpha\\). Er den det er vi normalt glade."
+    "objectID": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
+    "href": "slides/normalfordelingen.html#hvordan-kan-vi-beskrive-alle-de-her-observationer",
+    "title": "Normalfordelingen",
+    "section": "Hvordan kan vi beskrive alle de her observationer?",
+    "text": "Hvordan kan vi beskrive alle de her observationer?\n\n\n [1] 180.4502 186.4626 177.9874 177.4196 185.7843 180.2988 179.8931 173.9258\n [9] 161.4282 177.1444 176.0613 182.8983 183.7391 172.5858 181.4504 175.7152\n[17] 190.8205 179.2345 191.1287 179.4572 189.3403 180.9383 178.3995 181.1429\n[25] 192.3280 173.8034 174.1068 193.6825 184.9176 167.8660 190.7934 187.2641\n[33] 170.8997 175.9713 189.1951 183.7850 186.4898 176.4555 180.5784 184.0614\n[41] 183.3628 177.0054 182.4882 179.2966 184.9816 168.2755 176.6872 182.8446\n[49] 182.7467 176.8393\n\n\n\nGennemsnit eller middelværdi. Begge ord bruges!\n\n\nHvordan de varierer\n\n\nStandardafvigelse\n\nVi vil gerne have dem til at sige middelværdi. Og standardafvigelse"
   },
   {
-    "objectID": "slides/power.html#det-kan-gå-galt-på-to-måder",
-    "href": "slides/power.html#det-kan-gå-galt-på-to-måder",
-    "title": "Powerberegninger",
-    "section": "Det kan gå galt på to måder:",
-    "text": "Det kan gå galt på to måder:\nType 1 fejl: Der ser ud til at være en effekt. Eller et positivt resultat.\n\nVi kan forkaste \\(H_0\\)\n\n\nMen det er en fejl!\nDer er ikke en effekt.\nData understøtter ikke den alternative hypotese\n\n\nDet er en falsk positiv\n\n\nVi forkastede \\(H_0\\) ved en fejl\n\n\nPå et \\(\\alpha = 0.05\\) niveau\n\n\nSom er risikoen for at vi ser en falsk positiv.\n\n\nDet er ikke så godt…"
+    "objectID": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",
+    "href": "slides/normalfordelingen.html#middelværdi-og-standardafvigelse",
+    "title": "Normalfordelingen",
+    "section": "Middelværdi og standardafvigelse",
+    "text": "Middelværdi og standardafvigelse\n\\(x\\) er vores målinger. \\(x_i\\) er en fancy måde at skrive at der er flere: \\(x_1, x_2, x_3, ... x_i\\). og vi har ialt \\(N\\) observationer\nMiddelværdien: \\[\\mu = \\frac{\\sum{x_i}}{N}\\]\nStandardafvigelsen\n\\[\\sigma = \\sqrt{\\frac{\\sum(x_i - \\mu)^2}{N}  }\\]\n\nVi kan forstå standardafvigelsen som den gennemsnitlige forskel der er mellem observationerne og middelværdien.\nHvorfor kvadrerer vi? Forskellen kan være positiv eller negativ. Det betyder at når vi lægger dem sammen, kan resultatet blive 0. Også selvom forskellene faktisk er ret store. Så vi kvadrerer dem. og tager kvadratroden bagefter. Det betyder også at store afvigelser fra middelværdien “fylder” mere i standardafvigelsen."
   },
   {
-    "objectID": "slides/power.html#eksistensen-af-type-1-fejl-indikerer-eksistensen-af-type-2-fejl",
-    "href": "slides/power.html#eksistensen-af-type-1-fejl-indikerer-eksistensen-af-type-2-fejl",
-    "title": "Powerberegninger",
-    "section": "Eksistensen af type 1 fejl indikerer eksistensen af type 2 fejl",
-    "text": "Eksistensen af type 1 fejl indikerer eksistensen af type 2 fejl\n\nOg eksistensen af \\(\\alpha\\) indikerer eksistensen af \\(\\beta\\).\n\n\nVi kan også begå fejl på en anden måde.\n\n\nDet gør vi, hvis test- eller p-værdien fortæller os at vi ikke kan forkaste \\(H_0\\)\n\n\nSå konkluderer vi at der ikke er forskel. Selvom der i virkeligheden er forskel!\n\n\nDet er en type 2 fejl. En falsk negativ.\n\n\nRisikoen for at begå en type 2 fejl kan vi også sætte tal på.\n\n\nDen kalder vi \\(\\beta\\)"
+    "objectID": "slides/normalfordelingen.html#hvornår-bruger-vi-græske-bogstaver",
+    "href": "slides/normalfordelingen.html#hvornår-bruger-vi-græske-bogstaver",
+    "title": "Normalfordelingen",
+    "section": "Hvornår bruger vi græske bogstaver?",
+    "text": "Hvornår bruger vi græske bogstaver?\n\nLæg mærke til at vi undertiden bruger græske bogstaver.\nKender vi den sande værdi af gennemsnittet af alle danske mænds højde? Normalt ikke.\n\n\nDet gør vi når vi kender de “sande” værdier:\n\n\nMiddelværdi: \\(\\mu\\). Standardafvigelse: \\(\\sigma\\)\n\n\nDe latinske bogstaver bruger vi når vi “kun” kender værdierne fra vores stikprøve:\n\n\nMiddelværdi: \\(\\bar{x}\\). Standardafvigelse: \\(s\\)"
   },
   {
-    "objectID": "slides/power.html#det-omvendte-af-beta",
-    "href": "slides/power.html#det-omvendte-af-beta",
-    "title": "Powerberegninger",
-    "section": "Det omvendte af \\(\\beta\\)",
-    "text": "Det omvendte af \\(\\beta\\)\n\nRisikoen for at begå en type 2 fejl er en svaghed.\n\nDet omvendte kalder vi power. Det er den “styrke” vores test har.\n\n\nEller\n\n\n\nSandsynligheden for at testen finder forskellen, når forskellen faktisk findes!\nPower er sandsynligheden for ikke at begå en type 2 fejl.\n\n\n\nHvis \\(\\beta\\) er risikoen for at vores test ikke finder forskellen, selvom den findes.\n\n\nSå er power sandsynligheden for at vores test finder forskellen. Når altså den faktisk er der.\n\n\n\\(power = 1 - \\beta\\)"
+    "objectID": "slides/normalfordelingen.html#og-hvis-vi-måler-i-en-anden-enhed",
+    "href": "slides/normalfordelingen.html#og-hvis-vi-måler-i-en-anden-enhed",
+    "title": "Normalfordelingen",
+    "section": "Og hvis vi måler i en anden enhed?",
+    "text": "Og hvis vi måler i en anden enhed?\nTommer fx?\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nbreaks &lt;- breaks/2.54\nhist(højder/2.54, breaks = breaks)"
   },
   {
-    "objectID": "slides/power.html#hvad-afhænger-de-her-ting-af",
-    "href": "slides/power.html#hvad-afhænger-de-her-ting-af",
-    "title": "Powerberegninger",
-    "section": "Hvad afhænger de her ting af?",
-    "text": "Hvad afhænger de her ting af?\nHelt intuitiv.\n\nJo flere observationer vi har - jo større er chancen for at vi finder en forskel (der faktisk er der).\n\n\nJo mindre standardafvigelser vi har - jo større er chancen for at vi kan se forskelle på det vi sammenligner.\n\n\nJo større reel forskel der er, jo lettere bliver det at få øje på den.\n\n\nNår \\(\\alpha\\) stiger, bliver det lettere at forkaste \\(H_0\\) Det bliver også lettere at finde en forskel hvis power stiger (~ \\(\\beta\\) falder). Til gengæld stiger risikoen for falsk positive."
+    "objectID": "slides/normalfordelingen.html#hvordan-kan-vi-ellers-mishandle-tal",
+    "href": "slides/normalfordelingen.html#hvordan-kan-vi-ellers-mishandle-tal",
+    "title": "Normalfordelingen",
+    "section": "Hvordan kan vi ellers mishandle tal?",
+    "text": "Hvordan kan vi ellers mishandle tal?\nHvis vi trækker ting fra?\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nmiddel &lt;- mean(højder)\nhist(højder-middel, breaks = breaks-middel)"
   },
   {
-    "objectID": "slides/power.html#vi-har-fem-parametre",
-    "href": "slides/power.html#vi-har-fem-parametre",
-    "title": "Powerberegninger",
-    "section": "Vi har fem parametre",
-    "text": "Vi har fem parametre\n\nStikprøvestørrelserne (n)\nStandardafvigelserne (på stikprøverne, \\(\\sigma\\))\nØnsket forskel vi vil kunne finde (\\(\\delta\\))\nRisikoen for type 1 fejl (\\(\\alpha\\))\nRisikoen for type 2 fejl (\\(\\beta\\))\n\nVi har en hemmelig sjette parameter. Nemlig hvilken test det er vi laver. Sammenligner vi middelværdier? Eller proportioner?\nHvis vi kender værdierne af fire af dem - så kan vi finde værdien af den femte."
+    "objectID": "slides/normalfordelingen.html#og-begge-dele",
+    "href": "slides/normalfordelingen.html#og-begge-dele",
+    "title": "Normalfordelingen",
+    "section": "Og begge dele",
+    "text": "Og begge dele\n\n\nFør:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\n\nhist(højder, breaks = breaks)\n\n\n\n\n\n\n\n\n\n\nEfter:\n\nmiddel &lt;- mean(højder)\nbreaks &lt;- (breaks - middel)/2.54\nhist((højder-middel)/2.54, breaks = breaks)"
   },
   {
-    "objectID": "slides/power.html#og-hvad-spørges-der-om-til-eksamen",
-    "href": "slides/power.html#og-hvad-spørges-der-om-til-eksamen",
-    "title": "Powerberegninger",
-    "section": "Og hvad spørges der om til eksamen?",
-    "text": "Og hvad spørges der om til eksamen?\n\nHer er fire værdier. Find den femte.\n\nEksempelvis: Vi ønsker et signifikansniveau på 5% og en power på 80%. Vi ønsker at kunne se en forskel på 42 i middelværdierne på to stikprøver, standardafvigelsen kan antages at være den samme i begge stikprøver. Der er 100 observationer i den ene stikprøve. Hvor mange skal der være i den anden?\n\n\nDet handler typisk om beregning af stikprøvestørrelser.\nHvor mange patienter skal vi have med i vores forsøg for at vi kan forvente at se en effekt af ene bestemt størrelse?\n\n\nEller beregning af effektstørrelser.\nHvor stor en forskel mellem to grupper forventer vi at kunne få øje på. Når vi har et bestemt antal patienter med i forsøget.\n\n\nDet er dog ikke et specielt hyppigt forekommende eksamensspørgsmål."
+    "objectID": "slides/normalfordelingen.html#hvorfor-gør-vi-det",
+    "href": "slides/normalfordelingen.html#hvorfor-gør-vi-det",
+    "title": "Normalfordelingen",
+    "section": "Hvorfor gør vi det?",
+    "text": "Hvorfor gør vi det?\n\nFordi vi kan!\n\n\nVi får et histogram der beskriver fordelingen ganske som før.\n\n\nPå en måde, der beskriver fordelingen omkring gennemsnittet.\n\n\nVi kan nu se hvor mange der er højere end gennemsnittet.\nOg hvor mange der er lavere end gennemsnittet.\nI enheder vi selv vælger\n\n\nEr det meget sandsynligt at møde en mand der er 7 tommer højere end gennemsnittet?"
   },
   {
-    "objectID": "slides/power.html#det-har-r-funktioner-til.",
-    "href": "slides/power.html#det-har-r-funktioner-til.",
-    "title": "Powerberegninger",
-    "section": "Det har R funktioner til.",
-    "text": "Det har R funktioner til.\n\npower.t.test()\npower.prop.test()\npower.anova.test()\n\nDen sidste har jeg ikke set i eksamensopgaver, så den springer vi over.\nDer er lidt flere detaljer, two sample eller one sample? Eller parret?\nGiv dem fire af de fem parametre, og de beregner den femte."
+    "objectID": "slides/normalfordelingen.html#og-uintuitive-enheder",
+    "href": "slides/normalfordelingen.html#og-uintuitive-enheder",
+    "title": "Normalfordelingen",
+    "section": "Og uintuitive enheder",
+    "text": "Og uintuitive enheder\nVi kan måle i standardafvigelser i stedet for tommer:\n\nbreaks &lt;- c(160, 165, 170, 175, 180, 185, 190, 195)\nenhed &lt;- sd(højder)\nmiddel &lt;- mean(højder)\nbreaks &lt;- (breaks-middel)/enhed\nhist((højder-middel)/enhed, breaks = breaks)\n\n\n\nEr det sandsynligt at møde en mand der er 3 standardafvigelser lavere end gennemsnittet?"
   },
   {
-    "objectID": "slides/power.html#men-dem-bruger-vi-ikke",
-    "href": "slides/power.html#men-dem-bruger-vi-ikke",
-    "title": "Powerberegninger",
-    "section": "Men dem bruger vi ikke…",
-    "text": "Men dem bruger vi ikke…\nFor eksamen tester ikke om I kan putte tal ind i en funktion.\nEksamen tester om I har forstået nok til at I kan gøre det i hånden.\nI har muligvis fået udleveret et notat om beregning af stikprøvestørrelser.\nDet har jeg i hvert fald set at tidligere årgange har fået.\nSådan et notat har jeg ikke kunne finde.\nHar I sådan et - så skal I bruge det!\nHvis I ikke har, så er der et bud på hvordan her."
+    "objectID": "slides/normalfordelingen.html#hvad-er-normalfordelingen",
+    "href": "slides/normalfordelingen.html#hvad-er-normalfordelingen",
+    "title": "Normalfordelingen",
+    "section": "Hvad er normalfordelingen?",
+    "text": "Hvad er normalfordelingen?\nHøjderne fra før var normalfordelte\n\nDe fleste eksamensopgaver I støder på, har en formulering om at I kan antage at data er normalfordelte.\nHvad betyder det?\n\n\nUndersøger vi hvilke sandsynlighedsfordelinger mange forskellige ting følger\n\n\nSå er der en bestemt sandsynlighedsfordeling der optræder flere gange end andre.\n\n\nDet er den “normale” fordeling\n\nDet er ikke en normativ betegnelse, normal i denne kontekst betyder blot den hyppigst forekommende"
   },
   {
-    "objectID": "slides/power.html#i-stedet",
-    "href": "slides/power.html#i-stedet",
-    "title": "Powerberegninger",
-    "section": "I stedet",
-    "text": "I stedet\n💥Powerrelationen!💪\n\n\\[\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\nDen effekt vi ønsker at kunne se - divideret med standardfejlen, skal være lig med \\(z_{1-α/2}+z_{1-β}\\)\nDet gælder altid. Forskellen fra test til test bestemmer hvordan vi beregner standardfejlen.\nHusk hvordan vi så på testværdierne. Var de langt nok væk fra 0 målt i standardfejl? Det er samme metode.\nVi skal blot lidt længere væk, fordi vi ikke bare lige akkurat skal forkaste \\(H_0\\). Vi skal være ekstra sikre - og hvor meget styres af den ønskede power.\n\n“Altid” er med et par forbehold. Der antages normalitet. Det er mere kompliceret ved små stikprøver. Og ikke-lineære modeller. Og når standardfejlen afhænger af det vi prøver at estimere (her er der ingen simpel formel, og man simulerer i stedet)"
+    "objectID": "slides/normalfordelingen.html#hvordan-ser-den-ud",
+    "href": "slides/normalfordelingen.html#hvordan-ser-den-ud",
+    "title": "Normalfordelingen",
+    "section": "Hvordan ser den ud?",
+    "text": "Hvordan ser den ud?\nObservationer der er normalfordelte, følger denne fordeling:\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\n\\]\n\\(f(x)\\) er sandsynligheden for at se en observation med værdien x.\n\\(\\mu\\) og \\(\\sigma\\) har vi mødt før, det var populationens middelværdi og standardafvigelse.\n\nDet er der jo ingen der orker at arbejde med…\n\n\nDet vigtige er at den 100% styres af \\(\\mu\\) og \\(\\sigma\\)"
   },
   {
-    "objectID": "slides/power.html#de-sære-tegn",
-    "href": "slides/power.html#de-sære-tegn",
-    "title": "Powerberegninger",
-    "section": "De sære tegn",
-    "text": "De sære tegn\nLad os lige repetere:\n\\(z_{1-α/2}\\) og \\(z_{1-β}\\) kender vi godt.\n\\(z_{1-α/2}\\) er kvantilen der matcher 0.975 (% observationer der er mindre end…). Det giver:\n\nqnorm(1-0.05/2)\n\n[1] 1.959964\n\n\nDen har vi set før.\n\\(z_{1-β}\\) er kvantilen der matcher vores power. En power på 0.8 er populær (og det er så \\(\\beta = 0.2\\)):\n\nqnorm(1-0.2)\n\n[1] 0.8416212"
+    "objectID": "slides/normalfordelingen.html#hvordan-ser-den-ud-1",
+    "href": "slides/normalfordelingen.html#hvordan-ser-den-ud-1",
+    "title": "Normalfordelingen",
+    "section": "Hvordan ser den ud?",
+    "text": "Hvordan ser den ud?\n\n\n\nHer har vi målinger der kan gå fra -4 til 4 standardafvigelser.\nOg har \\(\\mu = 0\\) og \\(\\sigma = 1\\).\nHusk - det er en sandsynlighedsfordeling\nArealet under kurven er 1 ~ 100%.\nFor alle værdierne er med og sandsynligheden for at vi ser en værdi er 100%"
   },
   {
-    "objectID": "slides/power.html#hvordan-beregnes-standardfejlen",
-    "href": "slides/power.html#hvordan-beregnes-standardfejlen",
-    "title": "Powerberegninger",
-    "section": "Hvordan beregnes standardfejlen?",
-    "text": "Hvordan beregnes standardfejlen?\nDet har vi set før:\nEn middelværdi: \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\)\nForskel på to middelværdier: \\(SE = \\sqrt{SE_1^2 + SE_2^2} = \\sqrt{\\left(\\frac{\\sigma_1}{\\sqrt{n_1}}\\right)^2 + \\left(\\frac{\\sigma_2}{\\sqrt{n_2}}\\right)^2} = \\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\nForskel på to middelværdier, hvor grupperne er lige store: \\(SE = \\sigma\\sqrt{\\frac{2}{n}}\\)\nParrede målinger: \\(SE = \\frac{\\sigma_d}{\\sqrt{n}}\\) hvor \\(\\sigma_d\\) er standardafvigelsen af forskellene"
+    "objectID": "slides/normalfordelingen.html#standardnormalfordelingen",
+    "href": "slides/normalfordelingen.html#standardnormalfordelingen",
+    "title": "Normalfordelingen",
+    "section": "Standardnormalfordelingen",
+    "text": "Standardnormalfordelingen\nNår \\(\\mu = 0\\) og \\(\\sigma = 1\\) kalder vi den for “standardnormalfordelingen”.\nDen skriver vi som: \\(N(0,1)\\)\n\nAndre normale fordelinger findes\n\n\nDem skriver vi som \\(X \\sim N(\\mu,\\sigma)\\)\n\n\nDe kan omregnes (skaleres) til standardnormalfordelingen\n\n\nDet var det vi gjorde da vi trak middelværdien fra højderne. For så blev højdernes middelværdi 0.\n\n\nOg da vi dividerede det hele med standardafvigelsen - blev enheden på x-aksen målt i standardafvigelser.\n\nDet at kunne skalere til og fra standardnormalfordelingen er dels nyttigt for at kunne løse opgaverne. Det tester om I har forstået hvad der foregår, og det er ret vigtigt.\nDet handler også om at i gamle dage havde vi ikke programmer der kunne lave beregningerne for en hvilken som helst normalfordeling. Så matematikere sad møjsommeligt og beregnede værdier for standardnormalfordelingen. Og så kunne man slå op i tabeller."
   },
   {
-    "objectID": "slides/power.html#hvordan-beregnes-standardfejlen-1",
-    "href": "slides/power.html#hvordan-beregnes-standardfejlen-1",
-    "title": "Powerberegninger",
-    "section": "Hvordan beregnes standardfejlen?",
-    "text": "Hvordan beregnes standardfejlen?\nEn proportion: \\(SE = \\sqrt{\\frac{p(1-p)}{n}}\\)\nForskel mellem to proportioner: \\(SE = \\sqrt{\\frac{p_1(1 - p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\\)\nForskel mellem to proportioner, hvor grupperne er lige store: \\(SE = \\sqrt{\\frac{p_1(1 - p_1) + p_2(1-p_2)}{n}}\\)"
+    "objectID": "slides/normalfordelingen.html#hvilke-egenskaber-har-den",
+    "href": "slides/normalfordelingen.html#hvilke-egenskaber-har-den",
+    "title": "Normalfordelingen",
+    "section": "Hvilke egenskaber har den?",
+    "text": "Hvilke egenskaber har den?\n\n\nlink\n\n\nBemærk at enheden på x-aksen er i “standardafvigelser”. At den går fra minus uendelig til uendelig sammenhængen mellem median og middelværdi Læg også mærke til at z-scores er lig med enheden. T-scores er en normalisering fra psykometrien. Den bruger vi ikke her."
   },
   {
-    "objectID": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
-    "href": "slides/power.html#og-hvad-gør-vi-så-i-praksis",
-    "title": "Powerberegninger",
-    "section": "Og hvad gør vi så i praksis?",
-    "text": "Og hvad gør vi så i praksis?\n\nVi har powerrelationen\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-\\alpha/2}+z_{1-\\beta}\\)\n\n\\(z_{1-\\alpha/2} = 1.96\\) (hvis \\(\\alpha = 0.05\\)). \\(z_{1-\\beta}\\) beregner vi med qnorm(1-beta)\n\n\nVi får oplyst at vi vil kunne se en bestemt forskel i to middelværdier (det var effekten), ofte “behandling vs. placebo”.\n\n\nMed en power på 80% (svarende til \\(\\beta = 0.2\\))\n\n\nVi får at vide at der skal være lige mange i hver gruppe.\n\n\nHvis vi er heldige får vi også at vide at vi må antage at standardafvigelsen er den samme i de to grupper (og hvad den er).\n\n\nOg vi ved så, at vi kan beregne standardfejlen ved \\(\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\)\n\n\nOg fordi \\(n_1 = n_2\\)\n\n\nSå er det “bare” at indsætte tallene i powerrelationen, og isolere n.\n\n\n\nEller også får vi at vide at \\(n_1 = 100\\) og vi skal finde \\(n_2\\). Eller vi får oplyst både \\(n_1\\) og \\(n_2\\) og alt det andet, men skal beregne den forskel vi kan forvente at se.\nGrundlæggende: Vi får alt, bortset fra én parameter oplyst. Indsæt i formlen, isoler det manglende."
+    "objectID": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
+    "href": "slides/normalfordelingen.html#et-par-hurtige-øvelser",
+    "title": "Normalfordelingen",
+    "section": "Et par hurtige øvelser",
+    "text": "Et par hurtige øvelser\nHvis vores observationer er normalfordelte med \\(\\mu = 0\\) og \\(\\sigma = 1\\)\n\nHvor stor en andel af observationerne er mindre end 1 (\\(\\sigma\\))? 84.1%\n\n\n\nHvor mange observationer er mindre end -2 (\\(\\sigma\\))?  2.3%\n\n\n\n\nFor hvilken værdi (af \\(\\sigma\\)) er 15.9% af observationerne mindre (end denne værdi)?  -1 (\\(\\sigma\\)) \n\n\n\npnorm(1)*100\n\n\npnorm(-2)*100\n\n\nqnorm(0.159)"
   },
   {
-    "objectID": "slides/power.html#et-par-fælder",
-    "href": "slides/power.html#et-par-fælder",
-    "title": "Powerberegninger",
-    "section": "Et par fælder",
-    "text": "Et par fælder\nVi runder altid op. Hvis n beregnes til 7.8, runder vi op til 8.\nResultatet af vores beregninger er næsten altid antallet af hvor mange observationer der skal være i hver gruppe.\nHvis n er 8, skal vi bruge 16 observationer.\nUndtagelsen er selvfølgelig hvis vi får at vide at der er 100 observationer i den ene gruppe. Så får vi svaret på hvor mange vi skal bruge i den anden gruppe."
+    "objectID": "slides/normalfordelingen.html#og-et-par-stykker-til",
+    "href": "slides/normalfordelingen.html#og-et-par-stykker-til",
+    "title": "Normalfordelingen",
+    "section": "Og et par stykker til",
+    "text": "Og et par stykker til\nHvis højden af alle danske mænd er normalfordelt med en middelværdi på 180 cm, og standardafvigelse på 5 cm.\nHvor stor en andel af dem er så lavere end 170 cm?\n\nForskellen er 170-180 = -10 cm\nHvad er det i standardafvigelser?\n\n\n-10 / 5 = -2\n-2 standardafvigelser fra middelværdien\n\n\nOg lige før så vi at det var 2.3%\n\n\nSå hvis vi skalerer data til standardnormalfordelingen, kan vi “let” se hvor mange der er højere eller lavere end noget bestemt."
   },
   {
-    "objectID": "slides/power.html#så-er-vi-klar-lad-os-tage-et-eksempel",
-    "href": "slides/power.html#så-er-vi-klar-lad-os-tage-et-eksempel",
-    "title": "Powerberegninger",
-    "section": "Så er vi klar, lad os tage et eksempel!",
-    "text": "Så er vi klar, lad os tage et eksempel!\nVi skal sammenligne en enzymkoncentration for patienter med en bestemt sygdom med en rask kontrolgruppe, således at der er lige mange patienter og kontroller i studiet. Hvor mange patienter skal inkluderes i studiet hvis forskelle i enzymkoncentrationen på mindre end 1 standardafvigelse (\\(\\sigma\\)) ikke er relevante.\nØnsket styrke er 80% eller 0.8, så \\(\\beta = 1-0.8=0.2\\), signifikansniveauet sættes til 5%, så \\(\\alpha = 0.05\\).\nVi får lov at antage at enzymkoncentrationen varierer lige meget blandt patienter og kontroller."
+    "objectID": "slides/normalfordelingen.html#fine-tal---hvordan-finder-vi-dem-selv",
+    "href": "slides/normalfordelingen.html#fine-tal---hvordan-finder-vi-dem-selv",
+    "title": "Normalfordelingen",
+    "section": "Fine tal - hvordan finder vi dem selv?",
+    "text": "Fine tal - hvordan finder vi dem selv?\nVi ville vide hvor stor en andel af mændene der var lavere end -2 standardafvigelser fra middelværdien.\n\nIfølge grafen lå 2.3% af observationerne under \\(-2\\sigma\\).\n\n\nHvordan finder vi selv det tal?\n\n\n\npnorm\nqnorm"
   },
   {
-    "objectID": "slides/power.html#første-trin",
-    "href": "slides/power.html#første-trin",
-    "title": "Powerberegninger",
-    "section": "Første trin",
-    "text": "Første trin\nHvilken type udfald?\n\nMiddelværdier - forskel på to grupper. En differens. Grupperne skal være lige store.\n\n\nHvordan ser vores standardfejl så ud?\n\n\nSE = \\(\\sigma\\sqrt{\\frac{2}{n}}\\)\n\n\nHvilken effekt ønsker vi at kunne se?\n\n\nØnsket effekt vi vil kunne opdage er 1\\(\\sigma\\)"
+    "objectID": "slides/normalfordelingen.html#pnorm",
+    "href": "slides/normalfordelingen.html#pnorm",
+    "title": "Normalfordelingen",
+    "section": "pnorm",
+    "text": "pnorm\npnorm(x) fortæller hvad sandsynligheden p er for at se en observation der er mindre end x.\n\nNår x er afstanden til middelværdien, målt i enheder af standardafvigelsen.\n\n\n\npnorm(-2)\n\n[1] 0.02275013\n\n\n\n\nVi kan også skrive det som:\nP(X &lt; -2) = 0.02275013\n\n\nLæses: Sandsynligheden (P) for at værdien (X) er mindre end -2 er 0.02275013\nVi taler også om at det er 2.3% kvantilen, eller 2.3 percentilen."
   },
   {
-    "objectID": "slides/power.html#opstil-powerrelationen",
-    "href": "slides/power.html#opstil-powerrelationen",
-    "title": "Powerberegninger",
-    "section": "Opstil powerrelationen",
-    "text": "Opstil powerrelationen\n\\[\\frac{\\text{effekt}}{\\text{standardfejl}}\n= z_{1-α/2}+z_{1-β}\n\\]\n\nVenstre side:\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = \\frac{\\sigma}{\\text{SE}}=  \\frac{\\sigma}{\\sigma\\sqrt{\\frac{2}{n}}} = \\frac{1}{\\sqrt{\\frac{2}{n}}}\\)\n\n\nDen skal være lig med\n\\(z_{1-α/2}+z_{1-β} = z_{1-0.05/2}+z_{1-0.2} = z_{0.975}+z_{0.8}\\)\nEller:\n\nqnorm(0.975) + qnorm(0.8)\n\n[1] 2.801585"
+    "objectID": "slides/normalfordelingen.html#og-omvendt",
+    "href": "slides/normalfordelingen.html#og-omvendt",
+    "title": "Normalfordelingen",
+    "section": "Og omvendt?",
+    "text": "Og omvendt?\nHvis sandsynligheden for at at X er mindre end -1 skrives som:\nP(X &lt; -1)\nHvad er så sandsynligheden for at X er \\(\\geq -1\\)?\n\n\\(P(X \\geq -1)\\)\n\n\nX er enten mindre end 1. Eller større end 1. Den samlede sansynlighed for at X er er 1, så:\n\n\n\\(P(X \\geq -1) + P(X &lt; -1) = 1\\)\n\n\n\\(P(X \\geq -1) = 1 - P(X &lt; -1)\\)"
   },
   {
-    "objectID": "slides/power.html#så-er-vi-klar-til-at-regne",
-    "href": "slides/power.html#så-er-vi-klar-til-at-regne",
-    "title": "Powerberegninger",
-    "section": "Så er vi klar til at regne",
-    "text": "Så er vi klar til at regne\n\n\nHøjre side:\nqnorm(0.975) + qnorm(0.8)\n\n\\(\\frac{1}{\\sqrt{\\frac{2}{n}}} = 2.801585\\)\n\n\n\\(1 = \\sqrt{\\frac{2}{n}}\\cdot2.801585\\)\n\n\n\\(1^2 = \\frac{2}{n}\\cdot2.801585^2\\)\n\n\n\\(n = 2\\cdot2.801585^2\\)\n\n\nOg resultatet er pr gruppe! Husk at runde op!\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/normalfordelingen.html#qnorm",
+    "href": "slides/normalfordelingen.html#qnorm",
+    "title": "Normalfordelingen",
+    "section": "qnorm",
+    "text": "qnorm\nqnorm(p) fortæller os den værdi x, hvor sandsynligheden for at være mindre end x, er p.\n\nFor hvilken værdi er 0.025 eller 2.5% af observationerne mindre?\n\n\nP(X &lt; ?) = 0.025\n\n\n\nqnorm(0.025)\n\n[1] -1.959964\n\n\n\n\nDet kalder vi også for 2.5 percentilen. Eller 2.5% kvantilen. På engelsk quantile. Deraf “q”."
   },
   {
-    "objectID": "slides/power.html#del-to-af-opgaven",
-    "href": "slides/power.html#del-to-af-opgaven",
-    "title": "Powerberegninger",
-    "section": "Del to af opgaven",
-    "text": "Del to af opgaven\nSamme opgave som før.\nMen nu får vi oplyst at der allerede er målinger af enzym koncentrationen fra 100 kontroller.\nHvor mange patienter har vi så brug for (med samme forudsætninger som tidligere).\n\nBemærk at vi nu ikke længere har lige mange i hver gruppe!"
+    "objectID": "slides/normalfordelingen.html#og-omvendt-1",
+    "href": "slides/normalfordelingen.html#og-omvendt-1",
+    "title": "Normalfordelingen",
+    "section": "Og omvendt?",
+    "text": "Og omvendt?\nFor hvilken værdi er 0.025, eller 2.5% af observationerne større (eller lig med)?\n\nP(X &gt; ?) = 0.025\n\n\nDet er så den værdi hvor 1-0.025 = 0.975 er mindre\n\n\nP(X &lt; ?) = 1 - 0.025\n\n\n\nqnorm(1-0.025)\n\n[1] 1.959964"
   },
   {
-    "objectID": "slides/power.html#hvordan-ser-vores-standardfejl-så-ud",
-    "href": "slides/power.html#hvordan-ser-vores-standardfejl-så-ud",
-    "title": "Powerberegninger",
-    "section": "Hvordan ser vores standardfejl så ud?",
-    "text": "Hvordan ser vores standardfejl så ud?\n\n\n\\(\\text{SE} = \\sqrt{SE_1^2 + SE_2^2} = \\sqrt{\\frac{\\sigma^2}{n_1} + \\frac{\\sigma^2}{n_2}} = \\sqrt{\\sigma^2(\\frac{1}{n_1} + \\frac{1}{n_2})} = \\sigma\\sqrt{\\frac{1}{n_1} +\\frac{1}{n_2}}\\)\n\n\nVi skal stadig bruge powerrelationen:\n\n\n\\(\\frac{\\text{effekt}}{\\text{standardfejl}} = z_{1-α/2}+z_{1-β}\\)\n\n\nOg effekten er stadig 1\\(\\sigma\\)"
+    "objectID": "slides/normalfordelingen.html#eller",
+    "href": "slides/normalfordelingen.html#eller",
+    "title": "Normalfordelingen",
+    "section": "Eller",
+    "text": "Eller\n\npnorm giver os sandsynligheden p, når vi har en kvantil\nqnorm giver os quantilen når vi har en sandsynlighed\n\nP(X &lt; kvantil) = sandsynlighed\n\nHvis vi ved hvad værdien/kvantilen er, bruger vi pnorm til at beregne sandsynligheden\nHvis vi ved hvad sandsynligheden er, bruger vi qnorm til at beregne kvantilen"
   },
   {
-    "objectID": "slides/power.html#næste-trin",
-    "href": "slides/power.html#næste-trin",
-    "title": "Powerberegninger",
-    "section": "Næste trin",
-    "text": "Næste trin\nIndsæt i powerrelationen:\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} = \\frac{\\delta}{σ\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}}\n= z_{1-α/2}+z_{1-β}\n\\]\n\n\\(\\delta = \\sigma\\) og \\(n_1 = 100\\)\n\n\nSå skal vi “bare” isolere \\(n_2\\)"
+    "objectID": "slides/normalfordelingen.html#husk",
+    "href": "slides/normalfordelingen.html#husk",
+    "title": "Normalfordelingen",
+    "section": "HUSK!",
+    "text": "HUSK!\nVi får altid svar på “hvor meget er mindre end”?\nSom i: X% er mindre end Y kvantil (målt i standardafvigelser).\nVi kender enten X eller Y, og skal beregne den anden."
   },
   {
-    "objectID": "slides/power.html#så-er-vi-klar-til-at-regne-1",
-    "href": "slides/power.html#så-er-vi-klar-til-at-regne-1",
-    "title": "Powerberegninger",
-    "section": "Så er vi klar til at regne",
-    "text": "Så er vi klar til at regne\n\n\n\\[\n\\frac{\\sigma}{\\sigma\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}} \\\\\n= z_{1-0.05/2}+z_{1-0.2}\n\\]\nDet tager vi nok lettest på en tavle\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
+    "href": "slides/normalfordelingen.html#typiske-spørgsmål-vi-får",
+    "title": "Normalfordelingen",
+    "section": "Typiske spørgsmål (v)i får:",
+    "text": "Typiske spørgsmål (v)i får:\n(til eksamen)\n\nHvor mange procent af observationerne er under 0.4?\nHvor mange procent af observationerne ligger mellem -2 og 2?\nDe 65.5% mindste observationer; hvad er de mindre end?\nIndenfor hvilket interval ligger 95.45% af observationerne?\n\n\nDe hænger sammen. 1 og 3 er hinandens omvendte 2 og 4 er også hinandens omvendte"
   },
   {
-    "objectID": "slides/power.html#lad-os-prøve-en-gang-til",
-    "href": "slides/power.html#lad-os-prøve-en-gang-til",
-    "title": "Powerberegninger",
-    "section": "Lad os prøve en gang til",
-    "text": "Lad os prøve en gang til\n\nFødselsvægten for børn født indenfor termin med gestationsalder 40 uger antages approksimativt normalfordelt med middelværdi 3500 gram og spredning 430 gram. Vi antager at det er populationsværdier\nDet ønskes undersøgt om fødselsvægten for børn hvis mødre røg gennem hele graviditeten har samme middelværdi (\\(\\mu\\)).\nHvis der indsamles n observationer af fødselsvægten af børn af disse mødre, hvilken test ville vi så anvende for at undersøge om deres gennemsnitlige fødselsvægt X er lig \\(\\mu\\) = 3500?\nAngiv konkret teststørrelse beregnet baseret på de n observationer.\n\nVi vil skulle beregne SEM for disse børn \\(\\left(\\frac{\\sigma}{\\sqrt{n}}\\right)\\)\nOg dernæst teststørrelsen: \\(\\frac{X - 3500}{SEM}\\)"
+    "objectID": "slides/normalfordelingen.html#øvelse-1",
+    "href": "slides/normalfordelingen.html#øvelse-1",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 1",
+    "text": "Øvelse 1\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end -3?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. pnorm(-3) for at være mere præcis.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(-3)"
   },
   {
-    "objectID": "slides/power.html#og-så-til-powerberegningen",
-    "href": "slides/power.html#og-så-til-powerberegningen",
-    "title": "Powerberegninger",
-    "section": "Og så til powerberegningen",
-    "text": "Og så til powerberegningen\nHvis den sande \\(\\mu\\) (og det er altså for de rygende kvinder) er under 3200 gram (eller over 3800 gram), og vi kun vil acceptere en 10% risiko for ikke at opdage en sådan forskel på de to middelværdier, hvor stor en stikprøve skal der så anvendes, med et signifikans niveau på 5%.\nHvad er \\(H_0\\) og \\(H_A\\)?\n\n\\(H_0: \\mu = 3500\\)\n\\(H_A: \\mu \\neq 3500\\)"
+    "objectID": "slides/normalfordelingen.html#øvelse-2",
+    "href": "slides/normalfordelingen.html#øvelse-2",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 2",
+    "text": "Øvelse 2\n\n\nHvilken andel af observationerne i standardnormalfordelingen er mindre end 2?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDet er en sandsynlighed vi er på jagt efter så pnorm\n\npnorm(2)"
   },
   {
-    "objectID": "slides/power.html#hvad-får-vi-oplyst",
-    "href": "slides/power.html#hvad-får-vi-oplyst",
-    "title": "Powerberegninger",
-    "section": "Hvad får vi oplyst?",
-    "text": "Hvad får vi oplyst?\nØnsket afvigelse vi skal kunne opdage:\n\n\\(\\delta = 3800-3500 = 300\\)\n\n\nRisikoen for ikke at opdage forskellen må være på 10%:\n\n\n\\(\\beta = 0.1\\)\n\n\nEller: Power = 0.9\n\n\nSignifikansniveau 5%: \\(\\alpha = 0.05\\)\n\n\nStandardafvigelse \\(\\sigma = 430\\)"
+    "objectID": "slides/normalfordelingen.html#øvelse-3",
+    "href": "slides/normalfordelingen.html#øvelse-3",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 3",
+    "text": "Øvelse 3\n\n\nHvilken andel af observationerne i standardnormalfordelingen er større end 2?\n\nDet er en sandsynlighed vi er på jagt efter så pnorm. Den giver os sandsynligheden for at observationerne er mindre end 2. Sandsynligheden for at observationen er, er 1. Så 1-pnorm(2)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm(2)"
   },
   {
-    "objectID": "slides/power.html#powerrelationen-opstilles",
-    "href": "slides/power.html#powerrelationen-opstilles",
-    "title": "Powerberegninger",
-    "section": "Powerrelationen opstilles",
-    "text": "Powerrelationen opstilles\n\n\n\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} \\\\\n= \\frac{\\delta}{SE}\n= z_{1-α/2}+z_{1-β}\n\\]\n\nHvad fik vi oplyst?\n\n\n\\(\\beta = 0.1\\), \\(\\delta = 300\\), \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\), \\(\\sigma = 430\\), \\(\\alpha = 0.05\\)\n\n\nIndsæt\n\n\n\\[\nz_{1-\\alpha/2}+z_{1-\\beta} = \\frac{300}{\\frac{430}{\\sqrt{n}}}\n\\]\n\n\nIsoler n - det gør vi på tavlen\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nResultat: k*430/300)^2\n(( qnorm(1-(0.05/2)) + qnorm(1-0.1))*430 / 300)^2"
+    "objectID": "slides/normalfordelingen.html#øvelse-4",
+    "href": "slides/normalfordelingen.html#øvelse-4",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 4",
+    "text": "Øvelse 4\n\n\nHvad er 25% af observationerne mindre end?\n\nI standardnormalfordelingen\n\n\nNu kender vi sandsynligheden, og skal have værdien - qnorm. Mere præcist qnorm(0.25)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(0.25)"
   },
   {
-    "objectID": "slides/power.html#del-2",
-    "href": "slides/power.html#del-2",
-    "title": "Powerberegninger",
-    "section": "Del 2",
-    "text": "Del 2\nHvis vi vil have en stikprøve på 100 - hvor stor en forskel på \\(\\mu\\) og 3500 kan vi forvente at kunne finde.\nSamme forudsætninger som før."
+    "objectID": "slides/normalfordelingen.html#øvelse-5",
+    "href": "slides/normalfordelingen.html#øvelse-5",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 5",
+    "text": "Øvelse 5\n\n\nHvad er 40% af observationerne større end?\n\nDet svarer til den værdi hvor 60% af observationerne er mindre. så qnorm, men af 0.6. Så: qnorm(1-0.4) eller qnorm(0.6)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nqnorm(1-0.4)"
   },
   {
-    "objectID": "slides/power.html#opstil-powerrelationen-1",
-    "href": "slides/power.html#opstil-powerrelationen-1",
-    "title": "Powerberegninger",
-    "section": "Opstil powerrelationen",
-    "text": "Opstil powerrelationen\n\n\n\n\\[\n\\frac{\\text{effekt}}{\\text{standardfejl}} = \\\\\n\\frac{\\delta}{SE} = z_{1-α/2}+z_{1-β}\n\\]\n\nHvad fik vi oplyst?\n\n\n\\(\\beta = 0.1\\), \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\), \\(\\sigma = 430\\), n = 100\n\n\nIndsæt\n\n\n\\[\nz_{1-\\alpha/2}+z_{1-\\beta} = \\frac{\\delta}{\\frac{430}{\\sqrt{100}}}\n\\]\n\n\nIsoler \\(\\delta\\) - det gør vi på tavlen\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nDet er den størrelse vi kan forvente at opdage (mindst) med en sandsynlighed på 90%"
+    "objectID": "slides/normalfordelingen.html#øvelse-6",
+    "href": "slides/normalfordelingen.html#øvelse-6",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 6",
+    "text": "Øvelse 6\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\n\nVi kender værdierne, og skal bruge sandsynlighederne. Så pnorm. Sandsynligheden er arealet under kurven fra -uendelig til værdien. Så. Arealet fra -uendelig til 1.5. Minus arealet fra -uendelig til 1, trukket fra, giver os arealet mellem de to punkter\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHvilken andel af observationerne ligger mellem 1 og 1.5?\nHvilken andel ligger under 1.5?\nHvilken andel ligger under 1?\nDet er så\n\npnorm(1.5) - pnorm(1)"
   },
   {
-    "objectID": "slides/power.html#husk-dog",
-    "href": "slides/power.html#husk-dog",
-    "title": "Powerberegninger",
-    "section": "Husk dog!",
-    "text": "Husk dog!\nDet her er til eksamensbrug.\nNår I skal til at lave forskning, så bør I basere jer på t-fordelingen i stedet.\nDen er bredere, og kan håndtere at variansen ikke er kendt, men skal estimeres.\nDen kan også klare sig med færre observationer.\nOg når I planlægger forsøget: Så finder I hvor mange observationer/patienter I skal bruge teoretisk.\nOg ganger med 2 for at få noget sikkerhedsmargen på det."
+    "objectID": "slides/normalfordelingen.html#øvelse-7",
+    "href": "slides/normalfordelingen.html#øvelse-7",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 7",
+    "text": "Øvelse 7\n\n\nHvis vi vil have 47% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 47% er 1 - 0.47 = 0.53. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.53/2 = 0.265\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien. qnorm(0.265)\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi. den øvre finder vi ved:\nqnorm(1-0.265)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
+    "href": "slides/normalfordelingen.html#øvelse-8---og-det-vigtigste-tal-i-skal-kende",
+    "title": "Normalfordelingen",
+    "section": "Øvelse 8 - og det vigtigste tal I skal kende!",
+    "text": "Øvelse 8 - og det vigtigste tal I skal kende!\n\n\nHvis vi vil have 95% af observationerne, hvilket interval (centreret om 0) skal vi så have?\n\nDet der ligger uden for de 95% er 1 - 0.95 = 0.05. Det ligger symmetrisk, så halvdelen på den ene side og den anden halvdel på den anden.\n0.05/2 = 0.025\nVi kender sandsynligheden, så vi skal bruge qnorm for at finde værdien\nOg er er lige mange på hver side, så det giver os den nedre, den øvre er samme absolutte værdi.\nqnorm(0.025)\nqnorm(1-0.025)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvorfor-var-det-vigtigt",
+    "href": "slides/normalfordelingen.html#hvorfor-var-det-vigtigt",
+    "title": "Normalfordelingen",
+    "section": "Hvorfor var det vigtigt?",
+    "text": "Hvorfor var det vigtigt?\nI vil rigtig mange gange blive spurgt: Indenfor hvilket interval ligger 95% af observationerne?\nNu ved I, at 95% af observationerne ligger mellem -1.96 og 1.96 standardafvigelser fra middelværdien."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får",
+    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får",
+    "title": "Normalfordelingen",
+    "section": "Hvad er det egentlig at vi får?",
+    "text": "Hvad er det egentlig at vi får?\nVi spørger generelt om\nHvad er sandsynligheden for at en observation er mindre end noget.\nEller, i standardnormalfordelingen:\nP(Z &lt; 2)\nHvor svaret er:\n\npnorm(2)\n\n[1] 0.9772499"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-1",
+    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-1",
+    "title": "Normalfordelingen",
+    "section": "Hvad er det egentlig at vi får?",
+    "text": "Hvad er det egentlig at vi får?\nEller, omvendt, for hvilken værdi er sandsynligheden for at se en værdi der er mindre noget bestemt:\nP(Z &lt; ? ) = 0.4\nHvor svaret er:\n\nqnorm(0.4)\n\n[1] -0.2533471"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-2",
+    "href": "slides/normalfordelingen.html#hvad-er-det-egentlig-at-vi-får-2",
+    "title": "Normalfordelingen",
+    "section": "Hvad er det egentlig at vi får?",
+    "text": "Hvad er det egentlig at vi får?\nEller vi bliver spurgt om hvad sandsynligheden er for at vores observationer ligger mellem to værdier:\nP(Z &lt; 3) - P(Z &lt; 1)\nHvor svaret er:\n\npnorm(3) - pnorm(2)\n\n[1] 0.02140023"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvorfor-z",
+    "href": "slides/normalfordelingen.html#hvorfor-z",
+    "title": "Normalfordelingen",
+    "section": "Hvorfor Z?",
+    "text": "Hvorfor Z?\n\nOg ikke X?\n\n\nDet er en konvention: I standardnormalfordelingen skriver vi Z.\n\n\nI en normalfordeling generelt, skriver vi X\n\n\nNår vi skal fra X til Z trækker vi middelværdien af X fra, og dividerer med standardafvigelsen.\n\n\n\\(Z = \\frac{X-\\mu}{\\sigma}\\)\n\n\nOg den anden vej:\n\\(X = Z\\sigma + \\mu\\)\n\n\nDet kalder vi at “skalere”.\n\n\n\nNår vi skalerer X til Z taler vi også om at vi beregner en z-score for en given værdi af x. Det er et lækkert ord at bruge i en eksamensbesvarelse."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#så-i-praksis",
+    "href": "slides/normalfordelingen.html#så-i-praksis",
+    "title": "Normalfordelingen",
+    "section": "Så i praksis?",
+    "text": "Så i praksis?\nHvis \\(\\mu\\) er 181 og \\(\\sigma\\) er 6.5 og vi vil vide hvad sandsynligheden er for at være mindre end 170 cm høj.\n\nDet kan vi skrive som: P(X&lt;170)\n\n\nHavde vi i stedet haft P(Z &lt; ?) var vi i standardnormalfordelingen og kunne bruge pnorm\n\n\nDerfor skalerer vi, og skalerer vi X, skal vi også skalere 170:\n\n\n\\(P(X&lt;170) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{170 - 181}{6.5}) = P(Z &lt; -1.692)\\)\n\n\n\npnorm(-1.692)\n\n[1] 0.04532299\n\n\n\nOg det er sandsynligheden for at være 1.7 standardafvigelser lavere end gennemsnittet."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#notation",
+    "href": "slides/normalfordelingen.html#notation",
+    "title": "Normalfordelingen",
+    "section": "Notation",
+    "text": "Notation\nDen standardiserede normalfordeling skriver vi som N(0,1)\nEn generel normalfordeling skriver vi som \\(N(\\mu, \\sigma)\\)\nNår data, X, er normalfordelt, skriver vi det som X ~ \\(N(\\mu, \\sigma)\\)\nI praksis:\nP(X &lt; 170) = P(\\(\\frac{X-\\mu}{\\sigma}\\) &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nEller kortere: P(Z &lt; \\(\\frac{170-\\mu}{\\sigma}\\))\nNår vi normaliserer 170 med \\(\\mu\\) og \\(\\sigma\\), får vi en z-score. Det var den vi så på plottet af normalfordelingen."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#og-den-anden-vej",
+    "href": "slides/normalfordelingen.html#og-den-anden-vej",
+    "title": "Normalfordelingen",
+    "section": "Og den anden vej",
+    "text": "Og den anden vej\nSå undertiden beregner vi Z. Og så skal vi bagefter finde ud af hvad X er.\n\nHvis vi ved hvordan vi går fra X til Z, så ved vi også hvordan vi går fra Z til X.\n\n\nEn ene vej trækker vi \\(\\mu\\) fra og dividerer med \\(\\sigma\\)\n\n\nDen anden vej?\n\n\nGanger med \\(\\sigma\\) og lægger \\(\\mu\\) til"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelser",
+    "href": "slides/normalfordelingen.html#øvelser",
+    "title": "Normalfordelingen",
+    "section": "Øvelser",
+    "text": "Øvelser\nFor en normalfordelt population ved vi at 50% af værdierne er mindre end 0, og 60% er mindre end 1. Hvad er middelværdi og spredning?\n\nDet kan vi skrive som:\n\nP(X&lt;0) = 0.5\n\nP(X&lt;1) = 0.6"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelser-1",
+    "href": "slides/normalfordelingen.html#øvelser-1",
+    "title": "Normalfordelingen",
+    "section": "Øvelser",
+    "text": "Øvelser\nVi antager at \\(X \\sim N(\\mu, \\sigma)\\)\n\nSkaler til standardnormalfordelingen:\n\n\n\\(P(X &lt; 0) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{0-\\mu}{\\sigma}) = P(Z &lt; \\frac{0-\\mu}{\\sigma}) = 0.5\\)\n\n\n\\(P(X&lt;1) = P(\\frac{X-\\mu}{\\sigma} &lt; \\frac{1-\\mu}{\\sigma}) = P(Z &lt; \\frac{1-\\mu}{\\sigma})= 0.6\\)\n\n\nKender vi sandsynligheden og skal finde kvantilen bruger vi?\n\n\nqnorm\n\n\nSå:\n\\(\\frac{0-\\mu}{\\sigma}  = qnorm(0.5)\\) og\n\\(\\frac{1-\\mu}{\\sigma}  = qnorm(0.6)\\)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelser-2",
+    "href": "slides/normalfordelingen.html#øvelser-2",
+    "title": "Normalfordelingen",
+    "section": "Øvelser",
+    "text": "Øvelser\n\nqnorm(0.5)\n\n[1] 0\n\n\n\n\nqnorm(0.6)\n\n[1] 0.2533471\n\n\n\n\nDerfor:\n\\(\\frac{0-\\mu}{\\sigma}  = 0\\)\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25\\)\nLøs først den ene ligning, og så den anden"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelser-3",
+    "href": "slides/normalfordelingen.html#øvelser-3",
+    "title": "Normalfordelingen",
+    "section": "Øvelser",
+    "text": "Øvelser\nDen første er den letteste:\n\\(\\frac{0-\\mu}{\\sigma}  = 0 \\Leftrightarrow 0 - \\mu = 0\\sigma \\Leftrightarrow 0-0\\sigma = \\mu \\Leftrightarrow \\mu = 0\\)\n\nIndsæt i anden ligning:\n\\(\\frac{1-\\mu}{\\sigma}  = 0.25 \\Leftrightarrow \\frac{1-0}{\\sigma} = 0.25 \\Leftrightarrow 1 = 0.25\\sigma \\Leftrightarrow \\frac{1}{0.25} = \\sigma = 4\\)\n\n\nSmutvej: Hvis 50% af observationerne er mindre end 0, betyder det at 0 er medianen. I en normalfordeling er medianen lig middelværdien. Så vi ved meget hurtigt at \\(\\mu = 0\\)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#endnu-en-øvelse",
+    "href": "slides/normalfordelingen.html#endnu-en-øvelse",
+    "title": "Normalfordelingen",
+    "section": "Endnu en øvelse",
+    "text": "Endnu en øvelse\n\nNappet direkte fra en eksamensopgave\n\nFor en population af normalfordelte værdier ved vi at:\n40% af værdierne er større end 0.1, og\n70% af værdierne er mindre end 1.\nHvad er middelværdi og spredning i denne normalfordeling?\nDen tager vi på tavlen.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nP(X &lt; 0.1) = 0.60 P(X &lt; 1) = 0.7 Standardiser (og vi får bare Z på venstre side)\nVi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.\n(0.1 - mu)/sd = qnorm(0.60) -&gt; 0.1-mu = qnorm(0.60) * sd\n(1-mu)/sd = qnorm(0.7) -&gt; 1-mu = qnorm(0.7) * sd\nTræk den ene fra den anden\n1- mu - (0.1 - mu) = qnorm(0.7) * sd - qnorm(0.60) * sd 1- 0.1 = sd(qnorm(0.7) - qnorm(0.60))\ns = 3.32\nindsæt og find middel = -0.74\nJa, Det er en statistikeksamen. Og I skal kunne løse to ligninger med to ubekendte…\nI bør have adgang til Maple, der kan løse ligningerne for jer.\nR kan også direkte. Det kræver så at I forstår lineær algebra…\nMen sætter vi mu = x og sd = y\nSå skal vi have dem på en bestemt form:\nVi har\n0.1-mu = qnorm(0.60) * sd og 1-mu = qnorm(0.7) * sd\nsom bliver til [\n\\[\\begin{aligned}\n0.1-x &= \\operatorname{qnorm}(0.60)\\cdot y\\\\\n1-x &= \\operatorname{qnorm}(0.70)\\cdot y\n\\end{aligned}\\]\n]\nlægger x til på begge sider, og får:\nx + qnorm(0.60)y = 0.1\nog\nx + qnorm(0.7)y = 1\n[\n\\[\\begin{pmatrix}\n1 & \\operatorname{qnorm}(0.60)\\\\\n1 & \\operatorname{qnorm}(0.70)\n\\end{pmatrix}\n\\begin{pmatrix}\nx\\\\y\n\\end{pmatrix}\\]\n=\n\\[\\begin{pmatrix}\n0.1\\\\1\n\\end{pmatrix}\\]\n]\nDet kan vi smide i en matrix_:\nA &lt;- matrix(c(1, qnorm(0.60), 1, qnorm(0.70)), nrow = 2, byrow = TRUE)\nb &lt;- c(0.1, 1)\nOg løse med funktionen solve\nsolve(A, b)\nførste værdi i resultatet er x (mu) den anden y (sd)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#løsning",
+    "href": "slides/normalfordelingen.html#løsning",
+    "title": "Normalfordelingen",
+    "section": "Løsning",
+    "text": "Løsning\n\nDet er oplyst at \\(X\\sim N(\\mu,\\sigma)\\)\n\\(P(X&gt;0.1) = 0.4 \\Leftrightarrow P(X&lt;0.1) = 1-0.4 = 0.6\\)\nStandardiseret:\n\\(P(\\frac{X-\\mu}{\\sigma}&lt;\\frac{0.1-\\mu}{\\sigma}) = 0.6 \\Rightarrow \\frac{0.1-\\mu}{\\sigma} = qnorm(0.6) = 0.253\\)\nOg:\n\\(P(X&lt;1) = 0.7\\)\nStandardiseret:\n\\(P(\\frac{X-\\mu}{\\sigma}&lt;\\frac{1-\\mu}{\\sigma}) = 0.7 \\Rightarrow \\frac{1-\\mu}{\\sigma} = qnorm(0.7) = 0.524\\)\nDermed:\n\\(\\frac{0.1-\\mu}{\\sigma} = 0.253 \\Leftrightarrow 0.1-\\mu = 0.253\\sigma\\)\nog\n\\(\\frac{1-\\mu}{\\sigma} = 0.524 \\Leftrightarrow 1-\\mu = 0.524\\sigma\\)\nTræk første ligning fra den anden og isoler \\(\\sigma\\):\n\\((1 - \\mu) - (0.1 - \\mu) = 0.524\\sigma - 0.253\\sigma \\Leftrightarrow 1 - \\mu - 0.1 + \\mu = (0.524-0.253)\\sigma\\)\n\\(1-0.1 = 0.271\\sigma \\Leftrightarrow \\frac{0.9}{0.271} = \\sigma = 3.32\\)\nIndsæt i en af ligningerne for at finde \\(\\mu\\):\n\\(1-\\mu = 0.524\\sigma \\Leftrightarrow 1 - \\mu = 0.534\\cdot3.32 \\Leftrightarrow 1 - 0.534\\cdot3.32 = \\mu = -0.77\\)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
+    "href": "slides/normalfordelingen.html#hvorfor-er-den-vigtig-for-jer",
+    "title": "Normalfordelingen",
+    "section": "Hvorfor er den vigtig for jer?",
+    "text": "Hvorfor er den vigtig for jer?\nRet ofte er der en typeopgave der grundlæggende tester om I forstår normalfordelingen.\nDet er sådan nogen vi har været igennem.\nOg så bruges den i de statistiske tests. Det kommer vi også til."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområdet",
+    "href": "slides/normalfordelingen.html#normalområdet",
+    "title": "Normalfordelingen",
+    "section": "Normalområdet",
+    "text": "Normalområdet\nPopulært spørgsmål - hvad er normalområdet for “noget”?\nHvis de 95% hyppigste observationer i en normalfordelt population er “normalområdet”. I hvilket interval ligger de så?\n\nHvis de er centreret om en middelværdi, så ligger 100% - 95% = 5% udenfor\n\n\nSå 2.5% ligger lavere, og 2.5% ligger højere.\n\n\nKender vi middelværdi og standardafvigelse kan vi beregne intervallet i hvilket 95% af observationerne ligger"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområdet---øvelse",
+    "href": "slides/normalfordelingen.html#normalområdet---øvelse",
+    "title": "Normalfordelingen",
+    "section": "Normalområdet - øvelse",
+    "text": "Normalområdet - øvelse\nHvis middelværdi for serum-kolesterol er 200 mg/dL og standardafgivelsen er 40 mg/dL, hvad er så normalområdet? Defineret som det interval i hvilket 95% af værdierne vil ligge?"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområdet---nedre-grænse",
+    "href": "slides/normalfordelingen.html#normalområdet---nedre-grænse",
+    "title": "Normalfordelingen",
+    "section": "Normalområdet - nedre grænse",
+    "text": "Normalområdet - nedre grænse\n\\(X \\sim N(200, 40)\\)\n\nNedre grænse er den værdi hvor (100-95)/2 = 2.5% af værdierne er mindre.\n\n\nP(X &lt; y) = 0.025\n\n\nStandardiser:\n\\(P(Z &lt; \\frac{y-200}{40}) = 0.025\\)\n\n\ny-200/40 = qnorm(0.025) = - 1.959964\n\n\nIsoler y:\n\n\ny = 200 + -1.959964*40 = 122\n\nDer er en del domænespecifikke ting der spiller ind her."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
+    "href": "slides/normalfordelingen.html#normalområdet---øvre-grænse",
+    "title": "Normalfordelingen",
+    "section": "Normalområdet - øvre grænse",
+    "text": "Normalområdet - øvre grænse\nDen øvre grænse er så den grænse under hvilken de 95% i normalområdet og de 2.5% under normalområdet ligger.\n\nDvs. P(X &lt; y) = 0.95+0.025 = P(X &lt; y) = 0.975\n\n\nEller der hvor 2.5% ligger over:\nP(X &gt; y) = 0.025 &lt;=&gt; P(X &lt; y) = 1 - 0.025\n\n\nStandardiser:\nP(Z &lt; (y - 200 )/ 40 ) = 0.975\n\n\n(y - 200) / 40 = qnorm(0.975) = 1.959964\n\n\nIsoler y:\n\n\ny = 200 + 1.959964 * 40 = 278"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområdet-genvej",
+    "href": "slides/normalfordelingen.html#normalområdet-genvej",
+    "title": "Normalfordelingen",
+    "section": "Normalområdet genvej",
+    "text": "Normalområdet genvej\nSvaret viste sig at være:\n\nNedre grænse = middelværdi - 1.96*standardafvigelsen\nØvre grænse = middelværdi + 1.96*standardafvigelsen\n\n\nEller:\n\n200 + c(-1,1)*1.96*40\n\n[1] 121.6 278.4\n\n\n\n\nHelt generelt:\n\\(\\mu \\pm1.96\\cdot\\sigma\\)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#hvad-hvis-det-er-et-90-interval-der-er-det-normale",
+    "href": "slides/normalfordelingen.html#hvad-hvis-det-er-et-90-interval-der-er-det-normale",
+    "title": "Normalfordelingen",
+    "section": "Hvad hvis det er et 90% interval der er det normale?",
+    "text": "Hvad hvis det er et 90% interval der er det normale?\n\nSå skal vi bare finde ud af hvad 1.96 skal ændres til.\n\n\n10% skal ligge udenfor området.\n\n\nDvs 5% skal ligge under, og 5% skal ligge over.\n\n\n\nqnorm(1-0.05)\n\n[1] 1.644854\n\n\n\n\nEller: \\(\\mu \\pm1.64\\cdot\\sigma\\)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelse",
+    "href": "slides/normalfordelingen.html#øvelse",
+    "title": "Normalfordelingen",
+    "section": "Øvelse",
+    "text": "Øvelse\n\n\nVi har en normalfordelt population med \\(\\sigma = 6.52\\). 40% af værdierne er mindre end 0. Hvad er så \\(\\mu\\) for denne fordeling?\n\n\\(X \\sim N(\\mu, 6.52)\\)\n\n\nP(X&lt;0) = 0.4\n\n\nSkaler: \\(P(Z &lt; \\frac{0-\\mu}{6.52}) = 0.4\\)\n\n\n\\(\\frac{0-\\mu}{6.52} = qnorm(0.4) = -0.2533471\\) Isoler \\(\\mu\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelse---manglende-procentil",
+    "href": "slides/normalfordelingen.html#øvelse---manglende-procentil",
+    "title": "Normalfordelingen",
+    "section": "Øvelse - Manglende procentil:",
+    "text": "Øvelse - Manglende procentil:\n\n\nEn normalfordelt population har middelværdi \\(\\mu = 12.5\\) og standardafvigelse \\(\\sigma = 3.2\\). Hvor stor en andel af værdierne er mindre end 10?\n\nMed andre ord, hvad er:\n\\(P(X &lt; 10)\\)\n\n\nTransformer til standardnormalfordelingen:\n\\(P(Z &lt; \\frac{10 - \\mu}{\\sigma})\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ntransformer til standardnormalfordelingen:\npnorm((10-12.5)/3.2)"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#øvelse---manglende-sigma",
+    "href": "slides/normalfordelingen.html#øvelse---manglende-sigma",
+    "title": "Normalfordelingen",
+    "section": "Øvelse - Manglende \\(\\sigma\\)",
+    "text": "Øvelse - Manglende \\(\\sigma\\)\n\n\nI en normalfordelt population er \\(\\mu = 85\\) og 25% af værdierne er større end 95. Hvad er \\(\\sigma\\) for denne fordeling?\n\nP(X &gt; 95) = 0.25\n\n\nP(X&lt;95) = 1-0.25 = 0.75\n\n\n\\(P(Z&lt; \\frac{95-\\mu}{\\sigma}) = 0.75\\)\n\n\n\\((95-85)/\\sigma = qnorm(0.75)\\)\n\n\n\\(10/qnorm(0.75) = \\sigma\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nStandardiser\n𝑃⁡(𝑍 &lt; 95−𝜇 𝜎\n) =0.75\nIndsæt og brug qnorm til at komme af med P\n(95 −85)/𝜎 =𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75)\nIsoler 𝜎\n10/𝑞⁢𝑛⁢𝑜⁢𝑟⁢𝑚⁡(0.75) =𝜎"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
+    "href": "slides/normalfordelingen.html#manglende-værdi-kendt-procentil",
+    "title": "Normalfordelingen",
+    "section": "Manglende værdi, kendt procentil:",
+    "text": "Manglende værdi, kendt procentil:\n\n\nEn normalfordelt variabel har \\(\\mu = 50\\) og \\(\\sigma = 8\\). For hvilken værdi y er 90% af observationerne &lt; y?\n\nFind 90%-kvantilen for X ~ N(50,8)\n\n\nEller: P(X&lt;y) = 0.9\n\n\n\\(P(Z&lt; \\frac{y-\\mu}{\\sigma}) = 0.9\\)\n\n\n\\(P(Z&lt; \\frac{y-50}{8}) = 0.9\\)\n\n\n\\(\\frac{y-50}{8} = qnorm(0.9)\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nP(X &lt; y) = 0.9\nStandardiser\nP(Z &lt; (y-μ)/σ) = 0.9\nqnorm of at komme af med P\n(y-μ)/σ = qnorm(0.9)\nIndsæt (y-50)/8 = qnorm(0.9)\nIsoler y\ny &lt;- qnorm(0.9)*8+50 y"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",
+    "href": "slides/normalfordelingen.html#manglende-middelværdi-variant-2",
+    "title": "Normalfordelingen",
+    "section": "Manglende middelværdi (variant 2):",
+    "text": "Manglende middelværdi (variant 2):\n\n\nFor en normalfordeling gælder at \\(\\sigma = 4.5\\) og 75% af værdierne er &gt; 18. Hvad er \\(\\mu\\)?\n\nP(X&gt;18) = 0.75\n\n\nP(X&lt;18) = 1 - 0.75 = 0.25\n\n\nStandardiser: \\(P(Z &lt; \\frac{18-\\mu}{\\sigma}) = 0.25\\)\n\n\n\\(\\frac{18-\\mu}{\\sigma} = qnorm(.25) = -0.6744898\\) Indsæt \\(\\sigma = 4.5\\) og isoler \\(\\mu\\)\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#manglende-interval-grænse",
+    "href": "slides/normalfordelingen.html#manglende-interval-grænse",
+    "title": "Normalfordelingen",
+    "section": "Manglende interval-grænse",
+    "text": "Manglende interval-grænse\n\n\nEn normalfordelt population har \\(\\mu = 100\\) og \\(\\sigma = 15\\). Hvis 80% af værdierne ligger mellem 85 og en øvre grænse \\(x\\), hvad er da denne øvre grænse?\nEller: find y således at:\nP(85 &lt; X &lt; y) = 0.8\n\nTavle!\n\n\n\nqnorm(1 - (0.2- pnorm(-1)))*15+100\n\n[1] 126.0293\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområde---en-eksamensopgave",
+    "href": "slides/normalfordelingen.html#normalområde---en-eksamensopgave",
+    "title": "Normalfordelingen",
+    "section": "Normalområde - en eksamensopgave",
+    "text": "Normalområde - en eksamensopgave\n“Summariske regnestørrelser” for plasma magnesium er givet. Og vi får lov at antage at det er normalfordelt for de to populationer stikprøverne er trukket:\n\n\n# A tibble: 2 × 4\n  gruppe           Antal Gennemsnit Spredning\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;\n1 Diabetikere        227      0.719     0.068\n2 Ikke-diabetikere   140      0.81      0.057\n\n\nBeregn et interval, der indeholder 95% af målingerne for kontrol populationen (ikke-diabetikere).\n\n\n0.81 + c(-1,1)*1.96*0.057\n\n[1] 0.69828 0.92172"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområde",
+    "href": "slides/normalfordelingen.html#normalområde",
+    "title": "Normalfordelingen",
+    "section": "Normalområde",
+    "text": "Normalområde\n\n\nHvilken andel af målingerne i populationen af diabetikere vil ligge i det interval vi beregnede for ikke-diabetikerne?\nEller for: X ~ N(0.719, 0.068) hvor mange ligger over værdien 0.7. og hvor mange ligger under 0.92?\n\nEller: P(0.7 &lt; X &lt; 0.92) =\nP(X &lt; 0.92) - P(X &lt; 0.7)\n\n\nTavle!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\npnorm((0.92-0.719)/0.068) - pnorm((0.7-0.719)/0.068)\n\n[1] 0.6084767"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#normalområde---cowboy-trick",
+    "href": "slides/normalfordelingen.html#normalområde---cowboy-trick",
+    "title": "Normalfordelingen",
+    "section": "Normalområde - cowboy trick",
+    "text": "Normalområde - cowboy trick\n1.96 er det magiske tal. Så det er overflødigt at lave standardiseringen.\ngå direkte til:\nmiddelværdi +/- 1.96*sd\neller\nmiddelværdi + c(-1,1)* 1.96 * standardafvigelse"
+  },
+  {
+    "objectID": "slides/normalfordelingen.html#cowboy-trick-2",
+    "href": "slides/normalfordelingen.html#cowboy-trick-2",
+    "title": "Normalfordelingen",
+    "section": "Cowboy trick 2",
+    "text": "Cowboy trick 2\n\nHvor stor en andel af observationerne er mindre end 50 når middelværdien er 47 og standardafvigelsen er 42?\nVi kan skalere de 50, og putte resultatet ind i pnorm.\n\npnorm((50-47)/42)\n\n[1] 0.5284717\n\n\nEller, vi kan lade R gøre det for os:\n\n\npnorm(50, mean = 47, sd = 42)\n\n[1] 0.5284717\n\n\n\n\nFor de typeopgaver hvor vi skal finde \\(\\mu\\) og/eller \\(\\sigma\\) hjælper det ikke. Eksamenstaktisk er det nok også bedre at skalere manuelt (det demonstrerer at I har forstået teknikken; det er det de tester). Men så har I en kontrol på om I har regnet rigtigt."
   },
   {
     "objectID": "slides/logistisk.html#logistisk-regression",

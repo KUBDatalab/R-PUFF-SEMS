@@ -14,3 +14,6 @@ website:
         href: slides/kritiske_vaerdier.html
       - text: "R Cheat Sheet"
         href: slides/R-cheatsheet_notat.html
+      - text: "2 ligninger med 2 ubekendte"
+        href: slides/ligninger.html
+

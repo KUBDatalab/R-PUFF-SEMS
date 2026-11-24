@@ -1,0 +1,179 @@
+---
+title: "To ligninger med to ubekendte"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+[pdf](../downloads/ligninger.pdf){target="_blank"}
+
+:::: evensmaller
+
+Til eksamen er der observeret opgaver der kræver at I løser to ligninger med to ubekendte. 
+
+Det er en lidt træls situation.
+
+Der går rygter om at I til eksamen har adgang til Maple. Maple kan den slags.
+
+R kan også direkte, uden brug af ekstra pakker.
+
+Det konkrete, virkelige, eksempel er at vi har disse to ligninger:
+
+
+$$1 - \mu = \text{qnorm}(0.7)\sigma$$
+og
+
+$$0.1 - \mu = \text{qnorm}(0.6)\sigma$$
+Det er to ligninger,  med to ubekendte, og hvis der findes en løsning, kan den findes ved at trække den ene fra den anden:
+
+$$1-\mu - (0.1 - \mu) =  \text{qnorm}(0.7)\sigma - \text{qnorm}(0.6)\sigma$$
+
+Hæv parantesen på venstre side, og isoler $\sigma$ på højre:
+
+$$1-\mu - 0.1 + \mu =  (\text{qnorm}(0.7) - \text{qnorm}(0.6))\sigma$$
+Reducer på venstre side, og divider med $(\text{qnorm}(0.7) - \text{qnorm}(0.6))$ på begge sider:
+
+$$\frac{0.9}{\text{qnorm}(0.7) - \text{qnorm}(0.6)} = \sigma$$
+
+Lav beregningen af de to `qnorm` funktioner i R, og find at $\sigma$ er lig $\frac{0.9}{0.2710534} = 3.320379$
+
+
+Indsæt derefter $\sigma$ i en af de to ligninger:
+
+$$1 - \mu = \text{qnorm}(0.7)3.320379$$
+Isoler $\mu$:
+
+$$1 - \text{qnorm}(0.7)3.320379  = \mu $$
+
+Beregn `qnorm(0.7)` i R og find at $\mu = -0.7412084 $
+
+## Kan R gøre det?
+
+Det er stadig lidt træls. R kan gøre det direkte. Men det kræver at man omskriver ligningerne til en bestemt form:
+
+
+
+$$a\mu + b\sigma = c$$
+$$d\mu + e\sigma = f$$
+Og skriver dem som:
+
+$$
+\begin{bmatrix}
+a & b \\
+d & e
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+c \\
+f
+\end{bmatrix}
+$$
+
+I det konkrete tilfælde, omskriver vi 
+
+$$1 - \mu = \text{qnorm}(0.7)\sigma$$
+
+til 
+
+$$\mu + \text{qnorm}(0.7)\sigma = 1$$
+
+Og
+
+$$0.1 - \mu = \text{qnorm}(0.6)\sigma$$
+
+til:
+
+$$\mu + \text{qnorm}(0.6)\sigma = 0.1$$
+
+På matrixformen bliver det så:
+
+$$
+\begin{bmatrix}
+1 & qnorm(0.7) \\
+1 & qnorm(0.6)
+\end{bmatrix}
+\begin{bmatrix}
+\mu \\
+\sigma
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+0.1
+\end{bmatrix}
+$$
+
+Hvad hjælper det?
+
+Jo, hvis vi har en matrix A, der er lig med matricen på venstre side, og en vektor b, der er lig vektoren på højre side, så kan R løse det med funktionen:
+
+```{r, echo = TRUE, eval = FALSE}
+solve(A,b)
+```
+
+Så det gør vi:
+
+
+```{r, echo = TRUE}
+A <- matrix(c(1, qnorm(0.7), 1, qnorm(0.6)), nrow = 2, byrow = TRUE)
+A
+```
+
+og 
+
+
+```{r, echo = TRUE}
+b <- c(1,0.1)
+b
+```
+
+Så kan R løse det:
+
+
+```{r, echo = TRUE}
+solve(A,b)
+```
+
+Den første værdi er $\mu$ og den anden er $\sigma$. Fordi:
+
+$$\begin{bmatrix}
+\mu \\
+\sigma
+\end{bmatrix}
+$$
+Har $\mu$ som den første værdi, og $\sigma$ som den anden.
+
+Jeg ved ikke om det er lettere...
+
+## Er der ikke en pakke der kan gøre det for os?
+
+Jo. Flere forskellige endda. Det bliver det ikke nødvendigvis meget lettere af...
+
+
+```{r, echo = TRUE}
+library(Ryacas) # Den skal så installeres med install.packages("Ryacas")
+
+# Definér de ubekendte som symboler
+mu <- ysym("mu")
+sigma <- ysym("sigma")
+
+# Ligningernes venstre- og højresider
+venstre <- c(0.1 - mu,
+             1   - mu)
+
+hoejre <- c(qnorm(0.60) * sigma,
+            qnorm(0.70) * sigma)
+
+solve(venstre, hoejre, c("mu", "sigma"))
+```
+
+Det er måske en smule lettere...
+::::

@@ -11,7 +11,7 @@ execute:
 
 [pdf](../downloads/ligninger.pdf){target="_blank"}
 
-:::: smaller
+:::: evensmaller
 
 Til eksamen er der observeret opgaver der kræver at I løser to ligninger med to ubekendte. 
 

@@ -1089,11 +1089,81 @@ Den tager vi på tavlen.
 P(X < 0.1) = 0.60
 P(X < 1) = 0.7
 Standardiser (og vi får bare Z på venstre side)
+
 Vi bruger qnorm på 0.6 og 0.7. Det giver to ligninger med to ubekendte.
 
-Facit middel = -0.74
-spredning = 3.32
+(0.1 - mu)/sd = qnorm(0.60)  -> 0.1-mu = qnorm(0.60) * sd
+ 
+(1-mu)/sd = qnorm(0.7) -> 1-mu = qnorm(0.7) * sd
 
+Træk den ene fra den anden
+
+1- mu - (0.1 - mu) = qnorm(0.7) * sd - qnorm(0.60) * sd
+1- 0.1 = sd(qnorm(0.7) - qnorm(0.60))
+
+s = 3.32
+
+indsæt og find middel = -0.74
+
+Ja, Det er en statistikeksamen. Og I skal kunne løse to ligninger med to ubekendte...
+
+I bør have adgang til Maple, der kan løse ligningerne for jer.
+
+R kan også direkte. Det kræver så at I forstår lineær algebra...
+
+Men sætter vi mu = x og sd = y
+
+Så skal vi have dem på en bestemt form:
+
+Vi har 
+
+0.1-mu = qnorm(0.60) * sd
+og
+1-mu = qnorm(0.7) * sd
+
+som bliver til 
+\[
+\begin{aligned}
+0.1-x &= \operatorname{qnorm}(0.60)\cdot y\\
+1-x &= \operatorname{qnorm}(0.70)\cdot y
+\end{aligned}
+\]
+
+lægger x til på begge sider, og får:
+
+x + qnorm(0.60)y = 0.1
+
+og 
+
+x + qnorm(0.7)y  = 1
+
+\[
+\begin{pmatrix}
+1 & \operatorname{qnorm}(0.60)\\
+1 & \operatorname{qnorm}(0.70)
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.1\\1
+\end{pmatrix}
+\]
+
+Det kan vi smide i en matrix_:
+
+A <- matrix(c(1, qnorm(0.60),
+              1, qnorm(0.70)),
+            nrow = 2, byrow = TRUE)
+
+b <- c(0.1, 1)
+
+Og løse med funktionen `solve`
+
+solve(A, b)
+
+første værdi i resultatet er x (mu) den anden y (sd)
 
 ::::
 
